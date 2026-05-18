@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Services | Virtual CFO Management Consultancy</title>
+  <meta name="description" content="Explore our full range of CFO-level services: Virtual CFO, Month-end Closing, Audit & Tax Compliance, Power BI Dashboards, and Process Optimization."/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <style>
+    .service-detail {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+      padding: 80px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .service-detail:last-child { border-bottom: none; }
+    .service-detail.reverse .detail-visual { order: -1; }
+
+    .detail-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(46,109,164,0.08);
+      border: 1px solid rgba(46,109,164,0.2);
+      color: var(--blue);
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 8px 16px;
+      border-radius: 50px;
+      margin-bottom: 20px;
+    }
+    .detail-badge i { font-size: 1rem; }
+
+    .detail-problems, .detail-benefits {
+      margin-top: 24px;
+    }
+    .detail-section-title {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 12px;
+    }
+    .detail-section-title.red { color: #ef4444; }
+    .detail-section-title.green { color: #22c55e; }
+
+    .detail-list { display: flex; flex-direction: column; gap: 8px; }
+    .detail-list-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.9rem;
+      color: var(--dark);
+    }
+    .detail-list-item i { margin-top: 3px; flex-shrink: 0; }
+    .detail-list-item.problem i { color: #ef4444; }
+    .detail-list-item.benefit i { color: #22c55e; }
+
+    .detail-visual {
+      background: linear-gradient(135deg, #f0f7ff, #e8f4ff);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      min-height: 360px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border: 1px solid rgba(46,109,164,0.1);
+      position: relative;
+      overflow: hidden;
+    }
+    .detail-visual::before {
+      content: '';
+      position: absolute;
+      bottom: -30px; right: -30px;
+      width: 140px; height: 140px;
+      border-radius: 50%;
+      background: rgba(245,197,24,0.12);
+    }
+    .detail-visual-icon {
+      font-size: 3.5rem;
+      margin-bottom: 24px;
+      color: var(--blue);
+    }
+    .detail-visual h3 { color: var(--dark); margin-bottom: 12px; }
+    .detail-visual p { font-size: 0.9rem; }
+
+    .service-tabs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 48px;
+    }
+    .service-tab {
+      padding: 10px 20px;
+      border-radius: 50px;
+      border: 1.5px solid var(--border);
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--gray);
+      cursor: pointer;
+      transition: var(--transition);
+      background: var(--white);
+      text-decoration: none;
+    }
+    .service-tab:hover, .service-tab.active {
+      background: var(--blue);
+      color: var(--white);
+      border-color: var(--blue);
+    }
+
+    .audit-checklist-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    @media(max-width:768px) {
+      .service-detail { grid-template-columns: 1fr; gap: 32px; }
+      .service-detail.reverse .detail-visual { order: 0; }
+      .audit-checklist-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div id="site-nav"></div>
+
+<!-- SERVICES HERO — PREMIUM REDESIGN -->
+<section class="svc-hero-section">
+  <div class="svc-hero-bg" aria-hidden="true">
+    <div class="svc-hero-orb svc-orb-1"></div>
+    <div class="svc-hero-orb svc-orb-2"></div>
+    <div class="svc-hero-orb svc-orb-3"></div>
+    <div class="svc-hero-grid"></div>
+    <div class="svc-hero-particles">
+      <span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span>
+    </div>
+  </div>
+
+  <div class="container" style="position:relative;z-index:1;">
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb svc-breadcrumb fade-in">
+      <a href="index.html">Home</a>
+      <i class="fa-solid fa-chevron-right"></i>
+      <span>Services</span>
+    </div>
+
+    <div class="svc-hero-layout">
+
+      <!-- ═══ LEFT: Content ═══ -->
+      <div class="svc-hero-left fade-in-left">
+        <div class="section-label">What We Offer</div>
+
+        <h1 class="svc-hero-heading">
+          A Complete Finance Function
+          <span class="svc-heading-accent">Under One Roof</span>
+        </h1>
+
+        <p class="svc-hero-sub">From strategic CFO advisory to real-time Power BI dashboards — we cover every aspect of your finance function so you can focus on growing your business.</p>
+
+        <!-- Service quick-nav pills -->
+        <div class="svc-hero-pills">
+          <a href="#virtual-cfo" class="svc-pill"><i class="fa-solid fa-chart-line"></i> Virtual CFO</a>
+          <a href="#month-end" class="svc-pill"><i class="fa-solid fa-calendar-check"></i> Month-end &amp; MIS</a>
+          <a href="#audit-tax" class="svc-pill"><i class="fa-solid fa-shield-halved"></i> Audit &amp; Tax</a>
+          <a href="power-bi.html" class="svc-pill svc-pill-teal"><i class="fa-solid fa-chart-bar"></i> Power BI</a>
+          <a href="#process" class="svc-pill"><i class="fa-solid fa-gears"></i> Process</a>
+          <a href="#projects" class="svc-pill svc-pill-gold"><i class="fa-solid fa-diagram-project"></i> Projects</a>
+        </div>
+
+        <!-- Stats -->
+        <div class="svc-hero-stats">
+          <div class="svc-hs">
+            <div class="svc-hs-num">6</div>
+            <div class="svc-hs-lbl">Core Services</div>
+          </div>
+          <div class="svc-hs-sep"></div>
+          <div class="svc-hs">
+            <div class="svc-hs-num">200+</div>
+            <div class="svc-hs-lbl">Businesses Served</div>
+          </div>
+          <div class="svc-hs-sep"></div>
+          <div class="svc-hs">
+            <div class="svc-hs-num">100%</div>
+            <div class="svc-hs-lbl">Customized</div>
+          </div>
+        </div>
+
+        <!-- Trust -->
+        <div class="svc-hero-trust">
+          <span><i class="fa-solid fa-circle-check"></i> No templates</span>
+          <span><i class="fa-solid fa-circle-check"></i> UAE &amp; worldwide</span>
+          <span><i class="fa-solid fa-circle-check"></i> Free consultation</span>
+        </div>
+
+        <a href="contact.html#consultation" class="btn btn-primary svc-hero-cta">
+          <i class="fa-solid fa-calendar-check"></i>
+          Book Free Consultation
+          <i class="fa-solid fa-arrow-right svc-cta-arrow"></i>
+        </a>
+      </div>
+
+      <!-- ═══ RIGHT: Services Overview Card ═══ -->
+      <div class="svc-hero-right fade-in-right">
+
+        <!-- Floating trust card -->
+        <div class="svc-float-card svc-fc-top">
+          <div class="svc-fc-icon"><i class="fa-solid fa-award"></i></div>
+          <div>
+            <div class="svc-fc-val">CA-Led</div>
+            <div class="svc-fc-lbl">Chartered Accountant</div>
+          </div>
+        </div>
+
+        <!-- Main services overview card -->
+        <div class="svc-overview-card">
+          <div class="svc-oc-shimmer"></div>
+
+          <div class="svc-oc-header">
+            <div class="svc-oc-dots"><span></span><span></span><span></span></div>
+            <span class="svc-oc-title"><i class="fa-solid fa-grid-2"></i> Finance Services Suite</span>
+            <div class="svc-oc-badge"><span></span>6 SERVICES</div>
+          </div>
+
+          <!-- 3×2 service icons grid -->
+          <div class="svc-icon-grid">
+            <a href="#virtual-cfo" class="svc-ig-item">
+              <div class="svc-ig-icon svc-igi-blue"><i class="fa-solid fa-chart-line"></i></div>
+              <div class="svc-ig-lbl">Virtual CFO</div>
+            </a>
+            <a href="#month-end" class="svc-ig-item">
+              <div class="svc-ig-icon svc-igi-green"><i class="fa-solid fa-calendar-check"></i></div>
+              <div class="svc-ig-lbl">Month-end MIS</div>
+            </a>
+            <a href="#audit-tax" class="svc-ig-item">
+              <div class="svc-ig-icon svc-igi-purple"><i class="fa-solid fa-shield-halved"></i></div>
+              <div class="svc-ig-lbl">Audit &amp; Tax</div>
+            </a>
+            <a href="power-bi.html" class="svc-ig-item">
+              <div class="svc-ig-icon svc-igi-teal"><i class="fa-solid fa-chart-bar"></i></div>
+              <div class="svc-ig-lbl">Power BI</div>
+            </a>
+            <a href="#process" class="svc-ig-item">
+              <div class="svc-ig-icon svc-igi-blue"><i class="fa-solid fa-gears"></i></div>
+              <div class="svc-ig-lbl">Process Opt.</div>
+            </a>
+            <a href="#projects" class="svc-ig-item">
+              <div class="svc-ig-icon svc-igi-gold"><i class="fa-solid fa-diagram-project"></i></div>
+              <div class="svc-ig-lbl">Special Projects</div>
+            </a>
+          </div>
+
+          <!-- Trust row -->
+          <div class="svc-oc-trust-row">
+            <div class="svc-oct"><i class="fa-solid fa-circle-check"></i><span>UAE &amp; Worldwide</span></div>
+            <div class="svc-oct"><i class="fa-solid fa-circle-check"></i><span>100% Custom</span></div>
+            <div class="svc-oct"><i class="fa-solid fa-circle-check"></i><span>20+ Yrs Exp.</span></div>
+          </div>
+        </div>
+
+        <!-- Floating bottom card -->
+        <div class="svc-float-card svc-fc-bottom">
+          <div class="svc-fc-icon svc-fci-gold"><i class="fa-solid fa-star"></i></div>
+          <div>
+            <div class="svc-fc-val">4.9 / 5</div>
+            <div class="svc-fc-lbl">Client Rating</div>
+          </div>
+        </div>
+
+      </div><!-- /svc-hero-right -->
+    </div><!-- /svc-hero-layout -->
+  </div>
+</section>
+
+<!-- SERVICE TABS NAV — PREMIUM -->
+<section class="svc-tabs-section">
+  <div class="container">
+    <div class="svc-tabs-premium">
+      <a href="#virtual-cfo" class="svc-tab-p"><i class="fa-solid fa-chart-line"></i><span>Virtual CFO</span></a>
+      <a href="#month-end" class="svc-tab-p"><i class="fa-solid fa-calendar-check"></i><span>Month-end &amp; MIS</span></a>
+      <a href="#audit-tax" class="svc-tab-p"><i class="fa-solid fa-shield-halved"></i><span>Audit &amp; Tax</span></a>
+      <a href="power-bi.html" class="svc-tab-p"><i class="fa-solid fa-chart-bar"></i><span>Power BI</span></a>
+      <a href="#process" class="svc-tab-p"><i class="fa-solid fa-gears"></i><span>Process Optimization</span></a>
+      <a href="#projects" class="svc-tab-p"><i class="fa-solid fa-diagram-project"></i><span>Special Projects</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES DETAIL -->
+<section class="section">
+  <div class="container">
+
+    <!-- 1. VIRTUAL CFO — PREMIUM REDESIGN -->
+    <div class="service-detail sd-premium" id="virtual-cfo">
+
+      <!-- LEFT: Content -->
+      <div class="fade-in-left">
+
+        <!-- Badge -->
+        <div class="sd-badge sd-badge-blue">
+          <div class="sd-badge-icon"><i class="fa-solid fa-chart-line"></i></div>
+          <span>Service 01 — Virtual CFO</span>
+        </div>
+
+        <h2 class="section-title sd-heading">Virtual CFO Services</h2>
+
+        <p class="sd-desc">Our Virtual CFO Services provide businesses with the financial leadership and strategic insight typically reserved for large organizations — without the cost of a full-time CFO.</p>
+        <p class="sd-desc">We work closely with business owners and leadership teams to bring structure, visibility, and control to the finance function — aligning financial strategy with growth objectives.</p>
+
+        <!-- Problems -->
+        <div class="sd-problems-card">
+          <div class="sd-card-label sd-label-red"><i class="fa-solid fa-triangle-exclamation"></i> Problems We Solve</div>
+          <div class="sd-list">
+            <div class="sd-list-item sd-item-bad"><div class="sd-li-icon sd-li-red"><i class="fa-solid fa-xmark"></i></div><span>No strategic financial direction or leadership</span></div>
+            <div class="sd-list-item sd-item-bad"><div class="sd-li-icon sd-li-red"><i class="fa-solid fa-xmark"></i></div><span>Finance function limited to compliance and reporting</span></div>
+            <div class="sd-list-item sd-item-bad"><div class="sd-li-icon sd-li-red"><i class="fa-solid fa-xmark"></i></div><span>Decisions made without proper financial analysis</span></div>
+            <div class="sd-list-item sd-item-bad"><div class="sd-li-icon sd-li-red"><i class="fa-solid fa-xmark"></i></div><span>No visibility into profitability, cash flow, or KPIs</span></div>
+          </div>
+        </div>
+
+        <!-- Benefits -->
+        <div class="sd-benefits-card">
+          <div class="sd-card-label sd-label-green"><i class="fa-solid fa-circle-check"></i> Benefits</div>
+          <div class="sd-list">
+            <div class="sd-list-item sd-item-good"><div class="sd-li-icon sd-li-green"><i class="fa-solid fa-check"></i></div><span>CFO-level strategy at a fraction of the full-time cost</span></div>
+            <div class="sd-list-item sd-item-good"><div class="sd-li-icon sd-li-green"><i class="fa-solid fa-check"></i></div><span>Finance aligned with your business growth objectives</span></div>
+            <div class="sd-list-item sd-item-good"><div class="sd-li-icon sd-li-green"><i class="fa-solid fa-check"></i></div><span>Proactive cash flow management and planning</span></div>
+            <div class="sd-list-item sd-item-good"><div class="sd-li-icon sd-li-green"><i class="fa-solid fa-check"></i></div><span>Confident, data-driven decision-making at every level</span></div>
+          </div>
+        </div>
+
+        <div class="sd-cta-row">
+          <a href="virtual-cfo.html" class="btn btn-primary sd-btn-primary">
+            <i class="fa-solid fa-chart-line"></i> Full Virtual CFO Page
+            <i class="fa-solid fa-arrow-right sd-btn-arrow"></i>
+          </a>
+          <a href="contact.html#consultation" class="sd-btn-ghost">
+            <i class="fa-solid fa-calendar-check"></i> Book Consultation
+          </a>
+        </div>
+      </div>
+
+      <!-- RIGHT: Premium CFO Dashboard Visual -->
+      <div class="sd-visual-wrap fade-in-right">
+
+        <!-- Floating accent card -->
+        <div class="sd-float-card sd-fc-top">
+          <div class="sd-fc-icon sd-fci-blue"><i class="fa-solid fa-arrow-trend-up"></i></div>
+          <div>
+            <div class="sd-fc-val">+24.8%</div>
+            <div class="sd-fc-lbl">Revenue Growth</div>
+          </div>
+        </div>
+
+        <!-- Main premium visual card -->
+        <div class="sd-dash-card">
+          <div class="sd-dash-shimmer"></div>
+
+          <!-- Card header -->
+          <div class="sd-dash-header">
+            <div class="sd-dash-dots"><span></span><span></span><span></span></div>
+            <span class="sd-dash-title"><i class="fa-solid fa-chart-line"></i> CFO Performance Dashboard</span>
+            <div class="sd-dash-live"><span></span>LIVE</div>
+          </div>
+
+          <!-- KPI row -->
+          <div class="sd-kpi-row">
+            <div class="sd-kpi">
+              <div class="sd-kpi-val">AED 4.2M</div>
+              <div class="sd-kpi-lbl">Revenue Managed</div>
+              <div class="sd-kpi-trend"><i class="fa-solid fa-caret-up"></i> 18.4%</div>
+            </div>
+            <div class="sd-kpi">
+              <div class="sd-kpi-val">68.3%</div>
+              <div class="sd-kpi-lbl">Gross Margin</div>
+              <div class="sd-kpi-trend"><i class="fa-solid fa-caret-up"></i> 5.2%</div>
+            </div>
+            <div class="sd-kpi">
+              <div class="sd-kpi-val">94%</div>
+              <div class="sd-kpi-lbl">Finance Efficiency</div>
+              <div class="sd-kpi-trend"><i class="fa-solid fa-caret-up"></i> +32%</div>
+            </div>
+          </div>
+
+          <!-- What's included checklist -->
+          <div class="sd-includes">
+            <div class="sd-incl-title">What's Included</div>
+            <div class="sd-incl-grid">
+              <div class="sd-incl-item"><i class="fa-solid fa-check"></i><span>Financial Planning &amp; Budgeting</span></div>
+              <div class="sd-incl-item"><i class="fa-solid fa-check"></i><span>Cash Flow Management</span></div>
+              <div class="sd-incl-item"><i class="fa-solid fa-check"></i><span>Performance Monitoring</span></div>
+              <div class="sd-incl-item"><i class="fa-solid fa-check"></i><span>Strategic Decision Support</span></div>
+              <div class="sd-incl-item"><i class="fa-solid fa-check"></i><span>Profitability Analysis</span></div>
+              <div class="sd-incl-item"><i class="fa-solid fa-check"></i><span>Investor-Ready Reporting</span></div>
+            </div>
+          </div>
+
+          <!-- Progress bars -->
+          <div class="sd-progress-section">
+            <div class="sd-prog-row">
+              <span class="sd-prog-lbl">Strategy Alignment</span>
+              <div class="sd-prog-bar"><div class="sd-prog-fill sd-pf-blue" data-width="94%"></div></div>
+              <span class="sd-prog-val">94%</span>
+            </div>
+            <div class="sd-prog-row">
+              <span class="sd-prog-lbl">Cost Savings</span>
+              <div class="sd-prog-bar"><div class="sd-prog-fill sd-pf-gold" data-width="72%"></div></div>
+              <span class="sd-prog-val">72%</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Floating bottom card -->
+        <div class="sd-float-card sd-fc-bottom">
+          <div class="sd-fc-icon sd-fci-gold"><i class="fa-solid fa-award"></i></div>
+          <div>
+            <div class="sd-fc-val">CA-Led</div>
+            <div class="sd-fc-lbl">20+ Yrs Experience</div>
+          </div>
+        </div>
+
+      </div><!-- /sd-visual-wrap -->
+    </div>
+
+    <!-- 2. MONTH-END CLOSING — PREMIUM REDESIGN -->
+    <div class="service-detail sd-premium sd-reverse" id="month-end">
+
+      <!-- LEFT: MIS Dashboard Visual (reversed) -->
+      <div class="sd-visual-wrap sd-visual-left fade-in-left">
+
+        <!-- Floating accuracy card -->
+        <div class="sd-float-card sd-fc-top">
+          <div class="sd-fc-icon sd-fci-green"><i class="fa-solid fa-circle-check"></i></div>
+          <div>
+            <div class="sd-fc-val">100%</div>
+            <div class="sd-fc-lbl">Reconciled Accounts</div>
+          </div>
+        </div>
+
+        <!-- Main MIS Dashboard Card -->
+        <div class="sd-dash-card sd-dash-green">
+          <div class="sd-dash-shimmer sd-shimmer-green"></div>
+
+          <div class="sd-dash-header">
+            <div class="sd-dash-dots"><span></span><span></span><span></span></div>
+            <span class="sd-dash-title"><i class="fa-solid fa-calendar-check"></i> MIS Reporting Suite</span>
+            <div class="sd-dash-live sd-live-green"><span class="sd-live-dot-green"></span>UPDATED</div>
+          </div>
+
+          <!-- Month status tracker -->
+          <div class="sd-month-grid">
+            <div class="sd-month-label">FY 2024-25 — Monthly Status</div>
+            <div class="sd-months">
+              <div class="sd-month sd-m-done">Jan <i class="fa-solid fa-check"></i></div>
+              <div class="sd-month sd-m-done">Feb <i class="fa-solid fa-check"></i></div>
+              <div class="sd-month sd-m-done">Mar <i class="fa-solid fa-check"></i></div>
+              <div class="sd-month sd-m-done">Apr <i class="fa-solid fa-check"></i></div>
+              <div class="sd-month sd-m-done">May <i class="fa-solid fa-check"></i></div>
+              <div class="sd-month sd-m-done">Jun <i class="fa-solid fa-check"></i></div>
+              <div class="sd-month sd-m-active">Jul <i class="fa-solid fa-clock"></i></div>
+              <div class="sd-month sd-m-pending">Aug</div>
+              <div class="sd-month sd-m-pending">Sep</div>
+              <div class="sd-month sd-m-pending">Oct</div>
+              <div class="sd-month sd-m-pending">Nov</div>
+              <div class="sd-month sd-m-pending">Dec</div>
+            </div>
+          </div>
+
+          <!-- KPI row -->
+          <div class="sd-kpi-row">
+            <div class="sd-kpi sd-kpi-green">
+              <div class="sd-kpi-val">100%</div>
+              <div class="sd-kpi-lbl">Accuracy Rate</div>
+              <div class="sd-kpi-trend sd-trend-green"><i class="fa-solid fa-circle-check"></i> Reconciled</div>
+            </div>
+            <div class="sd-kpi sd-kpi-green">
+              <div class="sd-kpi-val">5 Days</div>
+              <div class="sd-kpi-lbl">Close Cycle</div>
+              <div class="sd-kpi-trend sd-trend-green"><i class="fa-solid fa-caret-down"></i> From 21 days</div>
+            </div>
+            <div class="sd-kpi sd-kpi-green">
+              <div class="sd-kpi-val">MIS</div>
+              <div class="sd-kpi-lbl">Monthly Reports</div>
+              <div class="sd-kpi-trend sd-trend-green"><i class="fa-solid fa-file-lines"></i> Structured</div>
+            </div>
+          </div>
+
+          <!-- Progress bars -->
+          <div class="sd-progress-section">
+            <div class="sd-prog-row">
+              <span class="sd-prog-lbl">Books Accuracy</span>
+              <div class="sd-prog-bar"><div class="sd-prog-fill sd-pf-green" data-width="100%"></div></div>
+              <span class="sd-prog-val">100%</span>
+            </div>
+            <div class="sd-prog-row">
+              <span class="sd-prog-lbl">Reporting Speed</span>
+              <div class="sd-prog-bar"><div class="sd-prog-fill sd-pf-blue" data-width="76%"></div></div>
+              <span class="sd-prog-val">+76%</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Floating report card -->
+        <div class="sd-float-card sd-fc-bottom">
+          <div class="sd-fc-icon sd-fci-blue"><i class="fa-solid fa-file-lines"></i></div>
+          <div>
+            <div class="sd-fc-val">MIS Reports</div>
+            <div class="sd-fc-lbl">Delivered Monthly</div>
+          </div>
+        </div>
+
+      </div><!-- /sd-visual-left -->
+
+      <!-- RIGHT: Content -->
+      <div class="fade-in-right">
+
+        <div class="sd-badge sd-badge-green">
+          <div class="sd-badge-icon sd-badge-icon-green"><i class="fa-solid fa-calendar-check"></i></div>
+          <span>Service 02 — Month-end &amp; MIS</span>
+        </div>
+
+        <h2 class="section-title sd-heading">Month-end Closing &amp; MIS Reporting</h2>
+
+        <p class="sd-desc">Business owners often lack time to closely review financials — leading to concerns about accuracy, reconciliation, and compliance.</p>
+        <p class="sd-desc">We conduct a thorough financial review ensuring books are accurate, reconciled, and compliant — then deliver structured MIS reports that provide clear, actionable visibility into business performance.</p>
+
+        <!-- Problems -->
+        <div class="sd-problems-card">
+          <div class="sd-card-label sd-label-red"><i class="fa-solid fa-triangle-exclamation"></i> Problems We Solve</div>
+          <div class="sd-list">
+            <div class="sd-list-item sd-item-bad"><div class="sd-li-icon sd-li-red"><i class="fa-solid fa-xmark"></i></div><span>Inaccurate or unreconciled books</span></div>
+            <div class="sd-list-item sd-item-bad"><div class="sd-li-icon sd-li-red"><i class="fa-solid fa-xmark"></i></div><span>No structured reporting or MIS</span></div>
+            <div class="sd-list-item sd-item-bad"><div class="sd-li-icon sd-li-red"><i class="fa-solid fa-xmark"></i></div><span>Owner has no visibility into performance</span></div>
+            <div class="sd-list-item sd-item-bad"><div class="sd-li-icon sd-li-red"><i class="fa-solid fa-xmark"></i></div><span>Delayed and unreliable financial data</span></div>
+          </div>
+        </div>
+
+        <!-- Benefits -->
+        <div class="sd-benefits-card">
+          <div class="sd-card-label sd-label-green"><i class="fa-solid fa-circle-check"></i> Benefits</div>
+          <div class="sd-list">
+            <div class="sd-list-item sd-item-good"><div class="sd-li-icon sd-li-green"><i class="fa-solid fa-check"></i></div><span>Accurate, reconciled books every month</span></div>
+            <div class="sd-list-item sd-item-good"><div class="sd-li-icon sd-li-green"><i class="fa-solid fa-check"></i></div><span>Structured MIS reports with clear insights</span></div>
+            <div class="sd-list-item sd-item-good"><div class="sd-li-icon sd-li-green"><i class="fa-solid fa-check"></i></div><span>Full visibility into key focus areas</span></div>
+            <div class="sd-list-item sd-item-good"><div class="sd-li-icon sd-li-green"><i class="fa-solid fa-check"></i></div><span>Informed, confident decision-making</span></div>
+          </div>
+        </div>
+
+        <div class="sd-cta-row">
+          <a href="contact.html#consultation" class="btn btn-primary sd-btn-primary">
+            <i class="fa-solid fa-calendar-check"></i> Get Financial Clarity
+            <i class="fa-solid fa-arrow-right sd-btn-arrow"></i>
+          </a>
+          <a href="contact.html" class="sd-btn-ghost">
+            <i class="fa-solid fa-message"></i> Ask Us Anything
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 3. AUDIT & TAX — PREMIUM -->
+    <div class="service-detail sd-premium" id="audit-tax">
+
+      <!-- LEFT: Content -->
+      <div class="fade-in-left">
+        <div class="sd-badge sd-badge-purple">
+          <div class="sd-badge-icon sd-badge-icon-purple"><i class="fa-solid fa-shield-halved"></i></div>
+          <span>Service 03 — Audit &amp; Tax</span>
+        </div>
+        <h2 class="section-title sd-heading">Audit &amp; Tax Compliance</h2>
+        <p class="sd-desc">Compliance and audit readiness are critical pillars of a well-managed finance function, yet they are often treated as year-end obligations — leading to last-minute stress and risk of errors.</p>
+        <p class="sd-desc">We support businesses in maintaining a disciplined, well-controlled financial environment where audit and tax compliance are managed <strong>proactively throughout the year</strong> — not just at year-end.</p>
+
+        <div class="sd-problems-card">
+          <div class="sd-card-label sd-label-red"><i class="fa-solid fa-triangle-exclamation"></i> Problems We Solve</div>
+          <div class="sd-list">
+            <div class="sd-list-item sd-item-bad"><div class="sd-li-icon sd-li-red"><i class="fa-solid fa-xmark"></i></div><span>Last-minute audit panic and scrambled documents</span></div>
+            <div class="sd-list-item sd-item-bad"><div class="sd-li-icon sd-li-red"><i class="fa-solid fa-xmark"></i></div><span>Missed VAT, Corporate Tax, or E-Invoicing deadlines</span></div>
+            <div class="sd-list-item sd-item-bad"><div class="sd-li-icon sd-li-red"><i class="fa-solid fa-xmark"></i></div><span>Unstructured records that fail audit requirements</span></div>
+            <div class="sd-list-item sd-item-bad"><div class="sd-li-icon sd-li-red"><i class="fa-solid fa-xmark"></i></div><span>Compliance risk and potential penalties</span></div>
+          </div>
+        </div>
+
+        <div class="sd-benefits-card">
+          <div class="sd-card-label sd-label-green"><i class="fa-solid fa-circle-check"></i> Benefits</div>
+          <div class="sd-list">
+            <div class="sd-list-item sd-item-good"><div class="sd-li-icon sd-li-green"><i class="fa-solid fa-check"></i></div><span>Audit-ready records maintained year-round</span></div>
+            <div class="sd-list-item sd-item-good"><div class="sd-li-icon sd-li-green"><i class="fa-solid fa-check"></i></div><span>All statutory deadlines tracked and met</span></div>
+            <div class="sd-list-item sd-item-good"><div class="sd-li-icon sd-li-green"><i class="fa-solid fa-check"></i></div><span>Reduced compliance risk and penalties</span></div>
+            <div class="sd-list-item sd-item-good"><div class="sd-li-icon sd-li-green"><i class="fa-solid fa-check"></i></div><span>Greater financial discipline and transparency</span></div>
+          </div>
+        </div>
+
+        <div class="sd-cta-row">
+          <a href="contact.html#consultation" class="btn btn-primary sd-btn-primary">
+            <i class="fa-solid fa-shield-halved"></i> Get Audit-Ready
+            <i class="fa-solid fa-arrow-right sd-btn-arrow"></i>
+          </a>
+          <a href="contact.html" class="sd-btn-ghost"><i class="fa-solid fa-message"></i> Ask a Question</a>
+        </div>
+      </div>
+
+      <!-- RIGHT: Compliance Dashboard Visual -->
+      <div class="sd-visual-wrap fade-in-right">
+        <div class="sd-float-card sd-fc-top">
+          <div class="sd-fc-icon sd-fci-purple"><i class="fa-solid fa-shield-halved"></i></div>
+          <div><div class="sd-fc-val">Audit Ready</div><div class="sd-fc-lbl">Year-Round</div></div>
+        </div>
+
+        <div class="sd-dash-card sd-dash-purple">
+          <div class="sd-dash-shimmer sd-shimmer-purple"></div>
+          <div class="sd-dash-header">
+            <div class="sd-dash-dots"><span></span><span></span><span></span></div>
+            <span class="sd-dash-title"><i class="fa-solid fa-shield-halved"></i> Compliance Tracker</span>
+            <div class="sd-dash-live sd-live-purple"><span class="sd-live-dot-purple"></span>ACTIVE</div>
+          </div>
+
+          <!-- Compliance items -->
+          <div class="sd-compliance-list">
+            <div class="sd-comp-item sd-comp-done"><div class="sd-comp-icon"><i class="fa-solid fa-check"></i></div><div class="sd-comp-text"><div class="sd-comp-title">VAT Filing &amp; Compliance</div><div class="sd-comp-sub">Monthly · On Track</div></div><div class="sd-comp-status sd-cs-green">Done</div></div>
+            <div class="sd-comp-item sd-comp-done"><div class="sd-comp-icon"><i class="fa-solid fa-check"></i></div><div class="sd-comp-text"><div class="sd-comp-title">Corporate Tax Preparation</div><div class="sd-comp-sub">Annual · Prepared</div></div><div class="sd-comp-status sd-cs-green">Ready</div></div>
+            <div class="sd-comp-item sd-comp-active"><div class="sd-comp-icon sd-comp-icon-yellow"><i class="fa-solid fa-clock"></i></div><div class="sd-comp-text"><div class="sd-comp-title">E-Invoicing Implementation</div><div class="sd-comp-sub">In Progress</div></div><div class="sd-comp-status sd-cs-yellow">Active</div></div>
+            <div class="sd-comp-item sd-comp-done"><div class="sd-comp-icon"><i class="fa-solid fa-check"></i></div><div class="sd-comp-text"><div class="sd-comp-title">Audit Support &amp; Readiness</div><div class="sd-comp-sub">Continuous</div></div><div class="sd-comp-status sd-cs-green">Done</div></div>
+            <div class="sd-comp-item sd-comp-done"><div class="sd-comp-icon"><i class="fa-solid fa-check"></i></div><div class="sd-comp-text"><div class="sd-comp-title">Statutory Deadline Tracking</div><div class="sd-comp-sub">All Met</div></div><div class="sd-comp-status sd-cs-green">OK</div></div>
+          </div>
+
+          <div class="sd-progress-section">
+            <div class="sd-prog-row">
+              <span class="sd-prog-lbl">Compliance Score</span>
+              <div class="sd-prog-bar"><div class="sd-prog-fill sd-pf-purple" data-width="96%"></div></div>
+              <span class="sd-prog-val">96%</span>
+            </div>
+            <div class="sd-prog-row">
+              <span class="sd-prog-lbl">Audit Readiness</span>
+              <div class="sd-prog-bar"><div class="sd-prog-fill sd-pf-blue" data-width="100%"></div></div>
+              <span class="sd-prog-val">100%</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="sd-float-card sd-fc-bottom">
+          <div class="sd-fc-icon sd-fci-purple"><i class="fa-solid fa-ban"></i></div>
+          <div><div class="sd-fc-val">0 Penalties</div><div class="sd-fc-lbl">Zero Missed Deadlines</div></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 5. PROCESS OPTIMIZATION — PREMIUM (reversed) -->
+    <div class="service-detail sd-premium sd-reverse" id="process">
+
+      <!-- LEFT: Process Visual -->
+      <div class="sd-visual-wrap sd-visual-left fade-in-left">
+        <div class="sd-float-card sd-fc-top">
+          <div class="sd-fc-icon sd-fci-teal"><i class="fa-solid fa-bolt"></i></div>
+          <div><div class="sd-fc-val">40+ Hrs</div><div class="sd-fc-lbl">Saved per Month</div></div>
+        </div>
+
+        <div class="sd-dash-card sd-dash-teal">
+          <div class="sd-dash-shimmer sd-shimmer-teal"></div>
+          <div class="sd-dash-header">
+            <div class="sd-dash-dots"><span></span><span></span><span></span></div>
+            <span class="sd-dash-title"><i class="fa-solid fa-gears"></i> Process Efficiency Suite</span>
+            <div class="sd-dash-live sd-live-teal"><span class="sd-live-dot-teal"></span>LIVE</div>
+          </div>
+
+          <!-- Before/After comparison -->
+          <div class="sd-ba-compare">
+            <div class="sd-ba-col sd-ba-before">
+              <div class="sd-ba-label">Before</div>
+              <div class="sd-ba-item sd-bai-red"><i class="fa-solid fa-xmark"></i> Manual workflows</div>
+              <div class="sd-ba-item sd-bai-red"><i class="fa-solid fa-xmark"></i> 21-day close cycle</div>
+              <div class="sd-ba-item sd-bai-red"><i class="fa-solid fa-xmark"></i> Key-person dependency</div>
+              <div class="sd-ba-item sd-bai-red"><i class="fa-solid fa-xmark"></i> Frequent errors</div>
+            </div>
+            <div class="sd-ba-divider"></div>
+            <div class="sd-ba-col sd-ba-after">
+              <div class="sd-ba-label sd-ba-label-green">After</div>
+              <div class="sd-ba-item sd-bai-green"><i class="fa-solid fa-check"></i> Automated processes</div>
+              <div class="sd-ba-item sd-bai-green"><i class="fa-solid fa-check"></i> 5-day close cycle</div>
+              <div class="sd-ba-item sd-bai-green"><i class="fa-solid fa-check"></i> Scalable structure</div>
+              <div class="sd-ba-item sd-bai-green"><i class="fa-solid fa-check"></i> Near-zero errors</div>
+            </div>
+          </div>
+
+          <div class="sd-progress-section">
+            <div class="sd-prog-row">
+              <span class="sd-prog-lbl">Efficiency Gain</span>
+              <div class="sd-prog-bar"><div class="sd-prog-fill sd-pf-teal" data-width="78%"></div></div>
+              <span class="sd-prog-val">+78%</span>
+            </div>
+            <div class="sd-prog-row">
+              <span class="sd-prog-lbl">Error Reduction</span>
+              <div class="sd-prog-bar"><div class="sd-prog-fill sd-pf-green" data-width="92%"></div></div>
+              <span class="sd-prog-val">92%</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="sd-float-card sd-fc-bottom">
+          <div class="sd-fc-icon sd-fci-teal"><i class="fa-solid fa-gears"></i></div>
+          <div><div class="sd-fc-val">Scalable</div><div class="sd-fc-lbl">Finance Function</div></div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Content -->
+      <div class="fade-in-right">
+        <div class="sd-badge sd-badge-teal">
+          <div class="sd-badge-icon sd-badge-icon-teal"><i class="fa-solid fa-gears"></i></div>
+          <span>Service 05 — Process Optimization</span>
+        </div>
+        <h2 class="section-title sd-heading">Process Optimization</h2>
+        <p class="sd-desc">Many finance functions operate with fragmented, manual, and inconsistent processes — reducing efficiency, increasing dependency on individuals, and creating delays in information flow.</p>
+        <p class="sd-desc">Our Process Optimization service reviews, redesigns, and standardizes end-to-end finance processes to improve accuracy, speed, and control.</p>
+
+        <div class="sd-problems-card">
+          <div class="sd-card-label sd-label-red"><i class="fa-solid fa-triangle-exclamation"></i> Problems We Solve</div>
+          <div class="sd-list">
+            <div class="sd-list-item sd-item-bad"><div class="sd-li-icon sd-li-red"><i class="fa-solid fa-xmark"></i></div><span>Fragmented, manual finance workflows</span></div>
+            <div class="sd-list-item sd-item-bad"><div class="sd-li-icon sd-li-red"><i class="fa-solid fa-xmark"></i></div><span>Over-dependency on key individuals</span></div>
+            <div class="sd-list-item sd-item-bad"><div class="sd-li-icon sd-li-red"><i class="fa-solid fa-xmark"></i></div><span>Delays and errors in financial information</span></div>
+            <div class="sd-list-item sd-item-bad"><div class="sd-li-icon sd-li-red"><i class="fa-solid fa-xmark"></i></div><span>Finance function that can't scale with growth</span></div>
+          </div>
+        </div>
+
+        <div class="sd-benefits-card">
+          <div class="sd-card-label sd-label-green"><i class="fa-solid fa-circle-check"></i> Benefits</div>
+          <div class="sd-list">
+            <div class="sd-list-item sd-item-good"><div class="sd-li-icon sd-li-green"><i class="fa-solid fa-check"></i></div><span>Streamlined, standardized finance processes</span></div>
+            <div class="sd-list-item sd-item-good"><div class="sd-li-icon sd-li-green"><i class="fa-solid fa-check"></i></div><span>Reduced manual effort and human error</span></div>
+            <div class="sd-list-item sd-item-good"><div class="sd-li-icon sd-li-green"><i class="fa-solid fa-check"></i></div><span>Better controls and financial discipline</span></div>
+            <div class="sd-list-item sd-item-good"><div class="sd-li-icon sd-li-green"><i class="fa-solid fa-check"></i></div><span>A scalable finance function built for growth</span></div>
+          </div>
+        </div>
+
+        <div class="sd-cta-row">
+          <a href="contact.html#consultation" class="btn btn-primary sd-btn-primary">
+            <i class="fa-solid fa-gears"></i> Streamline My Finance
+            <i class="fa-solid fa-arrow-right sd-btn-arrow"></i>
+          </a>
+          <a href="contact.html" class="sd-btn-ghost"><i class="fa-solid fa-message"></i> Ask Us Anything</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6. SPECIAL PROJECTS — PREMIUM -->
+    <div class="service-detail sd-premium" id="projects">
+
+      <!-- LEFT: Content -->
+      <div class="fade-in-left">
+        <div class="sd-badge sd-badge-gold-strong">
+          <div class="sd-badge-icon sd-badge-icon-gold"><i class="fa-solid fa-diagram-project"></i></div>
+          <span>Service 06 — Special Projects</span>
+        </div>
+        <h2 class="section-title sd-heading">Special Projects</h2>
+        <p class="sd-desc">Beyond our core services, we take on specialized CFO-level projects that require deep financial expertise, analytical rigor, and strategic thinking.</p>
+        <p class="sd-desc">Whether you need a financial model, an ERP implementation review, or a group consolidation framework — we bring the same CFO-level precision to every engagement.</p>
+
+        <!-- Premium project types grid -->
+        <div class="sd-projects-grid">
+          <div class="sd-proj-card">
+            <div class="sd-proj-icon sd-pi-blue"><i class="fa-solid fa-calculator"></i></div>
+            <div class="sd-proj-title">Financial Modeling</div>
+            <div class="sd-proj-desc">Investor-ready models, forecasts, and scenario analysis</div>
+          </div>
+          <div class="sd-proj-card">
+            <div class="sd-proj-icon sd-pi-purple"><i class="fa-solid fa-building-columns"></i></div>
+            <div class="sd-proj-title">Group Consolidation</div>
+            <div class="sd-proj-desc">Multi-entity consolidation and intercompany eliminations</div>
+          </div>
+          <div class="sd-proj-card">
+            <div class="sd-proj-icon sd-pi-teal"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+            <div class="sd-proj-title">Due Diligence</div>
+            <div class="sd-proj-desc">Financial due diligence for M&amp;A and investor transactions</div>
+          </div>
+          <div class="sd-proj-card">
+            <div class="sd-proj-icon sd-pi-gold"><i class="fa-solid fa-server"></i></div>
+            <div class="sd-proj-title">System Implementation</div>
+            <div class="sd-proj-desc">ERP rollout support — SAP, Odoo, Dynamics &amp; more</div>
+          </div>
+        </div>
+
+        <div class="sd-cta-row">
+          <a href="contact.html" class="btn btn-primary sd-btn-primary">
+            <i class="fa-solid fa-message"></i> Discuss Your Project
+            <i class="fa-solid fa-arrow-right sd-btn-arrow"></i>
+          </a>
+          <a href="contact.html#consultation" class="sd-btn-ghost"><i class="fa-solid fa-calendar-check"></i> Free Consultation</a>
+        </div>
+      </div>
+
+      <!-- RIGHT: Projects Dashboard Visual -->
+      <div class="sd-visual-wrap fade-in-right">
+        <div class="sd-float-card sd-fc-top">
+          <div class="sd-fc-icon sd-fci-gold"><i class="fa-solid fa-star"></i></div>
+          <div><div class="sd-fc-val">CA-Led</div><div class="sd-fc-lbl">20+ Yrs Expertise</div></div>
+        </div>
+
+        <div class="sd-dash-card sd-dash-gold">
+          <div class="sd-dash-shimmer sd-shimmer-gold"></div>
+          <div class="sd-dash-header">
+            <div class="sd-dash-dots"><span></span><span></span><span></span></div>
+            <span class="sd-dash-title"><i class="fa-solid fa-diagram-project"></i> CFO Project Suite</span>
+            <div class="sd-dash-live sd-live-gold"><span class="sd-live-dot-gold"></span>ON DEMAND</div>
+          </div>
+
+          <!-- Project capability cards -->
+          <div class="sd-proj-dash-grid">
+            <div class="sd-pd-item">
+              <div class="sd-pd-icon sd-pi-blue"><i class="fa-solid fa-calculator"></i></div>
+              <div class="sd-pd-label">Financial Modeling</div>
+              <div class="sd-pd-tag">Investor-Ready</div>
+            </div>
+            <div class="sd-pd-item">
+              <div class="sd-pd-icon sd-pi-purple"><i class="fa-solid fa-building-columns"></i></div>
+              <div class="sd-pd-label">Consolidation</div>
+              <div class="sd-pd-tag">Multi-Entity</div>
+            </div>
+            <div class="sd-pd-item">
+              <div class="sd-pd-icon sd-pi-teal"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+              <div class="sd-pd-label">Due Diligence</div>
+              <div class="sd-pd-tag">M&amp;A Support</div>
+            </div>
+            <div class="sd-pd-item">
+              <div class="sd-pd-icon sd-pi-gold"><i class="fa-solid fa-server"></i></div>
+              <div class="sd-pd-label">ERP Systems</div>
+              <div class="sd-pd-tag">SAP · Odoo · D365</div>
+            </div>
+          </div>
+
+          <div class="sd-progress-section">
+            <div class="sd-prog-row">
+              <span class="sd-prog-lbl">Project Success Rate</span>
+              <div class="sd-prog-bar"><div class="sd-prog-fill sd-pf-gold" data-width="98%"></div></div>
+              <span class="sd-prog-val">98%</span>
+            </div>
+            <div class="sd-prog-row">
+              <span class="sd-prog-lbl">On-Time Delivery</span>
+              <div class="sd-prog-bar"><div class="sd-prog-fill sd-pf-blue" data-width="95%"></div></div>
+              <span class="sd-prog-val">95%</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="sd-float-card sd-fc-bottom">
+          <div class="sd-fc-icon sd-fci-gold"><i class="fa-solid fa-award"></i></div>
+          <div><div class="sd-fc-val">Tailored</div><div class="sd-fc-lbl">100% Custom Delivery</div></div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- PROCESS — PREMIUM -->
+<section class="section prc-section" id="process">
+  <div class="prc-bg-decor" aria-hidden="true">
+    <div class="prc-bg-orb prc-orb-1"></div>
+    <div class="prc-bg-orb prc-orb-2"></div>
+    <div class="prc-bg-grid"></div>
+  </div>
+
+  <div class="container" style="position:relative;z-index:1;">
+
+    <div class="text-center mb-64 fade-in">
+      <div class="section-label">Our Approach</div>
+      <h2 class="section-title">
+        <span class="section-title-underline">How We Engage With Your Business</span>
+      </h2>
+      <p class="section-subtitle mt-16">A clear, structured process — so you always know where we are, what comes next, and what to expect.</p>
+    </div>
+
+    <div class="prc-timeline">
+
+      <div class="prc-connector" aria-hidden="true" id="prcConnector">
+        <div class="prc-connector-fill" id="prcFill"></div>
+        <div class="prc-connector-dots">
+          <div class="prc-cdot" style="--d:0s"></div>
+          <div class="prc-cdot" style="--d:1s"></div>
+          <div class="prc-cdot" style="--d:2s"></div>
+        </div>
+      </div>
+
+      <!-- Step 1 -->
+      <div class="prc-step fade-in-up stagger-1">
+        <div class="prc-num-wrap">
+          <div class="prc-num-ring"></div>
+          <div class="prc-num">1</div>
+        </div>
+        <div class="prc-card">
+          <div class="prc-card-top-line"></div>
+          <div class="prc-step-tag">Step 01</div>
+          <div class="prc-card-icon">
+            <i class="fa-solid fa-magnifying-glass-chart"></i>
+          </div>
+          <h4>Understand &amp; Diagnose</h4>
+          <p>Review your business model, accounts, and current finance setup to understand gaps and priorities.</p>
+          <div class="prc-card-foot">
+            <span class="prc-foot-tag"><i class="fa-solid fa-calendar-days"></i> Week 1–2</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="prc-step fade-in-up stagger-2">
+        <div class="prc-num-wrap">
+          <div class="prc-num-ring"></div>
+          <div class="prc-num">2</div>
+        </div>
+        <div class="prc-card">
+          <div class="prc-card-top-line"></div>
+          <div class="prc-step-tag">Step 02</div>
+          <div class="prc-card-icon">
+            <i class="fa-solid fa-list-check"></i>
+          </div>
+          <h4>Identify Priorities</h4>
+          <p>CFO-level assessment of the biggest opportunities for clarity, control, and growth in your finance function.</p>
+          <div class="prc-card-foot">
+            <span class="prc-foot-tag"><i class="fa-solid fa-calendar-days"></i> Week 2–3</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="prc-step fade-in-up stagger-3">
+        <div class="prc-num-wrap">
+          <div class="prc-num-ring"></div>
+          <div class="prc-num">3</div>
+        </div>
+        <div class="prc-card">
+          <div class="prc-card-top-line"></div>
+          <div class="prc-step-tag">Step 03</div>
+          <div class="prc-card-icon">
+            <i class="fa-solid fa-pen-ruler"></i>
+          </div>
+          <h4>Design &amp; Implement</h4>
+          <p>Customized financial framework — no templates. Built specifically for your business model and scale.</p>
+          <div class="prc-card-foot">
+            <span class="prc-foot-tag"><i class="fa-solid fa-calendar-days"></i> Week 3–6</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="prc-step fade-in-up stagger-4">
+        <div class="prc-num-wrap">
+          <div class="prc-num-ring prc-ring-gold"></div>
+          <div class="prc-num prc-num-gold">4</div>
+        </div>
+        <div class="prc-card prc-card-gold">
+          <div class="prc-card-top-line prc-line-gold"></div>
+          <div class="prc-step-tag prc-tag-gold">Step 04</div>
+          <div class="prc-card-icon prc-icon-gold">
+            <i class="fa-solid fa-headset"></i>
+          </div>
+          <h4>Ongoing Support</h4>
+          <p>Continuous advisory, monthly reviews, real-time reporting, and strategic guidance as you grow.</p>
+          <div class="prc-card-foot">
+            <span class="prc-foot-tag prc-foot-gold"><i class="fa-solid fa-infinity"></i> Ongoing</span>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /prc-timeline -->
+
+    <div class="prc-cta-strip fade-in">
+      <div class="prc-cta-text">
+        <i class="fa-solid fa-circle-check"></i>
+        <span>Ready to get started? Book a free consultation — <strong>no obligation, no pressure</strong>.</span>
+      </div>
+      <a href="contact.html#consultation" class="btn btn-primary">
+        <i class="fa-solid fa-calendar-check"></i> Book Free Consultation
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- FAQ — PREMIUM -->
+<section class="section faq-section" id="faq">
+  <div class="faq-bg-decor" aria-hidden="true">
+    <div class="faq-bg-orb faq-orb-1"></div>
+    <div class="faq-bg-orb faq-orb-2"></div>
+    <div class="faq-bg-grid"></div>
+  </div>
+
+  <div class="container" style="position:relative;z-index:1;">
+    <div class="faq-layout">
+
+      <!-- LEFT: Header + Info -->
+      <div class="faq-left fade-in-left">
+        <div class="section-label">FAQ</div>
+        <h2 class="section-title">Services —<br>Common Questions</h2>
+        <p class="section-subtitle mt-16">Everything you need to know about engaging our services — flexible, tailored, and built around your business.</p>
+
+        <div class="faq-quick-stats">
+          <div class="faq-stat">
+            <div class="faq-stat-num">5</div>
+            <div class="faq-stat-lbl">FAQs Answered</div>
+          </div>
+          <div class="faq-stat">
+            <div class="faq-stat-num">&lt;2h</div>
+            <div class="faq-stat-lbl">Avg. Response</div>
+          </div>
+          <div class="faq-stat">
+            <div class="faq-stat-num">24/7</div>
+            <div class="faq-stat-lbl">Support</div>
+          </div>
+        </div>
+
+        <a href="contact.html" class="btn btn-secondary faq-cta-btn">
+          <i class="fa-solid fa-message"></i> Ask Us Anything
+        </a>
+
+        <div class="faq-deco-card">
+          <div class="faq-deco-icon"><i class="fa-solid fa-headset"></i></div>
+          <div>
+            <div class="faq-deco-title">Still have questions?</div>
+            <div class="faq-deco-sub">Book a free consultation — no obligation</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Premium Accordion -->
+      <div class="faq-right fade-in-right">
+        <div class="faq-list faq-list-premium">
+
+          <!-- FAQ 1 -->
+          <div class="faq-item">
+            <button class="faq-question">
+              <div class="fq-icon"><i class="fa-solid fa-cubes"></i></div>
+              <span class="fq-text">Can I engage just one service or do I need the full package?</span>
+              <div class="fq-toggle"><i class="fa-solid fa-chevron-down"></i></div>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">Absolutely. All our services are modular. You can engage us for a specific need — just Power BI dashboards, just month-end closing, or just audit compliance — and scale up as required. We tailor every engagement to your needs.</div>
+            </div>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div class="faq-item">
+            <button class="faq-question">
+              <div class="fq-icon"><i class="fa-solid fa-people-group"></i></div>
+              <span class="fq-text">Do you work with our existing accounting team?</span>
+              <div class="fq-toggle"><i class="fa-solid fa-chevron-down"></i></div>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">Yes. We complement your existing team, not replace them. We work alongside your accountants to add the CFO-level layer of review, strategy, and oversight that elevates the entire finance function.</div>
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class="faq-item">
+            <button class="faq-question">
+              <div class="fq-icon"><i class="fa-solid fa-bolt"></i></div>
+              <span class="fq-text">How quickly can you get started?</span>
+              <div class="fq-toggle"><i class="fa-solid fa-chevron-down"></i></div>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">After an initial free consultation and assessment, we typically begin onboarding within 1–2 weeks. For urgent requirements like audit support or compliance deadlines, we can fast-track the engagement.</div>
+            </div>
+          </div>
+
+          <!-- FAQ 4 -->
+          <div class="faq-item">
+            <button class="faq-question">
+              <div class="fq-icon"><i class="fa-solid fa-gears"></i></div>
+              <span class="fq-text">What accounting systems do you support?</span>
+              <div class="fq-toggle"><i class="fa-solid fa-chevron-down"></i></div>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">We work with Tally, Zoho Books, QuickBooks, Xero, Sage, SAP, Microsoft Dynamics, Odoo, ERPNext, Focus, and more. We adapt to your existing system — no need to switch software.</div>
+            </div>
+          </div>
+
+          <!-- FAQ 5 -->
+          <div class="faq-item">
+            <button class="faq-question">
+              <div class="fq-icon fq-icon-gold"><i class="fa-solid fa-file-contract"></i></div>
+              <span class="fq-text">Is there a long-term contract required?</span>
+              <div class="fq-toggle"><i class="fa-solid fa-chevron-down"></i></div>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">We offer flexible engagement models — monthly retainer, project-based, or annual. Most of our clients stay with us for 5+ years because of the value we deliver, but there is no lock-in requirement.</div>
+            </div>
+          </div>
+
+        </div><!-- /faq-list-premium -->
+      </div>
+
+    </div><!-- /faq-layout -->
+  </div>
+</section>
+
+<!-- CTA — PREMIUM -->
+<section class="pcta-section" id="cta">
+  <div class="pcta-bg" aria-hidden="true">
+    <div class="pcta-orb pcta-orb-1"></div>
+    <div class="pcta-orb pcta-orb-2"></div>
+    <div class="pcta-orb pcta-orb-3"></div>
+    <div class="pcta-grid-overlay"></div>
+    <div class="pcta-particles">
+      <span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="pcta-layout">
+
+      <!-- LEFT: CTA Content -->
+      <div class="pcta-left fade-in-left">
+
+        <div class="pcta-badge">
+          <span class="pcta-badge-dot"></span>
+          <i class="fa-solid fa-star"></i>
+          Free Consultation Available — No Obligation
+        </div>
+
+        <h2 class="pcta-heading">
+          Not Sure Which<br>
+          <span class="pcta-heading-accent">Service You Need?</span>
+        </h2>
+
+        <p class="pcta-sub">Book a free consultation. We'll assess your business and recommend the right services to address your specific challenges — with zero obligation.</p>
+
+        <div class="pcta-btns">
+          <a href="contact.html#consultation" class="btn btn-primary pcta-btn-primary">
+            <i class="fa-solid fa-calendar-check"></i>
+            Book Free Consultation
+            <i class="fa-solid fa-arrow-right pcta-btn-arrow"></i>
+          </a>
+          <a href="tel:+971565075253" class="pcta-btn-ghost">
+            <i class="fa-solid fa-phone"></i>
+            Call Now
+          </a>
+        </div>
+
+        <div class="pcta-trust">
+          <div class="pcta-trust-item"><i class="fa-solid fa-circle-check"></i><span>No commitment required</span></div>
+          <div class="pcta-trust-item"><i class="fa-solid fa-circle-check"></i><span>200+ businesses served</span></div>
+          <div class="pcta-trust-item"><i class="fa-solid fa-circle-check"></i><span>Reply within 24 hours</span></div>
+          <div class="pcta-trust-item"><i class="fa-solid fa-circle-check"></i><span>UAE &amp; worldwide</span></div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Finance Dashboard Widget -->
+      <div class="pcta-right fade-in-right">
+
+        <div class="pcta-float-card pcta-fc-top">
+          <div class="pcta-fc-icon pcta-fci-yellow"><i class="fa-solid fa-arrow-trend-up"></i></div>
+          <div class="pcta-fc-body">
+            <div class="pcta-fc-val">+24.8%</div>
+            <div class="pcta-fc-lbl">Revenue Growth</div>
+          </div>
+        </div>
+
+        <div class="pcta-stats-card">
+          <div class="pcta-sc-shimmer"></div>
+          <div class="pcta-sc-header">
+            <div class="pcta-sc-dots"><span></span><span></span><span></span></div>
+            <span class="pcta-sc-title"><i class="fa-solid fa-chart-line"></i> CFO Impact Dashboard</span>
+            <div class="pcta-sc-live"><span></span>LIVE</div>
+          </div>
+
+          <div class="pcta-sc-metrics">
+            <div class="pcta-sc-metric">
+              <div class="pcta-sc-val">AED 4.2M</div>
+              <div class="pcta-sc-lbl">Revenue Managed</div>
+              <div class="pcta-sc-trend"><i class="fa-solid fa-caret-up"></i> 18.4%</div>
+            </div>
+            <div class="pcta-sc-metric">
+              <div class="pcta-sc-val">94%</div>
+              <div class="pcta-sc-lbl">Finance Efficiency</div>
+              <div class="pcta-sc-trend"><i class="fa-solid fa-caret-up"></i> +32%</div>
+            </div>
+            <div class="pcta-sc-metric">
+              <div class="pcta-sc-val">5 Yrs</div>
+              <div class="pcta-sc-lbl">Avg. Retention</div>
+              <div class="pcta-sc-trend" style="color:#4ade80;"><i class="fa-solid fa-circle-check"></i> Trusted</div>
+            </div>
+          </div>
+
+          <div class="pcta-mini-chart">
+            <div class="pcta-mc-bar" style="height:38%"></div>
+            <div class="pcta-mc-bar" style="height:58%"></div>
+            <div class="pcta-mc-bar" style="height:48%"></div>
+            <div class="pcta-mc-bar" style="height:72%"></div>
+            <div class="pcta-mc-bar" style="height:62%"></div>
+            <div class="pcta-mc-bar pcta-mc-gold" style="height:88%"></div>
+            <div class="pcta-mc-bar pcta-mc-gold" style="height:82%"></div>
+          </div>
+          <div class="pcta-chart-months">
+            <span>Jun</span><span>Jul</span><span>Aug</span><span>Sep</span><span>Oct</span><span>Nov</span><span>Dec</span>
+          </div>
+        </div>
+
+        <div class="pcta-float-card pcta-fc-bottom">
+          <div class="pcta-fc-icon pcta-fci-green"><i class="fa-solid fa-shield-halved"></i></div>
+          <div class="pcta-fc-body">
+            <div class="pcta-fc-val">98%</div>
+            <div class="pcta-fc-lbl">Client Satisfaction</div>
+          </div>
+        </div>
+
+      </div><!-- /pcta-right -->
+    </div><!-- /pcta-layout -->
+  </div>
+</section>
+
+<div id="site-footer"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/components.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,1223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us | Virtual CFO Management Consultancy</title>
+  <meta name="description" content="Learn about Virtual CFO Management Consultancy — our story, vision, mission, and the journey from a Chartered Accountant to serving 200+ businesses worldwide."/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <style>
+    .vision-mission {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .vm-card {
+      padding: 40px;
+      border-radius: var(--radius-lg);
+      position: relative;
+      overflow: hidden;
+    }
+    .vm-card.vision { background: linear-gradient(135deg, var(--blue-dark), var(--blue)); color: var(--white); }
+    .vm-card.mission { background: linear-gradient(135deg, #0a1628, #1a3a6b); color: var(--white); }
+    .vm-card::before {
+      content: '';
+      position: absolute;
+      top: -40px; right: -40px;
+      width: 160px; height: 160px;
+      border-radius: 50%;
+      background: rgba(245,197,24,0.1);
+    }
+    .vm-icon {
+      width: 52px; height: 52px;
+      border-radius: 14px;
+      background: rgba(245,197,24,0.2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem; color: var(--yellow);
+      margin-bottom: 20px;
+    }
+    .vm-card h3 { color: var(--white); margin-bottom: 12px; }
+    .vm-card p { color: rgba(255,255,255,0.8); font-size: 1rem; line-height: 1.75; }
+
+    .usps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .usp-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      text-align: center;
+      transition: var(--transition);
+    }
+    .usp-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); border-color: var(--blue); }
+    .usp-icon {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(46,109,164,0.1), rgba(245,197,24,0.1));
+      border: 2px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem; color: var(--blue);
+      margin: 0 auto 16px;
+      transition: var(--transition);
+    }
+    .usp-card:hover .usp-icon { background: var(--blue); color: var(--white); border-color: var(--blue); }
+    .usp-card h4 { color: var(--dark); margin-bottom: 8px; }
+    .usp-card p { font-size: 0.86rem; }
+
+    .founder-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 64px;
+      align-items: start;
+    }
+    .founder-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      text-align: center;
+      position: sticky;
+      top: 100px;
+    }
+    .founder-img-placeholder {
+      background: linear-gradient(135deg, var(--blue-dark), var(--blue));
+      height: 260px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 5rem; color: rgba(255,255,255,0.3);
+    }
+    .founder-info { padding: 28px; }
+    .founder-name { font-size: 1.4rem; font-weight: 800; color: var(--dark); }
+    .founder-title { font-size: 0.88rem; color: var(--gray); margin-top: 4px; margin-bottom: 16px; }
+    .founder-creds { display: flex; flex-direction: column; gap: 8px; }
+    .cred-item {
+      display: flex; align-items: center; gap: 10px;
+      padding: 8px 12px;
+      background: var(--light-gray);
+      border-radius: 8px;
+      font-size: 0.84rem;
+      font-weight: 500;
+      color: var(--dark);
+    }
+    .cred-item i { color: var(--blue); }
+
+    /* Timeline vertical */
+    .v-timeline { position: relative; padding-left: 40px; }
+    .v-timeline::before {
+      content: '';
+      position: absolute;
+      left: 8px; top: 0; bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--blue), var(--yellow));
+    }
+    .v-tl-item {
+      position: relative;
+      margin-bottom: 40px;
+      padding: 24px 28px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      transition: var(--transition);
+    }
+    .v-tl-item:hover { border-color: var(--blue); box-shadow: var(--shadow); transform: translateX(6px); }
+    .v-tl-item::before {
+      content: '';
+      position: absolute;
+      left: -37px; top: 28px;
+      width: 16px; height: 16px;
+      border-radius: 50%;
+      background: var(--yellow);
+      border: 3px solid var(--white);
+      box-shadow: 0 0 0 3px var(--blue);
+    }
+    .tl-year {
+      display: inline-block;
+      background: var(--blue);
+      color: var(--white);
+      font-size: 0.78rem; font-weight: 700;
+      padding: 3px 12px; border-radius: 50px;
+      margin-bottom: 8px;
+    }
+    .v-tl-item h4 { color: var(--dark); margin-bottom: 6px; }
+    .v-tl-item p { font-size: 0.88rem; }
+
+    @media(max-width:768px) {
+      .vision-mission { grid-template-columns: 1fr; }
+      .usps-grid { grid-template-columns: repeat(2,1fr); }
+      .founder-grid { grid-template-columns: 1fr; }
+      .founder-card { position: static; }
+    }
+    @media(max-width:480px) {
+      .usps-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div id="site-nav"></div>
+
+<!-- ABOUT HERO — PREMIUM REDESIGN -->
+<section class="about-hero-section">
+  <!-- Background layers -->
+  <div class="about-bg" aria-hidden="true">
+    <div class="about-orb about-orb-1"></div>
+    <div class="about-orb about-orb-2"></div>
+    <div class="about-orb about-orb-3"></div>
+    <div class="about-bg-grid"></div>
+    <div class="about-particles">
+      <span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span>
+    </div>
+  </div>
+
+  <div class="container" style="position:relative;z-index:1;">
+    <!-- Breadcrumb -->
+    <div class="breadcrumb about-breadcrumb fade-in">
+      <a href="index.html">Home</a>
+      <i class="fa-solid fa-chevron-right"></i>
+      <span>About Us</span>
+    </div>
+
+    <div class="about-hero-grid">
+
+      <!-- ═══ LEFT: Content ═══ -->
+      <div class="about-hero-left fade-in-left">
+
+        <div class="section-label">Our Story</div>
+
+        <h1 class="about-hero-heading">
+          Built to Give Every Business
+          <span class="about-heading-accent">Access to a Real CFO</span>
+        </h1>
+
+        <p class="about-hero-sub">After years in finance across continents and industries, we recognized a critical gap — businesses have financial data, but often lack the <strong>strategic direction, visibility, and financial leadership</strong> needed to grow.</p>
+
+        <p class="about-hero-desc">At Virtual CFO Management Consultancy, we deliver a holistic finance function — combining CFO-level strategy, financial oversight, and technology-enabled systems. <strong>Because every business deserves smart, proactive financial leadership.</strong></p>
+
+        <!-- Animated Stats -->
+        <div class="about-stats-row">
+          <div class="about-stat">
+            <div class="about-stat-num"><span data-target="200" data-suffix="+">200+</span></div>
+            <div class="about-stat-lbl">Companies Served</div>
+          </div>
+          <div class="about-stat-sep"></div>
+          <div class="about-stat">
+            <div class="about-stat-num"><span data-target="8" data-suffix="+">8+</span></div>
+            <div class="about-stat-lbl">Years Experience</div>
+          </div>
+          <div class="about-stat-sep"></div>
+          <div class="about-stat">
+            <div class="about-stat-num"><span data-target="100" data-suffix="+">100+</span></div>
+            <div class="about-stat-lbl">Dashboards Built</div>
+          </div>
+          <div class="about-stat-sep"></div>
+          <div class="about-stat">
+            <div class="about-stat-num"><span data-target="5" data-suffix=" Yrs">5 Yrs</span></div>
+            <div class="about-stat-lbl">Avg. Retention</div>
+          </div>
+        </div>
+
+        <!-- CTA Buttons -->
+        <div class="about-cta-row">
+          <a href="contact.html#consultation" class="btn btn-primary about-btn-primary">
+            <i class="fa-solid fa-calendar-check"></i> Free Consultation
+            <i class="fa-solid fa-arrow-right about-btn-arrow"></i>
+          </a>
+          <a href="services.html" class="about-btn-ghost">
+            <i class="fa-solid fa-grid-2"></i> Our Services
+          </a>
+        </div>
+
+        <!-- Trust badges -->
+        <div class="about-trust-badges">
+          <div class="about-trust-item"><i class="fa-solid fa-circle-check"></i><span>Chartered Accountant Led</span></div>
+          <div class="about-trust-item"><i class="fa-solid fa-circle-check"></i><span>UAE &amp; Worldwide</span></div>
+          <div class="about-trust-item"><i class="fa-solid fa-circle-check"></i><span>$1B+ Turnover Oversight</span></div>
+        </div>
+      </div>
+
+      <!-- ═══ RIGHT: Premium Finance Visuals ═══ -->
+      <div class="about-hero-right fade-in-right">
+
+        <!-- Floating mini cards -->
+        <div class="about-float-card about-fc-tl">
+          <div class="about-fc-icon about-fci-blue"><i class="fa-solid fa-arrow-trend-up"></i></div>
+          <div class="about-fc-body">
+            <div class="about-fc-val">+24.8%</div>
+            <div class="about-fc-lbl">Revenue Growth</div>
+          </div>
+        </div>
+
+        <div class="about-float-card about-fc-br">
+          <div class="about-fc-icon about-fci-green"><i class="fa-solid fa-shield-halved"></i></div>
+          <div class="about-fc-body">
+            <div class="about-fc-val">98%</div>
+            <div class="about-fc-lbl">Client Satisfaction</div>
+          </div>
+        </div>
+
+        <!-- Main dashboard card -->
+        <div class="about-dash-card">
+          <div class="about-dash-shimmer"></div>
+
+          <!-- Header -->
+          <div class="about-dash-header">
+            <div class="about-dash-dots"><span></span><span></span><span></span></div>
+            <span class="about-dash-title">
+              <i class="fa-solid fa-chart-line" style="color:var(--yellow);font-size:0.62rem;"></i>
+              CFO Performance Overview
+            </span>
+            <div class="about-dash-live"><span></span>LIVE</div>
+          </div>
+
+          <!-- KPI row -->
+          <div class="about-dash-metrics">
+            <div class="about-dm">
+              <div class="about-dm-val">AED 1B+</div>
+              <div class="about-dm-lbl">Turnover Managed</div>
+              <div class="about-dm-trend"><i class="fa-solid fa-globe"></i> 9 Countries</div>
+            </div>
+            <div class="about-dm">
+              <div class="about-dm-val">200+</div>
+              <div class="about-dm-lbl">Businesses Served</div>
+              <div class="about-dm-trend"><i class="fa-solid fa-caret-up"></i> 18+ industries</div>
+            </div>
+            <div class="about-dm">
+              <div class="about-dm-val">2016</div>
+              <div class="about-dm-lbl">Founded Dubai</div>
+              <div class="about-dm-trend"><i class="fa-solid fa-circle-check"></i> UAE Based</div>
+            </div>
+          </div>
+
+          <!-- Founder strip -->
+          <div class="about-founder-strip">
+            <div class="about-founder-avatar">
+              <i class="fa-solid fa-user-tie"></i>
+            </div>
+            <div class="about-founder-info">
+              <div class="about-founder-name">Founder &amp; Principal CFO</div>
+              <div class="about-founder-cred">CA (2004) · Ex-Group Financial Controller · 9 Countries</div>
+            </div>
+            <div class="about-award-badge"><i class="fa-solid fa-award"></i></div>
+          </div>
+
+          <!-- Progress bars -->
+          <div class="about-prog-section">
+            <div class="about-prog-row">
+              <span class="about-prog-lbl">Finance Expertise</span>
+              <div class="about-prog-bar"><div class="about-prog-fill about-pf-blue" data-width="96%"></div></div>
+              <span class="about-prog-val">96%</span>
+            </div>
+            <div class="about-prog-row">
+              <span class="about-prog-lbl">Client Satisfaction</span>
+              <div class="about-prog-bar"><div class="about-prog-fill about-pf-gold" data-width="98%"></div></div>
+              <span class="about-prog-val">98%</span>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /about-hero-right -->
+    </div><!-- /about-hero-grid -->
+  </div>
+</section>
+
+<!-- VISION & MISSION — PREMIUM REDESIGN -->
+<section class="section vm-section">
+  <div class="vm-bg" aria-hidden="true">
+    <div class="vm-bg-orb vm-orb-1"></div>
+    <div class="vm-bg-orb vm-orb-2"></div>
+    <div class="vm-bg-grid"></div>
+  </div>
+
+  <div class="container" style="position:relative;z-index:1;">
+
+    <!-- Section Header -->
+    <div class="text-center mb-56 fade-in">
+      <div class="section-label">Our Purpose</div>
+      <h2 class="section-title">
+        <span class="section-title-underline">Vision &amp; Mission</span>
+      </h2>
+      <p class="section-subtitle mt-16">The principles that guide everything we do — from our first client meeting to building long-term financial partnerships that drive real growth.</p>
+    </div>
+
+    <!-- Premium Cards -->
+    <div class="vm-cards-grid">
+
+      <!-- VISION -->
+      <div class="vm-premium-card vm-vision fade-in-left">
+        <div class="vm-card-shimmer vm-shimmer-blue"></div>
+        <div class="vm-card-watermark">01</div>
+
+        <div class="vm-card-top">
+          <div class="vm-premium-icon vm-icon-blue"><i class="fa-solid fa-eye"></i></div>
+          <div class="vm-card-badge vm-badge-blue">Our Vision</div>
+        </div>
+
+        <h3 class="vm-card-heading">Democratizing CFO-Level Expertise</h3>
+        <p class="vm-card-text">To make CFO-level financial expertise and automation accessible to businesses of all sizes — not just large corporations with deep pockets.</p>
+
+        <div class="vm-card-pillars">
+          <div class="vm-pillar"><i class="fa-solid fa-chart-line"></i> Strategic Finance</div>
+          <div class="vm-pillar"><i class="fa-solid fa-gears"></i> Automation</div>
+          <div class="vm-pillar"><i class="fa-solid fa-users"></i> For All Businesses</div>
+        </div>
+
+        <div class="vm-card-deco">
+          <div class="vm-deco-chart">
+            <div class="vm-dc-bar" style="height:35%"></div>
+            <div class="vm-dc-bar" style="height:52%"></div>
+            <div class="vm-dc-bar" style="height:44%"></div>
+            <div class="vm-dc-bar" style="height:68%"></div>
+            <div class="vm-dc-bar vm-dc-active" style="height:82%"></div>
+            <div class="vm-dc-bar vm-dc-active" style="height:90%"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MISSION -->
+      <div class="vm-premium-card vm-mission fade-in-right">
+        <div class="vm-card-shimmer vm-shimmer-gold"></div>
+        <div class="vm-card-watermark">02</div>
+
+        <div class="vm-card-top">
+          <div class="vm-premium-icon vm-icon-gold"><i class="fa-solid fa-bullseye"></i></div>
+          <div class="vm-card-badge vm-badge-gold">Our Mission</div>
+        </div>
+
+        <h3 class="vm-card-heading">Moving Beyond Traditional Accounting</h3>
+        <p class="vm-card-text">To move businesses beyond traditional accounting through CFO-level strategy, Power BI reporting, and automation — delivering clarity and confident decision-making to every organization we serve.</p>
+
+        <div class="vm-card-pillars">
+          <div class="vm-pillar vm-pillar-gold"><i class="fa-solid fa-shield-halved"></i> CFO Strategy</div>
+          <div class="vm-pillar vm-pillar-gold"><i class="fa-solid fa-chart-bar"></i> Power BI</div>
+          <div class="vm-pillar vm-pillar-gold"><i class="fa-solid fa-bolt"></i> Automation</div>
+        </div>
+
+        <div class="vm-card-deco vm-deco-mission">
+          <div class="vm-mini-kpi">
+            <div class="vm-kpi-val">AED 4.2M</div>
+            <div class="vm-kpi-lbl">Revenue Clarity</div>
+            <div class="vm-kpi-trend"><i class="fa-solid fa-caret-up"></i> 18% Growth</div>
+          </div>
+          <div class="vm-mini-kpi">
+            <div class="vm-kpi-val">94%</div>
+            <div class="vm-kpi-lbl">Efficiency Gain</div>
+            <div class="vm-kpi-trend"><i class="fa-solid fa-caret-up"></i> +32%</div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /vm-cards-grid -->
+
+    <!-- Core Values Strip -->
+    <div class="vm-values-strip fade-in">
+      <div class="vm-value">
+        <div class="vm-value-icon"><i class="fa-solid fa-handshake"></i></div>
+        <div class="vm-value-lbl">Integrity First</div>
+      </div>
+      <div class="vm-value-sep"></div>
+      <div class="vm-value">
+        <div class="vm-value-icon"><i class="fa-solid fa-lightbulb"></i></div>
+        <div class="vm-value-lbl">Strategic Thinking</div>
+      </div>
+      <div class="vm-value-sep"></div>
+      <div class="vm-value">
+        <div class="vm-value-icon"><i class="fa-solid fa-chart-line"></i></div>
+        <div class="vm-value-lbl">Growth Focused</div>
+      </div>
+      <div class="vm-value-sep"></div>
+      <div class="vm-value">
+        <div class="vm-value-icon"><i class="fa-solid fa-users"></i></div>
+        <div class="vm-value-lbl">Client Centric</div>
+      </div>
+      <div class="vm-value-sep"></div>
+      <div class="vm-value">
+        <div class="vm-value-icon"><i class="fa-solid fa-gears"></i></div>
+        <div class="vm-value-lbl">Tech Driven</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOUNDER STORY — PREMIUM REDESIGN -->
+<section class="section fs-section">
+  <div class="fs-bg" aria-hidden="true">
+    <div class="fs-orb fs-orb-1"></div>
+    <div class="fs-orb fs-orb-2"></div>
+    <div class="fs-bg-grid"></div>
+  </div>
+
+  <div class="container" style="position:relative;z-index:1;">
+
+    <!-- Section Header -->
+    <div class="text-center mb-56 fade-in">
+      <div class="section-label">The Founder</div>
+      <h2 class="section-title">
+        <span class="section-title-underline">From Chartered Accountant to CFO for 200+ Businesses</span>
+      </h2>
+    </div>
+
+    <!-- Main Two-Column Grid -->
+    <div class="fs-grid">
+
+      <!-- ═══ LEFT: Founder Visual Panel ═══ -->
+      <div class="fs-left fade-in-left">
+
+        <!-- Floating credential cards -->
+        <div class="fs-float-card fs-fc-1">
+          <div class="fs-fc-icon fs-fci-yellow"><i class="fa-solid fa-award"></i></div>
+          <div class="fs-fc-body">
+            <div class="fs-fc-val">CA (2004)</div>
+            <div class="fs-fc-lbl">Chartered Accountant</div>
+          </div>
+        </div>
+
+        <div class="fs-float-card fs-fc-2">
+          <div class="fs-fc-icon fs-fci-blue"><i class="fa-solid fa-chart-line"></i></div>
+          <div class="fs-fc-body">
+            <div class="fs-fc-val">$1B+</div>
+            <div class="fs-fc-lbl">Turnover Oversight</div>
+          </div>
+        </div>
+
+        <!-- Main founder card -->
+        <div class="fs-founder-card">
+          <div class="fs-founder-shimmer"></div>
+
+          <!-- Avatar -->
+          <div class="fs-avatar-wrap">
+            <div class="fs-avatar-ring"></div>
+            <div class="fs-avatar"><i class="fa-solid fa-user-tie"></i></div>
+          </div>
+
+          <div class="fs-name">Founder &amp; Principal CFO</div>
+          <div class="fs-title-role">Virtual CFO Management Consultancy</div>
+
+          <!-- Credentials -->
+          <div class="fs-creds">
+            <div class="fs-cred"><i class="fa-solid fa-award"></i><span>Chartered Accountant (2004)</span></div>
+            <div class="fs-cred"><i class="fa-solid fa-building"></i><span>Ex-Group Financial Controller, Midcom Group</span></div>
+            <div class="fs-cred"><i class="fa-solid fa-globe"></i><span>Experience across 9 countries</span></div>
+            <div class="fs-cred"><i class="fa-solid fa-chart-line"></i><span>$1B+ turnover oversight experience</span></div>
+          </div>
+
+          <!-- Mini metrics strip -->
+          <div class="fs-metrics-row">
+            <div class="fs-mini-metric">
+              <div class="fs-mm-num">20+</div>
+              <div class="fs-mm-lbl">Years in Finance</div>
+            </div>
+            <div class="fs-mm-sep"></div>
+            <div class="fs-mini-metric">
+              <div class="fs-mm-num">9</div>
+              <div class="fs-mm-lbl">Countries</div>
+            </div>
+            <div class="fs-mm-sep"></div>
+            <div class="fs-mini-metric">
+              <div class="fs-mm-num">200+</div>
+              <div class="fs-mm-lbl">Businesses</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══ RIGHT: Content & Timeline ═══ -->
+      <div class="fs-right fade-in-right">
+
+        <div class="section-label">Our Story</div>
+        <h3 class="fs-heading">A Journey Across Finance, Industries &amp; Continents</h3>
+
+        <div class="fs-story-text">
+          <p>My journey in finance began with qualifying as a <strong>Chartered Accountant in 2004</strong>. I started my career in audit, working with reputed firms, where I built a strong foundation in financial controls, compliance, and regulatory frameworks.</p>
+          <p>In 2009, I joined the <strong>Midcom Group</strong> — a diversified organization operating across 9 countries with a turnover exceeding $1 billion. I rose to the position of <strong>Group Financial Controller</strong>, gaining firsthand insight into how finance, used effectively, becomes a <strong>strategic driver of growth</strong>.</p>
+          <p>I identified a critical gap: while large organizations benefit from experienced CFOs, most growing businesses lack access to this level of expertise. This led to the foundation of <strong>Virtual CFO Management Consultancy in 2018</strong>.</p>
+        </div>
+
+        <!-- Achievement Strip -->
+        <div class="fs-achieve-strip">
+          <div class="fs-achieve">
+            <div class="fs-ai fs-ai-blue"><i class="fa-solid fa-building"></i></div>
+            <div>
+              <div class="fs-an"><span data-target="200" data-suffix="+">200+</span></div>
+              <div class="fs-al">Businesses Served</div>
+            </div>
+          </div>
+          <div class="fs-achieve">
+            <div class="fs-ai fs-ai-yellow"><i class="fa-solid fa-globe"></i></div>
+            <div>
+              <div class="fs-an">9</div>
+              <div class="fs-al">Countries</div>
+            </div>
+          </div>
+          <div class="fs-achieve">
+            <div class="fs-ai fs-ai-blue"><i class="fa-solid fa-coins"></i></div>
+            <div>
+              <div class="fs-an">$1B+</div>
+              <div class="fs-al">Turnover Managed</div>
+            </div>
+          </div>
+          <div class="fs-achieve">
+            <div class="fs-ai fs-ai-green"><i class="fa-solid fa-rocket"></i></div>
+            <div>
+              <div class="fs-an">2018</div>
+              <div class="fs-al">VCFO Founded</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="mt-32">
+          <a href="contact.html#consultation" class="btn btn-primary fs-cta">
+            <i class="fa-solid fa-calendar-check"></i>
+            Schedule Strategy Call
+            <i class="fa-solid fa-arrow-right fs-cta-arrow"></i>
+          </a>
+        </div>
+
+      </div><!-- /fs-right -->
+    </div><!-- /fs-grid -->
+  </div>
+</section>
+
+<!-- THE JOURNEY — PREMIUM HORIZONTAL TIMELINE -->
+<section class="section htl-section" id="journey">
+  <div class="htl-bg" aria-hidden="true">
+    <div class="htl-orb htl-orb-1"></div>
+    <div class="htl-orb htl-orb-2"></div>
+    <div class="htl-bg-grid"></div>
+    <div class="htl-particles">
+      <span></span><span></span><span></span><span></span><span></span><span></span>
+    </div>
+  </div>
+
+  <div class="container" style="position:relative;z-index:1;">
+
+    <!-- Section Header -->
+    <div class="text-center mb-64 fade-in">
+      <div class="section-label">Our Journey</div>
+      <h2 class="section-title">
+        <span class="section-title-underline">A Journey Across Finance, Industries &amp; Continents</span>
+      </h2>
+      <p class="section-subtitle mt-16">From qualifying as a Chartered Accountant to building CFO-level financial services for 200+ businesses worldwide — follow the milestones that shaped Virtual CFO.</p>
+    </div>
+
+    <!-- Horizontal Timeline Wrapper -->
+    <div class="htl-wrap fade-in" id="htlWrap">
+
+      <!-- Animated connecting line (sits at node level) -->
+      <div class="htl-line-track" id="htlLineTrack">
+        <div class="htl-line-fill" id="htlLineFill"></div>
+        <div class="htl-line-dots">
+          <div class="htl-ld"></div>
+          <div class="htl-ld" style="animation-delay:0.8s"></div>
+          <div class="htl-ld" style="animation-delay:1.6s"></div>
+        </div>
+      </div>
+
+      <!-- 4 Journey Items -->
+      <div class="htl-items">
+
+        <!-- ── 2004 ── -->
+        <div class="htl-item htl-reveal" style="--hi:0">
+          <div class="htl-card">
+            <div class="htl-card-accent htl-accent-blue"></div>
+            <div class="htl-card-num">01</div>
+            <div class="htl-card-icon htl-ci-blue"><i class="fa-solid fa-graduation-cap"></i></div>
+            <h4 class="htl-card-title">Qualified as Chartered Accountant</h4>
+            <p class="htl-card-desc">Began professional journey in audit with reputed firms, building a strong foundation in financial controls, compliance, and regulatory frameworks.</p>
+          </div>
+          <div class="htl-vert-conn htl-vc-blue"></div>
+          <div class="htl-node htl-nd-blue">
+            <div class="htl-node-ring"></div>
+          </div>
+          <div class="htl-year-wrap">
+            <span class="htl-year-badge">2004</span>
+          </div>
+        </div>
+
+        <!-- ── 2006 ── -->
+        <div class="htl-item htl-reveal" style="--hi:1">
+          <div class="htl-card">
+            <div class="htl-card-accent htl-accent-teal"></div>
+            <div class="htl-card-num">02</div>
+            <div class="htl-card-icon htl-ci-teal"><i class="fa-solid fa-plane-arrival"></i></div>
+            <h4 class="htl-card-title">Moved to Dubai, UAE</h4>
+            <p class="htl-card-desc">Relocated to Dubai to expand career opportunities and gain international finance experience in one of the world's most dynamic business hubs.</p>
+          </div>
+          <div class="htl-vert-conn htl-vc-teal"></div>
+          <div class="htl-node htl-nd-teal">
+            <div class="htl-node-ring"></div>
+          </div>
+          <div class="htl-year-wrap">
+            <span class="htl-year-badge">2006</span>
+          </div>
+        </div>
+
+        <!-- ── 2009 ── -->
+        <div class="htl-item htl-reveal" style="--hi:2">
+          <div class="htl-card">
+            <div class="htl-card-accent htl-accent-blue"></div>
+            <div class="htl-card-num">03</div>
+            <div class="htl-card-icon htl-ci-blue"><i class="fa-solid fa-building"></i></div>
+            <h4 class="htl-card-title">Group Financial Controller — Midcom Group</h4>
+            <p class="htl-card-desc">Oversaw group finance for a $1B+ turnover business across 9 countries, delivering strategic financial reporting to the executive team.</p>
+            <div class="htl-card-tag"><i class="fa-solid fa-globe"></i> $1B+ · 9 Countries</div>
+          </div>
+          <div class="htl-vert-conn htl-vc-blue"></div>
+          <div class="htl-node htl-nd-blue">
+            <div class="htl-node-ring"></div>
+          </div>
+          <div class="htl-year-wrap">
+            <span class="htl-year-badge">2009</span>
+          </div>
+        </div>
+
+        <!-- ── 2018 — FEATURED ── -->
+        <div class="htl-item htl-reveal htl-featured" style="--hi:3">
+          <div class="htl-card htl-card-gold">
+            <div class="htl-card-accent htl-accent-gold"></div>
+            <div class="htl-card-num htl-cn-gold">04</div>
+            <div class="htl-card-icon htl-ci-gold"><i class="fa-solid fa-rocket"></i></div>
+            <h4 class="htl-card-title">Founded Virtual CFO Management Consultancy</h4>
+            <p class="htl-card-desc">Launched with a clear mission: make CFO-level financial expertise and automation accessible to businesses of all sizes — UAE &amp; worldwide.</p>
+            <div class="htl-card-tag htl-tag-gold"><i class="fa-solid fa-star"></i> Est. 2018 · Dubai, UAE</div>
+          </div>
+          <div class="htl-vert-conn htl-vc-gold"></div>
+          <div class="htl-node htl-nd-gold">
+            <div class="htl-node-ring htl-ring-gold"></div>
+          </div>
+          <div class="htl-year-wrap">
+            <span class="htl-year-badge htl-year-gold">2018 <i class="fa-solid fa-star" style="font-size:0.65rem;"></i></span>
+          </div>
+        </div>
+
+      </div><!-- /htl-items -->
+    </div><!-- /htl-wrap -->
+
+    <!-- Bottom Achievement Strip -->
+    <div class="htl-bottom-strip fade-in">
+      <div class="htl-bs">
+        <div class="htl-bs-num"><span data-target="20" data-suffix="+">20+</span></div>
+        <div class="htl-bs-lbl">Years in Finance</div>
+      </div>
+      <div class="htl-bs-sep"></div>
+      <div class="htl-bs">
+        <div class="htl-bs-num"><span data-target="200" data-suffix="+">200+</span></div>
+        <div class="htl-bs-lbl">Businesses Served</div>
+      </div>
+      <div class="htl-bs-sep"></div>
+      <div class="htl-bs">
+        <div class="htl-bs-num">9</div>
+        <div class="htl-bs-lbl">Countries Experience</div>
+      </div>
+      <div class="htl-bs-sep"></div>
+      <div class="htl-bs">
+        <div class="htl-bs-num">$1B+</div>
+        <div class="htl-bs-lbl">Turnover Managed</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- USPs — PREMIUM REDESIGN -->
+<section class="section usp-section">
+  <div class="usp-bg" aria-hidden="true">
+    <div class="usp-orb usp-orb-1"></div>
+    <div class="usp-orb usp-orb-2"></div>
+    <div class="usp-bg-grid"></div>
+  </div>
+
+  <div class="container" style="position:relative;z-index:1;">
+
+    <!-- Header -->
+    <div class="text-center mb-56 fade-in">
+      <div class="section-label">Why Choose Us</div>
+      <h2 class="section-title">
+        <span class="section-title-underline">What Makes Us Different</span>
+      </h2>
+      <p class="section-subtitle mt-16">Six core strengths that set Virtual CFO apart — built over 20+ years of real-world finance experience and tested across 200+ businesses worldwide.</p>
+    </div>
+
+    <!-- Feature Cards Grid -->
+    <div class="usp-cards-grid">
+
+      <!-- 01: Extensive Expertise — FEATURED -->
+      <div class="usp-pcard usp-featured fade-in-up stagger-1">
+        <div class="usp-card-shimmer usp-shimmer-blue"></div>
+        <div class="usp-card-num usp-cn-light">01</div>
+        <div class="usp-picon usp-pi-white"><i class="fa-solid fa-graduation-cap"></i></div>
+        <h4 class="usp-card-title">Extensive Expertise</h4>
+        <p class="usp-card-desc">20+ years of hands-on finance experience across audit, group controllership, and CFO advisory roles across multiple industries and countries.</p>
+        <div class="usp-card-tag usp-tag-light"><i class="fa-solid fa-star"></i> 20+ Years Experience</div>
+      </div>
+
+      <!-- 02: Result-Driven -->
+      <div class="usp-pcard fade-in-up stagger-2">
+        <div class="usp-card-shimmer usp-shimmer-green"></div>
+        <div class="usp-card-num">02</div>
+        <div class="usp-picon usp-pi-green"><i class="fa-solid fa-bullseye"></i></div>
+        <h4 class="usp-card-title">Result-Driven Approach</h4>
+        <p class="usp-card-desc">We don't just deliver reports — we deliver outcomes. Every engagement is measured by the clarity, control, and growth it creates for your business.</p>
+        <div class="usp-card-tag"><i class="fa-solid fa-arrow-trend-up"></i> Outcome Focused</div>
+      </div>
+
+      <!-- 03: Technology -->
+      <div class="usp-pcard fade-in-up stagger-3">
+        <div class="usp-card-shimmer usp-shimmer-teal"></div>
+        <div class="usp-card-num">03</div>
+        <div class="usp-picon usp-pi-teal"><i class="fa-solid fa-microchip"></i></div>
+        <h4 class="usp-card-title">Cutting-Edge Technology</h4>
+        <p class="usp-card-desc">Power BI, automation tools, and system integrations form the backbone of our delivery — replacing manual processes with intelligent, real-time insights.</p>
+        <div class="usp-card-tag usp-tag-teal"><i class="fa-solid fa-chart-bar"></i> Power BI · Automation</div>
+      </div>
+
+      <!-- 04: Customized -->
+      <div class="usp-pcard fade-in-up stagger-4">
+        <div class="usp-card-shimmer usp-shimmer-purple"></div>
+        <div class="usp-card-num">04</div>
+        <div class="usp-picon usp-pi-purple"><i class="fa-solid fa-puzzle-piece"></i></div>
+        <h4 class="usp-card-title">Customized Solutions</h4>
+        <p class="usp-card-desc">No templates, no one-size-fits-all. Every solution is tailored to your specific business model, industry, scale, and strategic goals.</p>
+        <div class="usp-card-tag usp-tag-purple"><i class="fa-solid fa-sliders"></i> 100% Tailored</div>
+      </div>
+
+      <!-- 05: Attention to Detail -->
+      <div class="usp-pcard fade-in-up stagger-5">
+        <div class="usp-card-shimmer usp-shimmer-gold"></div>
+        <div class="usp-card-num">05</div>
+        <div class="usp-picon usp-pi-gold"><i class="fa-solid fa-magnifying-glass"></i></div>
+        <h4 class="usp-card-title">Attention to Detail</h4>
+        <p class="usp-card-desc">From reconciling every account to structuring every dashboard — precision is embedded in everything we deliver, giving you numbers you can trust.</p>
+        <div class="usp-card-tag usp-tag-gold"><i class="fa-solid fa-shield-halved"></i> Precision First</div>
+      </div>
+
+      <!-- 06: Unbiased Perspective -->
+      <div class="usp-pcard fade-in-up stagger-6">
+        <div class="usp-card-shimmer usp-shimmer-blue"></div>
+        <div class="usp-card-num">06</div>
+        <div class="usp-picon usp-pi-blue"><i class="fa-solid fa-scale-balanced"></i></div>
+        <h4 class="usp-card-title">Unbiased Perspective</h4>
+        <p class="usp-card-desc">As external advisors, we bring an independent, objective viewpoint — free from internal politics — to give you honest, strategic financial counsel.</p>
+        <div class="usp-card-tag"><i class="fa-solid fa-eye"></i> Independent Advisory</div>
+      </div>
+
+    </div><!-- /usp-cards-grid -->
+
+    <!-- Bottom CTA Bar -->
+    <div class="usp-cta-bar fade-in">
+      <div class="usp-cta-left">
+        <div class="usp-cta-heading">Ready to experience the difference?</div>
+        <div class="usp-cta-sub">Join 200+ businesses that chose CFO-level expertise — book your free strategy session today.</div>
+      </div>
+      <div class="usp-cta-right">
+        <a href="services.html" class="usp-btn-outline">
+          <i class="fa-solid fa-grid-2"></i> Explore Services
+        </a>
+        <a href="contact.html#consultation" class="btn btn-primary usp-btn-primary">
+          <i class="fa-solid fa-calendar-check"></i> Book Consultation
+          <i class="fa-solid fa-arrow-right usp-btn-arrow"></i>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- TESTIMONIALS — same premium design as homepage -->
+<section class="section tst-section">
+  <div class="tst-bg-decor" aria-hidden="true">
+    <div class="tst-orb tst-orb-1"></div>
+    <div class="tst-orb tst-orb-2"></div>
+    <div class="tst-bg-grid"></div>
+  </div>
+
+  <div class="container" style="position:relative;z-index:1;">
+
+    <!-- Header -->
+    <div class="text-center mb-40 fade-in">
+      <div class="section-label">Client Voices</div>
+      <h2 class="section-title">
+        <span class="section-title-underline">Trusted by 200+ Businesses</span>
+      </h2>
+      <p class="section-subtitle mt-16">Real results, real clients — see what CFO-level financial leadership delivers for growing businesses.</p>
+    </div>
+
+    <!-- Trust Stats Strip -->
+    <div class="tst-trust-strip fade-in">
+      <div class="tst-trust-item">
+        <div class="tst-trust-num">200+</div>
+        <div class="tst-trust-lbl">Businesses Served</div>
+      </div>
+      <div class="tst-trust-sep"></div>
+      <div class="tst-trust-item">
+        <div class="tst-trust-num">4.9 &#9733;</div>
+        <div class="tst-trust-lbl">Average Rating</div>
+      </div>
+      <div class="tst-trust-sep"></div>
+      <div class="tst-trust-item">
+        <div class="tst-trust-num">98%</div>
+        <div class="tst-trust-lbl">Client Satisfaction</div>
+      </div>
+      <div class="tst-trust-sep"></div>
+      <div class="tst-trust-item">
+        <div class="tst-trust-num">5 Yrs</div>
+        <div class="tst-trust-lbl">Avg. Client Retention</div>
+      </div>
+    </div>
+
+    <!-- Slider -->
+    <div class="tst-slider-outer fade-in">
+      <button class="tst-nav-btn tst-prev" id="tstPrev" aria-label="Previous">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+
+      <div class="tst-slider-viewport" id="tstViewport">
+        <div class="tst-slider-track" id="tstTrack">
+
+          <!-- Testimonial 1 -->
+          <div class="tst-slide">
+            <div class="tst-card">
+              <div class="tst-card-top-line"></div>
+              <div class="tst-card-header">
+                <div class="tst-quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+                <div class="tst-service-tag"><i class="fa-solid fa-chart-line"></i> Virtual CFO + Power BI</div>
+              </div>
+              <div class="tst-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <p class="tst-text">"Virtual CFO completely transformed how we view our financials across 5 companies. We now have a unified real-time dashboard and make decisions with full confidence."</p>
+              <div class="tst-author">
+                <div class="tst-avatar tst-av-1">ME</div>
+                <div class="tst-author-body">
+                  <div class="tst-author-name">Murtuza Ezzi</div>
+                  <div class="tst-author-role">CEO, Index Infotech Group</div>
+                </div>
+                <div class="tst-verified" title="Verified Client"><i class="fa-solid fa-circle-check"></i></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 2 -->
+          <div class="tst-slide">
+            <div class="tst-card">
+              <div class="tst-card-top-line"></div>
+              <div class="tst-card-header">
+                <div class="tst-quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+                <div class="tst-service-tag"><i class="fa-solid fa-shield-halved"></i> Virtual CFO Services</div>
+              </div>
+              <div class="tst-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <p class="tst-text">"Having Virtual CFO meant I could finally step back from managing accounts and focus on growing the business. True CFO-level expertise and partnership at every step."</p>
+              <div class="tst-author">
+                <div class="tst-avatar tst-av-2">TK</div>
+                <div class="tst-author-body">
+                  <div class="tst-author-name">Tawab Kazemi</div>
+                  <div class="tst-author-role">Founder, 4E Road Safety Consultants</div>
+                </div>
+                <div class="tst-verified" title="Verified Client"><i class="fa-solid fa-circle-check"></i></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 3 -->
+          <div class="tst-slide">
+            <div class="tst-card">
+              <div class="tst-card-top-line"></div>
+              <div class="tst-card-header">
+                <div class="tst-quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+                <div class="tst-service-tag"><i class="fa-solid fa-microchip"></i> Finance Strategy &amp; Tech</div>
+              </div>
+              <div class="tst-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <p class="tst-text">"The team brings both finance expertise and technology together in a way I've never seen from an external partner. Highly recommended for any growing business."</p>
+              <div class="tst-author">
+                <div class="tst-avatar tst-av-3">MK</div>
+                <div class="tst-author-body">
+                  <div class="tst-author-name">Mohammad Khamusi</div>
+                  <div class="tst-author-role">Partner, Fulk Diesel Trading</div>
+                </div>
+                <div class="tst-verified" title="Verified Client"><i class="fa-solid fa-circle-check"></i></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <button class="tst-nav-btn tst-next" id="tstNext" aria-label="Next">
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
+    </div>
+
+    <!-- Dots -->
+    <div class="tst-dots" id="tstDots"></div>
+
+  </div>
+</section>
+
+<!-- FAQ — PREMIUM (same design as homepage) -->
+<section class="section faq-section">
+  <div class="faq-bg-decor" aria-hidden="true">
+    <div class="faq-bg-orb faq-orb-1"></div>
+    <div class="faq-bg-orb faq-orb-2"></div>
+    <div class="faq-bg-grid"></div>
+  </div>
+
+  <div class="container" style="position:relative;z-index:1;">
+    <div class="faq-layout">
+
+      <!-- LEFT: Header + Info -->
+      <div class="faq-left fade-in-left">
+        <div class="section-label">FAQ</div>
+        <h2 class="section-title">About Us —<br>Common Questions</h2>
+        <p class="section-subtitle mt-16">Everything you need to know about Virtual CFO — our background, expertise, and how we work with businesses like yours.</p>
+
+        <!-- Quick Stats -->
+        <!-- <div class="faq-quick-stats">
+          <div class="faq-stat">
+            <div class="faq-stat-num">20+</div>
+            <div class="faq-stat-lbl">Years Experience</div>
+          </div>
+          <div class="faq-stat">
+            <div class="faq-stat-num">200+</div>
+            <div class="faq-stat-lbl">Businesses Served</div>
+          </div>
+          <div class="faq-stat">
+            <div class="faq-stat-num">2018</div>
+            <div class="faq-stat-lbl">Est. Dubai, UAE</div>
+          </div>
+        </div> -->
+
+        <a href="contact.html" class="btn btn-secondary faq-cta-btn">
+          <i class="fa-solid fa-message"></i> Ask Us Anything
+        </a>
+
+        <!-- Decoration Card -->
+        <div class="faq-deco-card">
+          <div class="faq-deco-icon"><i class="fa-solid fa-headset"></i></div>
+          <div>
+            <div class="faq-deco-title">Still have questions?</div>
+            <div class="faq-deco-sub">Book a free consultation — no obligation</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Premium Accordion -->
+      <div class="faq-right fade-in-right">
+        <div class="faq-list faq-list-premium">
+
+          <!-- FAQ 1 -->
+          <div class="faq-item">
+            <button class="faq-question">
+              <div class="fq-icon"><i class="fa-solid fa-user-tie"></i></div>
+              <span class="fq-text">Who founded Virtual CFO and what is their background?</span>
+              <div class="fq-toggle"><i class="fa-solid fa-chevron-down"></i></div>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">Virtual CFO was founded by a Chartered Accountant (qualified 2004) with over 20 years of finance experience, including serving as Group Financial Controller at Midcom Group — a $1B+ turnover conglomerate operating across 9 countries.</div>
+            </div>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div class="faq-item">
+            <button class="faq-question">
+              <div class="fq-icon"><i class="fa-solid fa-calendar-days"></i></div>
+              <span class="fq-text">When was Virtual CFO Management Consultancy established?</span>
+              <div class="fq-toggle"><i class="fa-solid fa-chevron-down"></i></div>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">Virtual CFO was founded in 2018 in Dubai, UAE, with the vision of making CFO-level financial expertise and automation accessible to businesses of all sizes.</div>
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class="faq-item">
+            <button class="faq-question">
+              <div class="fq-icon"><i class="fa-solid fa-globe"></i></div>
+              <span class="fq-text">What industries and geographies do you serve?</span>
+              <div class="fq-toggle"><i class="fa-solid fa-chevron-down"></i></div>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">We serve businesses across retail, professional services, technology, F&amp;B, logistics, wholesale, education, and manufacturing. While based in Dubai, we serve 200+ businesses worldwide, working remotely across geographies.</div>
+            </div>
+          </div>
+
+          <!-- FAQ 4 -->
+          <div class="faq-item">
+            <button class="faq-question">
+              <div class="fq-icon fq-icon-gold"><i class="fa-solid fa-star"></i></div>
+              <span class="fq-text">What makes Virtual CFO different from a typical finance consultancy?</span>
+              <div class="fq-toggle"><i class="fa-solid fa-chevron-down"></i></div>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">We combine deep CFO-level expertise with cutting-edge technology (Power BI, automation) and a truly customized approach — no templates. We don't just report the past; we help you plan, optimize, and grow with real-time financial intelligence.</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA — ABOUT PAGE PREMIUM (different from homepage) -->
+<section class="pcta-section about-cta-section">
+  <div class="pcta-bg" aria-hidden="true">
+    <div class="pcta-orb pcta-orb-1"></div>
+    <div class="pcta-orb pcta-orb-2"></div>
+    <div class="pcta-orb pcta-orb-3"></div>
+    <div class="pcta-grid-overlay"></div>
+    <div class="pcta-particles">
+      <span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="pcta-layout">
+
+      <!-- LEFT: Content -->
+      <div class="pcta-left fade-in-left">
+
+        <div class="pcta-badge">
+          <span class="pcta-badge-dot"></span>
+          <i class="fa-solid fa-handshake"></i>
+          Trusted by 200+ Growing Businesses
+        </div>
+
+        <h2 class="pcta-heading">
+          Let's Build Your Finance
+          <span class="pcta-heading-accent">Function Together</span>
+        </h2>
+
+        <p class="pcta-sub">We don't just deliver reports — we become your strategic finance partner. Book a free consultation and discover exactly how CFO-level expertise can accelerate your business growth.</p>
+
+        <div class="pcta-btns">
+          <a href="contact.html#consultation" class="btn btn-primary pcta-btn-primary">
+            <i class="fa-solid fa-calendar-check"></i>
+            Book Free Consultation
+            <i class="fa-solid fa-arrow-right pcta-btn-arrow"></i>
+          </a>
+          <a href="services.html" class="pcta-btn-ghost">
+            <i class="fa-solid fa-grid-2"></i>
+            Explore Services
+          </a>
+        </div>
+
+        <div class="pcta-trust">
+          <div class="pcta-trust-item"><i class="fa-solid fa-circle-check"></i><span>Chartered Accountant led</span></div>
+          <div class="pcta-trust-item"><i class="fa-solid fa-circle-check"></i><span>20+ years experience</span></div>
+          <div class="pcta-trust-item"><i class="fa-solid fa-circle-check"></i><span>No obligation, free consultation</span></div>
+          <div class="pcta-trust-item"><i class="fa-solid fa-circle-check"></i><span>UAE &amp; worldwide</span></div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Our Promise Card (different from homepage) -->
+      <div class="pcta-right fade-in-right">
+
+        <!-- Floating card - top -->
+        <div class="pcta-float-card pcta-fc-top">
+          <div class="pcta-fc-icon pcta-fci-yellow"><i class="fa-solid fa-award"></i></div>
+          <div class="pcta-fc-body">
+            <div class="pcta-fc-val">CA (2004)</div>
+            <div class="pcta-fc-lbl">Chartered Accountant</div>
+          </div>
+        </div>
+
+        <!-- Main "Our Promise" card -->
+        <div class="pcta-stats-card about-promise-card">
+          <div class="pcta-sc-shimmer" style="background:linear-gradient(90deg,transparent 8%,rgba(22,163,74,0.5) 50%,rgba(245,197,24,0.5) 80%,transparent 95%);"></div>
+
+          <div class="pcta-sc-header">
+            <div class="pcta-sc-dots"><span></span><span></span><span></span></div>
+            <span class="pcta-sc-title"><i class="fa-solid fa-handshake"></i> Our Promise to You</span>
+            <div class="pcta-sc-live" style="color:#16a34a;background:rgba(22,163,74,0.1);border-color:rgba(22,163,74,0.2);">
+              <span style="background:#16a34a;box-shadow:0 0 6px rgba(22,163,74,0.7);"></span>ACTIVE
+            </div>
+          </div>
+
+          <!-- Promise items -->
+          <div class="about-promise-list">
+            <div class="about-promise-item">
+              <div class="about-pi-icon"><i class="fa-solid fa-check"></i></div>
+              <div class="about-pi-text">
+                <div class="about-pi-title">No Templates — 100% Customized</div>
+                <div class="about-pi-sub">Every solution built specifically for your business</div>
+              </div>
+            </div>
+            <div class="about-promise-item">
+              <div class="about-pi-icon"><i class="fa-solid fa-check"></i></div>
+              <div class="about-pi-text">
+                <div class="about-pi-title">Real-Time Financial Clarity</div>
+                <div class="about-pi-sub">Power BI dashboards, live data, instant decisions</div>
+              </div>
+            </div>
+            <div class="about-promise-item">
+              <div class="about-pi-icon"><i class="fa-solid fa-check"></i></div>
+              <div class="about-pi-text">
+                <div class="about-pi-title">Proactive, Not Reactive</div>
+                <div class="about-pi-sub">We identify issues before they impact your business</div>
+              </div>
+            </div>
+            <div class="about-promise-item">
+              <div class="about-pi-icon about-pi-gold"><i class="fa-solid fa-star"></i></div>
+              <div class="about-pi-text">
+                <div class="about-pi-title">CFO-Level Leadership</div>
+                <div class="about-pi-sub">20+ years expertise — without the full-time cost</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mini metrics -->
+           
+          <div class="about-promise-metrics">
+            <div class="about-pm">
+              <div class="about-pm-num">20+</div>
+              <div class="about-pm-lbl">Years Experience</div>
+            </div>
+            <div class="about-pm-sep"></div>
+            <div class="about-pm">
+              <div class="about-pm-num">200+</div>
+              <div class="about-pm-lbl">Businesses</div>
+            </div>
+            <div class="about-pm-sep"></div>
+            <div class="about-pm">
+              <div class="about-pm-num">98%</div>
+              <div class="about-pm-lbl">Satisfaction</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Floating card - bottom -->
+        <div class="pcta-float-card pcta-fc-bottom">
+          <div class="pcta-fc-icon" style="background:rgba(22,163,74,0.2);color:#16a34a;"><i class="fa-solid fa-circle-check"></i></div>
+          <div class="pcta-fc-body">
+            <div class="pcta-fc-val">5 Yrs Avg.</div>
+            <div class="pcta-fc-lbl">Client Retention</div>
+          </div>
+        </div>
+
+      </div>
+    </div><!-- /pcta-layout -->
+
+    <!-- Bottom Strip — About specific -->
+     
+    <!-- <div class="pcta-metrics fade-in">
+      <div class="pcta-metric"><div class="pcta-m-num">8+</div><div class="pcta-m-lbl">Years CFO Practice</div></div>
+      <div class="pcta-metric"><div class="pcta-m-num">200+</div><div class="pcta-m-lbl">Businesses Served</div></div>
+      <div class="pcta-metric"><div class="pcta-m-num">9</div><div class="pcta-m-lbl">Countries Experience</div></div>
+      <div class="pcta-metric"><div class="pcta-m-num">$1B+</div><div class="pcta-m-lbl">Revenue Managed</div></div>
+    </div> -->
+
+  </div>
+</section>
+
+<div id="site-footer"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/components.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

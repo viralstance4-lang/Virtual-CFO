@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Virtual CFO Services | Hire a CFO at a Fraction of the Cost</title>
+  <meta name="description" content="Get CFO-level financial leadership without the full-time cost. Virtual CFO services for SMEs and growing businesses across UAE and worldwide."/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <style>
+    .pain-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+    .pain-card {
+      background:var(--white); border:1px solid var(--border); border-radius:var(--radius);
+      padding:24px; transition:var(--transition);
+    }
+    .pain-card:hover { border-color:var(--blue); box-shadow:var(--shadow); transform:translateY(-3px); }
+    .pain-num { font-size:2rem; font-weight:900; color:rgba(46,109,164,0.15); line-height:1; margin-bottom:8px; }
+    .pain-card h4 { color:var(--dark); margin-bottom:8px; font-size:0.95rem; }
+    .pain-card p { font-size:0.84rem; }
+
+    .what-includes { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; }
+    .wi-item {
+      display:flex; align-items:flex-start; gap:14px;
+      padding:18px; background:var(--white); border:1px solid var(--border);
+      border-radius:var(--radius); transition:var(--transition);
+    }
+    .wi-item:hover { border-color:var(--blue); transform:translateX(4px); }
+    .wi-icon { width:36px; height:36px; border-radius:8px; background:rgba(46,109,164,0.1); display:flex; align-items:center; justify-content:center; color:var(--blue); flex-shrink:0; }
+    .wi-item h5 { font-size:0.9rem; color:var(--dark); margin-bottom:3px; }
+    .wi-item p { font-size:0.82rem; }
+
+    .comparison-table { width:100%; border-collapse:collapse; border-radius:var(--radius-lg); overflow:hidden; }
+    .comparison-table th { padding:16px 20px; font-size:0.82rem; font-weight:700; text-transform:uppercase; letter-spacing:1px; }
+    .comparison-table td { padding:14px 20px; font-size:0.9rem; border-top:1px solid var(--border); }
+    .comparison-table tr:hover td { background:var(--light-gray); }
+    .comparison-table .th-feature { background:var(--dark); color:var(--white); text-align:left; }
+    .comparison-table .th-no { background:#fff0f0; color:#ef4444; text-align:center; }
+    .comparison-table .th-yes { background:#f0fdf4; color:#16a34a; text-align:center; }
+    .comparison-table td:nth-child(2) { text-align:center; color:#ef4444; }
+    .comparison-table td:nth-child(3) { text-align:center; color:#22c55e; }
+
+    @media(max-width:768px){
+      .pain-grid{grid-template-columns:1fr}
+      .what-includes{grid-template-columns:1fr}
+      .comparison-table { font-size:0.8rem; }
+      .comparison-table th, .comparison-table td { padding:10px 12px; }
+    }
+  </style>
+</head>
+<body>
+<div id="site-nav"></div>
+
+<!-- PAGE HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="container">
+    <div class="fade-in-left">
+      <div class="hero-badge mt-5"><span></span> CFO-Level Financial Leadership</div>
+      <h1>Hire a CFO for Your Business at a <em>Fraction of the Cost</em></h1>
+      <p>Most growing businesses need strategic financial leadership — but can't justify a full-time CFO. Virtual CFO gives you exactly that expertise, on a flexible model that fits your business and budget.</p>
+      <div class="hero-btns">
+        <a href="contact.html#consultation" class="btn btn-primary"><i class="fa-solid fa-calendar-check"></i> Book Free Consultation</a>
+        <a href="#plans" class="btn btn-outline" style="color:rgba(255,255,255,0.85);border-color:rgba(255,255,255,0.3)"><i class="fa-solid fa-list"></i> View Plans</a>
+      </div>
+      <div class="hero-stats mb-3">
+        <div><div class="hero-stat-num"><span data-target="200" data-suffix="+">200+</span></div><div class="hero-stat-label">Businesses Served</div></div>
+        <div><div class="hero-stat-num"><span data-target="8" data-suffix=" Yrs">8 Yrs</span></div><div class="hero-stat-label">CFO Experience</div></div>
+        <div><div class="hero-stat-num">4.7<span style="font-size:1.2rem">★</span></div><div class="hero-stat-label">Google Rating</div></div>
+      </div>
+    </div>
+    <div class="fade-in-right" style="display:flex;flex-direction:column;gap:16px">
+      <div style="background:rgba(255,255,255,0.06);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.1);border-radius:var(--radius-lg);padding:28px">
+        <div style="font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--yellow);margin-bottom:16px">What You Get</div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div style="display:flex;align-items:center;gap:12px;color:rgba(255,255,255,0.85);font-size:0.9rem"><i class="fa-solid fa-circle-check" style="color:#4ade80;flex-shrink:0"></i> CFO-level financial oversight & strategy</div>
+          <div style="display:flex;align-items:center;gap:12px;color:rgba(255,255,255,0.85);font-size:0.9rem"><i class="fa-solid fa-circle-check" style="color:#4ade80;flex-shrink:0"></i> Monthly closing & structured MIS reports</div>
+          <div style="display:flex;align-items:center;gap:12px;color:rgba(255,255,255,0.85);font-size:0.9rem"><i class="fa-solid fa-circle-check" style="color:#4ade80;flex-shrink:0"></i> Real-time Power BI dashboards</div>
+          <div style="display:flex;align-items:center;gap:12px;color:rgba(255,255,255,0.85);font-size:0.9rem"><i class="fa-solid fa-circle-check" style="color:#4ade80;flex-shrink:0"></i> Full audit & tax compliance management</div>
+          <div style="display:flex;align-items:center;gap:12px;color:rgba(255,255,255,0.85);font-size:0.9rem"><i class="fa-solid fa-circle-check" style="color:#4ade80;flex-shrink:0"></i> Cash flow planning & profitability analysis</div>
+          <div style="display:flex;align-items:center;gap:12px;color:rgba(255,255,255,0.85);font-size:0.9rem"><i class="fa-solid fa-circle-check" style="color:#4ade80;flex-shrink:0"></i> Ongoing strategic advisory & decision support</div>
+        </div>
+      </div>
+      <div style="background:rgba(245,197,24,0.1);border:1px solid rgba(245,197,24,0.25);border-radius:var(--radius);padding:20px;display:flex;align-items:center;gap:16px">
+        <i class="fa-solid fa-lightbulb" style="font-size:1.8rem;color:var(--yellow);flex-shrink:0"></i>
+        <div>
+          <div style="font-size:0.88rem;font-weight:700;color:var(--yellow)">Did You Know?</div>
+          <div style="font-size:0.84rem;color:rgba(255,255,255,0.7);margin-top:4px">A full-time CFO in the UAE can cost AED 400,000–700,000 per year. A Virtual CFO delivers the same strategic value at a fraction of that cost.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-track">
+    <div class="trust-item"><i class="fa-solid fa-building"></i> SMEs & Startups</div>
+    <div class="trust-item"><i class="fa-solid fa-chart-line"></i> Growing Businesses</div>
+    <div class="trust-item"><i class="fa-solid fa-building-columns"></i> Group Entities</div>
+    <div class="trust-item"><i class="fa-solid fa-globe"></i> UAE & Worldwide</div>
+    <div class="trust-item"><i class="fa-solid fa-handshake"></i> Long-term Partnerships</div>
+    <div class="trust-item"><i class="fa-solid fa-award"></i> CA-Led Advisory</div>
+    <div class="trust-item"><i class="fa-solid fa-building"></i> SMEs & Startups</div>
+    <div class="trust-item"><i class="fa-solid fa-chart-line"></i> Growing Businesses</div>
+    <div class="trust-item"><i class="fa-solid fa-building-columns"></i> Group Entities</div>
+    <div class="trust-item"><i class="fa-solid fa-globe"></i> UAE & Worldwide</div>
+    <div class="trust-item"><i class="fa-solid fa-handshake"></i> Long-term Partnerships</div>
+    <div class="trust-item"><i class="fa-solid fa-award"></i> CA-Led Advisory</div>
+  </div>
+</div>
+
+<!-- PAIN POINTS -->
+<section class="section">
+  <div class="container">
+    <div class="text-center mb-48 fade-in">
+      <div class="section-label">The Problem</div>
+      <h2 class="section-title">Why Most SMEs Struggle With Finance</h2>
+      <p class="section-subtitle mt-16">Without CFO-level oversight, businesses operate with incomplete information and miss critical opportunities.</p>
+    </div>
+    <div class="pain-grid">
+      <div class="pain-card fade-in"><div class="pain-num">01</div><h4>Junior-Managed Accounts</h4><p>Financial function handled without senior oversight — leading to errors, blind spots, and strategic misalignment.</p></div>
+      <div class="pain-card fade-in"><div class="pain-num">02</div><h4>Compliance Risks</h4><p>VAT, Corporate Tax, and audit obligations managed reactively — creating exposure to penalties and last-minute stress.</p></div>
+      <div class="pain-card fade-in"><div class="pain-num">03</div><h4>Manual, Delayed Reporting</h4><p>Reports take too long to prepare and are outdated by the time they reach decision-makers.</p></div>
+      <div class="pain-card fade-in"><div class="pain-num">04</div><h4>No Cash Flow Visibility</h4><p>Business owners don't know their real cash position until it becomes a crisis — not a strategy.</p></div>
+      <div class="pain-card fade-in"><div class="pain-num">05</div><h4>No Profitability Clarity</h4><p>Revenue looks healthy but profits are unclear — no visibility into which products, customers, or markets are actually profitable.</p></div>
+      <div class="pain-card fade-in"><div class="pain-num">06</div><h4>Finance Isn't Strategic</h4><p>Accounting is handled but finance is never used as a growth tool — no planning, no forecasting, no strategic direction.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT'S INCLUDED -->
+<section class="section bg-light">
+  <div class="container">
+    <div class="two-col-grid">
+      <div class="fade-in-left">
+        <div class="section-label">What's Included</div>
+        <h2 class="section-title">A Complete CFO Function for Your Business</h2>
+        <p class="mt-16">Our Virtual CFO engagement goes beyond advice — we embed ourselves into your finance function and deliver tangible results every month.</p>
+        <p class="mt-12">From the first review to ongoing strategic support, we become the financial backbone your business needs to grow with confidence.</p>
+        <div class="mt-32">
+          <a href="contact.html#consultation" class="btn btn-secondary"><i class="fa-solid fa-calendar-check"></i> Start with Free Consultation</a>
+        </div>
+      </div>
+      <div class="what-includes fade-in-right">
+        <div class="wi-item"><div class="wi-icon"><i class="fa-solid fa-chart-pie"></i></div><div><h5>Financial Strategy & Planning</h5><p>Annual budgets, rolling forecasts, and strategic financial roadmaps.</p></div></div>
+        <div class="wi-item"><div class="wi-icon"><i class="fa-solid fa-droplet"></i></div><div><h5>Cash Flow Management</h5><p>Real-time cash position tracking, working capital optimization.</p></div></div>
+        <div class="wi-item"><div class="wi-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div><div><h5>Performance Monitoring</h5><p>Monthly KPI reviews, variance analysis, and exception reporting.</p></div></div>
+        <div class="wi-item"><div class="wi-icon"><i class="fa-solid fa-chart-bar"></i></div><div><h5>Power BI Dashboards</h5><p>Real-time financial dashboards tailored to your business drivers.</p></div></div>
+        <div class="wi-item"><div class="wi-icon"><i class="fa-solid fa-shield-halved"></i></div><div><h5>Compliance Oversight</h5><p>VAT, Corporate Tax, audit readiness managed proactively.</p></div></div>
+        <div class="wi-item"><div class="wi-icon"><i class="fa-solid fa-comments"></i></div><div><h5>Strategic Advisory</h5><p>Regular CFO-level sessions with your leadership team on growth decisions.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON TABLE -->
+<section class="section">
+  <div class="container">
+    <div class="text-center mb-48 fade-in">
+      <div class="section-label">The Comparison</div>
+      <h2 class="section-title">Virtual CFO vs. Traditional Accounting</h2>
+    </div>
+    <div style="overflow-x:auto" class="fade-in">
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th class="th-feature">What You Get</th>
+            <th class="th-no"><i class="fa-solid fa-xmark"></i> Traditional Accountant</th>
+            <th class="th-yes"><i class="fa-solid fa-check"></i> Virtual CFO</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Financial record-keeping & bookkeeping</td><td>✓</td><td>✓</td></tr>
+          <tr><td>VAT & Tax compliance</td><td>✓</td><td>✓</td></tr>
+          <tr><td>Audit support</td><td>Limited</td><td>✓ Full</td></tr>
+          <tr><td>Monthly closing & MIS reports</td><td>Basic</td><td>✓ Structured</td></tr>
+          <tr><td>Real-time Power BI dashboards</td><td>✗</td><td>✓</td></tr>
+          <tr><td>Financial strategy & planning</td><td>✗</td><td>✓</td></tr>
+          <tr><td>Cash flow management</td><td>✗</td><td>✓</td></tr>
+          <tr><td>Profitability analysis</td><td>✗</td><td>✓</td></tr>
+          <tr><td>Budget vs. Actual tracking</td><td>✗</td><td>✓</td></tr>
+          <tr><td>Strategic decision support</td><td>✗</td><td>✓</td></tr>
+          <tr><td>Process optimization</td><td>✗</td><td>✓</td></tr>
+          <tr><td>Proactive financial leadership</td><td>✗</td><td>✓</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- PLANS -->
+<section class="section bg-light" id="plans">
+  <div class="container">
+    <div class="text-center mb-64 fade-in">
+      <div class="section-label">Engagement Plans</div>
+      <h2 class="section-title">Choose the Right Level of Support</h2>
+      <p class="section-subtitle mt-16">All plans are flexible and customizable. Contact us for a tailored proposal.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-card fade-in">
+        <div class="pricing-name">Pro</div>
+        <div class="pricing-price">Custom <span>/ month</span></div>
+        <div class="pricing-desc">Build Strong Financial Foundations — ideal for SMEs looking to bring structure and clarity to their finance function.</div>
+        <ul class="pricing-features">
+          <li><i class="fa-solid fa-check"></i> Monthly closing & reconciliation</li>
+          <li><i class="fa-solid fa-check"></i> MIS reporting — P&L, BS, Cash Flow</li>
+          <li><i class="fa-solid fa-check"></i> VAT & compliance management</li>
+          <li><i class="fa-solid fa-check"></i> Basic Power BI dashboard</li>
+          <li><i class="fa-solid fa-check"></i> Monthly CFO review session</li>
+          <li><i class="fa-solid fa-check"></i> Email & WhatsApp support</li>
+        </ul>
+        <a href="contact.html#consultation" class="btn btn-outline" style="width:100%;justify-content:center">Get Started</a>
+      </div>
+      <div class="pricing-card featured fade-in">
+        <div class="pricing-name">Premium</div>
+        <div class="pricing-price">Custom <span>/ month</span></div>
+        <div class="pricing-desc">Performance & Profitability Optimization — for scaling companies that need deeper financial intelligence and strategy.</div>
+        <ul class="pricing-features">
+          <li><i class="fa-solid fa-check"></i> Everything in Pro</li>
+          <li><i class="fa-solid fa-check"></i> Full Power BI dashboard suite</li>
+          <li><i class="fa-solid fa-check"></i> Cash flow forecasting</li>
+          <li><i class="fa-solid fa-check"></i> Budget vs. Actual tracking</li>
+          <li><i class="fa-solid fa-check"></i> Corporate Tax management</li>
+          <li><i class="fa-solid fa-check"></i> Profitability analysis by segment</li>
+          <li><i class="fa-solid fa-check"></i> Bi-weekly CFO sessions</li>
+          <li><i class="fa-solid fa-check"></i> Process optimization review</li>
+        </ul>
+        <a href="contact.html#consultation" class="btn btn-secondary" style="width:100%;justify-content:center">Get Started</a>
+      </div>
+      <div class="pricing-card fade-in">
+        <div class="pricing-name">Enterprise</div>
+        <div class="pricing-price">Custom <span>/ month</span></div>
+        <div class="pricing-desc">Full Strategic CFO Leadership — for complex businesses, group entities, and organizations needing deep CFO involvement.</div>
+        <ul class="pricing-features">
+          <li><i class="fa-solid fa-check"></i> Everything in Premium</li>
+          <li><i class="fa-solid fa-check"></i> Group consolidation</li>
+          <li><i class="fa-solid fa-check"></i> Multi-entity, multi-currency</li>
+          <li><i class="fa-solid fa-check"></i> Financial modeling</li>
+          <li><i class="fa-solid fa-check"></i> Investor/board reporting</li>
+          <li><i class="fa-solid fa-check"></i> Weekly CFO engagement</li>
+          <li><i class="fa-solid fa-check"></i> Full finance function management</li>
+          <li><i class="fa-solid fa-check"></i> Dedicated CFO support</li>
+        </ul>
+        <a href="contact.html#consultation" class="btn btn-outline" style="width:100%;justify-content:center">Get Started</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="section">
+  <div class="container">
+    <div class="text-center mb-64 fade-in">
+      <div class="section-label">Our Process</div>
+      <h2 class="section-title">How We Transform Your Finance Function</h2>
+    </div>
+    <div class="process-grid">
+      <div class="process-card fade-in"><div class="process-num">1</div><h4>Free Consultation</h4><p>We understand your business, current finance setup, and identify the biggest gaps and opportunities.</p></div>
+      <div class="process-card fade-in"><div class="process-num">2</div><h4>Customized Proposal</h4><p>We design a tailored engagement plan — the right services at the right level for your specific business needs.</p></div>
+      <div class="process-card fade-in"><div class="process-num">3</div><h4>Onboarding & Implementation</h4><p>Fast onboarding. We review your accounts, set up systems, and begin delivering structured reports and insights.</p></div>
+      <div class="process-card fade-in"><div class="process-num">4</div><h4>Ongoing CFO Partnership</h4><p>Monthly reviews, real-time dashboards, strategic sessions, and continuous support as your business grows.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section bg-light">
+  <div class="container">
+    <div class="text-center mb-48 fade-in">
+      <div class="section-label">Client Stories</div>
+      <h2 class="section-title">What Our Virtual CFO Clients Say</h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card fade-in">
+        <div class="testimonial-quote">"</div>
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">The level of financial oversight and strategic clarity we now have is something I never thought possible for a business our size. Virtual CFO has been a game-changer for how we run our finances.</p>
+        <div class="testimonial-author"><div class="author-avatar">TK</div><div><div class="author-name">Tawab Kazemi</div><div class="author-title">Founder, 4E Road Safety Consultants</div></div></div>
+      </div>
+      <div class="testimonial-card fade-in">
+        <div class="testimonial-quote">"</div>
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">We went from having no real financial structure to a fully managed finance function with real-time dashboards. The team understands both finance and business — a rare combination.</p>
+        <div class="testimonial-author"><div class="author-avatar">ME</div><div><div class="author-name">Murtuza Ezzi</div><div class="author-title">CEO, Index Infotech Group</div></div></div>
+      </div>
+      <div class="testimonial-card fade-in">
+        <div class="testimonial-quote">"</div>
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">Having Virtual CFO means we always have a senior financial mind thinking about our business. The strategic value they bring far exceeds what we pay — it's the best investment we've made.</p>
+        <div class="testimonial-author"><div class="author-avatar">MK</div><div><div class="author-name">Mohammad Khamusi</div><div class="author-title">Partner, Fulk Diesel Trading</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section">
+  <div class="container" style="max-width:800px">
+    <div class="text-center mb-48 fade-in">
+      <div class="section-label">FAQ</div>
+      <h2 class="section-title">Virtual CFO — Common Questions</h2>
+    </div>
+    <div class="faq-list fade-in">
+      <div class="faq-item">
+        <button class="faq-question">Is a Virtual CFO the same as an in-house CFO? <i class="fa-solid fa-plus faq-icon"></i></button>
+        <div class="faq-answer"><div class="faq-answer-inner">A Virtual CFO provides the same strategic expertise and financial leadership as an in-house CFO, but on a flexible, part-time basis. You get all the value without the full-time salary, benefits, and overhead costs.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">How many hours per month do you dedicate to my business? <i class="fa-solid fa-plus faq-icon"></i></button>
+        <div class="faq-answer"><div class="faq-answer-inner">This varies by engagement plan. We customize the time and touchpoints based on your business complexity, reporting needs, and strategic requirements — ensuring the right level of support at every stage.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">Do you work remotely or visit our office? <i class="fa-solid fa-plus faq-icon"></i></button>
+        <div class="faq-answer"><div class="faq-answer-inner">We work both remotely and on-site as required. Most of our work is delivered remotely via digital tools, with periodic on-site meetings for strategic sessions and reviews — especially for UAE-based clients.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">Can you work with our existing accountant? <i class="fa-solid fa-plus faq-icon"></i></button>
+        <div class="faq-answer"><div class="faq-answer-inner">Absolutely. We work alongside your existing accounting team, adding the CFO-level layer of review, strategy, and oversight. We complement — never replace — your existing team.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">How quickly will I see results? <i class="fa-solid fa-plus faq-icon"></i></button>
+        <div class="faq-answer"><div class="faq-answer-inner">Most clients see immediate improvements in financial clarity and reporting within the first month. Strategic impact — better profitability, cash flow control, and growth planning — builds over the first 2–3 months of engagement.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section-sm">
+  <div class="container">
+    <div class="cta-section fade-in">
+      <h2>Get a CFO for Your Business Today</h2>
+      <p>Book a free consultation. We'll assess your business and show you exactly how Virtual CFO can transform your finance function.</p>
+      <div class="cta-btns">
+        <a href="contact.html#consultation" class="btn btn-primary"><i class="fa-solid fa-calendar-check"></i> Book Free Consultation</a>
+        <a href="tel:+971565075253" class="btn btn-white"><i class="fa-solid fa-phone"></i> Call Now: +971 56 507 5253</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/components.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,1632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Virtual CFO Management Consultancy | CFO-Level Financial Expertise for Every Business</title>
+  <meta name="description" content="Virtual CFO provides CFO-level financial strategy, Power BI dashboards, month-end closing, audit & tax compliance, and process optimization for businesses of all sizes in Dubai, UAE."/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <style>
+    /* Home-page specific */
+    .misconception-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .misconception-card {
+      padding: 24px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+    }
+    .misconception-card.wrong { background: #fff5f5; border-color: #fca5a5; }
+    .misconception-card.right { background: #f0fdf4; border-color: #86efac; }
+    .mc-label {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; margin-bottom: 8px;
+    }
+    .mc-label.red { color: #ef4444; }
+    .mc-label.green { color: #22c55e; }
+    .misconception-card p { font-size: 0.92rem; font-weight: 500; color: var(--dark); }
+
+    .before-after {
+      display: grid;
+      grid-template-columns: 1fr 60px 1fr;
+      gap: 0;
+      align-items: center;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+    .ba-col { padding: 36px; }
+    .ba-col.before { background: #fafafa; }
+    .ba-col.after { background: #f0f9ff; }
+    .ba-divider {
+      background: linear-gradient(to bottom, var(--blue), var(--yellow));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-weight: 800;
+      font-size: 0.8rem;
+      writing-mode: vertical-rl;
+      letter-spacing: 2px;
+      height: 100%;
+    }
+    .ba-title { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px; }
+    .ba-col.before .ba-title { color: #ef4444; }
+    .ba-col.after .ba-title { color: #22c55e; }
+    .ba-list { display: flex; flex-direction: column; gap: 10px; }
+    .ba-item { display: flex; align-items: center; gap: 10px; font-size: 0.88rem; color: var(--dark); }
+    .ba-item i { flex-shrink: 0; }
+    .ba-col.before .ba-item i { color: #ef4444; }
+    .ba-col.after .ba-item i { color: #22c55e; }
+
+    @media(max-width:768px) {
+      .misconception-grid { grid-template-columns: 1fr; }
+      .before-after { grid-template-columns: 1fr; }
+      .ba-divider { writing-mode: horizontal-tb; height: 48px; width: 100%; }
+    }
+  </style>
+</head>
+<body>
+<div id="scroll-progress"></div>
+<div id="site-nav"></div>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <!-- Layered Background -->
+  <div class="hero-bg">
+    <div class="hero-orb hero-orb-1"></div>
+    <div class="hero-orb hero-orb-2"></div>
+    <div class="hero-orb hero-orb-3"></div>
+  </div>
+  <div class="hero-grid"></div>
+  <div class="hero-particles">
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span>
+  </div>
+  <div class="hero-mouse-glow" id="heroMouseGlow"></div>
+
+  <div class="container">
+    <!-- LEFT: Hero Content -->
+    <div class="hero-content fade-in-left">
+
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        Trusted by 200+ Businesses Worldwide
+      </div>
+
+      <h1 class="hero-headline">
+        Scale Your Business with<br>
+        <em id="heroTypingText">Virtual CFO Services</em>
+      </h1>
+
+      <p class="hero-desc">Smart financial strategy meets data-driven intelligence — delivering CFO-level expertise, real-time dashboards, and strategic growth planning for ambitious businesses.</p>
+
+      <div class="hero-btns">
+        <a href="contact.html#consultation" class="btn btn-primary hero-btn-primary">
+          <i class="fa-solid fa-calendar-check"></i> Book Free Consultation
+        </a>
+        <a href="virtual-cfo.html" class="btn btn-hero-outline">
+          <i class="fa-solid fa-play-circle"></i> How It Works
+        </a>
+      </div>
+
+      <div class="hero-trust-row">
+        <div class="hero-avatars">
+          <div class="hero-avatar ha-1"></div>
+          <div class="hero-avatar ha-2"></div>
+          <div class="hero-avatar ha-3"></div>
+          <div class="hero-avatar ha-4"></div>
+        </div>
+        <div class="hero-rating">
+          <div class="hero-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="hero-rating-text">4.9/5 from 200+ happy clients</div>
+        </div>
+      </div>
+
+      <div class="hero-stats mb-3">
+        <div class="hero-stat">
+          <div class="hero-stat-num"><span data-target="200" data-suffix="+">200+</span></div>
+          <div class="hero-stat-label">Businesses Served</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num"><span data-target="8" data-suffix=" Yrs">8 Yrs</span></div>
+          <div class="hero-stat-label">Experience</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num"><span data-target="100" data-suffix="+">100+</span></div>
+          <div class="hero-stat-label">Dashboards Delivered</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num"><span data-target="5" data-suffix=" Yrs">5 Yrs</span></div>
+          <div class="hero-stat-label">Avg. Client Retention</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Premium Dashboard Mockup -->
+    <div class="hero-mockup-wrap fade-in-right">
+
+      <!-- Floating Mini Cards -->
+      <div class="float-card float-card-tl">
+        <div class="float-card-icon"><i class="fa-solid fa-arrow-trend-up"></i></div>
+        <div class="float-card-body">
+          <div class="float-card-val">+24.8%</div>
+          <div class="float-card-label">Revenue Growth</div>
+        </div>
+      </div>
+      <div class="float-card float-card-br">
+        <div class="float-card-icon float-icon-gold"><i class="fa-solid fa-sack-dollar"></i></div>
+        <div class="float-card-body">
+          <div class="float-card-val">AED 1.1M</div>
+          <div class="float-card-label">Net Profit Q3</div>
+        </div>
+      </div>
+
+      <!-- Main Glassmorphism Dashboard -->
+      <div class="dashboard-mockup">
+        <div class="mockup-header">
+          <div class="mockup-dots"><span></span><span></span><span></span></div>
+          <div class="mockup-title">
+            <i class="fa-solid fa-chart-line" style="color:var(--yellow);font-size:0.62rem;margin-right:5px;"></i>
+            Financial Performance Dashboard
+          </div>
+          <div class="mockup-live-badge"><span></span>LIVE</div>
+        </div>
+
+        <div class="mockup-cards">
+          <div class="mockup-card">
+            <div class="mockup-card-val">AED 4.2M</div>
+            <div class="mockup-card-label">Total Revenue</div>
+            <div class="mockup-card-trend"><i class="fa-solid fa-caret-up"></i> 18.4%</div>
+          </div>
+          <div class="mockup-card">
+            <div class="mockup-card-val">68.3%</div>
+            <div class="mockup-card-label">Gross Margin</div>
+            <div class="mockup-card-trend"><i class="fa-solid fa-caret-up"></i> 5.2%</div>
+          </div>
+          <div class="mockup-card">
+            <div class="mockup-card-val">AED 1.1M</div>
+            <div class="mockup-card-label">Net Profit</div>
+            <div class="mockup-card-trend"><i class="fa-solid fa-caret-up"></i> 22.1%</div>
+          </div>
+        </div>
+
+        <!-- Live Animated SVG Line Chart -->
+        <div class="mockup-chart-area">
+          <div class="chart-area-header">
+            <div class="chart-legend-row">
+              <div class="chart-legend-dot" style="background:#4a8cc4"></div>
+              <span>Revenue</span>
+              <span class="chart-live-val" id="chartRevVal"></span>
+              <div class="chart-legend-dot" style="background:#F5C518;margin-left:8px;"></div>
+              <span>Profit</span>
+              <span class="chart-live-val chart-live-val-yellow" id="chartProfVal"></span>
+            </div>
+            <div class="chart-period live-label"><span class="live-dot-small"></span>LIVE</div>
+          </div>
+          <svg id="heroLineChart" class="hero-svg-chart" viewBox="0 0 300 80" preserveAspectRatio="none"></svg>
+          <div class="chart-month-labels">
+            <span>Jan</span>
+            <span>Mar</span>
+            <span>May</span>
+            <span>Jul</span>
+            <span>Sep</span>
+            <span>Nov</span>
+          </div>
+        </div>
+
+        <!-- Progress Indicators -->
+        <div class="mockup-progress-row">
+          <div class="mockup-progress-item">
+            <div class="mp-label">Cash Flow</div>
+            <div class="mp-bar"><div class="mp-fill mp-fill-blue" data-width="78%"></div></div>
+            <div class="mp-val">78%</div>
+          </div>
+          <div class="mockup-progress-item">
+            <div class="mp-label">Budget Util.</div>
+            <div class="mp-bar"><div class="mp-fill mp-fill-gold" data-width="65%"></div></div>
+            <div class="mp-val">65%</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-track">
+    <div class="trust-item"><i class="fa-solid fa-shield-halved"></i> 200+ Businesses Served</div>
+    <div class="trust-item"><i class="fa-solid fa-star"></i> 4.9 / 5 Client Rating</div>
+    <div class="trust-item"><i class="fa-solid fa-chart-bar"></i> 100+ Power BI Dashboards</div>
+    <div class="trust-item"><i class="fa-solid fa-clock"></i> 5 Year Avg. Retention</div>
+    <div class="trust-item"><i class="fa-solid fa-globe"></i> UAE &amp; Worldwide</div>
+    <div class="trust-item"><i class="fa-solid fa-award"></i> Chartered Accountant Led</div>
+    <div class="trust-item"><i class="fa-solid fa-bolt"></i> Real-Time Financial Insights</div>
+    <div class="trust-item"><i class="fa-solid fa-lock"></i> 100% Confidential &amp; Secure</div>
+    <!-- Duplicate for seamless loop -->
+    <div class="trust-item"><i class="fa-solid fa-shield-halved"></i> 200+ Businesses Served</div>
+    <div class="trust-item"><i class="fa-solid fa-star"></i> 4.9 / 5 Client Rating</div>
+    <div class="trust-item"><i class="fa-solid fa-chart-bar"></i> 100+ Power BI Dashboards</div>
+    <div class="trust-item"><i class="fa-solid fa-clock"></i> 5 Year Avg. Retention</div>
+    <div class="trust-item"><i class="fa-solid fa-globe"></i> UAE &amp; Worldwide</div>
+    <div class="trust-item"><i class="fa-solid fa-award"></i> Chartered Accountant Led</div>
+    <div class="trust-item"><i class="fa-solid fa-bolt"></i> Real-Time Financial Insights</div>
+    <div class="trust-item"><i class="fa-solid fa-lock"></i> 100% Confidential &amp; Secure</div>
+  </div>
+</div>
+
+<!-- WHY VIRTUAL CFO — PREMIUM COMPARISON SECTION -->
+<section class="section vcfo-compare-section" id="why-vcfo">
+  <div class="vcfo-compare-bg-decor">
+    <div class="vcfo-decor-orb vcfo-decor-orb-1"></div>
+    <div class="vcfo-decor-orb vcfo-decor-orb-2"></div>
+    <div class="vcfo-decor-grid"></div>
+  </div>
+  <div class="container">
+
+    <!-- Section Header -->
+    <div class="text-center mb-64 fade-in">
+      <div class="section-label">Why Virtual CFO?</div>
+      <h2 class="section-title">
+        <span class="compare-heading-old">Traditional Accounting</span>
+        <span class="compare-heading-vs"> vs. </span>
+        <span class="compare-heading-new">Modern Virtual CFO</span>
+      </h2>
+      <p class="section-subtitle mt-16">Most businesses are stuck with reactive accounting that records the past. We deliver proactive financial leadership — with real-time insights, strategic planning, and CFO-level guidance that shapes your future.</p>
+    </div>
+
+    <!-- Main Comparison Grid -->
+    <div class="vcfo-compare-grid">
+
+      <!-- LEFT: Traditional Accounting Panel -->
+      <div class="cmp-panel cmp-panel-left fade-in-left">
+        <!-- Panel shimmer top line -->
+        <div class="cmp-panel-shimmer cmp-shimmer-red"></div>
+
+        <!-- Panel Header -->
+        <div class="cmp-panel-header">
+          <div class="cmp-panel-icon cmp-icon-red">
+            <i class="fa-solid fa-file-invoice-dollar"></i>
+          </div>
+          <div>
+            <div class="cmp-panel-title cmp-title-red">Traditional Accounting</div>
+            <div class="cmp-panel-subtitle">Reactive &nbsp;·&nbsp; Delayed &nbsp;·&nbsp; Limiting</div>
+          </div>
+          <div class="cmp-panel-badge cmp-badge-red">
+            <i class="fa-solid fa-triangle-exclamation"></i> Outdated
+          </div>
+        </div>
+
+        <!-- Comparison Rows -->
+        <div class="cmp-rows">
+          <div class="cmp-row cmp-row-bad stagger-reveal" style="--stagger:0">
+            <div class="cmp-row-icon cmp-icon-x"><i class="fa-solid fa-xmark"></i></div>
+            <div class="cmp-row-body">
+              <div class="cmp-row-title">Manual bookkeeping only</div>
+              <div class="cmp-row-desc">Records the past — no strategy, no forward planning</div>
+            </div>
+          </div>
+          <div class="cmp-row cmp-row-bad stagger-reveal" style="--stagger:1">
+            <div class="cmp-row-icon cmp-icon-x"><i class="fa-solid fa-xmark"></i></div>
+            <div class="cmp-row-body">
+              <div class="cmp-row-title">Delayed, manual reports</div>
+              <div class="cmp-row-desc">Decisions made on outdated, manually prepared data</div>
+            </div>
+          </div>
+          <div class="cmp-row cmp-row-bad stagger-reveal" style="--stagger:2">
+            <div class="cmp-row-icon cmp-icon-x"><i class="fa-solid fa-xmark"></i></div>
+            <div class="cmp-row-body">
+              <div class="cmp-row-title">No financial strategy</div>
+              <div class="cmp-row-desc">No planning, forecasting, or CFO-level guidance</div>
+            </div>
+          </div>
+          <div class="cmp-row cmp-row-bad stagger-reveal" style="--stagger:3">
+            <div class="cmp-row-icon cmp-icon-x"><i class="fa-solid fa-xmark"></i></div>
+            <div class="cmp-row-body">
+              <div class="cmp-row-title">Reactive to problems</div>
+              <div class="cmp-row-desc">Issues discovered only after impacting the business</div>
+            </div>
+          </div>
+          <div class="cmp-row cmp-row-bad stagger-reveal" style="--stagger:4">
+            <div class="cmp-row-icon cmp-icon-x"><i class="fa-solid fa-xmark"></i></div>
+            <div class="cmp-row-body">
+              <div class="cmp-row-title">No growth visibility</div>
+              <div class="cmp-row-desc">No insight into profitability drivers or growth levers</div>
+            </div>
+          </div>
+          <div class="cmp-row cmp-row-bad stagger-reveal" style="--stagger:5">
+            <div class="cmp-row-icon cmp-icon-x"><i class="fa-solid fa-xmark"></i></div>
+            <div class="cmp-row-body">
+              <div class="cmp-row-title">Persistent compliance risks</div>
+              <div class="cmp-row-desc">VAT, audit, and regulatory risks left unmanaged</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel Footer -->
+        <div class="cmp-panel-footer cmp-footer-red">
+          <i class="fa-solid fa-arrow-trend-down"></i>
+          <span>Limits your business growth potential</span>
+        </div>
+      </div>
+
+      <!-- CENTER: VS Divider -->
+      <div class="cmp-vs-center">
+        <div class="cmp-vs-line cmp-vs-line-top"></div>
+        <div class="cmp-vs-badge">
+          <span>VS</span>
+        </div>
+        <div class="cmp-vs-line cmp-vs-line-bottom"></div>
+        <!-- Finance dots -->
+        <div class="cmp-vs-dot" style="top:20%;"></div>
+        <div class="cmp-vs-dot" style="top:45%;"></div>
+        <div class="cmp-vs-dot" style="top:70%;"></div>
+      </div>
+
+      <!-- RIGHT: Virtual CFO Panel -->
+      <div class="cmp-panel cmp-panel-right fade-in-right">
+        <!-- Panel shimmer top line -->
+        <div class="cmp-panel-shimmer cmp-shimmer-blue"></div>
+
+        <!-- Panel Header -->
+        <div class="cmp-panel-header">
+          <div class="cmp-panel-icon cmp-icon-blue">
+            <i class="fa-solid fa-chart-line"></i>
+          </div>
+          <div>
+            <div class="cmp-panel-title cmp-title-blue">Virtual CFO Services</div>
+            <div class="cmp-panel-subtitle">Proactive &nbsp;·&nbsp; Strategic &nbsp;·&nbsp; Scalable</div>
+          </div>
+          <div class="cmp-panel-badge cmp-badge-green">
+            <i class="fa-solid fa-circle-check"></i> Recommended
+          </div>
+        </div>
+
+        <!-- Comparison Rows -->
+        <div class="cmp-rows">
+          <div class="cmp-row cmp-row-good stagger-reveal" style="--stagger:0">
+            <div class="cmp-row-icon cmp-icon-check"><i class="fa-solid fa-check"></i></div>
+            <div class="cmp-row-body">
+              <div class="cmp-row-title">CFO-level financial strategy</div>
+              <div class="cmp-row-desc">Full planning, forecasting, and executive-level leadership</div>
+            </div>
+          </div>
+          <div class="cmp-row cmp-row-good stagger-reveal" style="--stagger:1">
+            <div class="cmp-row-icon cmp-icon-check"><i class="fa-solid fa-check"></i></div>
+            <div class="cmp-row-body">
+              <div class="cmp-row-title">Real-time Power BI dashboards</div>
+              <div class="cmp-row-desc">Live data visualization with instant business insights</div>
+            </div>
+          </div>
+          <div class="cmp-row cmp-row-good stagger-reveal" style="--stagger:2">
+            <div class="cmp-row-icon cmp-icon-check"><i class="fa-solid fa-check"></i></div>
+            <div class="cmp-row-body">
+              <div class="cmp-row-title">Data-driven decision making</div>
+              <div class="cmp-row-desc">Strategic decisions backed by accurate financial intelligence</div>
+            </div>
+          </div>
+          <div class="cmp-row cmp-row-good stagger-reveal" style="--stagger:3">
+            <div class="cmp-row-icon cmp-icon-check"><i class="fa-solid fa-check"></i></div>
+            <div class="cmp-row-body">
+              <div class="cmp-row-title">Proactive risk management</div>
+              <div class="cmp-row-desc">Problems identified and resolved before they impact growth</div>
+            </div>
+          </div>
+          <div class="cmp-row cmp-row-good stagger-reveal" style="--stagger:4">
+            <div class="cmp-row-icon cmp-icon-check"><i class="fa-solid fa-check"></i></div>
+            <div class="cmp-row-body">
+              <div class="cmp-row-title">Full profitability visibility</div>
+              <div class="cmp-row-desc">Clear insight into margins, costs, and growth opportunities</div>
+            </div>
+          </div>
+          <div class="cmp-row cmp-row-good stagger-reveal" style="--stagger:5">
+            <div class="cmp-row-icon cmp-icon-check"><i class="fa-solid fa-check"></i></div>
+            <div class="cmp-row-body">
+              <div class="cmp-row-title">Always audit &amp; compliance ready</div>
+              <div class="cmp-row-desc">VAT, corporate tax, and audit obligations fully managed</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel Footer -->
+        <div class="cmp-panel-footer cmp-footer-blue">
+          <i class="fa-solid fa-arrow-trend-up"></i>
+          <span>Accelerates business growth and financial clarity</span>
+        </div>
+      </div>
+
+    </div><!-- /vcfo-compare-grid -->
+
+    <!-- Bottom: Trust + CTA Strip -->
+    <div class="cmp-cta-strip fade-in">
+      <div class="cmp-cta-left">
+        <div class="cmp-cta-heading">Ready to make the switch?</div>
+        <div class="cmp-cta-trust">
+          <div class="cmp-trust-item"><i class="fa-solid fa-circle-check"></i><span>200+ businesses served</span></div>
+          <div class="cmp-trust-item"><i class="fa-solid fa-circle-check"></i><span>UAE &amp; worldwide</span></div>
+          <div class="cmp-trust-item"><i class="fa-solid fa-circle-check"></i><span>No commitment required</span></div>
+          <div class="cmp-trust-item"><i class="fa-solid fa-circle-check"></i><span>Reply within 24 hours</span></div>
+        </div>
+      </div>
+      <a href="contact.html#consultation" class="btn btn-primary cmp-cta-btn">
+        <i class="fa-solid fa-calendar-check"></i>
+        Book Free Consultation
+        <i class="fa-solid fa-arrow-right cmp-btn-arrow"></i>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- STATS -->
+
+<!-- <section class="section-sm">
+  <div class="container">
+    <div class="stats-grid fade-in">
+      <div class="stat-card text-center">
+        <div class="stat-icon"><i class="fa-solid fa-building"></i></div>
+        <div class="stat-num"><span data-target="200" data-suffix="+">200+</span></div>
+        <div class="stat-label">Companies Worldwide</div>
+      </div>
+      <div class="stat-card text-center">
+        <div class="stat-icon"><i class="fa-solid fa-briefcase"></i></div>
+        <div class="stat-num"><span data-target="8" data-suffix="+">8+</span></div>
+        <div class="stat-label">Years of Experience</div>
+      </div>
+      <div class="stat-card text-center">
+        <div class="stat-icon"><i class="fa-solid fa-chart-pie"></i></div>
+        <div class="stat-num"><span data-target="100" data-suffix="+">100+</span></div>
+        <div class="stat-label">Dashboards Delivered</div>
+      </div>
+      <div class="stat-card text-center">
+        <div class="stat-icon"><i class="fa-solid fa-handshake"></i></div>
+        <div class="stat-num"><span data-target="5" data-suffix=" Yrs">5 Yrs</span></div>
+        <div class="stat-label">Avg. Client Retention</div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+<!-- SERVICES SNAPSHOT — PREMIUM -->
+<section class="section services-section" id="services">
+  <!-- Background decorative elements -->
+  <div class="svc-bg-decor" aria-hidden="true">
+    <div class="svc-orb svc-orb-1"></div>
+    <div class="svc-orb svc-orb-2"></div>
+    <div class="svc-orb svc-orb-3"></div>
+    <div class="svc-grid-pattern"></div>
+  </div>
+
+  <div class="container" style="position:relative;z-index:1;">
+    <!-- Section Header -->
+    <div class="text-center mb-56 fade-in">
+      <div class="section-label">What We Do</div>
+      <h2 class="section-title">
+        <span class="section-title-underline">Comprehensive Finance Services</span>
+      </h2>
+      <p class="section-subtitle mt-16">From strategic CFO advisory to real-time Power BI dashboards — we cover your entire finance function so you can focus on growing your business.</p>
+      <!-- Service count indicator -->
+      <div class="svc-count-strip">
+        <span><i class="fa-solid fa-circle-check"></i> 6 Core Services</span>
+        <span><i class="fa-solid fa-circle-check"></i> Fully Customizable</span>
+        <span><i class="fa-solid fa-circle-check"></i> UAE & Worldwide</span>
+      </div>
+      <br><br>
+    </div>
+
+    <!-- Services Grid -->
+    <div class="services-grid">
+
+      <!-- 1. Virtual CFO — FEATURED -->
+      <div class="service-card svc-featured fade-in-up stagger-1">
+        <div class="svc-card-num">01</div>
+        <div class="svc-featured-badge"><i class="fa-solid fa-crown"></i> Most Popular</div>
+        <div class="service-icon"><i class="fa-solid fa-chart-line"></i></div>
+        <h3>Virtual CFO Services</h3>
+        <p>CFO-level financial strategy, planning, and leadership — without the full-time cost. We align your finance function with business growth objectives.</p>
+        <div class="svc-tags">
+          <span class="svc-tag">Strategic Planning</span>
+          <span class="svc-tag">Financial Leadership</span>
+          <span class="svc-tag">Growth Advisory</span>
+        </div>
+        <a href="virtual-cfo.html" class="service-link">
+          <span>Learn More</span><i class="fa-solid fa-arrow-right svc-arrow"></i>
+        </a>
+      </div>
+
+      <!-- 2. Month-end -->
+      <div class="service-card fade-in-up stagger-2">
+        <div class="svc-card-num">02</div>
+        <div class="service-icon"><i class="fa-solid fa-calendar-check"></i></div>
+        <h3>Month-end Closing &amp; MIS</h3>
+        <p>Accurate books, reconciled accounts, and structured MIS reports that give you real visibility into business performance every month.</p>
+        <div class="svc-tags">
+          <span class="svc-tag">Reconciliation</span>
+          <span class="svc-tag">MIS Reports</span>
+        </div>
+        <a href="services.html#month-end" class="service-link">
+          <span>Learn More</span><i class="fa-solid fa-arrow-right svc-arrow"></i>
+        </a>
+      </div>
+
+      <!-- 3. Audit & Tax -->
+      <div class="service-card fade-in-up stagger-3">
+        <div class="svc-card-num">03</div>
+        <div class="service-icon"><i class="fa-solid fa-shield-halved"></i></div>
+        <h3>Audit &amp; Tax Compliance</h3>
+        <p>Stay audit-ready year-round. We proactively manage all statutory obligations — VAT, Corporate Tax, E-Invoicing, and more.</p>
+        <div class="svc-tags">
+          <span class="svc-tag">VAT Compliance</span>
+          <span class="svc-tag">Corporate Tax</span>
+        </div>
+        <a href="services.html#audit-tax" class="service-link">
+          <span>Learn More</span><i class="fa-solid fa-arrow-right svc-arrow"></i>
+        </a>
+      </div>
+
+      <!-- 4. Power BI -->
+      <div class="service-card fade-in-up stagger-4">
+        <div class="svc-card-num">04</div>
+        <div class="service-icon"><i class="fa-solid fa-chart-bar"></i></div>
+        <h3>Power BI Consulting</h3>
+        <p>Real-time interactive dashboards that turn raw data into decision-ready insights. Connects any system — Tally, SAP, ERP, Excel.</p>
+        <div class="svc-tags">
+          <span class="svc-tag">Live Dashboards</span>
+          <span class="svc-tag">Data Analytics</span>
+        </div>
+        <a href="power-bi.html" class="service-link">
+          <span>Learn More</span><i class="fa-solid fa-arrow-right svc-arrow"></i>
+        </a>
+      </div>
+
+      <!-- 5. Process Optimization -->
+      <div class="service-card fade-in-up stagger-5">
+        <div class="svc-card-num">05</div>
+        <div class="service-icon"><i class="fa-solid fa-gears"></i></div>
+        <h3>Process Optimization</h3>
+        <p>Redesign fragmented finance workflows. We identify bottlenecks, standardize processes, and build a scalable, efficient finance function.</p>
+        <div class="svc-tags">
+          <span class="svc-tag">Workflow Design</span>
+          <span class="svc-tag">Scalability</span>
+        </div>
+        <a href="services.html#process" class="service-link">
+          <span>Learn More</span><i class="fa-solid fa-arrow-right svc-arrow"></i>
+        </a>
+      </div>
+
+      <!-- 6. Special Projects -->
+      <div class="service-card fade-in-up stagger-6">
+        <div class="svc-card-num">06</div>
+        <div class="service-icon"><i class="fa-solid fa-diagram-project"></i></div>
+        <h3>Special Projects</h3>
+        <p>Financial modeling, consolidation, due diligence, system implementation, and other custom CFO-level projects on demand.</p>
+        <div class="svc-tags">
+          <span class="svc-tag">Financial Modeling</span>
+          <span class="svc-tag">Due Diligence</span>
+        </div>
+        <a href="contact.html#consultation" class="service-link">
+          <span>Discuss Project</span><i class="fa-solid fa-arrow-right svc-arrow"></i>
+        </a>
+      </div>
+
+    </div><!-- /services-grid -->
+
+    <!-- Bottom CTA row -->
+    <div class="svc-bottom-row fade-in">
+      <p class="svc-bottom-text">
+        <i class="fa-solid fa-circle-info"></i>
+        All services are customized to your business — no fixed packages, no one-size-fits-all.
+      </p>
+      <a href="services.html" class="btn btn-secondary svc-all-btn">
+        <i class="fa-solid fa-grid-2"></i> View All Services
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- BEFORE VS AFTER — PREMIUM DARK REDESIGN -->
+<section class="section bva-section" id="difference">
+  <!-- Background decoration -->
+  <div class="bva-bg-decor" aria-hidden="true">
+    <div class="bva-bg-orb bva-bg-orb-1"></div>
+    <div class="bva-bg-orb bva-bg-orb-2"></div>
+    <div class="bva-bg-orb bva-bg-orb-3"></div>
+    <div class="bva-bg-grid"></div>
+  </div>
+
+  <div class="container" style="position:relative;z-index:1;">
+
+    <!-- Section Header -->
+    <div class="text-center mb-56 fade-in">
+      <div class="section-label bva-label">The Difference</div>
+      <h2 class="section-title bva-heading">
+        Without Virtual CFO
+        <span class="bva-heading-vs"> OR. </span>
+        <span class="bva-heading-after">With Virtual CFO</span>
+      </h2>
+      <p class="section-subtitle mt-16 bva-subtitle">See the clear difference between reactive accounting and strategic CFO-level financial leadership that actively grows your business.</p>
+    <br>
+    </div>
+
+    <!-- Main Comparison -->
+    <div class="bva-grid">
+
+      <!-- LEFT PANEL: Without -->
+      <div class="bva-panel bva-panel-before fade-in-left">
+        <div class="bva-top-line bva-line-red"></div>
+
+        <div class="bva-panel-header">
+          <div class="bva-ph-icon bva-ph-red"><i class="fa-solid fa-triangle-exclamation"></i></div>
+          <div class="bva-ph-text">
+            <div class="bva-ph-title">Without Virtual CFO</div>
+            <div class="bva-ph-sub">Reactive &nbsp;·&nbsp; Delayed &nbsp;·&nbsp; High Risk</div>
+          </div>
+          <div class="bva-ph-badge bva-badge-danger"><span class="bva-bd bva-bd-red"></span>Problem</div>
+        </div>
+
+        <div class="bva-list">
+          <div class="bva-li bva-li-bad" style="--n:0">
+            <div class="bva-li-icon bva-li-x"><i class="fa-solid fa-xmark"></i></div>
+            <span>Accounts managed by junior staff</span>
+          </div>
+          <div class="bva-li bva-li-bad" style="--n:1">
+            <div class="bva-li-icon bva-li-x"><i class="fa-solid fa-xmark"></i></div>
+            <span>No strategic financial direction</span>
+          </div>
+          <div class="bva-li bva-li-bad" style="--n:2">
+            <div class="bva-li-icon bva-li-x"><i class="fa-solid fa-xmark"></i></div>
+            <span>Manual, delayed reporting</span>
+          </div>
+          <div class="bva-li bva-li-bad" style="--n:3">
+            <div class="bva-li-icon bva-li-x"><i class="fa-solid fa-xmark"></i></div>
+            <span>Reactive to problems, not proactive</span>
+          </div>
+          <div class="bva-li bva-li-bad" style="--n:4">
+            <div class="bva-li-icon bva-li-x"><i class="fa-solid fa-xmark"></i></div>
+            <span>Compliance risks and missed deadlines</span>
+          </div>
+          <div class="bva-li bva-li-bad" style="--n:5">
+            <div class="bva-li-icon bva-li-x"><i class="fa-solid fa-xmark"></i></div>
+            <span>No visibility into profitability drivers</span>
+          </div>
+          <div class="bva-li bva-li-bad" style="--n:6">
+            <div class="bva-li-icon bva-li-x"><i class="fa-solid fa-xmark"></i></div>
+            <span>Decisions based on incomplete data</span>
+          </div>
+        </div>
+
+        <div class="bva-meter">
+          <span class="bva-meter-lbl">Finance Efficiency</span>
+          <div class="bva-meter-track"><div class="bva-meter-fill bva-mf-red" data-bva-width="28%"></div></div>
+          <span class="bva-meter-val bva-mv-red">28%</span>
+        </div>
+      </div>
+
+      <!-- CENTER VS -->
+      <div class="bva-vs-col">
+        <div class="bva-vs-inner">
+          <div class="bva-vs-line bva-vs-top"></div>
+          <div class="bva-vs-badge">
+            <div class="bva-vs-ring"></div>
+            <span>OR</span>
+          </div>
+          <div class="bva-vs-line bva-vs-bottom"></div>
+        </div>
+        <div class="bva-vs-dots" aria-hidden="true">
+          <div class="bva-vsd" style="top:18%"></div>
+          <div class="bva-vsd" style="top:38%"></div>
+          <div class="bva-vsd" style="top:58%"></div>
+          <div class="bva-vsd" style="top:78%"></div>
+        </div>
+      </div>
+
+      <!-- RIGHT PANEL: With Virtual CFO -->
+      <div class="bva-panel bva-panel-after fade-in-right">
+        <div class="bva-top-line bva-line-blue"></div>
+
+        <div class="bva-panel-header">
+          <div class="bva-ph-icon bva-ph-blue"><i class="fa-solid fa-chart-line"></i></div>
+          <div class="bva-ph-text">
+            <div class="bva-ph-title bva-title-blue">With Virtual CFO</div>
+            <div class="bva-ph-sub">Strategic &nbsp;·&nbsp; Proactive &nbsp;·&nbsp; Growth-Driven</div>
+          </div>
+          <div class="bva-ph-badge bva-badge-success"><span class="bva-bd bva-bd-green"></span>Optimized</div>
+        </div>
+
+        <div class="bva-list">
+          <div class="bva-li bva-li-good" style="--n:0">
+            <div class="bva-li-icon bva-li-check"><i class="fa-solid fa-check"></i></div>
+            <span>CFO-level oversight and leadership</span>
+          </div>
+          <div class="bva-li bva-li-good" style="--n:1">
+            <div class="bva-li-icon bva-li-check"><i class="fa-solid fa-check"></i></div>
+            <span>Finance aligned with growth strategy</span>
+          </div>
+          <div class="bva-li bva-li-good" style="--n:2">
+            <div class="bva-li-icon bva-li-check"><i class="fa-solid fa-check"></i></div>
+            <span>Real-time dashboards and automated reports</span>
+          </div>
+          <div class="bva-li bva-li-good" style="--n:3">
+            <div class="bva-li-icon bva-li-check"><i class="fa-solid fa-check"></i></div>
+            <span>Proactive risk management and planning</span>
+          </div>
+          <div class="bva-li bva-li-good" style="--n:4">
+            <div class="bva-li-icon bva-li-check"><i class="fa-solid fa-check"></i></div>
+            <span>Full compliance, audit-ready always</span>
+          </div>
+          <div class="bva-li bva-li-good" style="--n:5">
+            <div class="bva-li-icon bva-li-check"><i class="fa-solid fa-check"></i></div>
+            <span>Clear profitability by product/customer/region</span>
+          </div>
+          <div class="bva-li bva-li-good" style="--n:6">
+            <div class="bva-li-icon bva-li-check"><i class="fa-solid fa-check"></i></div>
+            <span>Confident, data-driven decision-making</span>
+          </div>
+        </div>
+
+        <div class="bva-meter">
+          <span class="bva-meter-lbl">Finance Efficiency</span>
+          <div class="bva-meter-track"><div class="bva-meter-fill bva-mf-blue" data-bva-width="94%"></div></div>
+          <span class="bva-meter-val bva-mv-blue">94%</span>
+        </div>
+      </div>
+
+    </div><!-- /bva-grid -->
+
+    <!-- Bottom Metrics Strip -->
+    <div class="bva-metrics-strip fade-in">
+      <div class="bva-metric">
+        <div class="bva-metric-num">3×</div>
+        <div class="bva-metric-icon"><i class="fa-solid fa-bolt"></i></div>
+        <div class="bva-metric-label">Faster Financial Decisions</div>
+      </div>
+      <div class="bva-metric-div"></div>
+      <div class="bva-metric">
+        <div class="bva-metric-num">60%</div>
+        <div class="bva-metric-icon"><i class="fa-solid fa-arrow-trend-down"></i></div>
+        <div class="bva-metric-label">Reduction in Compliance Risk</div>
+      </div>
+      <div class="bva-metric-div"></div>
+      <div class="bva-metric">
+        <div class="bva-metric-num">100%</div>
+        <div class="bva-metric-icon"><i class="fa-solid fa-eye"></i></div>
+        <div class="bva-metric-label">Real-Time Financial Visibility</div>
+      </div>
+      <div class="bva-metric-div"></div>
+      <div class="bva-metric">
+        <div class="bva-metric-num">40%</div>
+        <div class="bva-metric-icon"><i class="fa-solid fa-piggy-bank"></i></div>
+        <div class="bva-metric-label">Lower Finance Overhead Costs</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- VIRTUAL CFO vs FULL-TIME CFO DIAGRAM -->
+
+<!-- <section class="section vcd-section" id="vcfo-vs-fulltime">
+  <div class="vcd-bg-decor" aria-hidden="true">
+    <div class="vcd-bg-orb vcd-bg-orb-l"></div>
+    <div class="vcd-bg-orb vcd-bg-orb-r"></div>
+    <div class="vcd-bg-grid"></div>
+  </div>
+  <div class="container" style="position:relative;z-index:1;">
+
+    
+    <div class="text-center mb-56 fade-in">
+      <div class="section-label">Which Model Suits You?</div>
+      <h2 class="section-title">
+        <span style="color:var(--blue);">Virtual CFO</span>
+        <span style="color:#94a3b8;font-weight:400;font-style:italic;margin:0 8px;">vs.</span>
+        <span style="color:#0f172a;">Full-Time CFO</span>
+      </h2>
+      <p class="section-subtitle mt-16">Understand the key differences between both models and choose what's right for your business stage and goals.</p>
+    </div>
+
+    <div class="vcd-diagram fade-in">
+
+     
+      <div class="vcd-col vcd-col-left">
+
+      
+        <div class="vcd-col-head vcd-head-blue">
+          <div class="vcd-col-head-icon"><i class="fa-solid fa-chart-line"></i></div>
+          <span>VIRTUAL CFO</span>
+        </div>
+
+        
+        <div class="vcd-items-wrap">
+          <div class="vcd-item vcd-item-blue vcd-anim" style="--vi:0">
+            <div class="vcd-item-ico"><i class="fa-solid fa-tag"></i></div>
+            <div class="vcd-item-body">
+              <div class="vcd-item-key">Cost</div>
+              <div class="vcd-item-val">Lower / Flexible</div>
+            </div>
+            <div class="vcd-right-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+          </div>
+          <div class="vcd-down-arr vcd-darr-blue"><i class="fa-solid fa-arrow-down"></i></div>
+
+          <div class="vcd-item vcd-item-blue vcd-anim" style="--vi:1">
+            <div class="vcd-item-ico"><i class="fa-solid fa-clock"></i></div>
+            <div class="vcd-item-body">
+              <div class="vcd-item-key">Commitment</div>
+              <div class="vcd-item-val">Part-time / As-needed</div>
+            </div>
+            <div class="vcd-right-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+          </div>
+          <div class="vcd-down-arr vcd-darr-blue"><i class="fa-solid fa-arrow-down"></i></div>
+
+          <div class="vcd-item vcd-item-blue vcd-anim" style="--vi:2">
+            <div class="vcd-item-ico"><i class="fa-solid fa-sliders"></i></div>
+            <div class="vcd-item-body">
+              <div class="vcd-item-key">Expertise</div>
+              <div class="vcd-item-val">Easy to scale up/down</div>
+            </div>
+            <div class="vcd-right-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+          </div>
+          <div class="vcd-down-arr vcd-darr-blue"><i class="fa-solid fa-arrow-down"></i></div>
+
+          <div class="vcd-item vcd-item-blue vcd-anim" style="--vi:3">
+            <div class="vcd-item-ico"><i class="fa-solid fa-bolt"></i></div>
+            <div class="vcd-item-body">
+              <div class="vcd-item-key">Setup Time</div>
+              <div class="vcd-item-val">Quick implementation</div>
+            </div>
+            <div class="vcd-right-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+          </div>
+        </div>
+
+        
+        <div class="vcd-best vcd-best-blue vcd-anim" style="--vi:4">
+          <div class="vcd-best-ico"><i class="fa-solid fa-rocket"></i></div>
+          <div>
+            <div class="vcd-best-lbl">Best for</div>
+            <div class="vcd-best-val">Startups, SMEs &amp; growing businesses</div>
+          </div>
+        </div>
+      </div>
+
+      
+      <div class="vcd-connectors vcd-conn-l">
+        <div class="vcd-conn-spacer"></div>
+        <div class="vcd-conn-group">
+          <div class="vcd-conn-line vcd-conn-blue"></div>
+          <div class="vcd-conn-space"></div>
+          <div class="vcd-conn-line vcd-conn-blue"></div>
+          <div class="vcd-conn-space"></div>
+          <div class="vcd-conn-line vcd-conn-blue"></div>
+          <div class="vcd-conn-space"></div>
+          <div class="vcd-conn-line vcd-conn-blue"></div>
+        </div>
+      </div>
+
+      <div class="vcd-center">
+        <div class="vcd-diff-card">
+          <div class="vcd-diff-glow"></div>
+          <div class="vcd-diff-header">
+            <i class="fa-solid fa-arrows-left-right-to-line"></i>
+            KEY DIFFERENCES
+          </div>
+          <div class="vcd-diff-items">
+            <div class="vcd-diff-row">
+              <div class="vcd-diff-dot"></div>
+              <span>Cost structure</span>
+            </div>
+            <div class="vcd-diff-row">
+              <div class="vcd-diff-dot"></div>
+              <span>Time commitment</span>
+            </div>
+            <div class="vcd-diff-row">
+              <div class="vcd-diff-dot"></div>
+              <span>Flexibility</span>
+            </div>
+            <div class="vcd-diff-row">
+              <div class="vcd-diff-dot"></div>
+              <span>Organizational fit</span>
+            </div>
+            <div class="vcd-diff-row">
+              <div class="vcd-diff-dot"></div>
+              <span>Scalability</span>
+            </div>
+          </div>
+          <a href="contact.html#consultation" class="vcd-diff-cta">
+            <i class="fa-solid fa-calendar-check"></i> Get Advice
+          </a>
+        </div>
+      </div>
+
+      
+      <div class="vcd-connectors vcd-conn-r">
+        <div class="vcd-conn-spacer"></div>
+        <div class="vcd-conn-group">
+          <div class="vcd-conn-line vcd-conn-teal"></div>
+          <div class="vcd-conn-space"></div>
+          <div class="vcd-conn-line vcd-conn-teal"></div>
+          <div class="vcd-conn-space"></div>
+          <div class="vcd-conn-line vcd-conn-teal"></div>
+          <div class="vcd-conn-space"></div>
+          <div class="vcd-conn-line vcd-conn-teal"></div>
+        </div>
+      </div>
+
+      
+      <div class="vcd-col vcd-col-right">
+
+        
+        <div class="vcd-col-head vcd-head-teal">
+          <div class="vcd-col-head-icon vcd-ico-teal"><i class="fa-solid fa-user-tie"></i></div>
+          <span>FULL-TIME CFO</span>
+        </div>
+
+      
+        <div class="vcd-items-wrap">
+          <div class="vcd-item vcd-item-teal vcd-anim" style="--vi:0">
+            <div class="vcd-left-arrow"><i class="fa-solid fa-chevron-left"></i></div>
+            <div class="vcd-item-ico vcd-ico-teal"><i class="fa-solid fa-dollar-sign"></i></div>
+            <div class="vcd-item-body">
+              <div class="vcd-item-key">Cost</div>
+              <div class="vcd-item-val">Higher / Fixed salary</div>
+            </div>
+          </div>
+          <div class="vcd-down-arr vcd-darr-teal"><i class="fa-solid fa-arrow-down"></i></div>
+
+          <div class="vcd-item vcd-item-teal vcd-anim" style="--vi:1">
+            <div class="vcd-left-arrow"><i class="fa-solid fa-chevron-left"></i></div>
+            <div class="vcd-item-ico vcd-ico-teal"><i class="fa-solid fa-calendar-days"></i></div>
+            <div class="vcd-item-body">
+              <div class="vcd-item-key">Expertise</div>
+              <div class="vcd-item-val">Broad organizational knowledge</div>
+            </div>
+          </div>
+          <div class="vcd-down-arr vcd-darr-teal"><i class="fa-solid fa-arrow-down"></i></div>
+
+          <div class="vcd-item vcd-item-teal vcd-anim" style="--vi:2">
+            <div class="vcd-left-arrow"><i class="fa-solid fa-chevron-left"></i></div>
+            <div class="vcd-item-ico vcd-ico-teal"><i class="fa-solid fa-lock"></i></div>
+            <div class="vcd-item-body">
+              <div class="vcd-item-key">Scalability</div>
+              <div class="vcd-item-val">Fixed overhead cost</div>
+            </div>
+          </div>
+          <div class="vcd-down-arr vcd-darr-teal"><i class="fa-solid fa-arrow-down"></i></div>
+
+          <div class="vcd-item vcd-item-teal vcd-anim" style="--vi:3">
+            <div class="vcd-left-arrow"><i class="fa-solid fa-chevron-left"></i></div>
+            <div class="vcd-item-ico vcd-ico-teal"><i class="fa-solid fa-hourglass-half"></i></div>
+            <div class="vcd-item-body">
+              <div class="vcd-item-key">Setup Time</div>
+              <div class="vcd-item-val">Longer onboarding</div>
+            </div>
+          </div>
+        </div>
+
+        
+        <div class="vcd-best vcd-best-teal vcd-anim" style="--vi:4">
+          <div class="vcd-best-ico vcd-ico-teal"><i class="fa-solid fa-city"></i></div>
+          <div>
+            <div class="vcd-best-lbl">Best for</div>
+            <div class="vcd-best-val">Large enterprises &amp; complex structures</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    
+    <div class="vcd-bottom fade-in">
+      <div class="vcd-bottom-text">
+        <i class="fa-solid fa-lightbulb"></i>
+        <span>Most growing businesses get <strong>10× more value</strong> from a Virtual CFO at a fraction of the full-time cost.</span>
+      </div>
+      <a href="contact.html#consultation" class="btn btn-primary">
+        <i class="fa-solid fa-calendar-check"></i> Book Free Consultation
+      </a>
+    </div>
+
+  </div>
+</section> -->
+
+<!-- PROCESS — PREMIUM REDESIGN -->
+<section class="section prc-section" id="process">
+  <!-- Background decoration -->
+  <div class="prc-bg-decor" aria-hidden="true">
+    <div class="prc-bg-orb prc-orb-1"></div>
+    <div class="prc-bg-orb prc-orb-2"></div>
+    <div class="prc-bg-grid"></div>
+  </div>
+
+  <div class="container" style="position:relative;z-index:1;">
+
+    <!-- Section Header -->
+    <div class="text-center mb-64 fade-in">
+      <div class="section-label">How It Works</div>
+      <h2 class="section-title">
+        <span class="section-title-underline">Our 4-Step Engagement Process</span>
+      </h2>
+      <p class="section-subtitle mt-16">A structured, proven approach to transforming your finance function from reactive to strategic — tailored specifically to your business.</p>
+    </div>
+
+    <!-- Premium Timeline -->
+    <div class="prc-timeline">
+
+      <!-- Animated Connector Line (desktop only) -->
+      <div class="prc-connector" aria-hidden="true" id="prcConnector">
+        <div class="prc-connector-fill" id="prcFill"></div>
+        <div class="prc-connector-dots">
+          <div class="prc-cdot" style="--d:0s"></div>
+          <div class="prc-cdot" style="--d:1s"></div>
+          <div class="prc-cdot" style="--d:2s"></div>
+        </div>
+      </div>
+
+      <!-- ── Step 1: Understand & Diagnose ── -->
+      <div class="prc-step fade-in-up stagger-1">
+        <div class="prc-num-wrap">
+          <div class="prc-num-ring"></div>
+          <div class="prc-num">1</div>
+        </div>
+        <div class="prc-card">
+          <div class="prc-card-top-line"></div>
+          <div class="prc-step-tag">Step 01</div>
+          <div class="prc-card-icon">
+            <i class="fa-solid fa-magnifying-glass-chart"></i>
+          </div>
+          <h4>Understand &amp; Diagnose</h4>
+          <p>We deep-dive into your business model, accounting setup, and current financial state to identify gaps and priorities.</p>
+          <div class="prc-card-foot">
+            <span class="prc-foot-tag"><i class="fa-solid fa-calendar-days"></i> Week 1–2</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Step 2: Identify Gaps ── -->
+      <div class="prc-step fade-in-up stagger-2">
+        <div class="prc-num-wrap">
+          <div class="prc-num-ring"></div>
+          <div class="prc-num">2</div>
+        </div>
+        <div class="prc-card">
+          <div class="prc-card-top-line"></div>
+          <div class="prc-step-tag">Step 02</div>
+          <div class="prc-card-icon">
+            <i class="fa-solid fa-list-check"></i>
+          </div>
+          <h4>Identify Gaps &amp; Priorities</h4>
+          <p>A CFO-level assessment of what's working, what isn't, and where the biggest opportunities for improvement lie.</p>
+          <div class="prc-card-foot">
+            <span class="prc-foot-tag"><i class="fa-solid fa-calendar-days"></i> Week 2–3</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Step 3: Design & Implement ── -->
+      <div class="prc-step fade-in-up stagger-3">
+        <div class="prc-num-wrap">
+          <div class="prc-num-ring"></div>
+          <div class="prc-num">3</div>
+        </div>
+        <div class="prc-card">
+          <div class="prc-card-top-line"></div>
+          <div class="prc-step-tag">Step 03</div>
+          <div class="prc-card-icon">
+            <i class="fa-solid fa-pen-ruler"></i>
+          </div>
+          <h4>Design &amp; Implement</h4>
+          <p>We build a customized financial framework — no templates — tailored specifically to your business model and goals.</p>
+          <div class="prc-card-foot">
+            <span class="prc-foot-tag"><i class="fa-solid fa-calendar-days"></i> Week 3–6</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Step 4: Ongoing Support ── -->
+      <div class="prc-step fade-in-up stagger-4">
+        <div class="prc-num-wrap">
+          <div class="prc-num-ring prc-ring-gold"></div>
+          <div class="prc-num prc-num-gold">4</div>
+        </div>
+        <div class="prc-card prc-card-gold">
+          <div class="prc-card-top-line prc-line-gold"></div>
+          <div class="prc-step-tag prc-tag-gold">Step 04</div>
+          <div class="prc-card-icon prc-icon-gold">
+            <i class="fa-solid fa-headset"></i>
+          </div>
+          <h4>Ongoing Advisory &amp; Support</h4>
+          <p>Continuous guidance, monthly reviews, real-time reporting, and strategic support as your business grows.</p>
+          <div class="prc-card-foot">
+            <span class="prc-foot-tag prc-foot-gold"><i class="fa-solid fa-infinity"></i> Ongoing</span>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /prc-timeline -->
+
+    <!-- Bottom CTA Strip -->
+    <div class="prc-cta-strip fade-in">
+      <div class="prc-cta-text">
+        <i class="fa-solid fa-circle-check"></i>
+        <span>Ready to start? Get your personalized finance assessment — <strong>completely free</strong>, no obligation.</span>
+      </div>
+      <a href="contact.html#consultation" class="btn btn-primary">
+        <i class="fa-solid fa-calendar-check"></i> Schedule Strategy Call
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- TESTIMONIALS — PREMIUM SLIDER -->
+<section class="section tst-section" id="testimonials">
+  <div class="tst-bg-decor" aria-hidden="true">
+    <div class="tst-orb tst-orb-1"></div>
+    <div class="tst-orb tst-orb-2"></div>
+    <div class="tst-bg-grid"></div>
+  </div>
+
+  <div class="container" style="position:relative;z-index:1;">
+
+    <!-- Header -->
+    <div class="text-center mb-40 fade-in">
+      <div class="section-label">Success Stories</div>
+      <h2 class="section-title">
+        <span class="section-title-underline">What Our Clients Say</span>
+      </h2>
+      <p class="section-subtitle mt-16">Trusted by 200+ businesses across UAE and worldwide — see what CFO-level finance does for growth.</p>
+    </div>
+
+    <!-- Trust Stats Strip -->
+    <div class="tst-trust-strip fade-in">
+      <div class="tst-trust-item">
+        <div class="tst-trust-num">200+</div>
+        <div class="tst-trust-lbl">Businesses Served</div>
+      </div>
+      <div class="tst-trust-sep"></div>
+      <div class="tst-trust-item">
+        <div class="tst-trust-num">4.9 &#9733;</div>
+        <div class="tst-trust-lbl">Average Rating</div>
+      </div>
+      <div class="tst-trust-sep"></div>
+      <div class="tst-trust-item">
+        <div class="tst-trust-num">98%</div>
+        <div class="tst-trust-lbl">Client Satisfaction</div>
+      </div>
+      <div class="tst-trust-sep"></div>
+      <div class="tst-trust-item">
+        <div class="tst-trust-num">5 Yrs</div>
+        <div class="tst-trust-lbl">Avg. Client Retention</div>
+      </div>
+    </div>
+
+    <!-- Slider Outer -->
+    <div class="tst-slider-outer fade-in">
+
+      <button class="tst-nav-btn tst-prev" id="tstPrev" aria-label="Previous testimonial">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+
+      <div class="tst-slider-viewport" id="tstViewport">
+        <div class="tst-slider-track" id="tstTrack">
+
+          <!-- ── Testimonial 1 ── -->
+          <div class="tst-slide">
+            <div class="tst-card">
+              <div class="tst-card-top-line"></div>
+              <div class="tst-card-header">
+                <div class="tst-quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+                <div class="tst-service-tag"><i class="fa-solid fa-chart-line"></i> Virtual CFO + Power BI</div>
+              </div>
+              <div class="tst-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <p class="tst-text">"Virtual CFO completely transformed how we view our financials. We went from fragmented data across 5 companies to a unified real-time dashboard. Decision-making has never been faster or more confident."</p>
+              <div class="tst-author">
+                <div class="tst-avatar tst-av-1">ME</div>
+                <div class="tst-author-body">
+                  <div class="tst-author-name">Murtuza Ezzi</div>
+                  <div class="tst-author-role">CEO, Index Infotech Group</div>
+                </div>
+                <div class="tst-verified" title="Verified Client"><i class="fa-solid fa-circle-check"></i></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ── Testimonial 2 ── -->
+          <div class="tst-slide">
+            <div class="tst-card">
+              <div class="tst-card-top-line"></div>
+              <div class="tst-card-header">
+                <div class="tst-quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+                <div class="tst-service-tag"><i class="fa-solid fa-shield-halved"></i> Virtual CFO Services</div>
+              </div>
+              <div class="tst-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <p class="tst-text">"As a founder running everything myself, I had no time and too many risks. Virtual CFO took over the entire finance function — compliance, reporting, strategy. I finally have clarity and can focus on growing the business."</p>
+              <div class="tst-author">
+                <div class="tst-avatar tst-av-2">TK</div>
+                <div class="tst-author-body">
+                  <div class="tst-author-name">Tawab Kazemi</div>
+                  <div class="tst-author-role">Founder, 4E Road Safety Consultants</div>
+                </div>
+                <div class="tst-verified" title="Verified Client"><i class="fa-solid fa-circle-check"></i></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ── Testimonial 3 ── -->
+          <div class="tst-slide">
+            <div class="tst-card">
+              <div class="tst-card-top-line"></div>
+              <div class="tst-card-header">
+                <div class="tst-quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+                <div class="tst-service-tag"><i class="fa-solid fa-chart-bar"></i> Power BI Dashboards</div>
+              </div>
+              <div class="tst-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <p class="tst-text">"The Power BI dashboards they built for us eliminated hours of manual reporting. We now see our performance in real time, and the team can focus on decisions rather than data preparation."</p>
+              <div class="tst-author">
+                <div class="tst-avatar tst-av-3">MK</div>
+                <div class="tst-author-body">
+                  <div class="tst-author-name">Mohammad Khamusi</div>
+                  <div class="tst-author-role">Partner, Fulk Diesel Trading</div>
+                </div>
+                <div class="tst-verified" title="Verified Client"><i class="fa-solid fa-circle-check"></i></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ── Testimonial 4 ── -->
+          <div class="tst-slide">
+            <div class="tst-card">
+              <div class="tst-card-top-line"></div>
+              <div class="tst-card-header">
+                <div class="tst-quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+                <div class="tst-service-tag"><i class="fa-solid fa-calendar-check"></i> Month-end Closing &amp; MIS</div>
+              </div>
+              <div class="tst-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <p class="tst-text">"Before Virtual CFO, our month-end closing used to take 3 weeks and was always full of errors. Now it's done in 5 days, the MIS reports are clean, and my board presentations have never looked better."</p>
+              <div class="tst-author">
+                <div class="tst-avatar tst-av-4">RS</div>
+                <div class="tst-author-body">
+                  <div class="tst-author-name">Rajan Sharma</div>
+                  <div class="tst-author-role">MD, Pinnacle Building Materials LLC</div>
+                </div>
+                <div class="tst-verified" title="Verified Client"><i class="fa-solid fa-circle-check"></i></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ── Testimonial 5 ── -->
+          <div class="tst-slide">
+            <div class="tst-card">
+              <div class="tst-card-top-line"></div>
+              <div class="tst-card-header">
+                <div class="tst-quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+                <div class="tst-service-tag"><i class="fa-solid fa-shield-halved"></i> Audit &amp; Tax Compliance</div>
+              </div>
+              <div class="tst-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <p class="tst-text">"We were hit with a VAT audit and had no idea where to start. Virtual CFO stepped in, organized everything, handled the auditors, and resolved it with zero penalties. They're now our permanent compliance partner."</p>
+              <div class="tst-author">
+                <div class="tst-avatar tst-av-5">AH</div>
+                <div class="tst-author-body">
+                  <div class="tst-author-name">Ahmed Hassan</div>
+                  <div class="tst-author-role">Owner, Al Noor General Trading</div>
+                </div>
+                <div class="tst-verified" title="Verified Client"><i class="fa-solid fa-circle-check"></i></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ── Testimonial 6 ── -->
+          <div class="tst-slide">
+            <div class="tst-card">
+              <div class="tst-card-top-line"></div>
+              <div class="tst-card-header">
+                <div class="tst-quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+                <div class="tst-service-tag"><i class="fa-solid fa-gears"></i> Process Optimization</div>
+              </div>
+              <div class="tst-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <p class="tst-text">"Our finance team was drowning in manual work — reconciliations, Excel chaos, missed deadlines. Virtual CFO redesigned our entire process, automated key workflows, and saved us 40+ hours every month."</p>
+              <div class="tst-author">
+                <div class="tst-avatar tst-av-6">NP</div>
+                <div class="tst-author-body">
+                  <div class="tst-author-name">Nisha Patel</div>
+                  <div class="tst-author-role">CFO, Greenleaf Hospitality Group</div>
+                </div>
+                <div class="tst-verified" title="Verified Client"><i class="fa-solid fa-circle-check"></i></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ── Add more testimonials here — slider scales automatically ── -->
+
+        </div>
+      </div><!-- /tst-slider-viewport -->
+
+      <button class="tst-nav-btn tst-next" id="tstNext" aria-label="Next testimonial">
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
+
+    </div><!-- /tst-slider-outer -->
+
+    <!-- Dot Indicators -->
+    <div class="tst-dots" id="tstDots" aria-label="Testimonial navigation"></div>
+
+  </div>
+</section>
+
+<!-- FAQ — PREMIUM REDESIGN -->
+<section class="section faq-section" id="faq">
+  <div class="faq-bg-decor" aria-hidden="true">
+    <div class="faq-bg-orb faq-orb-1"></div>
+    <div class="faq-bg-orb faq-orb-2"></div>
+    <div class="faq-bg-grid"></div>
+  </div>
+
+  <div class="container" style="position:relative;z-index:1;">
+    <div class="faq-layout">
+
+      <!-- ═══ LEFT: Header + Info ═══ -->
+      <div class="faq-left fade-in-left">
+        <div class="section-label">FAQ</div>
+        <h2 class="section-title">Common<br>Questions</h2>
+        <p class="section-subtitle mt-16">Everything you need to know about working with Virtual CFO Management Consultancy.</p>
+
+        <!-- Quick Stats -->
+        <div class="faq-quick-stats">
+          <div class="faq-stat">
+            <div class="faq-stat-num">6</div>
+            <div class="faq-stat-lbl">FAQs Answered</div>
+          </div>
+          <div class="faq-stat">
+            <div class="faq-stat-num">&lt;2h</div>
+            <div class="faq-stat-lbl">Avg. Response</div>
+          </div>
+          <div class="faq-stat">
+            <div class="faq-stat-num">24/7</div>
+            <div class="faq-stat-lbl">Support</div>
+          </div>
+        </div>
+
+        <a href="contact.html" class="btn btn-secondary faq-cta-btn">
+          <i class="fa-solid fa-message"></i> Ask Us Anything
+        </a>
+
+        <!-- Decoration Card -->
+        <div class="faq-deco-card">
+          <div class="faq-deco-icon"><i class="fa-solid fa-headset"></i></div>
+          <div>
+            <div class="faq-deco-title">Still have questions?</div>
+            <div class="faq-deco-sub">Book a free consultation — no obligation</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══ RIGHT: Premium Accordion ═══ -->
+      <div class="faq-right fade-in-right">
+        <div class="faq-list faq-list-premium">
+
+          <!-- FAQ 1 -->
+          <div class="faq-item">
+            <button class="faq-question">
+              <div class="fq-icon"><i class="fa-solid fa-chart-line"></i></div>
+              <span class="fq-text">What exactly is a Virtual CFO?</span>
+              <div class="fq-toggle"><i class="fa-solid fa-chevron-down"></i></div>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">A Virtual CFO provides the same expertise and strategic value as a full-time Chief Financial Officer, but on a flexible, part-time basis. You get CFO-level financial leadership, strategy, and oversight without the cost of a full-time executive hire.</div>
+            </div>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div class="faq-item">
+            <button class="faq-question">
+              <div class="fq-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+              <span class="fq-text">How is this different from hiring an accountant?</span>
+              <div class="fq-toggle"><i class="fa-solid fa-chevron-down"></i></div>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">An accountant records and reports financial history. A Virtual CFO interprets that data, builds financial strategy, manages forecasts, optimizes profitability, and provides decision-making support — going far beyond compliance and bookkeeping.</div>
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class="faq-item">
+            <button class="faq-question">
+              <div class="fq-icon"><i class="fa-solid fa-building"></i></div>
+              <span class="fq-text">What size businesses do you work with?</span>
+              <div class="fq-toggle"><i class="fa-solid fa-chevron-down"></i></div>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">We work with businesses of all sizes — from early-stage startups and SMEs to established mid-market companies and group entities. Our services are customized to your specific stage, complexity, and goals.</div>
+            </div>
+          </div>
+
+          <!-- FAQ 4 -->
+          <div class="faq-item">
+            <button class="faq-question">
+              <div class="fq-icon"><i class="fa-solid fa-globe"></i></div>
+              <span class="fq-text">Do you work with businesses outside the UAE?</span>
+              <div class="fq-toggle"><i class="fa-solid fa-chevron-down"></i></div>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">Yes. While we are based in Dubai, we serve 200+ businesses worldwide. Our services are delivered remotely, making geography no barrier to accessing CFO-level financial expertise.</div>
+            </div>
+          </div>
+
+          <!-- FAQ 5 -->
+          <div class="faq-item">
+            <button class="faq-question">
+              <div class="fq-icon"><i class="fa-solid fa-gears"></i></div>
+              <span class="fq-text">What accounting systems do you work with?</span>
+              <div class="fq-toggle"><i class="fa-solid fa-chevron-down"></i></div>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">We work with all major accounting systems including Tally, Zoho Books, QuickBooks, Xero, Sage, and ERPs like SAP, Microsoft Dynamics, Odoo, ERPNext, and Focus. We adapt to your existing setup.</div>
+            </div>
+          </div>
+
+          <!-- FAQ 6 -->
+          <div class="faq-item">
+            <button class="faq-question">
+              <div class="fq-icon fq-icon-gold"><i class="fa-solid fa-rocket"></i></div>
+              <span class="fq-text">How do I get started?</span>
+              <div class="fq-toggle"><i class="fa-solid fa-chevron-down"></i></div>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">Simply book a free consultation. We'll understand your current situation, identify key gaps, and propose the right service level for your business — with no obligation.</div>
+            </div>
+          </div>
+
+        </div><!-- /faq-list-premium -->
+      </div>
+
+    </div><!-- /faq-layout -->
+  </div>
+</section>
+
+<!-- CTA — PREMIUM REDESIGN -->
+<section class="pcta-section" id="cta">
+  <!-- Layered background -->
+  <div class="pcta-bg" aria-hidden="true">
+    <div class="pcta-orb pcta-orb-1"></div>
+    <div class="pcta-orb pcta-orb-2"></div>
+    <div class="pcta-orb pcta-orb-3"></div>
+    <div class="pcta-grid-overlay"></div>
+    <div class="pcta-particles">
+      <span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="pcta-layout">
+
+      <!-- ═══ LEFT: CTA Content ═══ -->
+      <div class="pcta-left fade-in-left">
+
+        <!-- Badge -->
+        <div class="pcta-badge">
+          <span class="pcta-badge-dot"></span>
+          <i class="fa-solid fa-star"></i>
+          Free Consultation Available — No Obligation
+        </div>
+
+        <!-- Heading -->
+        <h2 class="pcta-heading">
+          Ready to Transform Your<br>
+          <span class="pcta-heading-accent">Finance Function?</span>
+        </h2>
+
+        <!-- Sub -->
+        <p class="pcta-sub">Book a free consultation. We'll assess your current finance function and show you exactly where we can add value — with zero obligation.</p>
+
+        <!-- Buttons -->
+        <div class="pcta-btns">
+          <a href="contact.html#consultation" class="btn btn-primary pcta-btn-primary">
+            <i class="fa-solid fa-calendar-check"></i>
+            Book Free Consultation
+            <i class="fa-solid fa-arrow-right pcta-btn-arrow"></i>
+          </a>
+          <a href="tel:+97156507525" class="pcta-btn-ghost">
+            <i class="fa-solid fa-phone"></i>
+            Call Now
+          </a>
+        </div>
+
+        <!-- Trust Indicators -->
+        <div class="pcta-trust">
+          <div class="pcta-trust-item"><i class="fa-solid fa-circle-check"></i><span>No commitment required</span></div>
+          <div class="pcta-trust-item"><i class="fa-solid fa-circle-check"></i><span>200+ businesses served</span></div>
+          <div class="pcta-trust-item"><i class="fa-solid fa-circle-check"></i><span>Reply within 24 hours</span></div>
+          <div class="pcta-trust-item"><i class="fa-solid fa-circle-check"></i><span>UAE &amp; worldwide</span></div>
+        </div>
+      </div>
+
+      <!-- ═══ RIGHT: Finance Dashboard Widget ═══ -->
+      <div class="pcta-right fade-in-right">
+
+        <!-- Floating mini cards -->
+        <div class="pcta-float-card pcta-fc-top">
+          <div class="pcta-fc-icon pcta-fci-yellow"><i class="fa-solid fa-arrow-trend-up"></i></div>
+          <div class="pcta-fc-body">
+            <div class="pcta-fc-val">+24.8%</div>
+            <div class="pcta-fc-lbl">Revenue Growth</div>
+          </div>
+        </div>
+
+        <!-- Main stats card -->
+        <div class="pcta-stats-card">
+          <div class="pcta-sc-shimmer"></div>
+          <div class="pcta-sc-header">
+            <div class="pcta-sc-dots"><span></span><span></span><span></span></div>
+            <span class="pcta-sc-title"><i class="fa-solid fa-chart-line"></i> CFO Impact Dashboard</span>
+            <div class="pcta-sc-live"><span></span>LIVE</div>
+          </div>
+
+          <div class="pcta-sc-metrics">
+            <div class="pcta-sc-metric">
+              <div class="pcta-sc-val">AED 4.2M</div>
+              <div class="pcta-sc-lbl">Revenue Managed</div>
+              <div class="pcta-sc-trend"><i class="fa-solid fa-caret-up"></i> 18.4%</div>
+            </div>
+            <div class="pcta-sc-metric">
+              <div class="pcta-sc-val">94%</div>
+              <div class="pcta-sc-lbl">Finance Efficiency</div>
+              <div class="pcta-sc-trend"><i class="fa-solid fa-caret-up"></i> +32%</div>
+            </div>
+            <div class="pcta-sc-metric">
+              <div class="pcta-sc-val">5 Yrs</div>
+              <div class="pcta-sc-lbl">Avg. Retention</div>
+              <div class="pcta-sc-trend" style="color:#4ade80;"><i class="fa-solid fa-circle-check"></i> Trusted</div>
+            </div>
+          </div>
+
+          <!-- Mini bar chart -->
+          <div class="pcta-mini-chart">
+            <div class="pcta-mc-bar" style="height:38%"></div>
+            <div class="pcta-mc-bar" style="height:58%"></div>
+            <div class="pcta-mc-bar" style="height:48%"></div>
+            <div class="pcta-mc-bar" style="height:72%"></div>
+            <div class="pcta-mc-bar" style="height:62%"></div>
+            <div class="pcta-mc-bar pcta-mc-gold" style="height:88%"></div>
+            <div class="pcta-mc-bar pcta-mc-gold" style="height:82%"></div>
+          </div>
+          <div class="pcta-chart-months">
+            <span>Jun</span><span>Jul</span><span>Aug</span><span>Sep</span><span>Oct</span><span>Nov</span><span>Dec</span>
+          </div>
+        </div>
+
+        <!-- Bottom float card -->
+        <div class="pcta-float-card pcta-fc-bottom">
+          <div class="pcta-fc-icon pcta-fci-green"><i class="fa-solid fa-shield-halved"></i></div>
+          <div class="pcta-fc-body">
+            <div class="pcta-fc-val">98%</div>
+            <div class="pcta-fc-lbl">Client Satisfaction</div>
+          </div>
+        </div>
+
+      </div><!-- /pcta-right -->
+    </div><!-- /pcta-layout -->
+
+    <!-- Bottom Metrics Strip -->
+    <!-- <div class="pcta-metrics fade-in">
+      <div class="pcta-metric"><div class="pcta-m-num">8+</div><div class="pcta-m-lbl">Years CFO Experience</div></div>
+      <div class="pcta-metric-sep"></div>
+      <div class="pcta-metric"><div class="pcta-m-num">200+</div><div class="pcta-m-lbl">Businesses Transformed</div></div>
+      <div class="pcta-metric-sep"></div>
+      <div class="pcta-metric"><div class="pcta-m-num">100+</div><div class="pcta-m-lbl">Power BI Dashboards Built</div></div>
+      <div class="pcta-metric-sep"></div>
+      <div class="pcta-metric"><div class="pcta-m-num">AED Bn</div><div class="pcta-m-lbl">Revenue Under Advisory</div></div>
+    </div> -->
+
+  </div>
+</section>
+
+<div id="site-footer"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/components.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

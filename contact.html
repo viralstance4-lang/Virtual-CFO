@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us | Virtual CFO Management Consultancy</title>
+  <meta name="description" content="Get in touch with Virtual CFO Management Consultancy. Book a free consultation, call us, or visit our Dubai office."/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <style>
+    /* ── Contact Hero ──────────────────────────────── */
+    .ctc-hero {
+      background: linear-gradient(160deg, #f0f8ff 0%, #e4effe 35%, #f0f7ff 65%, #e8f2ff 100%);
+      padding: 80px 0 96px;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+    .ctc-hero-decor { position: absolute; inset: 0; pointer-events: none; }
+    .ctc-hero-orb {
+      position: absolute; border-radius: 50%; filter: blur(80px);
+    }
+    .ctc-orb-1 {
+      width: 520px; height: 520px;
+      background: radial-gradient(circle, rgba(59,130,246,0.18) 0%, transparent 70%);
+      top: -150px; right: -100px;
+      animation: orbFloat1 16s ease-in-out infinite;
+    }
+    .ctc-orb-2 {
+      width: 420px; height: 420px;
+      background: radial-gradient(circle, rgba(245,197,24,0.14) 0%, transparent 70%);
+      bottom: -100px; left: -60px;
+      animation: orbFloat2 20s ease-in-out infinite;
+    }
+    .ctc-orb-3 {
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(30,64,175,0.10) 0%, transparent 70%);
+      top: 35%; left: 40%;
+      animation: orbFloat3 14s ease-in-out infinite;
+    }
+    .ctc-hero-grid {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(30,64,175,0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(30,64,175,0.045) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    .ctc-hero .container { position: relative; z-index: 1; }
+    .ctc-hero h1 { color: var(--dark); margin-bottom: 16px; }
+    .ctc-hero-sub {
+      color: var(--gray); font-size: 1.1rem;
+      max-width: 600px; margin: 0 auto 48px;
+    }
+    .ctc-hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(46,109,164,0.08); border: 1px solid rgba(46,109,164,0.2);
+      border-radius: 100px; padding: 6px 16px; margin-bottom: 24px;
+      font-size: 0.8rem; font-weight: 600; color: var(--blue); letter-spacing: 0.5px;
+    }
+    .ctc-hero-badge-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--blue); animation: pulse 1.5s infinite;
+    }
+    .ctc-breadcrumb {
+      display: flex; align-items: center; gap: 8px; justify-content: center;
+      font-size: 0.82rem; color: var(--gray); margin-bottom: 20px;
+    }
+    .ctc-breadcrumb a { color: var(--gray); text-decoration: none; transition: color 0.2s; }
+    .ctc-breadcrumb a:hover { color: var(--blue); }
+    .ctc-breadcrumb i { font-size: 0.65rem; }
+
+    /* Hero Stats Strip */
+    .ctc-hero-stats {
+      display: flex; justify-content: center; align-items: center;
+      gap: 0; flex-wrap: wrap;
+      background: rgba(255,255,255,0.7); border: 1px solid rgba(46,109,164,0.15);
+      border-radius: var(--radius-lg); padding: 20px 32px;
+      max-width: 680px; margin: 0 auto;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 4px 24px rgba(30,64,175,0.08);
+    }
+    .ctc-hero-stat {
+      display: flex; flex-direction: column; align-items: center; gap: 4px;
+      flex: 1; min-width: 110px; padding: 8px 16px;
+    }
+    .ctc-hero-stat-num {
+      font-size: 1.5rem; font-weight: 800; color: var(--dark); line-height: 1;
+    }
+    .ctc-hero-stat-lbl {
+      font-size: 0.75rem; color: var(--gray);
+      font-weight: 500; letter-spacing: 0.4px; white-space: nowrap;
+    }
+    .ctc-stat-sep {
+      width: 1px; height: 36px; background: rgba(30,64,175,0.12); flex-shrink: 0;
+    }
+
+    /* ── Quick Contact Cards ───────────────────────── */
+    .ctc-qc-section { padding: 72px 0 0; }
+    .ctc-qc-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+    }
+    .ctc-qc-card {
+      background: #fff; border: 1px solid var(--border);
+      border-radius: var(--radius-lg); padding: 32px 24px 28px;
+      text-align: center; position: relative; overflow: hidden;
+      transition: var(--transition);
+    }
+    .ctc-qc-card:hover { transform: translateY(-6px); box-shadow: 0 16px 48px rgba(0,0,0,0.1); }
+    .ctc-qc-top-line {
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      border-radius: 20px 20px 0 0;
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
+    }
+    .ctc-qc-card:hover .ctc-qc-top-line { transform: scaleX(1); }
+    .ctc-qc-icon {
+      width: 62px; height: 62px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.45rem; margin: 0 auto 18px;
+      transition: var(--transition);
+    }
+    .ctc-qc-label {
+      font-size: 0.73rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1.2px; color: var(--gray); margin-bottom: 8px;
+    }
+    .ctc-qc-val { font-size: 1rem; font-weight: 700; color: var(--dark); margin-bottom: 4px; }
+    .ctc-qc-val a { text-decoration: none; color: inherit; }
+    .ctc-qc-val a:hover { color: var(--blue); }
+    .ctc-qc-sub { font-size: 0.82rem; color: var(--gray); margin-bottom: 20px; }
+    .ctc-qc-sub a { text-decoration: none; color: var(--gray); }
+    .ctc-qc-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.82rem; font-weight: 600; text-decoration: none;
+      padding: 9px 20px; border-radius: 100px; border: 1.5px solid;
+      transition: var(--transition);
+    }
+    .ctc-qc-btn:hover { transform: translateY(-1px); }
+
+    /* ══ PREMIUM MAIN SECTION ════════════════════════ */
+    .ctc-main-section {
+      padding: 80px 0 100px;
+      background: linear-gradient(160deg,#f8fbff 0%,#f0f6ff 50%,#f5f8ff 100%);
+      position: relative; overflow: hidden;
+    }
+    .ctc-main-section::before {
+      content: ''; position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(30,64,175,0.028) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(30,64,175,0.028) 1px,transparent 1px);
+      background-size: 60px 60px;
+    }
+    .ctc-main-layout {
+      display: grid; grid-template-columns: 1fr 1.55fr;
+      gap: 32px; align-items: start; position: relative; z-index: 1;
+    }
+
+    /* ── LEFT INFO PANEL ──────────────────────────── */
+    .ctc-info-panel {
+      border-radius: 24px; overflow: hidden;
+      box-shadow: 0 20px 60px rgba(13,36,68,0.16), 0 4px 16px rgba(0,0,0,0.07);
+      position: sticky; top: 100px;
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+
+    /* Dark header */
+    .ctc-info-header {
+      background: linear-gradient(145deg,#071a38 0%,#0d2444 55%,#112b56 100%);
+      padding: 36px 28px 30px; position: relative; overflow: hidden;
+    }
+    .ctc-ih-grid {
+      position: absolute; inset: 0; pointer-events: none;
+      background-image: radial-gradient(circle,rgba(255,255,255,0.04) 1px,transparent 1px);
+      background-size: 22px 22px;
+    }
+    .ctc-ih-glow {
+      position: absolute; width: 280px; height: 280px; border-radius: 50%;
+      background: radial-gradient(circle,rgba(46,109,164,0.28),transparent 70%);
+      top: -100px; right: -70px; pointer-events: none;
+      animation: orbFloat1 12s ease-in-out infinite;
+    }
+    .ctc-ih-glow2 {
+      position: absolute; width: 180px; height: 180px; border-radius: 50%;
+      background: radial-gradient(circle,rgba(245,197,24,0.14),transparent 70%);
+      bottom: -60px; left: -30px; pointer-events: none;
+      animation: orbFloat2 15s ease-in-out infinite;
+    }
+    .ctc-ih-particles { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+    .ctc-ih-particles span {
+      position: absolute; border-radius: 50%;
+      animation: particleFloat linear infinite; opacity: 0.6;
+    }
+    .ctc-ih-particles span:nth-child(1){width:3px;height:3px;left:12%;background:rgba(245,197,24,0.55);animation-duration:8s;animation-delay:0s;}
+    .ctc-ih-particles span:nth-child(2){width:2px;height:2px;left:38%;background:rgba(255,255,255,0.4);animation-duration:12s;animation-delay:2s;}
+    .ctc-ih-particles span:nth-child(3){width:3px;height:3px;left:68%;background:rgba(96,165,250,0.55);animation-duration:10s;animation-delay:4s;}
+    .ctc-ih-particles span:nth-child(4){width:2px;height:2px;left:88%;background:rgba(245,197,24,0.45);animation-duration:14s;animation-delay:1s;}
+    .ctc-info-header .section-label {
+      background:rgba(245,197,24,0.15); color:#F5C518;
+      border:1px solid rgba(245,197,24,0.3); position:relative; z-index:1;
+    }
+    .ctc-ih-live {
+      display:inline-flex; align-items:center; gap:6px;
+      background:rgba(34,197,94,0.15); border:1px solid rgba(34,197,94,0.28);
+      border-radius:100px; padding:4px 12px;
+      font-size:0.72rem; font-weight:700; color:#4ade80;
+      position:relative; z-index:1; margin-bottom:14px;
+    }
+    .ctc-ih-live-dot {
+      width:6px; height:6px; border-radius:50%; background:#4ade80;
+      box-shadow:0 0 0 0 rgba(74,222,128,0.5);
+      animation:livePulse 1.5s infinite;
+    }
+    @keyframes livePulse{
+      0%{box-shadow:0 0 0 0 rgba(74,222,128,0.5);}
+      70%{box-shadow:0 0 0 8px rgba(74,222,128,0);}
+      100%{box-shadow:0 0 0 0 rgba(74,222,128,0);}
+    }
+    .ctc-info-header h3 {
+      color:#fff; font-size:1.45rem; font-weight:800;
+      margin:0 0 8px; position:relative; z-index:1; line-height:1.3;
+    }
+    .ctc-info-header p {
+      color:rgba(255,255,255,0.58); font-size:0.87rem;
+      position:relative; z-index:1; margin:0;
+    }
+
+    /* Contact cards */
+    .ctc-info-body { background:#fff; padding:6px 16px 2px; }
+    .ctc-info-card {
+      display:flex; align-items:flex-start; gap:14px;
+      padding:15px 12px; border-radius:14px; margin:3px 0;
+      transition:all 0.3s cubic-bezier(0.4,0,0.2,1);
+      position:relative; cursor:default;
+    }
+    .ctc-info-card::after {
+      content:''; position:absolute; inset:0; border-radius:14px;
+      border:1px solid transparent; transition:border-color 0.3s; pointer-events:none;
+    }
+    .ctc-info-card:hover { background:linear-gradient(135deg,rgba(46,109,164,0.04),rgba(46,109,164,0.02)); transform:translateX(4px); }
+    .ctc-info-card:hover::after { border-color:rgba(46,109,164,0.14); }
+    .ctc-ic-icon {
+      width:44px; height:44px; border-radius:12px; flex-shrink:0;
+      display:flex; align-items:center; justify-content:center; font-size:1rem;
+      background:linear-gradient(135deg,rgba(46,109,164,0.1),rgba(46,109,164,0.06));
+      color:var(--blue);
+      box-shadow:0 2px 8px rgba(46,109,164,0.12);
+      transition:all 0.3s ease;
+    }
+    .ctc-info-card:hover .ctc-ic-icon {
+      background:linear-gradient(135deg,var(--blue),#1a4f7a);
+      color:#fff; box-shadow:0 4px 16px rgba(46,109,164,0.38);
+      transform:scale(1.08) rotate(-4deg);
+    }
+    .ctc-ic-lbl { font-size:0.68rem; font-weight:700; text-transform:uppercase; letter-spacing:1.2px; color:var(--gray); margin-bottom:4px; }
+    .ctc-ic-val { font-size:0.9rem; font-weight:700; color:var(--dark); line-height:1.5; }
+    .ctc-ic-val a { text-decoration:none; color:inherit; transition:color 0.2s; }
+    .ctc-ic-val a:hover { color:var(--blue); }
+    .ctc-ic-sub { font-size:0.8rem; color:var(--gray); margin-top:2px; }
+    .ctc-ic-sub a { text-decoration:none; color:var(--gray); transition:color 0.2s; }
+    .ctc-ic-sub a:hover { color:var(--blue); }
+    .ctc-info-divider { height:1px; background:var(--border); margin:0 12px; }
+
+    /* Hours block */
+    .ctc-hours-wrap {
+      background:linear-gradient(135deg,#f8fbff,#f0f6ff);
+      border-top:1px solid var(--border); padding:18px 22px;
+    }
+    .ctc-hours-head { display:flex; align-items:center; justify-content:space-between; margin-bottom:12px; }
+    .ctc-hours-title { font-size:0.73rem; font-weight:700; color:var(--dark); text-transform:uppercase; letter-spacing:1px; }
+    .ctc-hours-open {
+      display:inline-flex; align-items:center; gap:5px;
+      font-size:0.7rem; font-weight:700; color:#16a34a;
+      background:rgba(22,163,74,0.08); border:1px solid rgba(22,163,74,0.22);
+      border-radius:100px; padding:3px 10px;
+    }
+    .ctc-hours-open-dot { width:5px; height:5px; border-radius:50%; background:#16a34a; animation:pulse 1.5s infinite; }
+    .ctc-hours-grid { display:grid; grid-template-columns:1fr 1fr; gap:5px; }
+    .ctc-hour-item {
+      display:flex; justify-content:space-between; align-items:center;
+      padding:8px 11px; background:rgba(255,255,255,0.85);
+      border-radius:8px; font-size:0.78rem;
+      border:1px solid rgba(46,109,164,0.07); transition:all 0.2s ease;
+    }
+    .ctc-hour-item:hover { background:#fff; border-color:rgba(46,109,164,0.2); }
+    .ctc-hour-day { font-weight:700; color:var(--dark); }
+    .ctc-hour-time { color:var(--gray); font-size:0.75rem; }
+
+    /* Map CTA */
+    .ctc-map-cta { border-top:1px solid var(--border); padding:16px 22px; }
+    .ctc-map-btn {
+      display:flex; align-items:center; gap:12px;
+      padding:13px 16px;
+      background:linear-gradient(135deg,rgba(46,109,164,0.06),rgba(46,109,164,0.03));
+      border:1px solid rgba(46,109,164,0.14); border-radius:14px;
+      text-decoration:none; color:var(--dark);
+      transition:all 0.3s cubic-bezier(0.4,0,0.2,1);
+    }
+    .ctc-map-btn:hover {
+      background:linear-gradient(135deg,rgba(46,109,164,0.12),rgba(46,109,164,0.06));
+      border-color:var(--blue); transform:translateY(-2px);
+      box-shadow:0 6px 20px rgba(46,109,164,0.16);
+    }
+    .ctc-map-icon {
+      width:40px; height:40px; border-radius:11px; flex-shrink:0;
+      background:linear-gradient(135deg,var(--blue),#1a4f7a); color:#fff;
+      display:flex; align-items:center; justify-content:center; font-size:1rem;
+      box-shadow:0 4px 12px rgba(46,109,164,0.3); transition:transform 0.3s;
+    }
+    .ctc-map-btn:hover .ctc-map-icon { transform:scale(1.08); }
+    .ctc-map-label { font-size:0.87rem; font-weight:700; color:var(--dark); transition:color 0.3s; }
+    .ctc-map-btn:hover .ctc-map-label { color:var(--blue); }
+    .ctc-map-sub { font-size:0.76rem; color:var(--gray); margin-top:1px; }
+    .ctc-map-arr { margin-left:auto; color:var(--blue); opacity:0; transition:all 0.3s; font-size:0.85rem; }
+    .ctc-map-btn:hover .ctc-map-arr { opacity:1; transform:translate(3px,-3px); }
+
+    /* ── RIGHT FORM PANEL ─────────────────────────── */
+    .ctc-form-panel {
+      background:#fff; border-radius:24px;
+      border:1px solid rgba(46,109,164,0.1);
+      box-shadow:0 20px 60px rgba(30,64,175,0.1),0 4px 16px rgba(0,0,0,0.05),inset 0 1px 0 rgba(255,255,255,0.9);
+      overflow:hidden; position:relative;
+    }
+    /* Animated shimmer top border */
+    .ctc-form-panel::before {
+      content:''; position:absolute; top:0; left:0; right:0; height:3px;
+      background:linear-gradient(90deg,var(--blue) 0%,#F5C518 50%,var(--blue) 100%);
+      background-size:200% 100%;
+      animation:shimmerLine 3s linear infinite;
+    }
+    @keyframes shimmerLine{
+      0%{background-position:200% 0;}
+      100%{background-position:-200% 0;}
+    }
+
+    /* Form header */
+    .ctc-form-header {
+      padding:26px 30px 22px;
+      border-bottom:1px solid rgba(46,109,164,0.08);
+      background:linear-gradient(135deg,#fafcff,#f4f8ff);
+    }
+    .ctc-fh-top { display:flex; align-items:flex-start; justify-content:space-between; gap:16px; margin-bottom:14px; }
+    .ctc-fh-title { font-size:1.35rem; font-weight:800; color:var(--dark); margin:0 0 5px; }
+    .ctc-fh-sub { font-size:0.85rem; color:var(--gray); margin:0; }
+    .ctc-form-badge {
+      display:inline-flex; align-items:center; gap:6px;
+      background:rgba(22,163,74,0.08); border:1px solid rgba(22,163,74,0.25);
+      border-radius:100px; padding:5px 13px; font-size:0.72rem;
+      font-weight:700; color:#16a34a; flex-shrink:0; white-space:nowrap;
+    }
+    .ctc-form-badge-dot { width:6px; height:6px; border-radius:50%; background:#16a34a; animation:livePulse 1.5s infinite; }
+    .ctc-trust-row { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+    .ctc-trust-pill {
+      display:inline-flex; align-items:center; gap:5px;
+      font-size:0.73rem; font-weight:600; color:var(--gray);
+      background:rgba(0,0,0,0.03); border:1px solid var(--border);
+      border-radius:100px; padding:4px 11px;
+    }
+    .ctc-trust-pill i { font-size:0.68rem; color:#16a34a; }
+
+    /* Form body */
+    .ctc-form-body { padding:26px 30px 24px; }
+    .ctc-field-row { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+    .ctc-field { position:relative; margin-bottom:16px; }
+    .ctc-field > label {
+      display:block; font-size:0.81rem; font-weight:600;
+      color:#374151; margin-bottom:6px; transition:color 0.2s;
+    }
+    .ctc-field:focus-within > label { color:var(--blue); }
+
+    /* Input with icon */
+    .ctc-input-wrap { position:relative; }
+    .ctc-input-icon {
+      position:absolute; left:14px; top:50%; transform:translateY(-50%);
+      color:#9ca3af; font-size:0.88rem; pointer-events:none; transition:color 0.3s;
+    }
+    .ctc-field:focus-within .ctc-input-icon { color:var(--blue); }
+    .ctc-input {
+      width:100%; padding:12px 14px 12px 40px;
+      border:1.5px solid #e2e8f0; border-radius:11px;
+      font-size:0.88rem; font-family:'Inter',sans-serif; color:var(--dark);
+      background:#fafbff; transition:all 0.3s cubic-bezier(0.4,0,0.2,1); outline:none;
+    }
+    .ctc-input:focus {
+      border-color:var(--blue); background:#fff;
+      box-shadow:0 0 0 4px rgba(46,109,164,0.09),0 2px 8px rgba(46,109,164,0.08);
+    }
+    .ctc-input::placeholder { color:#adb5bd; }
+    .ctc-input.valid { border-color:#16a34a; }
+    .ctc-input.valid + .ctc-input-icon { color:#16a34a; }
+
+    /* Textarea */
+    .ctc-textarea {
+      width:100%; padding:12px 14px;
+      border:1.5px solid #e2e8f0; border-radius:11px;
+      font-size:0.88rem; font-family:'Inter',sans-serif; color:var(--dark);
+      background:#fafbff; resize:vertical; min-height:108px;
+      transition:all 0.3s cubic-bezier(0.4,0,0.2,1); outline:none;
+    }
+    .ctc-textarea:focus {
+      border-color:var(--blue); background:#fff;
+      box-shadow:0 0 0 4px rgba(46,109,164,0.09);
+    }
+    .ctc-textarea::placeholder { color:#adb5bd; }
+
+    /* Select */
+    .ctc-select-wrap { position:relative; }
+    .ctc-select-icon { position:absolute; left:14px; top:50%; transform:translateY(-50%); color:#9ca3af; font-size:0.88rem; pointer-events:none; transition:color 0.3s; }
+    .ctc-field:focus-within .ctc-select-icon { color:var(--blue); }
+    .ctc-select-arr { position:absolute; right:14px; top:50%; transform:translateY(-50%); color:#9ca3af; font-size:0.78rem; pointer-events:none; }
+    .ctc-select {
+      width:100%; padding:12px 36px 12px 40px;
+      border:1.5px solid #e2e8f0; border-radius:11px;
+      font-size:0.88rem; font-family:'Inter',sans-serif; color:var(--dark);
+      background:#fafbff; appearance:none; cursor:pointer;
+      transition:all 0.3s cubic-bezier(0.4,0,0.2,1); outline:none;
+    }
+    .ctc-select:focus { border-color:var(--blue); background:#fff; box-shadow:0 0 0 4px rgba(46,109,164,0.09); }
+
+    /* Service checkboxes — custom pill design */
+    .ctc-svc-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:16px; }
+    .ctc-svc-opt { position:relative; }
+    .ctc-svc-opt input[type="checkbox"] { position:absolute; opacity:0; width:0; height:0; }
+    .ctc-svc-opt label {
+      display:flex; align-items:center; gap:8px;
+      padding:10px 12px; border:1.5px solid #e2e8f0;
+      border-radius:10px; cursor:pointer;
+      font-size:0.81rem; font-weight:500; color:#4b5563;
+      background:#fafbff; transition:all 0.25s ease; user-select:none;
+    }
+    .ctc-svc-opt label:hover { border-color:var(--blue); background:rgba(46,109,164,0.04); color:var(--blue); }
+    .ctc-svc-opt input:checked + label { border-color:var(--blue); background:rgba(46,109,164,0.08); color:var(--blue); font-weight:600; }
+    .ctc-svc-box {
+      width:17px; height:17px; border-radius:5px; flex-shrink:0;
+      border:1.5px solid #d1d5db; background:#fff;
+      display:flex; align-items:center; justify-content:center;
+      font-size:0.6rem; color:transparent; transition:all 0.25s ease;
+    }
+    .ctc-svc-opt input:checked + label .ctc-svc-box { background:var(--blue); border-color:var(--blue); color:#fff; }
+
+    /* Terms row */
+    .ctc-terms-row { display:flex; align-items:flex-start; gap:10px; margin-bottom:20px; }
+    .ctc-terms-row input[type="checkbox"] { position:absolute; opacity:0; width:0; height:0; }
+    .ctc-terms-check {
+      width:18px; height:18px; border-radius:5px; flex-shrink:0; margin-top:2px;
+      border:1.5px solid #d1d5db; background:#fff; cursor:pointer;
+      display:flex; align-items:center; justify-content:center;
+      font-size:0.6rem; color:transparent; transition:all 0.25s ease;
+    }
+    .ctc-terms-row input:checked ~ .ctc-terms-lbl .ctc-terms-check { background:var(--blue); border-color:var(--blue); color:#fff; }
+    .ctc-terms-lbl { font-size:0.81rem; color:var(--gray); line-height:1.55; cursor:pointer; }
+
+    /* Submit button — premium gold */
+    .ctc-submit-btn {
+      width:100%; padding:15px 24px; border:none; border-radius:14px; cursor:pointer;
+      font-size:1rem; font-weight:800; color:#0d1a2e; font-family:'Inter',sans-serif;
+      background:linear-gradient(135deg,#F5C518 0%,#d4a800 60%,#c49500 100%);
+      display:flex; align-items:center; justify-content:center; gap:10px;
+      position:relative; overflow:hidden;
+      transition:all 0.3s cubic-bezier(0.4,0,0.2,1);
+      box-shadow:0 4px 20px rgba(245,197,24,0.38),0 2px 8px rgba(0,0,0,0.08);
+      letter-spacing:0.2px;
+    }
+    .ctc-submit-btn:hover {
+      transform:translateY(-2px);
+      box-shadow:0 10px 36px rgba(245,197,24,0.52),0 4px 12px rgba(0,0,0,0.1);
+      background:linear-gradient(135deg,#FFD740 0%,#F5C518 55%,#d4a800 100%);
+    }
+    .ctc-submit-btn:active { transform:translateY(0); }
+    .ctc-submit-btn::before {
+      content:''; position:absolute; inset:0; border-radius:14px;
+      background:linear-gradient(135deg,rgba(255,255,255,0.18),transparent);
+    }
+    .ctc-btn-shine {
+      position:absolute; top:0; left:-100%; width:55%; height:100%;
+      background:linear-gradient(90deg,transparent,rgba(255,255,255,0.28),transparent);
+      transform:skewX(-20deg); transition:left 0.55s ease;
+    }
+    .ctc-submit-btn:hover .ctc-btn-shine { left:160%; }
+    .ctc-btn-text,.ctc-btn-icon { position:relative; z-index:1; }
+    .ctc-btn-icon { transition:transform 0.3s ease; }
+    .ctc-submit-btn:hover .ctc-btn-icon { transform:translateX(5px); }
+    .ctc-btn-spinner {
+      display:none; width:18px; height:18px; border-radius:50%;
+      border:2.5px solid rgba(13,26,46,0.25); border-top-color:#0d1a2e;
+      animation:spin 0.7s linear infinite; position:relative; z-index:1;
+    }
+    @keyframes spin{to{transform:rotate(360deg);}}
+    .ctc-submit-btn.is-loading .ctc-btn-text,
+    .ctc-submit-btn.is-loading .ctc-btn-icon { display:none; }
+    .ctc-submit-btn.is-loading .ctc-btn-spinner { display:block; }
+
+    /* WhatsApp strip */
+    .ctc-wa-strip {
+      display:flex; align-items:center; gap:13px;
+      margin-top:14px; padding:13px 16px;
+      background:linear-gradient(135deg,rgba(37,211,102,0.07),rgba(37,211,102,0.03));
+      border:1px solid rgba(37,211,102,0.2); border-radius:14px;
+      text-decoration:none; transition:all 0.3s ease; cursor:pointer;
+    }
+    .ctc-wa-strip:hover {
+      background:linear-gradient(135deg,rgba(37,211,102,0.12),rgba(37,211,102,0.06));
+      border-color:rgba(37,211,102,0.38); transform:translateY(-2px);
+      box-shadow:0 6px 20px rgba(37,211,102,0.14);
+    }
+    .ctc-wa-icon-wrap {
+      width:42px; height:42px; border-radius:12px; flex-shrink:0;
+      background:linear-gradient(135deg,#25d366,#1da851); color:#fff;
+      display:flex; align-items:center; justify-content:center; font-size:1.25rem;
+      box-shadow:0 4px 12px rgba(37,211,102,0.38); transition:transform 0.3s;
+    }
+    .ctc-wa-strip:hover .ctc-wa-icon-wrap { transform:scale(1.1) rotate(-5deg); }
+    .ctc-wa-title { font-size:0.87rem; font-weight:700; color:var(--dark); }
+    .ctc-wa-sub { font-size:0.78rem; color:var(--gray); margin-top:2px; }
+    .ctc-wa-sub a { color:#25d366; font-weight:600; text-decoration:none; }
+    .ctc-wa-arr { margin-left:auto; color:#25d366; opacity:0; transition:all 0.3s; font-size:0.85rem; }
+    .ctc-wa-strip:hover .ctc-wa-arr { opacity:1; transform:translateX(3px); }
+
+    /* Success overlay */
+    .ctc-success {
+      display:none; position:absolute; inset:0; border-radius:24px; z-index:20;
+      background:linear-gradient(145deg,#f0fff4,#ecfdf5);
+      flex-direction:column; align-items:center; justify-content:center;
+      text-align:center; padding:48px 32px;
+    }
+    .ctc-success.show { display:flex; animation:fadeInScale 0.45s cubic-bezier(0.4,0,0.2,1); }
+    @keyframes fadeInScale{ from{opacity:0;transform:scale(0.96);} to{opacity:1;transform:scale(1);} }
+    .ctc-success-icon {
+      width:80px; height:80px; border-radius:50%;
+      background:linear-gradient(135deg,#16a34a,#22c55e); color:#fff;
+      display:flex; align-items:center; justify-content:center; font-size:2rem;
+      margin-bottom:24px; box-shadow:0 12px 32px rgba(22,163,74,0.38);
+      animation:successBounce 0.6s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    @keyframes successBounce{ 0%{transform:scale(0);} 100%{transform:scale(1);} }
+    .ctc-success-title { font-size:1.4rem; font-weight:800; color:#14532d; margin-bottom:12px; }
+    .ctc-success-sub { font-size:0.9rem; color:#166534; line-height:1.65; max-width:300px; }
+
+    /* ── Responsive ───────────────────────────────── */
+    @media(max-width:1024px){
+      .ctc-main-layout{ grid-template-columns:1fr; }
+      .ctc-info-panel{ position:static; }
+    }
+    @media(max-width:768px){
+      .ctc-qc-grid{ grid-template-columns:1fr; }
+      .ctc-hero-stats{ padding:16px 20px; }
+      .ctc-stat-sep{ display:none; }
+      .ctc-field-row{ grid-template-columns:1fr; }
+      .ctc-svc-grid{ grid-template-columns:1fr; }
+      .ctc-form-header{ padding:20px; }
+      .ctc-form-body{ padding:20px; }
+      .ctc-hours-grid{ grid-template-columns:1fr; }
+      .ctc-hours-wrap{ padding:16px 20px; }
+      .ctc-map-cta{ padding:12px 20px; }
+      .ctc-info-body{ padding:4px 10px 0; }
+      .ctc-fh-top{ flex-direction:column; }
+    }
+  </style>
+</head>
+<body>
+<div id="site-nav"></div>
+
+<!-- ══ HERO ════════════════════════════════════════════ -->
+<section class="ctc-hero">
+  <div class="ctc-hero-decor" aria-hidden="true">
+    <div class="ctc-hero-orb ctc-orb-1"></div>
+    <div class="ctc-hero-orb ctc-orb-2"></div>
+    <div class="ctc-hero-orb ctc-orb-3"></div>
+    <div class="ctc-hero-grid"></div>
+  </div>
+  <div class="container">
+    <div class="ctc-breadcrumb">
+      <a href="index.html">Home</a>
+      <i class="fa-solid fa-chevron-right"></i>
+      <span>Contact Us</span>
+    </div>
+    <div class="ctc-hero-badge">
+      <span class="ctc-hero-badge-dot"></span>
+      <i class="fa-solid fa-star"></i>
+      Free Consultation Available — No Obligation
+    </div>
+    <h1>Let's Talk About<br>Your Finance Function</h1>
+    <p class="ctc-hero-sub">Book a free consultation, call us directly, or drop us a message. Our team responds within 24 hours.</p>
+    <div class="ctc-hero-stats fade-in">
+      <div class="ctc-hero-stat">
+        <div class="ctc-hero-stat-num">200+</div>
+        <div class="ctc-hero-stat-lbl">Businesses Served</div>
+      </div>
+      <div class="ctc-stat-sep"></div>
+      <div class="ctc-hero-stat">
+        <div class="ctc-hero-stat-num">&lt;24h</div>
+        <div class="ctc-hero-stat-lbl">Response Time</div>
+      </div>
+      <div class="ctc-stat-sep"></div>
+      <div class="ctc-hero-stat">
+        <div class="ctc-hero-stat-num">98%</div>
+        <div class="ctc-hero-stat-lbl">Client Satisfaction</div>
+      </div>
+      <div class="ctc-stat-sep"></div>
+      <div class="ctc-hero-stat">
+        <div class="ctc-hero-stat-num">UAE &amp; Global</div>
+        <div class="ctc-hero-stat-lbl">Coverage</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ QUICK CONTACT CARDS ═════════════════════════════ -->
+<section class="ctc-qc-section">
+  <div class="container">
+    <div class="ctc-qc-grid fade-in">
+
+      <!-- Phone -->
+      <div class="ctc-qc-card">
+        <div class="ctc-qc-top-line" style="background:linear-gradient(90deg,#2E6DA4,#4a8cc4)"></div>
+        <div class="ctc-qc-icon" style="background:rgba(46,109,164,0.1);color:var(--blue)">
+          <i class="fa-solid fa-phone"></i>
+        </div>
+        <div class="ctc-qc-label">Call Us</div>
+        <div class="ctc-qc-val"><a href="tel:+97148858622">+971 4 885 8622</a></div>
+        <div class="ctc-qc-sub"><a href="tel:+971565075253">+971 56 507 5253</a></div>
+        <a href="tel:+97148858622" class="ctc-qc-btn" style="color:var(--blue);border-color:rgba(46,109,164,0.25);background:rgba(46,109,164,0.05)">
+          <i class="fa-solid fa-phone"></i> Call Now
+        </a>
+      </div>
+
+      <!-- WhatsApp -->
+      <div class="ctc-qc-card">
+        <div class="ctc-qc-top-line" style="background:linear-gradient(90deg,#25d366,#1da851)"></div>
+        <div class="ctc-qc-icon" style="background:rgba(37,211,102,0.1);color:#25d366">
+          <i class="fa-brands fa-whatsapp"></i>
+        </div>
+        <div class="ctc-qc-label">WhatsApp</div>
+        <div class="ctc-qc-val"><a href="https://wa.me/971565075253" target="_blank">+971 56 507 5253</a></div>
+        <div class="ctc-qc-sub">Chat with us instantly</div>
+        <a href="https://wa.me/971565075253" target="_blank" class="ctc-qc-btn" style="color:#25d366;border-color:rgba(37,211,102,0.25);background:rgba(37,211,102,0.05)">
+          <i class="fa-brands fa-whatsapp"></i> Chat Now
+        </a>
+      </div>
+
+      <!-- Email -->
+      <div class="ctc-qc-card">
+        <div class="ctc-qc-top-line" style="background:linear-gradient(90deg,#F5C518,#d4a800)"></div>
+        <div class="ctc-qc-icon" style="background:rgba(245,197,24,0.12);color:#d4a800">
+          <i class="fa-solid fa-envelope"></i>
+        </div>
+        <div class="ctc-qc-label">Email Us</div>
+        <div class="ctc-qc-val"><a href="mailto:info@virtualcfo.ae">info@virtualcfo.ae</a></div>
+        <div class="ctc-qc-sub">We reply within 24 hours</div>
+        <a href="mailto:info@virtualcfo.ae" class="ctc-qc-btn" style="color:#d4a800;border-color:rgba(245,197,24,0.3);background:rgba(245,197,24,0.06)">
+          <i class="fa-solid fa-paper-plane"></i> Send Email
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ MAIN: INFO + FORM ════════════════════════════════ -->
+<section class="ctc-main-section" id="consultation">
+  <div class="container">
+    <div class="ctc-main-layout">
+
+      <!-- ══ LEFT: Premium Info Panel ══ -->
+      <div class="ctc-info-panel fade-in-left">
+
+        <!-- Dark Header -->
+        <div class="ctc-info-header">
+          <div class="ctc-ih-grid"></div>
+          <div class="ctc-ih-glow"></div>
+          <div class="ctc-ih-glow2"></div>
+          <div class="ctc-ih-particles" aria-hidden="true">
+            <span></span><span></span><span></span><span></span>
+          </div>
+          <div class="ctc-ih-live">
+            <span class="ctc-ih-live-dot"></span>
+            Online Now
+          </div>
+          <div class="section-label">Our Office</div>
+          <h3>Visit or Reach Us</h3>
+          <p>Based in Dubai, UAE — serving 200+ businesses worldwide via call, video, or in-person.</p>
+        </div>
+
+        <!-- Contact Cards -->
+        <div class="ctc-info-body">
+
+          <div class="ctc-info-card">
+            <div class="ctc-ic-icon"><i class="fa-solid fa-location-dot"></i></div>
+            <div>
+              <div class="ctc-ic-lbl">Office Address</div>
+              <div class="ctc-ic-val">102, 1st Floor, Sheikha Mahra Ahmad Al Ghurair Building</div>
+              <div class="ctc-ic-sub">Near Al Tawar Centre, Al Qusais 2, Dubai, UAE</div>
+            </div>
+          </div>
+          <div class="ctc-info-divider"></div>
+
+          <div class="ctc-info-card">
+            <div class="ctc-ic-icon"><i class="fa-solid fa-phone"></i></div>
+            <div>
+              <div class="ctc-ic-lbl">Phone</div>
+              <div class="ctc-ic-val"><a href="tel:+97148858622">+971 4 885 8622</a></div>
+              <div class="ctc-ic-sub"><a href="tel:+971565075253">+971 56 507 5253</a></div>
+            </div>
+          </div>
+          <div class="ctc-info-divider"></div>
+
+          <div class="ctc-info-card">
+            <div class="ctc-ic-icon"><i class="fa-solid fa-envelope"></i></div>
+            <div>
+              <div class="ctc-ic-lbl">Email</div>
+              <div class="ctc-ic-val"><a href="mailto:info@virtualcfo.ae">info@virtualcfo.ae</a></div>
+              <div class="ctc-ic-sub">Reply within 24 hours</div>
+            </div>
+          </div>
+          <div class="ctc-info-divider"></div>
+
+          <div class="ctc-info-card">
+            <div class="ctc-ic-icon"><i class="fa-solid fa-clock"></i></div>
+            <div>
+              <div class="ctc-ic-lbl">Working Hours</div>
+              <div class="ctc-ic-val">Monday – Saturday</div>
+              <div class="ctc-ic-sub">9:30 AM – 6:30 PM (GST)</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Office Hours Grid -->
+        <div class="ctc-hours-wrap">
+          <div class="ctc-hours-head">
+            <div class="ctc-hours-title">Office Hours</div>
+            <div class="ctc-hours-open"><span class="ctc-hours-open-dot"></span> Open Today</div>
+          </div>
+          <div class="ctc-hours-grid">
+            <div class="ctc-hour-item"><span class="ctc-hour-day">Monday</span><span class="ctc-hour-time">9:30–18:30</span></div>
+            <div class="ctc-hour-item"><span class="ctc-hour-day">Tuesday</span><span class="ctc-hour-time">9:30–18:30</span></div>
+            <div class="ctc-hour-item"><span class="ctc-hour-day">Wednesday</span><span class="ctc-hour-time">9:30–18:30</span></div>
+            <div class="ctc-hour-item"><span class="ctc-hour-day">Thursday</span><span class="ctc-hour-time">9:30–18:30</span></div>
+            <div class="ctc-hour-item"><span class="ctc-hour-day">Friday</span><span class="ctc-hour-time">9:30–18:30</span></div>
+            <div class="ctc-hour-item"><span class="ctc-hour-day">Saturday</span><span class="ctc-hour-time">9:30–18:30</span></div>
+          </div>
+        </div>
+
+        <!-- Map CTA -->
+        <div class="ctc-map-cta">
+          <a href="https://maps.google.com/?q=Al+Qusais+2+Dubai+UAE" target="_blank" class="ctc-map-btn">
+            <div class="ctc-map-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+            <div class="ctc-map-text">
+              <div class="ctc-map-label">View on Google Maps</div>
+              <div class="ctc-map-sub">Al Qusais 2, Dubai, UAE</div>
+            </div>
+            <i class="fa-solid fa-arrow-up-right-from-square ctc-map-arr"></i>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- ══ RIGHT: Premium Form Panel ══ -->
+      <div class="ctc-form-panel fade-in-right">
+
+        <!-- Success overlay (shown after submit) -->
+        <div class="ctc-success" id="ctcSuccess">
+          <div class="ctc-success-icon"><i class="fa-solid fa-check"></i></div>
+          <div class="ctc-success-title">Message Sent!</div>
+          <div class="ctc-success-sub">Thank you — our team will get back to you within 24 hours to schedule your free consultation.</div>
+        </div>
+
+        <!-- Form Header -->
+        <div class="ctc-form-header">
+          <div class="ctc-fh-top">
+            <div>
+              <div class="ctc-fh-title">Book a Free Consultation</div>
+              <p class="ctc-fh-sub">Fill in the form — our team responds within 24 hours.</p>
+            </div>
+            <div class="ctc-form-badge">
+              <span class="ctc-form-badge-dot"></span>
+              Responding Now
+            </div>
+          </div>
+          <div class="ctc-trust-row">
+            <div class="ctc-trust-pill"><i class="fa-solid fa-circle-check"></i> 100% Free</div>
+            <div class="ctc-trust-pill"><i class="fa-solid fa-circle-check"></i> No Obligation</div>
+            <div class="ctc-trust-pill"><i class="fa-solid fa-circle-check"></i> Secure &amp; Private</div>
+          </div>
+        </div>
+
+        <!-- Form Body -->
+        <div class="ctc-form-body">
+          <form id="contactForm" novalidate>
+
+            <div class="ctc-field-row">
+              <div class="ctc-field">
+                <label for="name">Full Name *</label>
+                <div class="ctc-input-wrap">
+                  <i class="fa-solid fa-user ctc-input-icon"></i>
+                  <input type="text" id="name" name="name" class="ctc-input" placeholder="Your full name" required/>
+                </div>
+              </div>
+              <div class="ctc-field">
+                <label for="company">Company Name</label>
+                <div class="ctc-input-wrap">
+                  <i class="fa-solid fa-building ctc-input-icon"></i>
+                  <input type="text" id="company" name="company" class="ctc-input" placeholder="Your company"/>
+                </div>
+              </div>
+            </div>
+
+            <div class="ctc-field-row">
+              <div class="ctc-field">
+                <label for="email">Email Address *</label>
+                <div class="ctc-input-wrap">
+                  <i class="fa-solid fa-envelope ctc-input-icon"></i>
+                  <input type="email" id="email" name="email" class="ctc-input" placeholder="your@email.com" required/>
+                </div>
+              </div>
+              <div class="ctc-field">
+                <label for="phone">Phone / WhatsApp</label>
+                <div class="ctc-input-wrap">
+                  <i class="fa-solid fa-phone ctc-input-icon"></i>
+                  <input type="tel" id="phone" name="phone" class="ctc-input" placeholder="+971 XX XXX XXXX"/>
+                </div>
+              </div>
+            </div>
+
+            <div class="ctc-field">
+              <label>Services Interested In</label>
+              <div class="ctc-svc-grid">
+                <div class="ctc-svc-opt">
+                  <input type="checkbox" id="s1" name="services[]" value="Virtual CFO"/>
+                  <label for="s1"><span class="ctc-svc-box"><i class="fa-solid fa-check"></i></span> Virtual CFO Services</label>
+                </div>
+                <div class="ctc-svc-opt">
+                  <input type="checkbox" id="s2" name="services[]" value="Month-end Closing"/>
+                  <label for="s2"><span class="ctc-svc-box"><i class="fa-solid fa-check"></i></span> Month-end Closing &amp; MIS</label>
+                </div>
+                <div class="ctc-svc-opt">
+                  <input type="checkbox" id="s3" name="services[]" value="Audit Tax"/>
+                  <label for="s3"><span class="ctc-svc-box"><i class="fa-solid fa-check"></i></span> Audit &amp; Tax Compliance</label>
+                </div>
+                <div class="ctc-svc-opt">
+                  <input type="checkbox" id="s4" name="services[]" value="Power BI"/>
+                  <label for="s4"><span class="ctc-svc-box"><i class="fa-solid fa-check"></i></span> Power BI Solutions</label>
+                </div>
+                <div class="ctc-svc-opt">
+                  <input type="checkbox" id="s5" name="services[]" value="Process Optimization"/>
+                  <label for="s5"><span class="ctc-svc-box"><i class="fa-solid fa-check"></i></span> Process Optimization</label>
+                </div>
+                <div class="ctc-svc-opt">
+                  <input type="checkbox" id="s6" name="services[]" value="Other"/>
+                  <label for="s6"><span class="ctc-svc-box"><i class="fa-solid fa-check"></i></span> Other / Not Sure</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="ctc-field">
+              <label for="business_size">Business Size</label>
+              <div class="ctc-select-wrap">
+                <i class="fa-solid fa-chart-bar ctc-select-icon"></i>
+                <i class="fa-solid fa-chevron-down ctc-select-arr"></i>
+                <select id="business_size" name="business_size" class="ctc-select">
+                  <option value="">Select your company size…</option>
+                  <option>Startup (1–10 employees)</option>
+                  <option>SME (11–50 employees)</option>
+                  <option>Mid-Market (51–200 employees)</option>
+                  <option>Large / Group Entity (200+)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="ctc-field">
+              <label for="message">Tell Us About Your Business *</label>
+              <textarea id="message" name="message" class="ctc-textarea" placeholder="Briefly describe your current finance setup, key challenges, and what you're hoping to achieve…" required></textarea>
+            </div>
+
+            <div class="ctc-terms-row">
+              <input type="checkbox" id="terms" name="terms" required/>
+              <label for="terms" class="ctc-terms-lbl">
+                <span class="ctc-terms-check"><i class="fa-solid fa-check" style="font-size:0.58rem"></i></span>
+              </label>
+              <label for="terms" class="ctc-terms-lbl" style="flex:1">
+                I agree to be contacted by Virtual CFO Management Consultancy regarding my enquiry. Your information will not be shared with third parties.
+              </label>
+            </div>
+
+            <button type="submit" class="ctc-submit-btn" id="ctcSubmitBtn">
+              <span class="ctc-btn-shine"></span>
+              <span class="ctc-btn-text"><i class="fa-solid fa-paper-plane"></i>&nbsp; Send Message &amp; Book Consultation</span>
+              <span class="ctc-btn-icon"><i class="fa-solid fa-arrow-right"></i></span>
+              <span class="ctc-btn-spinner"></span>
+            </button>
+
+          </form>
+
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ WHAT HAPPENS IN CONSULTATION ════════════════════ -->
+<section class="section prc-section">
+  <div class="prc-bg-decor" aria-hidden="true">
+    <div class="prc-bg-orb prc-orb-1"></div>
+    <div class="prc-bg-orb prc-orb-2"></div>
+    <div class="prc-bg-grid"></div>
+  </div>
+
+  <div class="container" style="position:relative;z-index:1;">
+    <div class="text-center mb-64 fade-in">
+      <div class="section-label">Why Consult Us?</div>
+      <h2 class="section-title">
+        <span class="section-title-underline">What Happens in a Free Consultation?</span>
+      </h2>
+      <p class="section-subtitle mt-16">A structured, zero-pressure session designed to give you real clarity on your finance function.</p>
+    </div>
+
+    <div class="prc-timeline">
+
+      <div class="prc-connector" aria-hidden="true">
+        <div class="prc-connector-fill"></div>
+        <div class="prc-connector-dots">
+          <div class="prc-cdot" style="--d:0s"></div>
+          <div class="prc-cdot" style="--d:1s"></div>
+          <div class="prc-cdot" style="--d:2s"></div>
+        </div>
+      </div>
+
+      <!-- Step 1 -->
+      <div class="prc-step fade-in-up stagger-1">
+        <div class="prc-num-wrap">
+          <div class="prc-num-ring"></div>
+          <div class="prc-num">1</div>
+        </div>
+        <div class="prc-card">
+          <div class="prc-card-top-line"></div>
+          <div class="prc-step-tag">Step 01</div>
+          <div class="prc-card-icon"><i class="fa-solid fa-comments"></i></div>
+          <h4>We Listen First</h4>
+          <p>We take time to understand your business, industry, current finance setup, and the specific challenges you're facing.</p>
+          <div class="prc-card-foot">
+            <span class="prc-foot-tag"><i class="fa-solid fa-clock"></i> ~10 mins</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="prc-step fade-in-up stagger-2">
+        <div class="prc-num-wrap">
+          <div class="prc-num-ring"></div>
+          <div class="prc-num">2</div>
+        </div>
+        <div class="prc-card">
+          <div class="prc-card-top-line"></div>
+          <div class="prc-step-tag">Step 02</div>
+          <div class="prc-card-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+          <h4>We Diagnose the Gaps</h4>
+          <p>Using our CFO-level lens, we identify the key gaps and opportunities in your finance function — honestly and objectively.</p>
+          <div class="prc-card-foot">
+            <span class="prc-foot-tag"><i class="fa-solid fa-clock"></i> ~20 mins</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="prc-step fade-in-up stagger-3">
+        <div class="prc-num-wrap">
+          <div class="prc-num-ring"></div>
+          <div class="prc-num">3</div>
+        </div>
+        <div class="prc-card">
+          <div class="prc-card-top-line"></div>
+          <div class="prc-step-tag">Step 03</div>
+          <div class="prc-card-icon"><i class="fa-solid fa-lightbulb"></i></div>
+          <h4>We Recommend a Path</h4>
+          <p>We outline exactly how we can help — which services, what level of engagement, and what results you can expect.</p>
+          <div class="prc-card-foot">
+            <span class="prc-foot-tag"><i class="fa-solid fa-clock"></i> ~20 mins</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="prc-step fade-in-up stagger-4">
+        <div class="prc-num-wrap">
+          <div class="prc-num-ring prc-ring-gold"></div>
+          <div class="prc-num prc-num-gold">4</div>
+        </div>
+        <div class="prc-card prc-card-gold">
+          <div class="prc-card-top-line prc-line-gold"></div>
+          <div class="prc-step-tag prc-tag-gold">Step 04</div>
+          <div class="prc-card-icon prc-icon-gold"><i class="fa-solid fa-handshake"></i></div>
+          <h4>No Pressure, No Obligation</h4>
+          <p>The consultation is entirely free and non-committal. You decide if and when you want to move forward.</p>
+          <div class="prc-card-foot">
+            <span class="prc-foot-tag prc-foot-gold"><i class="fa-solid fa-shield-halved"></i> Always Free</span>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /prc-timeline -->
+  </div>
+</section>
+
+<!-- ══ FAQ — PREMIUM ════════════════════════════════════ -->
+<section class="section faq-section" id="faq">
+  <div class="faq-bg-decor" aria-hidden="true">
+    <div class="faq-bg-orb faq-orb-1"></div>
+    <div class="faq-bg-orb faq-orb-2"></div>
+    <div class="faq-bg-grid"></div>
+  </div>
+
+  <div class="container" style="position:relative;z-index:1;">
+    <div class="faq-layout">
+
+      <!-- LEFT -->
+      <div class="faq-left fade-in-left">
+        <div class="section-label">FAQ</div>
+        <h2 class="section-title">Before You<br>Reach Out</h2>
+        <p class="section-subtitle mt-16">Quick answers to the most common questions before getting in touch with us.</p>
+
+        <div class="faq-quick-stats">
+          <div class="faq-stat">
+            <div class="faq-stat-num">5</div>
+            <div class="faq-stat-lbl">FAQs Answered</div>
+          </div>
+          <div class="faq-stat">
+            <div class="faq-stat-num">&lt;24h</div>
+            <div class="faq-stat-lbl">Response Time</div>
+          </div>
+          <div class="faq-stat">
+            <div class="faq-stat-num">Free</div>
+            <div class="faq-stat-lbl">Consultation</div>
+          </div>
+        </div>
+
+        <a href="https://wa.me/971565075253" target="_blank" class="btn btn-secondary faq-cta-btn">
+          <i class="fa-brands fa-whatsapp"></i> Ask on WhatsApp
+        </a>
+
+        <div class="faq-deco-card">
+          <div class="faq-deco-icon"><i class="fa-solid fa-calendar-check"></i></div>
+          <div>
+            <div class="faq-deco-title">Ready to get started?</div>
+            <div class="faq-deco-sub">Book a free consultation — no obligation</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Premium Accordion -->
+      <div class="faq-right fade-in-right">
+        <div class="faq-list faq-list-premium">
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <div class="fq-icon"><i class="fa-solid fa-tag"></i></div>
+              <span class="fq-text">Is the first consultation really free?</span>
+              <div class="fq-toggle"><i class="fa-solid fa-chevron-down"></i></div>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">Yes, completely. The initial consultation involves no charge and no obligation. We want to understand your business and see if we can genuinely add value before any engagement is proposed.</div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <div class="fq-icon"><i class="fa-solid fa-hourglass-half"></i></div>
+              <span class="fq-text">How long does the consultation take?</span>
+              <div class="fq-toggle"><i class="fa-solid fa-chevron-down"></i></div>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">Typically 30–60 minutes. We can conduct it via video call, phone, or in person at our Dubai office — whichever works best for you.</div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <div class="fq-icon"><i class="fa-solid fa-clipboard-list"></i></div>
+              <span class="fq-text">What should I prepare before the consultation?</span>
+              <div class="fq-toggle"><i class="fa-solid fa-chevron-down"></i></div>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">Nothing formal is required. It helps to have a rough idea of your business size, current accounting setup, and the key financial challenges you're facing. We'll guide the conversation from there.</div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <div class="fq-icon"><i class="fa-solid fa-globe"></i></div>
+              <span class="fq-text">Do you offer services for businesses outside the UAE?</span>
+              <div class="fq-toggle"><i class="fa-solid fa-chevron-down"></i></div>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">Yes. We serve 200+ businesses worldwide, delivering most services remotely through digital tools and regular virtual meetings. Our services are not limited by geography.</div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <div class="fq-icon fq-icon-gold"><i class="fa-solid fa-bolt"></i></div>
+              <span class="fq-text">How quickly can you respond to my enquiry?</span>
+              <div class="fq-toggle"><i class="fa-solid fa-chevron-down"></i></div>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">We respond to all enquiries within 24 hours during business days. For urgent matters, WhatsApp (+971 56 507 5253) is the fastest way to reach us.</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/components.js"></script>
+<script src="js/main.js"></script>
+<script>
+(function(){
+  /* ── Terms checkbox visual sync ─────────────────── */
+  const termsInput = document.getElementById('terms');
+  const termsCheck = document.querySelector('.ctc-terms-check');
+  if(termsInput && termsCheck){
+    termsInput.addEventListener('change', function(){
+      termsCheck.style.background = this.checked ? 'var(--blue)' : '';
+      termsCheck.style.borderColor = this.checked ? 'var(--blue)' : '';
+      termsCheck.style.color      = this.checked ? '#fff' : 'transparent';
+    });
+    termsCheck.addEventListener('click', function(){ termsInput.click(); });
+  }
+
+  /* ── Submit button loading + success overlay ──── */
+  const form    = document.getElementById('contactForm');
+  const btn     = document.getElementById('ctcSubmitBtn');
+  const overlay = document.getElementById('ctcSuccess');
+  if(form && btn && overlay){
+    form.addEventListener('submit', function(e){
+      /* Show loading state */
+      btn.classList.add('is-loading');
+      btn.disabled = true;
+
+      /* Let main.js handle actual submission; watch for its success signal */
+      /* Fallback: show success after 2.5s if no network response triggers it */
+      const fallback = setTimeout(function(){
+        showSuccess();
+      }, 2500);
+
+      /* If main.js dispatches a custom 'formSuccess' event, use that */
+      document.addEventListener('formSuccess', function(){
+        clearTimeout(fallback);
+        showSuccess();
+      }, {once:true});
+    });
+  }
+
+  function showSuccess(){
+    if(overlay) overlay.classList.add('show');
+    if(btn){ btn.classList.remove('is-loading'); btn.disabled = false; }
+  }
+
+  /* ── Input micro-validation on blur ─────────────── */
+  document.querySelectorAll('.ctc-input[required]').forEach(function(inp){
+    inp.addEventListener('blur', function(){
+      if(this.value.trim()){
+        this.classList.add('valid');
+      } else {
+        this.classList.remove('valid');
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>
