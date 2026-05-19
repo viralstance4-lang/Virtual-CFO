@@ -42,9 +42,9 @@ const NAVBAR_HTML = `
       <li><a href="contact.html" class="nav-link">Contact</a></li>
       <li><a href="contact.html#consultation" class="btn btn-primary nav-cta">Free Consultation</a></li>
     </ul>
-    <div class="hamburger" id="hamburger">
+    <button type="button" class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
       <span></span><span></span><span></span>
-    </div>
+    </button>
   </div>
 </nav>
 <div class="nav-overlay" id="navOverlay"></div>
@@ -53,28 +53,7 @@ const NAVBAR_HTML = `
 const FOOTER_HTML = `
 <footer class="footer" style="background:linear-gradient(145deg,#0c1835 0%,#111827 60%,#0c1835 100%);border-top:1px solid rgba(255,255,255,0.06);">
   <!-- Footer Top: Stats strip -->
-  <div style="border-bottom:1px solid rgba(255,255,255,0.06);padding:28px 0;">
-    <div class="container">
-      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0;text-align:center;">
-        <div style="padding:0 24px;border-right:1px solid rgba(255,255,255,0.07);">
-          <div style="font-size:1.6rem;font-weight:900;color:#F5C518;line-height:1;">200+</div>
-          <div style="font-size:0.78rem;color:rgba(255,255,255,0.5);margin-top:4px;">Businesses Served</div>
-        </div>
-        <div style="padding:0 24px;border-right:1px solid rgba(255,255,255,0.07);">
-          <div style="font-size:1.6rem;font-weight:900;color:#F5C518;line-height:1;">8+</div>
-          <div style="font-size:0.78rem;color:rgba(255,255,255,0.5);margin-top:4px;">Years Experience</div>
-        </div>
-        <div style="padding:0 24px;border-right:1px solid rgba(255,255,255,0.07);">
-          <div style="font-size:1.6rem;font-weight:900;color:#F5C518;line-height:1;">100+</div>
-          <div style="font-size:0.78rem;color:rgba(255,255,255,0.5);margin-top:4px;">Dashboards Built</div>
-        </div>
-        <div style="padding:0 24px;">
-          <div style="font-size:1.6rem;font-weight:900;color:#F5C518;line-height:1;">4.9★</div>
-          <div style="font-size:0.78rem;color:rgba(255,255,255,0.5);margin-top:4px;">Client Rating</div>
-        </div>
-      </div>
-    </div>
-  </div>
+  
   <div class="container" style="padding-top:56px;padding-bottom:0;">
     <div class="footer-grid">
       <!-- Brand -->

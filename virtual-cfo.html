@@ -10,15 +10,232 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
   <style>
-    .pain-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
-    .pain-card {
-      background:var(--white); border:1px solid var(--border); border-radius:var(--radius);
-      padding:24px; transition:var(--transition);
+    /* ══ VCFO HERO — PREMIUM LIGHT REDESIGN ══════════════════════════ */
+    .vcfo-hero-section {
+      position: relative;
+      padding: 140px 0 90px;
+      background: linear-gradient(160deg, #fffbeb 0%, #fef9e0 20%, #f0f8ff 58%, #e8f2ff 100%);
+      overflow: hidden;
     }
-    .pain-card:hover { border-color:var(--blue); box-shadow:var(--shadow); transform:translateY(-3px); }
-    .pain-num { font-size:2rem; font-weight:900; color:rgba(46,109,164,0.15); line-height:1; margin-bottom:8px; }
-    .pain-card h4 { color:var(--dark); margin-bottom:8px; font-size:0.95rem; }
-    .pain-card p { font-size:0.84rem; }
+    .vcfo-hero-bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+    .vcfo-hero-orb { position: absolute; border-radius: 50%; filter: blur(88px); }
+    .vcfo-orb-1 { width:640px; height:640px; background:radial-gradient(circle,rgba(46,109,164,0.14) 0%,transparent 70%); top:-180px; right:-80px; animation:vcfoOrb1 20s ease-in-out infinite; }
+    .vcfo-orb-2 { width:500px; height:500px; background:radial-gradient(circle,rgba(245,197,24,0.18) 0%,transparent 70%); bottom:-120px; left:-80px; animation:vcfoOrb2 25s ease-in-out infinite; }
+    .vcfo-orb-3 { width:380px; height:380px; background:radial-gradient(circle,rgba(59,130,246,0.1) 0%,transparent 70%); top:35%; left:30%; animation:vcfoOrb3 18s ease-in-out infinite; }
+    @keyframes vcfoOrb1 { 0%,100%{transform:translate(0,0)} 33%{transform:translate(24px,-18px)} 66%{transform:translate(-16px,22px)} }
+    @keyframes vcfoOrb2 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(20px,-14px)} }
+    @keyframes vcfoOrb3 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-18px,16px)} }
+    .vcfo-hero-grid { position:absolute; inset:0; background-image:linear-gradient(rgba(30,64,175,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(30,64,175,0.04) 1px,transparent 1px); background-size:60px 60px; }
+    .vcfo-hero-grid::after { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(245,197,24,0.08),transparent 70%); }
+    .vcfo-hero-particles { position:absolute; inset:0; overflow:hidden; }
+    .vcfo-hero-particles span { position:absolute; border-radius:50%; animation:vcfoPFloat linear infinite; }
+    .vcfo-hero-particles span:nth-child(1){width:5px;height:5px;left:8%;background:rgba(245,197,24,0.55);animation-duration:14s;animation-delay:0s;}
+    .vcfo-hero-particles span:nth-child(2){width:4px;height:4px;left:20%;background:rgba(46,109,164,0.25);animation-duration:20s;animation-delay:2s;}
+    .vcfo-hero-particles span:nth-child(3){width:6px;height:6px;left:36%;background:rgba(245,197,24,0.4);animation-duration:16s;animation-delay:4s;}
+    .vcfo-hero-particles span:nth-child(4){width:3px;height:3px;left:55%;background:rgba(96,165,250,0.35);animation-duration:22s;animation-delay:1s;}
+    .vcfo-hero-particles span:nth-child(5){width:5px;height:5px;left:70%;background:rgba(245,197,24,0.3);animation-duration:18s;animation-delay:5s;}
+    .vcfo-hero-particles span:nth-child(6){width:4px;height:4px;left:84%;background:rgba(46,109,164,0.2);animation-duration:13s;animation-delay:3s;}
+    .vcfo-hero-particles span:nth-child(7){width:6px;height:6px;left:93%;background:rgba(245,197,24,0.45);animation-duration:17s;animation-delay:6s;}
+    .vcfo-hero-particles span:nth-child(8){width:3px;height:3px;left:45%;background:rgba(59,130,246,0.2);animation-duration:24s;animation-delay:8s;}
+    @keyframes vcfoPFloat { 0%{transform:translateY(100vh) rotate(0deg);opacity:0} 10%{opacity:1} 90%{opacity:1} 100%{transform:translateY(-100px) rotate(360deg);opacity:0} }
+
+    .vcfo-hero-section .container { position:relative; z-index:1; }
+    .vcfo-breadcrumb { display:flex; align-items:center; gap:8px; font-size:0.8rem; color:var(--gray); margin-bottom:32px; }
+    .vcfo-breadcrumb a { color:var(--gray); text-decoration:none; transition:color 0.2s; }
+    .vcfo-breadcrumb a:hover { color:var(--blue); }
+    .vcfo-breadcrumb i { font-size:0.6rem; }
+    .vcfo-hero-layout { display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; }
+    .vcfo-hero-section .section-label { background:rgba(46,109,164,0.07); border:1px solid rgba(46,109,164,0.18); color:var(--blue); margin-bottom:20px; }
+    .vcfo-hero-heading { font-size:clamp(2rem,3.5vw,3rem); font-weight:900; color:var(--dark); line-height:1.18; margin-bottom:20px; }
+    .vcfo-heading-accent { position:relative; color:var(--blue); display:inline-block; }
+    .vcfo-heading-accent::after { content:''; position:absolute; bottom:-4px; left:0; width:100%; height:3px; background:linear-gradient(90deg,var(--blue),var(--yellow)); border-radius:3px; transform-origin:left; transform:scaleX(0); animation:vcfoUnderline 1.2s ease forwards 0.6s; }
+    @keyframes vcfoUnderline { to { transform:scaleX(1); } }
+    .vcfo-hero-sub { font-size:1.05rem; color:var(--gray); line-height:1.72; margin-bottom:32px; max-width:520px; }
+    .vcfo-hero-btns { display:flex; gap:14px; flex-wrap:wrap; margin-bottom:36px; }
+    .vcfo-hero-cta { gap:10px !important; }
+    .vcfo-cta-arrow { transition:transform 0.25s ease; }
+    .vcfo-hero-cta:hover .vcfo-cta-arrow { transform:translateX(5px); }
+    .vcfo-btn-ghost { display:inline-flex; align-items:center; gap:8px; padding:13px 24px; border:1.5px solid var(--border); border-radius:10px; color:var(--dark); font-size:0.9rem; font-weight:600; text-decoration:none; background:#fff; transition:all 0.25s ease; }
+    .vcfo-btn-ghost:hover { border-color:var(--blue); color:var(--blue); background:rgba(46,109,164,0.04); }
+    .vcfo-hero-stats { display:flex; align-items:center; gap:0; background:#ffffff; border:1.5px solid var(--border); border-radius:14px; padding:16px 20px; margin-bottom:20px; box-shadow:0 4px 20px rgba(0,0,0,0.05); }
+    .vcfo-hs { flex:1; text-align:center; }
+    .vcfo-hs-num { font-size:1.5rem; font-weight:900; color:var(--dark); line-height:1; margin-bottom:4px; }
+    .vcfo-hs-lbl { font-size:0.68rem; color:var(--gray); font-weight:500; }
+    .vcfo-hs-sep { width:1px; height:36px; background:var(--border); flex-shrink:0; }
+    .vcfo-hero-trust { display:flex; flex-wrap:wrap; gap:16px; }
+    .vcfo-hero-trust span { font-size:0.82rem; color:var(--gray); display:flex; align-items:center; gap:5px; }
+    .vcfo-hero-trust i { color:#16a34a; }
+    .vcfo-hero-right { position:relative; }
+    .vcfo-float-card { position:absolute; z-index:10; background:#ffffff; border:1.5px solid var(--border); border-radius:14px; padding:12px 18px; display:flex; align-items:center; gap:12px; box-shadow:0 8px 32px rgba(0,0,0,0.09); }
+    .vcfo-fc-top { top:-18px; left:-24px; animation:vcfoFloat 4s ease-in-out infinite; }
+    .vcfo-fc-bottom { bottom:-18px; right:-24px; animation:vcfoFloat 5s ease-in-out 1.5s infinite; }
+    @keyframes vcfoFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+    .vcfo-fc-icon { width:40px; height:40px; border-radius:10px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .vcfo-fci-gold { background:rgba(245,197,24,0.15); color:var(--yellow-dark); font-size:1.1rem; }
+    .vcfo-fci-blue { background:rgba(46,109,164,0.1); color:var(--blue); font-size:1.1rem; }
+    .vcfo-fc-val { font-size:1rem; font-weight:800; color:var(--dark); line-height:1.2; }
+    .vcfo-fc-lbl { font-size:0.68rem; color:var(--gray); }
+    .vcfo-dash-card { background:#ffffff; border:1.5px solid var(--border); border-radius:22px; padding:28px; position:relative; overflow:hidden; box-shadow:0 20px 60px rgba(0,0,0,0.08); animation:vcfoBorderBreathe 5s ease-in-out infinite; }
+    @keyframes vcfoBorderBreathe { 0%,100%{box-shadow:0 20px 60px rgba(0,0,0,0.08)} 50%{box-shadow:0 20px 60px rgba(0,0,0,0.08),0 0 0 2px rgba(46,109,164,0.1),0 0 48px rgba(46,109,164,0.06)} }
+    .vcfo-dash-shimmer { position:absolute; inset:0; background:linear-gradient(105deg,transparent 40%,rgba(46,109,164,0.025) 50%,transparent 60%); background-size:200% 100%; animation:vcfoShimmer 4s ease-in-out infinite 1s; pointer-events:none; }
+    @keyframes vcfoShimmer { 0%{background-position:-200% 0} 100%{background-position:200% 0} }
+    .vcfo-dash-header { display:flex; align-items:center; gap:10px; margin-bottom:20px; }
+    .vcfo-dash-dots { display:flex; gap:5px; }
+    .vcfo-dash-dots span { width:10px; height:10px; border-radius:50%; }
+    .vcfo-dash-dots span:nth-child(1){background:#ef4444;} .vcfo-dash-dots span:nth-child(2){background:#f59e0b;} .vcfo-dash-dots span:nth-child(3){background:#22c55e;}
+    .vcfo-dash-title { font-size:0.78rem; font-weight:700; color:var(--gray); flex:1; }
+    .vcfo-dash-title i { color:var(--blue); margin-right:4px; }
+    .vcfo-dash-live { display:flex; align-items:center; gap:5px; font-size:0.65rem; font-weight:800; color:#16a34a; letter-spacing:1px; }
+    .vcfo-dash-live span { width:6px; height:6px; border-radius:50%; background:#16a34a; animation:vcfoLivePulse 1.5s ease-in-out infinite; }
+    @keyframes vcfoLivePulse { 0%,100%{box-shadow:0 0 0 0 rgba(22,163,74,0)} 50%{box-shadow:0 0 0 4px rgba(22,163,74,0.2)} }
+    .vcfo-cost-compare { display:flex; align-items:flex-end; gap:10px; background:#f8fafc; border-radius:14px; border:1px solid var(--border); padding:16px; margin-bottom:14px; }
+    .vcfo-cost-col { flex:1; display:flex; flex-direction:column; align-items:center; gap:6px; }
+    .vcfo-cost-label { font-size:0.63rem; font-weight:700; color:var(--gray); text-align:center; order:-1; white-space:nowrap; }
+    .vcfo-cost-bar { width:44px; border-radius:4px 4px 0 0; height:0; transition:height 1s cubic-bezier(0.4,0,0.2,1); }
+    .vcfo-cost-bar-high { background:rgba(239,68,68,0.18); border:1px solid rgba(239,68,68,0.25); border-bottom:none; }
+    .vcfo-cost-bar-low { background:rgba(46,109,164,0.18); border:1px solid rgba(46,109,164,0.3); border-bottom:none; box-shadow:0 -6px 16px rgba(46,109,164,0.15); }
+    @keyframes vcfoBarGlow { 0%,100%{box-shadow:0 -6px 16px rgba(46,109,164,0.15)} 50%{box-shadow:0 -10px 24px rgba(46,109,164,0.28)} }
+    .vcfo-cost-bar-low.bar-active { animation:vcfoBarGlow 2.8s ease-in-out infinite; }
+    .vcfo-cost-amount { font-size:0.7rem; font-weight:800; color:var(--dark); text-align:center; }
+    .vcfo-cost-gold { color:var(--blue) !important; }
+    .vcfo-cost-tag { display:inline-flex; align-items:center; gap:3px; font-size:0.62rem; font-weight:700; padding:3px 8px; border-radius:50px; }
+    .vcfo-cost-tag-red { background:rgba(239,68,68,0.1); color:#dc2626; }
+    .vcfo-cost-tag-green { background:rgba(22,163,74,0.1); color:#16a34a; }
+    @keyframes vcfoTagPulse { 0%,100%{box-shadow:0 0 0 0 rgba(22,163,74,0)} 50%{box-shadow:0 0 0 4px rgba(22,163,74,0.14)} }
+    .vcfo-cost-tag-green { animation:vcfoTagPulse 2.4s ease-in-out infinite; }
+    .vcfo-cost-vs { font-size:0.65rem; font-weight:900; color:#d1d5db; align-self:center; margin-bottom:10px; flex-shrink:0; }
+    .vcfo-savings-strip { display:flex; align-items:center; gap:10px; background:rgba(46,109,164,0.05); border:1px solid rgba(46,109,164,0.14); border-radius:10px; padding:10px 14px; margin-bottom:16px; }
+    .vcfo-ss-label { font-size:0.68rem; font-weight:700; color:var(--blue); white-space:nowrap; display:flex; align-items:center; gap:5px; }
+    .vcfo-ss-bar { flex:1; height:5px; background:#e5e7eb; border-radius:3px; overflow:hidden; }
+    .vcfo-ss-fill { height:100%; width:0; background:linear-gradient(90deg,var(--blue),var(--yellow)); border-radius:3px; transition:width 1.2s cubic-bezier(0.4,0,0.2,1) 0.5s; }
+    @keyframes vcfoSavingsShimmer { 0%{background-position:-200% 0} 100%{background-position:200% 0} }
+    .vcfo-ss-fill.shimmer-on { background:linear-gradient(90deg,#2E6DA4 0%,#60a5fa 35%,#F5C518 55%,#2E6DA4 100%) !important; background-size:200% 100% !important; animation:vcfoSavingsShimmer 2.4s linear infinite; }
+    .vcfo-ss-val { font-size:0.7rem; font-weight:800; color:var(--blue); white-space:nowrap; }
+    .vcfo-includes { border-top:1px solid var(--border); padding-top:16px; }
+    .vcfo-incl-title { font-size:0.68rem; font-weight:800; text-transform:uppercase; letter-spacing:1px; color:var(--gray); margin-bottom:10px; }
+    .vcfo-incl-grid { display:grid; grid-template-columns:1fr 1fr; gap:6px; }
+    .vcfo-incl-item { display:flex; align-items:center; gap:7px; font-size:0.77rem; color:var(--dark); font-weight:500; opacity:0; transform:translateX(-10px); transition:opacity 0.42s ease,transform 0.42s ease; }
+    .vcfo-incl-item.item-in { opacity:1; transform:translateX(0); }
+    .vcfo-incl-item i { color:#16a34a; font-size:0.65rem; flex-shrink:0; }
+    .vcfo-kpi-row { display:flex; gap:7px; margin-bottom:12px; }
+    .vcfo-kpi-item { flex:1; padding:8px 6px; background:#f0f7ff; border:1px solid rgba(46,109,164,0.12); border-radius:10px; text-align:center; }
+    .vcfo-kpi-num { font-size:0.88rem; font-weight:900; color:var(--dark); line-height:1; margin-bottom:2px; }
+    .vcfo-kpi-num.counting { color:var(--blue); transition:color 0.2s; }
+    .vcfo-kpi-lbl { font-size:0.58rem; color:var(--gray); font-weight:600; text-transform:uppercase; letter-spacing:0.3px; }
+    .vcfo-kpi-live { display:inline-block; width:5px; height:5px; border-radius:50%; background:#16a34a; margin-left:3px; vertical-align:middle; animation:vcfoKpiDot 1.8s ease-in-out infinite; }
+    @keyframes vcfoKpiDot { 0%,100%{transform:scale(1);opacity:1} 50%{transform:scale(1.5);opacity:0.5} }
+    .vcfo-mini-chart { background:#f4f8fd; border:1px solid rgba(46,109,164,0.1); border-radius:12px; padding:10px 12px 6px; margin-bottom:14px; overflow:hidden; }
+    .vcfo-mc-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:6px; }
+    .vcfo-mc-title { font-size:0.62rem; font-weight:700; color:var(--gray); text-transform:uppercase; letter-spacing:0.5px; }
+    .vcfo-mc-badge { font-size:0.68rem; font-weight:800; color:#16a34a; display:flex; align-items:center; gap:3px; }
+    .vcfo-mc-badge i { font-size:0.6rem; }
+    .vcfo-mc-svg { width:100%; height:42px; display:block; overflow:visible; }
+    .vcfo-mc-line { stroke-dasharray:700; stroke-dashoffset:700; transition:stroke-dashoffset 1.8s cubic-bezier(0.4,0,0.2,1) 0.9s; }
+    .vcfo-mc-line.line-drawn { stroke-dashoffset:0; }
+    .vcfo-mc-dot { animation:vcfoChartDot 1.6s ease-in-out infinite; }
+    @keyframes vcfoChartDot { 0%,100%{r:3;opacity:1} 50%{r:5;opacity:0.6} }
+    .vcfo-mc-months { display:flex; justify-content:space-between; margin-top:2px; }
+    .vcfo-mc-months span { font-size:0.55rem; color:#9ca3af; }
+
+    /* Responsive */
+    @media(max-width:1024px) { .vcfo-hero-layout{grid-template-columns:1fr;} .vcfo-hero-right{display:none;} }
+    @media(max-width:640px) { .vcfo-hero-section{padding:110px 0 64px;} .vcfo-hero-btns{flex-direction:column;} .vcfo-hero-stats{flex-direction:column;padding:14px;gap:10px;} .vcfo-hs-sep{width:80px;height:1px;} }
+
+    /* ── PAIN POINTS — PREMIUM REDESIGN (pp-) ── */
+    .pp-section { position:relative; padding:100px 0 80px; background:linear-gradient(180deg,#fff8f8 0%,#ffffff 40%,#fffbf0 100%); overflow:hidden; }
+    .pp-bg { position:absolute; inset:0; pointer-events:none; z-index:0; }
+    .pp-bg-orb { position:absolute; border-radius:50%; filter:blur(100px); }
+    .pp-orb-1 { width:600px; height:600px; background:radial-gradient(circle,rgba(239,68,68,0.09) 0%,transparent 70%); top:-150px; right:-150px; animation:ppOrbDrift 22s ease-in-out infinite; }
+    .pp-orb-2 { width:500px; height:500px; background:radial-gradient(circle,rgba(245,158,11,0.09) 0%,transparent 70%); bottom:-100px; left:-100px; animation:ppOrbDrift 28s ease-in-out infinite reverse; }
+    @keyframes ppOrbDrift { 0%,100%{transform:translate(0,0)} 50%{transform:translate(20px,-16px)} }
+    .pp-bg-grid { position:absolute; inset:0; background-image:linear-gradient(rgba(239,68,68,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(239,68,68,0.025) 1px,transparent 1px); background-size:52px 52px; }
+
+    /* Header */
+    .pp-header { text-align:center; margin-bottom:56px; }
+    .pp-badge { background:rgba(239,68,68,0.07) !important; border-color:rgba(239,68,68,0.2) !important; color:#dc2626 !important; }
+    .pp-heading { font-size:clamp(1.9rem,3.5vw,2.75rem); font-weight:800; color:var(--dark); margin-bottom:14px; line-height:1.2; }
+    .pp-heading-accent { position:relative; color:#dc2626; display:inline-block; }
+    .pp-heading-accent::after { content:''; position:absolute; bottom:-4px; left:0; width:100%; height:3px; background:linear-gradient(90deg,#dc2626,#f59e0b); border-radius:3px; transform-origin:left; transform:scaleX(0); animation:ppUnderline 1.1s ease forwards 0.5s; }
+    @keyframes ppUnderline { to { transform:scaleX(1); } }
+    .pp-subtitle { color:var(--gray); font-size:1.02rem; max-width:580px; margin:0 auto; line-height:1.72; }
+
+    /* Layout */
+    .pp-layout { display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:start; margin-bottom:40px; }
+
+    /* Chaos card */
+    .pp-chaos-side { position:relative; }
+    .pp-chaos-card { background:#ffffff; border:1.5px solid #fee2e2; border-radius:20px; padding:24px; box-shadow:0 8px 40px rgba(239,68,68,0.07); position:relative; overflow:hidden; animation:ppCardBreathe 5s ease-in-out infinite; }
+    @keyframes ppCardBreathe { 0%,100%{box-shadow:0 8px 40px rgba(239,68,68,0.07)} 50%{box-shadow:0 8px 40px rgba(239,68,68,0.07),0 0 0 2px rgba(239,68,68,0.1)} }
+    .pp-chaos-card::before { content:''; position:absolute; inset:0; border-radius:20px; background:radial-gradient(ellipse at 50% 0%,rgba(239,68,68,0.04),transparent 65%); pointer-events:none; }
+
+    /* Card header */
+    .pp-cc-header { display:flex; align-items:center; gap:10px; margin-bottom:18px; }
+    .pp-cc-dots { display:flex; gap:5px; }
+    .pp-cc-dots span { width:10px; height:10px; border-radius:50%; }
+    .pp-cc-dots span:nth-child(1){background:#ef4444;animation:ppDotBlink 1.4s ease-in-out infinite;}
+    .pp-cc-dots span:nth-child(2){background:#f59e0b;animation:ppDotBlink 1.4s ease-in-out 0.3s infinite;}
+    .pp-cc-dots span:nth-child(3){background:#9ca3af;}
+    @keyframes ppDotBlink { 0%,100%{opacity:1} 50%{opacity:0.35} }
+    .pp-cc-title { font-size:0.78rem; font-weight:700; color:var(--gray); flex:1; }
+    .pp-cc-title i { color:#ef4444; margin-right:4px; }
+    .pp-cc-alert { display:flex; align-items:center; gap:5px; font-size:0.65rem; font-weight:800; color:#ef4444; letter-spacing:1px; animation:ppAlertBlink 1.5s ease-in-out infinite; }
+    .pp-cc-alert-dot { width:6px; height:6px; border-radius:50%; background:#ef4444; }
+    @keyframes ppAlertBlink { 0%,100%{opacity:1} 50%{opacity:0.4} }
+
+    /* Metrics */
+    .pp-cc-metrics { display:flex; flex-direction:column; gap:10px; margin-bottom:14px; }
+    .pp-cc-m-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:4px; }
+    .pp-cc-m-lbl { font-size:0.72rem; font-weight:600; color:var(--gray); }
+    .pp-cc-m-status { font-size:0.7rem; font-weight:700; display:flex; align-items:center; gap:4px; }
+    .pp-s-red { color:#ef4444; } .pp-s-amber { color:#d97706; }
+    .pp-cc-m-bar { height:4px; background:#f3f4f6; border-radius:3px; overflow:hidden; }
+    .pp-cc-m-fill { height:100%; border-radius:3px; }
+    .pp-mf-red { background:linear-gradient(90deg,#ef4444,#f87171); }
+    .pp-mf-amber { background:linear-gradient(90deg,#f59e0b,#fbbf24); }
+
+    /* Chart */
+    .pp-cc-chart-wrap { background:#fef2f2; border:1px solid #fee2e2; border-radius:10px; padding:10px 12px; margin-bottom:14px; }
+    .pp-cc-chart-title { font-size:0.62rem; font-weight:700; color:#6b7280; margin-bottom:6px; }
+    .pp-cc-chart { width:100%; height:48px; display:block; }
+    .pp-chart-line { stroke-dasharray:600; stroke-dashoffset:600; transition:stroke-dashoffset 1.8s cubic-bezier(0.4,0,0.2,1) 0.5s; }
+    .pp-chart-line.pp-line-drawn { stroke-dashoffset:0; }
+
+    /* Alert items */
+    .pp-cc-alerts { display:flex; flex-direction:column; gap:6px; }
+    .pp-alert { display:flex; align-items:center; gap:8px; font-size:0.75rem; font-weight:600; padding:8px 12px; border-radius:8px; }
+    .pp-alert-red { background:#fef2f2; border:1px solid #fecaca; color:#dc2626; }
+    .pp-alert-amber { background:#fffbeb; border:1px solid #fde68a; color:#d97706; }
+    .pp-alert i { flex-shrink:0; font-size:0.7rem; }
+
+    /* Floating insight card */
+    .pp-float-insight { position:absolute; bottom:-16px; right:-12px; background:#ffffff; border:1.5px solid #fde68a; border-radius:14px; padding:12px 14px; display:flex; align-items:flex-start; gap:10px; max-width:230px; box-shadow:0 8px 28px rgba(245,158,11,0.15); animation:ppFloat 4.5s ease-in-out infinite; }
+    @keyframes ppFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-7px)} }
+    .pp-fi-icon { width:30px; height:30px; border-radius:8px; background:rgba(245,197,24,0.15); color:var(--yellow-dark); display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:0.9rem; }
+    .pp-fi-title { font-size:0.7rem; font-weight:800; color:var(--dark); margin-bottom:2px; }
+    .pp-fi-text { font-size:0.66rem; color:var(--gray); line-height:1.5; }
+
+    /* Problem cards grid */
+    .pp-problems-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; }
+    .pp-problem-card { background:#ffffff; border:1.5px solid rgba(var(--pp-acc-rgb),0.15); border-radius:16px; padding:20px 18px 16px; position:relative; overflow:hidden; cursor:default; opacity:0; transform:translateY(20px); transition:opacity 0.5s ease,transform 0.5s ease,border-color 0.3s ease,box-shadow 0.3s ease; }
+    .pp-problem-card.pp-card-in { opacity:1; transform:translateY(0); }
+    .pp-problem-card:hover { border-color:rgba(var(--pp-acc-rgb),0.4); box-shadow:0 12px 36px rgba(var(--pp-acc-rgb),0.1); transform:translateY(-4px) !important; }
+    .pp-pc-glow { position:absolute; inset:0; background:radial-gradient(ellipse at 50% 0%,rgba(var(--pp-acc-rgb),0.05),transparent 65%); opacity:0; transition:opacity 0.4s ease; pointer-events:none; border-radius:16px; }
+    .pp-problem-card:hover .pp-pc-glow { opacity:1; }
+    .pp-problem-card::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:rgba(var(--pp-acc-rgb),1); border-radius:16px 16px 0 0; transform:scaleX(0); transform-origin:left; transition:transform 0.4s ease; }
+    .pp-problem-card:hover::before { transform:scaleX(1); }
+    .pp-pc-icon { width:40px; height:40px; border-radius:10px; background:rgba(var(--pp-acc-rgb),0.1); border:1px solid rgba(var(--pp-acc-rgb),0.2); display:flex; align-items:center; justify-content:center; font-size:1rem; color:rgba(var(--pp-acc-rgb),1); margin-bottom:12px; transition:transform 0.3s ease,box-shadow 0.3s ease; }
+    .pp-problem-card:hover .pp-pc-icon { transform:scale(1.08) rotate(-4deg); box-shadow:0 4px 16px rgba(var(--pp-acc-rgb),0.2); }
+    .pp-pc-title { font-size:0.9rem; font-weight:700; color:var(--dark); margin-bottom:6px; }
+    .pp-pc-desc { font-size:0.78rem; color:var(--gray); line-height:1.6; margin-bottom:12px; }
+    .pp-pc-impact { display:inline-flex; align-items:center; gap:5px; padding:4px 10px; background:rgba(var(--pp-acc-rgb),0.08); border:1px solid rgba(var(--pp-acc-rgb),0.18); border-radius:50px; font-size:0.67rem; font-weight:700; color:rgba(var(--pp-acc-rgb),1); }
+    .pp-pc-impact i { font-size:0.6rem; }
+
+    /* Transition strip */
+    .pp-transition-strip { display:flex; align-items:center; justify-content:space-between; gap:20px; padding:20px 28px; background:linear-gradient(135deg,rgba(239,68,68,0.04),rgba(245,197,24,0.04)); border:1.5px solid rgba(239,68,68,0.12); border-radius:14px; flex-wrap:wrap; }
+    .pp-ts-left { display:flex; align-items:center; gap:10px; font-size:0.95rem; color:var(--dark); }
+    .pp-ts-left i { color:#16a34a; font-size:1.1rem; }
+    .pp-ts-btn { display:inline-flex; align-items:center; gap:8px; padding:11px 22px; background:var(--blue); color:#fff; border-radius:10px; font-size:0.86rem; font-weight:700; text-decoration:none; white-space:nowrap; transition:background 0.25s ease,transform 0.25s ease; }
+    .pp-ts-btn:hover { background:var(--blue-dark); color:#fff; transform:translateY(-2px); }
 
     .what-includes { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; }
     .wi-item {
@@ -41,8 +258,267 @@
     .comparison-table td:nth-child(2) { text-align:center; color:#ef4444; }
     .comparison-table td:nth-child(3) { text-align:center; color:#22c55e; }
 
+    @media(max-width:900px){ .pp-layout{grid-template-columns:1fr;} .pp-float-insight{display:none;} }
+    @media(max-width:640px){ .pp-section{padding:72px 0 60px;} .pp-problems-grid{grid-template-columns:1fr;} .pp-transition-strip{flex-direction:column;text-align:center;} .pp-ts-left{justify-content:center;} }
+
+    /* ── CFO INCLUDED — PREMIUM REDESIGN (cfi-) ── */
+    .cfi-section { position:relative; padding:100px 0 80px; background:linear-gradient(180deg,#ffffff 0%,#f4f8fd 50%,#ffffff 100%); overflow:hidden; }
+    .cfi-bg { position:absolute; inset:0; pointer-events:none; z-index:0; }
+    .cfi-orb { position:absolute; border-radius:50%; filter:blur(100px); }
+    .cfi-orb-1 { width:620px; height:620px; background:radial-gradient(circle,rgba(46,109,164,0.1) 0%,transparent 70%); top:-180px; left:-150px; animation:cfiOrb 22s ease-in-out infinite; }
+    .cfi-orb-2 { width:500px; height:500px; background:radial-gradient(circle,rgba(245,197,24,0.09) 0%,transparent 70%); bottom:-120px; right:-100px; animation:cfiOrb 28s ease-in-out infinite reverse; }
+    @keyframes cfiOrb { 0%,100%{transform:translate(0,0)} 50%{transform:translate(22px,-18px)} }
+    .cfi-grid-overlay { position:absolute; inset:0; background-image:linear-gradient(rgba(46,109,164,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(46,109,164,0.03) 1px,transparent 1px); background-size:52px 52px; }
+    .cfi-layout { display:grid; grid-template-columns:42% 1fr; gap:64px; align-items:center; position:relative; z-index:1; }
+    .cfi-badge { background:rgba(46,109,164,0.07) !important; border-color:rgba(46,109,164,0.18) !important; color:var(--blue) !important; }
+    .cfi-heading { font-size:clamp(1.8rem,3vw,2.5rem); font-weight:800; color:var(--dark); margin-bottom:16px; line-height:1.2; }
+    .cfi-heading em { font-style:normal; color:var(--blue); position:relative; display:inline-block; }
+    .cfi-heading em::after { content:''; position:absolute; bottom:-3px; left:0; width:100%; height:3px; background:linear-gradient(90deg,var(--blue),var(--yellow)); border-radius:3px; transform-origin:left; transform:scaleX(0); animation:cfiUnderline 1.1s ease forwards 0.5s; }
+    @keyframes cfiUnderline { to { transform:scaleX(1); } }
+    .cfi-desc { color:var(--gray); font-size:0.97rem; line-height:1.75; margin-bottom:14px; }
+    .cfi-stats { display:flex; gap:0; background:#fff; border:1.5px solid var(--border); border-radius:14px; padding:16px 20px; margin:28px 0; box-shadow:0 4px 20px rgba(0,0,0,0.05); }
+    .cfi-stat { flex:1; text-align:center; }
+    .cfi-stat-num { font-size:1.5rem; font-weight:900; color:var(--dark); line-height:1; margin-bottom:3px; }
+    .cfi-stat-lbl { font-size:0.67rem; color:var(--gray); font-weight:500; }
+    .cfi-stat-sep { width:1px; height:36px; background:var(--border); flex-shrink:0; }
+    .cfi-cta-arrow { transition:transform 0.25s ease; }
+    .cfi-cta:hover .cfi-cta-arrow { transform:translateX(5px); }
+    .cfi-modules { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; position:relative; z-index:1; }
+    .cfi-module { background:#ffffff; border:1.5px solid rgba(var(--cfi-acc-rgb),0.14); border-radius:18px; padding:22px 18px 18px; position:relative; overflow:hidden; cursor:default; opacity:0; transform:translateY(22px); transition:opacity 0.5s ease,transform 0.5s ease,border-color 0.3s ease,box-shadow 0.3s ease; }
+    .cfi-module.cfi-mod-in { opacity:1; transform:translateY(0); }
+    .cfi-module:hover { border-color:rgba(var(--cfi-acc-rgb),0.4); box-shadow:0 14px 40px rgba(var(--cfi-acc-rgb),0.1),0 0 0 1px rgba(var(--cfi-acc-rgb),0.08); transform:translateY(-5px) !important; }
+    .cfi-module::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:var(--cfi-acc); border-radius:18px 18px 0 0; transform:scaleX(0); transform-origin:left; transition:transform 0.4s ease; }
+    .cfi-module:hover::before { transform:scaleX(1); }
+    .cfi-mod-glow { position:absolute; inset:0; background:radial-gradient(ellipse at 50% 0%,rgba(var(--cfi-acc-rgb),0.06),transparent 65%); opacity:0; transition:opacity 0.4s ease; pointer-events:none; border-radius:18px; }
+    .cfi-module:hover .cfi-mod-glow { opacity:1; }
+    .cfi-mod-icon { width:46px; height:46px; border-radius:13px; background:rgba(var(--cfi-acc-rgb),0.1); border:1px solid rgba(var(--cfi-acc-rgb),0.2); display:flex; align-items:center; justify-content:center; font-size:1.1rem; color:var(--cfi-acc); margin-bottom:14px; transition:transform 0.3s ease,box-shadow 0.3s ease; }
+    .cfi-module:hover .cfi-mod-icon { transform:scale(1.1) rotate(-5deg); box-shadow:0 6px 20px rgba(var(--cfi-acc-rgb),0.22); }
+    .cfi-mod-title { font-size:0.9rem; font-weight:700; color:var(--dark); margin-bottom:6px; }
+    .cfi-mod-desc { font-size:0.77rem; color:var(--gray); line-height:1.6; margin-bottom:14px; }
+    .cfi-mod-indicator { padding-top:12px; border-top:1px solid rgba(var(--cfi-acc-rgb),0.1); }
+    .cfi-mi-label { font-size:0.59rem; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; color:rgba(var(--cfi-acc-rgb),0.75); margin-bottom:6px; }
+    .cfi-mi-bars { display:flex; gap:3px; align-items:flex-end; height:20px; }
+    .cfi-mi-bar { width:100%; border-radius:2px 2px 0 0; }
+    .cfi-mi-bar-budget { background:rgba(var(--cfi-acc-rgb),0.22); }
+    .cfi-mi-bar-actual { background:var(--cfi-acc); }
+    .cfi-mi-chip { display:inline-flex; align-items:center; gap:4px; font-size:0.68rem; font-weight:700; padding:4px 10px; border-radius:50px; background:rgba(var(--cfi-acc-rgb),0.09); color:var(--cfi-acc); border:1px solid rgba(var(--cfi-acc-rgb),0.15); }
+    .cfi-mi-chip i { font-size:0.6rem; }
+    .cfi-mi-checks { display:flex; align-items:center; gap:4px; }
+    .cfi-mi-check { width:18px; height:18px; border-radius:50%; background:rgba(var(--cfi-acc-rgb),0.12); color:var(--cfi-acc); display:flex; align-items:center; justify-content:center; font-size:0.55rem; }
+    .cfi-mi-sparkline { display:flex; gap:3px; align-items:flex-end; height:18px; }
+    .cfi-mi-sp-bar { width:100%; border-radius:2px 2px 0 0; background:rgba(var(--cfi-acc-rgb),0.7); }
+    .cfi-mi-sp-bar-last { background:var(--yellow); }
+    @media(max-width:1024px){ .cfi-layout{grid-template-columns:1fr;gap:40px;} .cfi-modules{grid-template-columns:repeat(2,1fr);} }
+    @media(max-width:640px){ .cfi-section{padding:72px 0 60px;} .cfi-modules{grid-template-columns:1fr;} .cfi-stats{flex-direction:column;padding:14px;} .cfi-stat-sep{width:60px;height:1px;} }
+
+    /* ── COMPARISON — PREMIUM REDESIGN (cmp-) ── */
+    .cmp-section { position:relative; padding:100px 0 80px; background:linear-gradient(180deg,#f8fafc 0%,#ffffff 50%,#f4f8fd 100%); overflow:hidden; }
+    .cmp-bg { position:absolute; inset:0; pointer-events:none; z-index:0; }
+    .cmp-bg-orb { position:absolute; border-radius:50%; filter:blur(100px); }
+    .cmp-orb-1 { width:500px; height:500px; background:radial-gradient(circle,rgba(239,68,68,0.07) 0%,transparent 70%); top:-100px; left:-100px; animation:cmpOrb 22s ease-in-out infinite; }
+    .cmp-orb-2 { width:500px; height:500px; background:radial-gradient(circle,rgba(46,109,164,0.08) 0%,transparent 70%); bottom:-100px; right:-100px; animation:cmpOrb 26s ease-in-out infinite reverse; }
+    @keyframes cmpOrb { 0%,100%{transform:translate(0,0)} 50%{transform:translate(20px,-15px)} }
+    .cmp-bg-grid { position:absolute; inset:0; background-image:linear-gradient(rgba(46,109,164,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(46,109,164,0.025) 1px,transparent 1px); background-size:52px 52px; }
+    .cmp-header { text-align:center; margin-bottom:56px; }
+    .cmp-badge { background:rgba(46,109,164,0.07) !important; border-color:rgba(46,109,164,0.18) !important; color:var(--blue) !important; }
+    .cmp-heading { font-size:clamp(1.9rem,3.5vw,2.75rem); font-weight:800; color:var(--dark); margin-bottom:14px; line-height:1.2; }
+    .cmp-accent { position:relative; color:var(--blue); display:inline-block; }
+    .cmp-accent::after { content:''; position:absolute; bottom:-4px; left:0; width:100%; height:3px; background:linear-gradient(90deg,var(--blue),var(--yellow)); border-radius:3px; transform-origin:left; transform:scaleX(0); animation:cmpUnderline 1.1s ease forwards 0.5s; }
+    @keyframes cmpUnderline { to { transform:scaleX(1); } }
+    .cmp-subtitle { color:var(--gray); font-size:1.02rem; max-width:580px; margin:0 auto; line-height:1.72; }
+    .cmp-panels { display:grid; grid-template-columns:1fr auto 1fr; gap:0; align-items:stretch; margin-bottom:40px; position:relative; z-index:1; }
+    .cmp-panel { border-radius:20px; overflow:hidden; border:1.5px solid; display:flex; flex-direction:column; opacity:0; transition:opacity 0.6s ease,transform 0.6s ease; }
+    .cmp-panel.cmp-visible { opacity:1; transform:translateX(0) !important; }
+    .cmp-panel-old { border-color:#fecaca; transform:translateX(-28px); background:linear-gradient(180deg,#fff8f8 0%,#ffffff 40%,#fef9f9 100%); box-shadow:0 8px 40px rgba(239,68,68,0.07); }
+    .cmp-panel-new { border-color:rgba(46,109,164,0.25); transform:translateX(28px); background:linear-gradient(180deg,#f0f7ff 0%,#ffffff 40%,#f4f8fd 100%); box-shadow:0 8px 40px rgba(46,109,164,0.1),0 0 0 2px rgba(245,197,24,0.1); }
+    .cmp-panel-header { padding:22px 22px 18px; }
+    .cmp-ph-old { background:linear-gradient(135deg,#fff0f0,#fff8f8); border-bottom:1px solid #fecaca; }
+    .cmp-ph-new { background:linear-gradient(135deg,#e8f4ff,#f0f7ff); border-bottom:1px solid rgba(46,109,164,0.14); }
+    .cmp-ph-badge { display:inline-flex; align-items:center; gap:7px; padding:5px 14px; border-radius:50px; font-size:0.78rem; font-weight:800; letter-spacing:0.4px; margin-bottom:6px; }
+    .cmp-ph-badge-old { background:#fef2f2; border:1px solid #fecaca; color:#dc2626; }
+    .cmp-ph-badge-new { background:rgba(46,109,164,0.1); border:1px solid rgba(46,109,164,0.22); color:var(--blue); }
+    .cmp-ph-sub { font-size:0.73rem; color:var(--gray); margin-bottom:14px; }
+    .cmp-ph-visual { border-radius:10px; padding:10px 14px; display:flex; flex-direction:column; gap:7px; }
+    .cmp-phv-old { background:#fff; border:1px solid #fee2e2; }
+    .cmp-phv-new { background:#fff; border:1px solid rgba(46,109,164,0.14); }
+    .cmp-phv-row { display:flex; align-items:center; justify-content:space-between; }
+    .cmp-phv-label { font-size:0.67rem; color:var(--gray); font-weight:500; }
+    .cmp-phv-val { font-size:0.72rem; font-weight:700; }
+    .cmp-phv-late { color:#ef4444; }
+    .cmp-phv-unknown { color:#d97706; }
+    .cmp-phv-none { color:#9ca3af; }
+    .cmp-phv-live { color:#16a34a; display:flex; align-items:center; gap:4px; }
+    .cmp-phv-dot { width:5px; height:5px; border-radius:50%; background:#16a34a; animation:cmpDotPulse 1.5s ease-in-out infinite; }
+    @keyframes cmpDotPulse { 0%,100%{box-shadow:0 0 0 0 rgba(22,163,74,0)} 50%{box-shadow:0 0 0 3px rgba(22,163,74,0.2)} }
+    .cmp-phv-healthy { color:#16a34a; }
+    .cmp-phv-active { color:var(--blue); }
+    .cmp-panel-body { padding:14px 18px; flex:1; display:flex; flex-direction:column; gap:2px; }
+    .cmp-item { display:flex; align-items:flex-start; gap:10px; padding:8px 10px; border-radius:8px; transition:background 0.2s ease; }
+    .cmp-item:hover { background:rgba(0,0,0,0.025); }
+    .cmp-item > i { font-size:0.78rem; margin-top:3px; flex-shrink:0; }
+    .cmp-item-name { font-size:0.81rem; font-weight:600; color:var(--dark); margin-bottom:3px; line-height:1.3; }
+    .cmp-note-basic { font-size:0.67rem; color:#9ca3af; }
+    .cmp-item-basic > i { color:#d1d5db; }
+    .cmp-item-basic .cmp-item-name { color:#9ca3af; }
+    .cmp-item-limited > i { color:#d97706; }
+    .cmp-item-no { opacity:0.5; }
+    .cmp-item-no > i { color:#ef4444; }
+    .cmp-item-no .cmp-item-name { text-decoration:line-through; text-decoration-color:rgba(239,68,68,0.4); color:var(--gray); }
+    .cmp-item-yes > i { color:#16a34a; }
+    .cmp-item-exclusive > i { color:var(--blue); }
+    .cmp-item-chip { display:inline-flex; align-items:center; font-size:0.63rem; font-weight:700; padding:2px 8px; border-radius:50px; }
+    .cmp-chip-limited { background:#fffbeb; border:1px solid #fde68a; color:#d97706; }
+    .cmp-chip-yes { background:rgba(22,163,74,0.08); border:1px solid rgba(22,163,74,0.2); color:#16a34a; }
+    .cmp-chip-excl { background:rgba(46,109,164,0.08); border:1px solid rgba(46,109,164,0.2); color:var(--blue); }
+    .cmp-panel-footer { padding:14px 22px; border-top:1px solid; text-align:center; }
+    .cmp-pf-old { border-color:#fecaca; background:#fff0f0; }
+    .cmp-pf-new { border-color:rgba(46,109,164,0.14); background:rgba(46,109,164,0.04); }
+    .cmp-pf-label { font-size:0.62rem; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--gray); margin-bottom:4px; }
+    .cmp-pf-val { font-size:1rem; font-weight:900; color:var(--dark); margin-bottom:3px; }
+    .cmp-pf-val-new { color:var(--blue); }
+    .cmp-pf-note { font-size:0.68rem; color:var(--gray); }
+    .cmp-vs-divider { display:flex; flex-direction:column; align-items:center; gap:12px; padding:0 18px; justify-content:center; }
+    .cmp-vs-line { flex:1; width:2px; background:linear-gradient(to bottom,transparent,var(--border) 30%,var(--border) 70%,transparent); min-height:30px; }
+    .cmp-vs-badge { width:46px; height:46px; border-radius:50%; background:linear-gradient(135deg,var(--blue),var(--blue-dark)); color:#fff; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:1px; box-shadow:0 4px 16px rgba(46,109,164,0.3); flex-shrink:0; font-size:0.6rem; font-weight:800; letter-spacing:0.5px; text-align:center; line-height:1.2; }
+    .cmp-vs-badge i { font-size:0.85rem; }
+    .cmp-vs-label { font-size:0.6rem; font-weight:700; color:var(--blue); writing-mode:vertical-rl; text-orientation:mixed; letter-spacing:1.5px; transform:rotate(180deg); text-transform:uppercase; }
+    .cmp-cta { display:flex; align-items:center; justify-content:space-between; gap:20px; padding:22px 32px; background:linear-gradient(135deg,rgba(46,109,164,0.05),rgba(245,197,24,0.05)); border:1.5px solid rgba(46,109,164,0.14); border-radius:16px; flex-wrap:wrap; position:relative; z-index:1; }
+    .cmp-cta-text { display:flex; align-items:center; gap:10px; font-size:0.95rem; color:var(--dark); }
+    .cmp-cta-text i { color:var(--blue); font-size:1.1rem; }
+    .cmp-cta-btn { display:inline-flex; align-items:center; gap:8px; padding:12px 24px; background:var(--blue); color:#fff; border-radius:10px; font-size:0.88rem; font-weight:700; text-decoration:none; white-space:nowrap; transition:background 0.25s ease,transform 0.25s ease; }
+    .cmp-cta-btn:hover { background:var(--blue-dark); color:#fff; transform:translateY(-2px); }
+    .cmp-cta-arrow { transition:transform 0.22s ease; }
+    .cmp-cta-btn:hover .cmp-cta-arrow { transform:translateX(4px); }
+    @media(max-width:900px){ .cmp-panels{grid-template-columns:1fr;gap:8px;} .cmp-vs-divider{flex-direction:row;padding:8px 0;} .cmp-vs-line{flex:1;height:2px;width:auto;min-height:unset;} .cmp-vs-label{writing-mode:horizontal-tb;transform:none;} .cmp-panel-old{transform:translateY(-20px);} .cmp-panel-new{transform:translateY(20px);} }
+    @media(max-width:640px){ .cmp-section{padding:72px 0 60px;} .cmp-cta{flex-direction:column;text-align:center;} .cmp-cta-text{justify-content:center;} .cmp-cta-btn{width:100%;justify-content:center;} }
+
+    /* ── ENGAGEMENT PLANS — PREMIUM (ep-) ── */
+    .ep-section { position:relative; padding:100px 0 80px; background:linear-gradient(180deg,#f4f8fd 0%,#ffffff 50%,#f8fafc 100%); overflow:hidden; }
+    .ep-bg { position:absolute; inset:0; pointer-events:none; z-index:0; }
+    .ep-orb { position:absolute; border-radius:50%; filter:blur(100px); }
+    .ep-orb-1 { width:600px; height:600px; background:radial-gradient(circle,rgba(46,109,164,0.1) 0%,transparent 70%); top:-180px; left:-150px; animation:epOrb 22s ease-in-out infinite; }
+    .ep-orb-2 { width:500px; height:500px; background:radial-gradient(circle,rgba(245,197,24,0.1) 0%,transparent 70%); bottom:-120px; right:-120px; animation:epOrb 26s ease-in-out infinite reverse; }
+    @keyframes epOrb { 0%,100%{transform:translate(0,0)} 50%{transform:translate(22px,-18px)} }
+    .ep-bg-grid { position:absolute; inset:0; background-image:linear-gradient(rgba(46,109,164,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(46,109,164,0.03) 1px,transparent 1px); background-size:52px 52px; }
+    .ep-header { text-align:center; margin-bottom:28px; }
+    .ep-badge { background:rgba(46,109,164,0.07) !important; border-color:rgba(46,109,164,0.18) !important; color:var(--blue) !important; }
+    .ep-heading { font-size:clamp(1.9rem,3.5vw,2.75rem); font-weight:800; color:var(--dark); margin-bottom:14px; line-height:1.2; }
+    .ep-accent { position:relative; color:var(--blue); display:inline-block; }
+    .ep-accent::after { content:''; position:absolute; bottom:-4px; left:0; width:100%; height:3px; background:linear-gradient(90deg,var(--blue),var(--yellow)); border-radius:3px; transform-origin:left; transform:scaleX(0); animation:epUnderline 1.1s ease forwards 0.5s; }
+    @keyframes epUnderline { to { transform:scaleX(1); } }
+    .ep-subtitle { color:var(--gray); font-size:1.02rem; max-width:560px; margin:0 auto; line-height:1.72; }
+    .ep-trust-strip { display:flex; align-items:center; justify-content:center; gap:10px; flex-wrap:wrap; margin-bottom:48px; padding:14px 20px; background:#fff; border:1.5px solid var(--border); border-radius:14px; box-shadow:0 2px 12px rgba(0,0,0,0.04); }
+    .ep-ts-item { display:flex; align-items:center; gap:5px; font-size:0.8rem; color:var(--dark); font-weight:500; }
+    .ep-ts-item i { color:#16a34a; font-size:0.72rem; }
+    .ep-ts-dot { width:3px; height:3px; border-radius:50%; background:#d1d5db; flex-shrink:0; }
+    .ep-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; align-items:start; position:relative; z-index:1; margin-bottom:32px; }
+    .ep-card { background:#ffffff; border:1.5px solid var(--border); border-radius:24px; padding:30px 24px 24px; position:relative; overflow:hidden; display:flex; flex-direction:column; opacity:0; transform:translateY(28px); transition:opacity 0.55s ease,transform 0.55s ease,border-color 0.3s ease,box-shadow 0.35s ease; }
+    .ep-card.ep-revealed { opacity:1; transform:translateY(0); }
+    .ep-card:hover:not(.ep-featured) { border-color:rgba(46,109,164,0.3); box-shadow:0 16px 48px rgba(46,109,164,0.1); transform:translateY(-5px) !important; }
+    .ep-card-glow { position:absolute; inset:0; background:radial-gradient(ellipse at 50% 0%,rgba(46,109,164,0.04),transparent 60%); opacity:0; transition:opacity 0.4s ease; pointer-events:none; border-radius:24px; }
+    .ep-card:hover .ep-card-glow { opacity:1; }
+    .ep-featured { border-color:rgba(217,119,6,0.45); transform:translateY(-10px); z-index:2; animation:epFeatGlow 4s ease-in-out infinite; }
+    .ep-featured.ep-revealed { opacity:1; transform:translateY(-10px) !important; }
+    .ep-featured:hover { transform:translateY(-17px) !important; box-shadow:0 28px 72px rgba(217,119,6,0.2),0 0 0 2px rgba(245,197,24,0.3) !important; }
+    @keyframes epFeatGlow { 0%,100%{box-shadow:0 20px 60px rgba(217,119,6,0.15),0 0 0 2px rgba(245,197,24,0.18)} 50%{box-shadow:0 24px 72px rgba(217,119,6,0.25),0 0 0 2px rgba(245,197,24,0.32)} }
+    .ep-shimmer { position:absolute; inset:0; background:linear-gradient(105deg,transparent 40%,rgba(255,255,255,0.5) 50%,transparent 60%); background-size:200% 100%; animation:epShimmer 4s ease-in-out infinite 1.2s; pointer-events:none; }
+    @keyframes epShimmer { 0%{background-position:-200% 0} 100%{background-position:200% 0} }
+    .ep-featured-badge { position:absolute; top:20px; right:20px; background:linear-gradient(135deg,var(--yellow),#d4a800); color:#111827; font-size:0.63rem; font-weight:900; padding:4px 12px; border-radius:50px; display:flex; align-items:center; gap:4px; box-shadow:0 4px 12px rgba(212,168,0,0.35); letter-spacing:0.3px; }
+    .ep-featured-badge i { font-size:0.58rem; }
+    .ep-plan-tier { display:inline-flex; align-items:center; font-size:0.67rem; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; padding:4px 12px; border-radius:50px; margin-bottom:10px; background:rgba(46,109,164,0.08); border:1px solid rgba(46,109,164,0.18); color:var(--blue); }
+    .ep-tier-gold { background:rgba(217,119,6,0.1); border-color:rgba(217,119,6,0.28); color:#b45309; }
+    .ep-tier-purple { background:rgba(124,58,237,0.08); border-color:rgba(124,58,237,0.22); color:#7c3aed; }
+    .ep-plan-name { font-size:1.75rem; font-weight:900; color:var(--dark); margin-bottom:10px; line-height:1; }
+    .ep-featured .ep-plan-name { color:#b45309; }
+    .ep-plan-desc { font-size:0.8rem; color:var(--gray); line-height:1.6; margin-bottom:20px; }
+    .ep-engagement { background:#f8fafc; border:1px solid var(--border); border-radius:12px; padding:14px 16px; margin-bottom:20px; }
+    .ep-eng-label { font-size:0.6rem; font-weight:700; text-transform:uppercase; letter-spacing:0.8px; color:var(--gray); margin-bottom:8px; }
+    .ep-eng-bar { height:6px; background:#e5e7eb; border-radius:3px; overflow:hidden; margin-bottom:8px; }
+    .ep-eng-fill { height:100%; border-radius:3px; width:0; background:linear-gradient(90deg,var(--blue),#4a8cc4); transition:width 1.2s cubic-bezier(0.4,0,0.2,1) 0.5s; }
+    .ep-eng-fill-gold { background:linear-gradient(90deg,#d97706,var(--yellow)); }
+    .ep-eng-fill-purple { background:linear-gradient(90deg,#7c3aed,#a855f7); }
+    .ep-eng-detail { display:flex; align-items:center; gap:6px; font-size:0.72rem; font-weight:700; color:var(--dark); }
+    .ep-eng-detail i { font-size:0.65rem; color:var(--blue); }
+    .ep-card-2 .ep-eng-detail i { color:#d97706; }
+    .ep-card-3 .ep-eng-detail i { color:#7c3aed; }
+    .ep-price { display:flex; align-items:baseline; gap:6px; margin-bottom:22px; }
+    .ep-price-label { font-size:0.67rem; font-weight:600; color:var(--gray); }
+    .ep-price-val { font-size:2rem; font-weight:900; color:var(--dark); }
+    .ep-featured .ep-price-val { color:#b45309; }
+    .ep-price-per { font-size:0.8rem; color:var(--gray); }
+    .ep-features { display:flex; flex-direction:column; gap:12px; margin-bottom:24px; flex:1; }
+    .ep-feat-group-label { font-size:0.6rem; font-weight:800; text-transform:uppercase; letter-spacing:0.8px; color:var(--gray); margin-bottom:6px; }
+    .ep-feat-item { display:flex; align-items:flex-start; gap:8px; font-size:0.8rem; color:var(--dark); font-weight:500; padding:3px 0; }
+    .ep-feat-item i { font-size:0.7rem; margin-top:3px; flex-shrink:0; color:#16a34a; }
+    .ep-feat-item.ep-excl i { color:#d97706; }
+    .ep-cta { display:flex; align-items:center; justify-content:center; gap:8px; width:100%; padding:13px 20px; border-radius:12px; font-size:0.87rem; font-weight:700; text-decoration:none; transition:all 0.25s ease; margin-top:auto; }
+    .ep-cta-ghost { background:#f8fafc; border:1.5px solid var(--border); color:var(--dark); }
+    .ep-cta-ghost:hover { border-color:var(--blue); color:var(--blue); background:rgba(46,109,164,0.04); transform:translateY(-2px); }
+    .ep-cta-gold { background:linear-gradient(135deg,#d97706,#b45309); color:#ffffff; box-shadow:0 6px 20px rgba(217,119,6,0.3); }
+    .ep-cta-gold:hover { background:linear-gradient(135deg,#b45309,#92400e); color:#fff; transform:translateY(-2px); box-shadow:0 10px 28px rgba(217,119,6,0.4); }
+    .ep-cta-ghost-p:hover { border-color:#7c3aed; color:#7c3aed; background:rgba(124,58,237,0.04); transform:translateY(-2px); }
+    .ep-cta-arrow { transition:transform 0.22s ease; }
+    .ep-cta:hover .ep-cta-arrow { transform:translateX(4px); }
+    .ep-bottom-note { display:flex; align-items:center; justify-content:center; gap:10px; flex-wrap:wrap; text-align:center; font-size:0.87rem; color:var(--gray); padding:18px 24px; background:#fff; border:1.5px solid var(--border); border-radius:14px; box-shadow:0 2px 12px rgba(0,0,0,0.04); }
+    .ep-bottom-note i { color:var(--blue); flex-shrink:0; }
+    .ep-note-link { font-weight:700; color:var(--blue); text-decoration:none; display:inline-flex; align-items:center; gap:4px; white-space:nowrap; }
+    .ep-note-link i { font-size:0.68rem; transition:transform 0.2s; }
+    .ep-note-link:hover i { transform:translateX(3px); }
+    @media(max-width:1024px){ .ep-grid{grid-template-columns:1fr;max-width:480px;margin:0 auto 32px;} .ep-featured{transform:none;} .ep-featured.ep-revealed{transform:none !important;} .ep-card.ep-revealed{transform:none;} }
+    @media(max-width:640px){ .ep-section{padding:72px 0 60px;} .ep-ts-dot{display:none;} .ep-trust-strip{gap:8px;} }
+
+    /* ── Comparison: visual enhancements ── */
+
+    /* Premium panel gets a breathing glow */
+    .cmp-panel-new.cmp-visible { animation: cmpNewGlow 4s ease-in-out 0.6s infinite; }
+    @keyframes cmpNewGlow {
+      0%,100% { box-shadow:0 8px 40px rgba(46,109,164,0.1),0 0 0 2px rgba(245,197,24,0.1); }
+      50%      { box-shadow:0 16px 64px rgba(46,109,164,0.2),0 0 0 2px rgba(245,197,24,0.25); }
+    }
+
+    /* New-panel header shimmer sweep */
+    .cmp-ph-new { position:relative; overflow:hidden; }
+    .cmp-ph-new::after { content:''; position:absolute; inset:0; background:linear-gradient(105deg,transparent 40%,rgba(255,255,255,0.45) 50%,transparent 60%); background-size:200% 100%; animation:cmpPhSweep 4s ease-in-out infinite 1.2s; pointer-events:none; }
+    @keyframes cmpPhSweep { 0%{background-position:-200% 0} 100%{background-position:200% 0} }
+
+    /* "8 CFO-Exclusive" count badge in header */
+    .cmp-ph-excl-count { display:inline-flex; align-items:center; gap:6px; padding:5px 14px; background:linear-gradient(135deg,rgba(245,197,24,0.14),rgba(245,197,24,0.06)); border:1px solid rgba(245,197,24,0.3); border-radius:50px; font-size:0.72rem; font-weight:700; color:var(--yellow-dark); margin-top:10px; }
+    .cmp-ph-excl-count i { font-size:0.65rem; color:var(--yellow-dark); }
+
+    /* "RECOMMENDED" stamp on new panel */
+    .cmp-recommended-stamp { position:absolute; top:18px; right:18px; background:linear-gradient(135deg,var(--yellow),#d4a800); color:#fff; font-size:0.6rem; font-weight:900; letter-spacing:1px; padding:4px 12px; border-radius:50px; text-transform:uppercase; box-shadow:0 4px 12px rgba(212,168,0,0.35); z-index:2; }
+
+    /* Section dividers inside panels */
+    .cmp-sep { display:flex; align-items:center; gap:8px; padding:4px 10px; margin:8px 0 4px; }
+    .cmp-sep-line { flex:1; height:1px; }
+    .cmp-sep-lbl { font-size:0.58rem; font-weight:800; text-transform:uppercase; letter-spacing:1px; white-space:nowrap; }
+    .cmp-sep-old .cmp-sep-line { background:linear-gradient(90deg,transparent,#fecaca,transparent); }
+    .cmp-sep-old .cmp-sep-lbl { color:#ef4444; }
+    .cmp-sep-new .cmp-sep-line { background:linear-gradient(90deg,transparent,rgba(46,109,164,0.3),transparent); }
+    .cmp-sep-new .cmp-sep-lbl { color:var(--blue); }
+
+    /* Exclusive items: subtle blue tint + left accent */
+    .cmp-item-exclusive { background:rgba(46,109,164,0.028); border-left:2px solid rgba(46,109,164,0.22); padding-left:10px !important; }
+    .cmp-item-exclusive:hover { background:rgba(46,109,164,0.055) !important; }
+
+    /* Row hover: smooth slide */
+    .cmp-item { transition:background 0.2s ease, transform 0.2s ease; }
+    .cmp-item:hover { transform:translateX(3px); }
+
+    /* VS badge: pulsing glow + count pill below */
+    .cmp-vs-badge.cmp-visible { animation:cmpVsPulse 2.5s ease-in-out infinite; }
+    @keyframes cmpVsPulse { 0%,100%{box-shadow:0 4px 16px rgba(46,109,164,0.3)} 50%{box-shadow:0 4px 28px rgba(46,109,164,0.55),0 0 0 6px rgba(46,109,164,0.08)} }
+    .cmp-vs-excl-pill { background:linear-gradient(135deg,var(--yellow),#d4a800); color:#111827; font-size:0.6rem; font-weight:900; padding:4px 10px; border-radius:50px; white-space:nowrap; text-align:center; line-height:1.3; box-shadow:0 3px 10px rgba(212,168,0,0.35); }
+
+    /* Footer enhancements */
+    .cmp-pf-new { position:relative; }
+    .cmp-pf-new::before { content:''; position:absolute; top:0; left:20%; right:20%; height:1px; background:linear-gradient(90deg,transparent,rgba(245,197,24,0.4),transparent); }
+    .cmp-pf-excl-num { font-size:0.72rem; font-weight:700; color:var(--blue); margin-top:6px; display:flex; align-items:center; justify-content:center; gap:5px; }
+    .cmp-pf-excl-num i { font-size:0.65rem; }
+
+    /* Traditional panel: slightly desaturated feel */
+    .cmp-panel-old .cmp-panel-body { background:rgba(0,0,0,0.008); }
     @media(max-width:768px){
-      .pain-grid{grid-template-columns:1fr}
       .what-includes{grid-template-columns:1fr}
       .comparison-table { font-size:0.8rem; }
       .comparison-table th, .comparison-table td { padding:10px 12px; }
@@ -52,293 +528,1460 @@
 <body>
 <div id="site-nav"></div>
 
-<!-- PAGE HERO -->
-<section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-grid"></div>
-  <div class="container">
-    <div class="fade-in-left">
-      <div class="hero-badge mt-5"><span></span> CFO-Level Financial Leadership</div>
-      <h1>Hire a CFO for Your Business at a <em>Fraction of the Cost</em></h1>
-      <p>Most growing businesses need strategic financial leadership — but can't justify a full-time CFO. Virtual CFO gives you exactly that expertise, on a flexible model that fits your business and budget.</p>
-      <div class="hero-btns">
-        <a href="contact.html#consultation" class="btn btn-primary"><i class="fa-solid fa-calendar-check"></i> Book Free Consultation</a>
-        <a href="#plans" class="btn btn-outline" style="color:rgba(255,255,255,0.85);border-color:rgba(255,255,255,0.3)"><i class="fa-solid fa-list"></i> View Plans</a>
-      </div>
-      <div class="hero-stats mb-3">
-        <div><div class="hero-stat-num"><span data-target="200" data-suffix="+">200+</span></div><div class="hero-stat-label">Businesses Served</div></div>
-        <div><div class="hero-stat-num"><span data-target="8" data-suffix=" Yrs">8 Yrs</span></div><div class="hero-stat-label">CFO Experience</div></div>
-        <div><div class="hero-stat-num">4.7<span style="font-size:1.2rem">★</span></div><div class="hero-stat-label">Google Rating</div></div>
-      </div>
-    </div>
-    <div class="fade-in-right" style="display:flex;flex-direction:column;gap:16px">
-      <div style="background:rgba(255,255,255,0.06);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.1);border-radius:var(--radius-lg);padding:28px">
-        <div style="font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--yellow);margin-bottom:16px">What You Get</div>
-        <div style="display:flex;flex-direction:column;gap:10px">
-          <div style="display:flex;align-items:center;gap:12px;color:rgba(255,255,255,0.85);font-size:0.9rem"><i class="fa-solid fa-circle-check" style="color:#4ade80;flex-shrink:0"></i> CFO-level financial oversight & strategy</div>
-          <div style="display:flex;align-items:center;gap:12px;color:rgba(255,255,255,0.85);font-size:0.9rem"><i class="fa-solid fa-circle-check" style="color:#4ade80;flex-shrink:0"></i> Monthly closing & structured MIS reports</div>
-          <div style="display:flex;align-items:center;gap:12px;color:rgba(255,255,255,0.85);font-size:0.9rem"><i class="fa-solid fa-circle-check" style="color:#4ade80;flex-shrink:0"></i> Real-time Power BI dashboards</div>
-          <div style="display:flex;align-items:center;gap:12px;color:rgba(255,255,255,0.85);font-size:0.9rem"><i class="fa-solid fa-circle-check" style="color:#4ade80;flex-shrink:0"></i> Full audit & tax compliance management</div>
-          <div style="display:flex;align-items:center;gap:12px;color:rgba(255,255,255,0.85);font-size:0.9rem"><i class="fa-solid fa-circle-check" style="color:#4ade80;flex-shrink:0"></i> Cash flow planning & profitability analysis</div>
-          <div style="display:flex;align-items:center;gap:12px;color:rgba(255,255,255,0.85);font-size:0.9rem"><i class="fa-solid fa-circle-check" style="color:#4ade80;flex-shrink:0"></i> Ongoing strategic advisory & decision support</div>
-        </div>
-      </div>
-      <div style="background:rgba(245,197,24,0.1);border:1px solid rgba(245,197,24,0.25);border-radius:var(--radius);padding:20px;display:flex;align-items:center;gap:16px">
-        <i class="fa-solid fa-lightbulb" style="font-size:1.8rem;color:var(--yellow);flex-shrink:0"></i>
-        <div>
-          <div style="font-size:0.88rem;font-weight:700;color:var(--yellow)">Did You Know?</div>
-          <div style="font-size:0.84rem;color:rgba(255,255,255,0.7);margin-top:4px">A full-time CFO in the UAE can cost AED 400,000–700,000 per year. A Virtual CFO delivers the same strategic value at a fraction of that cost.</div>
-        </div>
-      </div>
+<!-- PAGE HERO — PREMIUM REDESIGN -->
+<section class="vcfo-hero-section">
+
+  <div class="vcfo-hero-bg" aria-hidden="true">
+    <div class="vcfo-hero-orb vcfo-orb-1"></div>
+    <div class="vcfo-hero-orb vcfo-orb-2"></div>
+    <div class="vcfo-hero-orb vcfo-orb-3"></div>
+    <div class="vcfo-hero-grid"></div>
+    <div class="vcfo-hero-particles">
+      <span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span>
     </div>
   </div>
-</section>
 
-<!-- TRUST BAR -->
-<div class="trust-bar">
-  <div class="trust-track">
-    <div class="trust-item"><i class="fa-solid fa-building"></i> SMEs & Startups</div>
-    <div class="trust-item"><i class="fa-solid fa-chart-line"></i> Growing Businesses</div>
-    <div class="trust-item"><i class="fa-solid fa-building-columns"></i> Group Entities</div>
-    <div class="trust-item"><i class="fa-solid fa-globe"></i> UAE & Worldwide</div>
-    <div class="trust-item"><i class="fa-solid fa-handshake"></i> Long-term Partnerships</div>
-    <div class="trust-item"><i class="fa-solid fa-award"></i> CA-Led Advisory</div>
-    <div class="trust-item"><i class="fa-solid fa-building"></i> SMEs & Startups</div>
-    <div class="trust-item"><i class="fa-solid fa-chart-line"></i> Growing Businesses</div>
-    <div class="trust-item"><i class="fa-solid fa-building-columns"></i> Group Entities</div>
-    <div class="trust-item"><i class="fa-solid fa-globe"></i> UAE & Worldwide</div>
-    <div class="trust-item"><i class="fa-solid fa-handshake"></i> Long-term Partnerships</div>
-    <div class="trust-item"><i class="fa-solid fa-award"></i> CA-Led Advisory</div>
-  </div>
-</div>
-
-<!-- PAIN POINTS -->
-<section class="section">
   <div class="container">
-    <div class="text-center mb-48 fade-in">
-      <div class="section-label">The Problem</div>
-      <h2 class="section-title">Why Most SMEs Struggle With Finance</h2>
-      <p class="section-subtitle mt-16">Without CFO-level oversight, businesses operate with incomplete information and miss critical opportunities.</p>
-    </div>
-    <div class="pain-grid">
-      <div class="pain-card fade-in"><div class="pain-num">01</div><h4>Junior-Managed Accounts</h4><p>Financial function handled without senior oversight — leading to errors, blind spots, and strategic misalignment.</p></div>
-      <div class="pain-card fade-in"><div class="pain-num">02</div><h4>Compliance Risks</h4><p>VAT, Corporate Tax, and audit obligations managed reactively — creating exposure to penalties and last-minute stress.</p></div>
-      <div class="pain-card fade-in"><div class="pain-num">03</div><h4>Manual, Delayed Reporting</h4><p>Reports take too long to prepare and are outdated by the time they reach decision-makers.</p></div>
-      <div class="pain-card fade-in"><div class="pain-num">04</div><h4>No Cash Flow Visibility</h4><p>Business owners don't know their real cash position until it becomes a crisis — not a strategy.</p></div>
-      <div class="pain-card fade-in"><div class="pain-num">05</div><h4>No Profitability Clarity</h4><p>Revenue looks healthy but profits are unclear — no visibility into which products, customers, or markets are actually profitable.</p></div>
-      <div class="pain-card fade-in"><div class="pain-num">06</div><h4>Finance Isn't Strategic</h4><p>Accounting is handled but finance is never used as a growth tool — no planning, no forecasting, no strategic direction.</p></div>
-    </div>
-  </div>
-</section>
 
-<!-- WHAT'S INCLUDED -->
-<section class="section bg-light">
-  <div class="container">
-    <div class="two-col-grid">
+    <!-- <div class="breadcrumb vcfo-breadcrumb fade-in">
+      <a href="index.html">Home</a>
+      <i class="fa-solid fa-chevron-right"></i>
+      <span>Virtual CFO</span>
+    </div> -->
+
+    <div class="vcfo-hero-layout">
+
+      <!-- LEFT -->
       <div class="fade-in-left">
-        <div class="section-label">What's Included</div>
-        <h2 class="section-title">A Complete CFO Function for Your Business</h2>
-        <p class="mt-16">Our Virtual CFO engagement goes beyond advice — we embed ourselves into your finance function and deliver tangible results every month.</p>
-        <p class="mt-12">From the first review to ongoing strategic support, we become the financial backbone your business needs to grow with confidence.</p>
-        <div class="mt-32">
-          <a href="contact.html#consultation" class="btn btn-secondary"><i class="fa-solid fa-calendar-check"></i> Start with Free Consultation</a>
+
+        <div class="section-label">CFO-Level Financial Leadership</div>
+
+        <h1 class="vcfo-hero-heading">
+          Hire a CFO for Your Business<br>
+          at a <span class="vcfo-heading-accent">Fraction of the Cost</span>
+        </h1>
+
+        <p class="vcfo-hero-sub">Most growing businesses need strategic financial leadership — but can't justify a full-time CFO. We deliver exactly that expertise on a flexible model that fits your business and budget.</p>
+
+        <div class="vcfo-hero-btns">
+          <a href="contact.html#consultation" class="btn btn-primary vcfo-hero-cta">
+            <i class="fa-solid fa-calendar-check"></i>
+            Book Free Consultation
+            <i class="fa-solid fa-arrow-right vcfo-cta-arrow"></i>
+          </a>
+          <a href="#plans" class="vcfo-btn-ghost">
+            <i class="fa-solid fa-list"></i>
+            View Plans
+          </a>
+        </div>
+
+        <div class="vcfo-hero-stats">
+          <div class="vcfo-hs"><div class="vcfo-hs-num">200+</div><div class="vcfo-hs-lbl">Businesses Served</div></div>
+          <div class="vcfo-hs-sep"></div>
+          <div class="vcfo-hs"><div class="vcfo-hs-num">20+</div><div class="vcfo-hs-lbl">Years CFO Experience</div></div>
+          <div class="vcfo-hs-sep"></div>
+          <div class="vcfo-hs"><div class="vcfo-hs-num">CA</div><div class="vcfo-hs-lbl">Chartered Accountant Led</div></div>
+        </div>
+
+        <div class="vcfo-hero-trust">
+          <span><i class="fa-solid fa-circle-check"></i> No templates</span>
+          <span><i class="fa-solid fa-circle-check"></i> UAE &amp; worldwide</span>
+          <span><i class="fa-solid fa-circle-check"></i> Free consultation</span>
+        </div>
+
+      </div>
+
+      <!-- RIGHT -->
+      <div class="vcfo-hero-right fade-in-right">
+
+        <div class="vcfo-float-card vcfo-fc-top">
+          <div class="vcfo-fc-icon vcfo-fci-gold"><i class="fa-solid fa-arrow-trend-down"></i></div>
+          <div><div class="vcfo-fc-val">Save 70%+</div><div class="vcfo-fc-lbl">vs. Full-Time CFO</div></div>
+        </div>
+
+        <div class="vcfo-dash-card">
+          <div class="vcfo-dash-shimmer"></div>
+
+          <div class="vcfo-dash-header">
+            <div class="vcfo-dash-dots"><span></span><span></span><span></span></div>
+            <span class="vcfo-dash-title"><i class="fa-solid fa-chart-line"></i> Virtual CFO Value Dashboard</span>
+            <div class="vcfo-dash-live"><span></span>ACTIVE</div>
+          </div>
+
+          <div class="vcfo-kpi-row">
+            <div class="vcfo-kpi-item">
+              <div class="vcfo-kpi-num" id="vcfoKpi1">94%<span class="vcfo-kpi-live"></span></div>
+              <div class="vcfo-kpi-lbl">Finance Efficiency</div>
+            </div>
+            <div class="vcfo-kpi-item">
+              <div class="vcfo-kpi-num" id="vcfoKpi2">+32%<span class="vcfo-kpi-live"></span></div>
+              <div class="vcfo-kpi-lbl">Cost Savings</div>
+            </div>
+            <div class="vcfo-kpi-item">
+              <div class="vcfo-kpi-num" id="vcfoKpi3">5 Yrs<span class="vcfo-kpi-live"></span></div>
+              <div class="vcfo-kpi-lbl">Avg. Retention</div>
+            </div>
+          </div>
+
+          <div class="vcfo-cost-compare">
+            <div class="vcfo-cost-col">
+              <div class="vcfo-cost-label">Full-Time CFO</div>
+              <div class="vcfo-cost-bar vcfo-cost-bar-high" id="vcfoBarHigh"></div>
+              <div class="vcfo-cost-amount">AED 650K<small>/yr</small></div>
+              <div class="vcfo-cost-tag vcfo-cost-tag-red"><i class="fa-solid fa-xmark"></i> Expensive</div>
+            </div>
+            <div class="vcfo-cost-vs">VS</div>
+            <div class="vcfo-cost-col">
+              <div class="vcfo-cost-label">Virtual CFO</div>
+              <div class="vcfo-cost-bar vcfo-cost-bar-low" id="vcfoBarLow"></div>
+              <div class="vcfo-cost-amount vcfo-cost-gold">Fraction<small>/cost</small></div>
+              <div class="vcfo-cost-tag vcfo-cost-tag-green"><i class="fa-solid fa-check"></i> Smart Choice</div>
+            </div>
+          </div>
+
+          <div class="vcfo-savings-strip">
+            <div class="vcfo-ss-label"><i class="fa-solid fa-bolt"></i> Cost Efficiency</div>
+            <div class="vcfo-ss-bar"><div class="vcfo-ss-fill" id="vcfoSavingsFill"></div></div>
+            <div class="vcfo-ss-val" id="vcfoSavingsVal">0%</div>
+          </div>
+
+          <div class="vcfo-mini-chart">
+            <div class="vcfo-mc-header">
+              <span class="vcfo-mc-title">CFO Impact Over Time</span>
+              <span class="vcfo-mc-badge"><i class="fa-solid fa-arrow-trend-up"></i> +24.8% avg growth</span>
+            </div>
+            <svg class="vcfo-mc-svg" viewBox="0 0 240 44" preserveAspectRatio="none">
+              <defs>
+                <linearGradient id="vcfoAreaGrad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#2E6DA4" stop-opacity="0.22"/>
+                  <stop offset="100%" stop-color="#2E6DA4" stop-opacity="0"/>
+                </linearGradient>
+              </defs>
+              <polygon fill="url(#vcfoAreaGrad)" points="0,44 0,36 40,30 80,26 110,20 140,14 170,10 200,6 240,3 240,44"/>
+              <polyline id="vcfoChartLine" class="vcfo-mc-line" fill="none" stroke="#2E6DA4" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" points="0,36 40,30 80,26 110,20 140,14 170,10 200,6 240,3"/>
+              <circle class="vcfo-mc-dot" cx="240" cy="3" r="3" fill="#F5C518"/>
+            </svg>
+            <div class="vcfo-mc-months">
+              <span>Jan</span><span>Mar</span><span>May</span><span>Jul</span><span>Sep</span><span>Nov</span>
+            </div>
+          </div>
+
+          <div class="vcfo-includes">
+            <div class="vcfo-incl-title">What You Get</div>
+            <div class="vcfo-incl-grid">
+              <div class="vcfo-incl-item"><i class="fa-solid fa-check"></i><span>CFO Strategy &amp; Planning</span></div>
+              <div class="vcfo-incl-item"><i class="fa-solid fa-check"></i><span>Monthly MIS Reports</span></div>
+              <div class="vcfo-incl-item"><i class="fa-solid fa-check"></i><span>Power BI Dashboards</span></div>
+              <div class="vcfo-incl-item"><i class="fa-solid fa-check"></i><span>Audit &amp; Tax Compliance</span></div>
+              <div class="vcfo-incl-item"><i class="fa-solid fa-check"></i><span>Cash Flow Management</span></div>
+              <div class="vcfo-incl-item"><i class="fa-solid fa-check"></i><span>Strategic Advisory</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="vcfo-float-card vcfo-fc-bottom">
+          <div class="vcfo-fc-icon vcfo-fci-blue"><i class="fa-solid fa-award"></i></div>
+          <div><div class="vcfo-fc-val">CA-Led</div><div class="vcfo-fc-lbl">20+ Yrs Experience</div></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+/* VCFO Hero: full animation controller */
+(function () {
+  var hero = document.querySelector('.vcfo-hero-section');
+  if (!hero) return;
+  var fired = false;
+
+  function countUp(el, target, suffix, duration) {
+    var start = performance.now();
+    var isFloat = target % 1 !== 0;
+    (function tick(now) {
+      var p = Math.min((now - start) / duration, 1);
+      var ease = 1 - Math.pow(1 - p, 3);
+      var val = target * ease;
+      el.textContent = (isFloat ? val.toFixed(1) : Math.round(val)) + suffix;
+      if (p < 1) requestAnimationFrame(tick);
+    })(start);
+  }
+
+  new IntersectionObserver(function (entries) {
+    if (!entries[0].isIntersecting || fired) return;
+    fired = true;
+
+    setTimeout(function () {
+      var hi = document.getElementById('vcfoBarHigh');
+      var lo = document.getElementById('vcfoBarLow');
+      if (hi) hi.style.height = '88px';
+      if (lo) { lo.style.height = '22px'; setTimeout(function(){ lo.classList.add('bar-active'); }, 1000); }
+    }, 350);
+
+    setTimeout(function () {
+      var sf = document.getElementById('vcfoSavingsFill');
+      var val = document.getElementById('vcfoSavingsVal');
+      if (sf) sf.style.width = '78%';
+      if (val) countUp(val, 70, '%+ Saved', 1200);
+      setTimeout(function(){ if (sf) sf.classList.add('shimmer-on'); }, 1400);
+    }, 500);
+
+    setTimeout(function () {
+      var line = document.getElementById('vcfoChartLine');
+      if (line) line.classList.add('line-drawn');
+    }, 900);
+
+    hero.querySelectorAll('.vcfo-incl-item').forEach(function (item, i) {
+      setTimeout(function () { item.classList.add('item-in'); }, 800 + i * 110);
+    });
+
+    [1, 2, 3].forEach(function (n, i) {
+      var el = document.getElementById('vcfoKpi' + n);
+      if (!el) return;
+      setTimeout(function () { el.classList.add('counting'); setTimeout(function(){ el.classList.remove('counting'); }, 600); }, 600 + i * 200);
+    });
+
+  }, { threshold: 0.25 }).observe(hero);
+
+  var kpis = [
+    { id:'vcfoKpi1', vals:['94%','96%','94%','95%'] },
+    { id:'vcfoKpi2', vals:['+32%','+34%','+32%','+33%'] },
+    { id:'vcfoKpi3', vals:['5 Yrs','5+ Yrs','5 Yrs','5 Yrs'] }
+  ];
+  var tick = 0;
+  setInterval(function () {
+    tick++;
+    kpis.forEach(function (k) {
+      var el = document.getElementById(k.id);
+      if (!el) return;
+      var live = el.querySelector('.vcfo-kpi-live');
+      el.childNodes[0].textContent = k.vals[tick % k.vals.length];
+      if (live) el.appendChild(live);
+      el.classList.add('counting');
+      setTimeout(function () { el.classList.remove('counting'); }, 400);
+    });
+  }, 4000);
+})();
+</script>
+
+<!-- PAIN POINTS — PREMIUM REDESIGN -->
+<section class="pp-section">
+
+  <div class="pp-bg" aria-hidden="true">
+    <div class="pp-bg-orb pp-orb-1"></div>
+    <div class="pp-bg-orb pp-orb-2"></div>
+    <div class="pp-bg-grid"></div>
+  </div>
+
+  <div class="container" style="position:relative;z-index:1;">
+
+    <!-- Header -->
+    <div class="pp-header fade-in">
+      <div class="section-label pp-badge">The Problem</div>
+      <h2 class="pp-heading">Why Most SMEs<br><span class="pp-heading-accent">Struggle With Finance</span></h2>
+      <p class="pp-subtitle">Without CFO-level oversight, businesses operate blind — missing critical opportunities and exposing themselves to serious financial risk.</p>
+    </div>
+
+    <!-- Two-column layout -->
+    <div class="pp-layout">
+
+      <!-- LEFT: Financial Chaos Panel -->
+      <div class="pp-chaos-side fade-in-left">
+
+        <div class="pp-chaos-card">
+
+          <div class="pp-cc-header">
+            <div class="pp-cc-dots"><span></span><span></span><span></span></div>
+            <span class="pp-cc-title"><i class="fa-solid fa-chart-simple"></i> Finance Status Dashboard</span>
+            <div class="pp-cc-alert"><span class="pp-cc-alert-dot"></span>CRITICAL</div>
+          </div>
+
+          <div class="pp-cc-metrics">
+            <div class="pp-cc-metric">
+              <div class="pp-cc-m-header">
+                <span class="pp-cc-m-lbl">Cash Flow</span>
+                <span class="pp-cc-m-status pp-s-red"><i class="fa-solid fa-circle-xmark"></i> Unknown</span>
+              </div>
+              <div class="pp-cc-m-bar"><div class="pp-cc-m-fill pp-mf-red" style="width:18%"></div></div>
+            </div>
+            <div class="pp-cc-metric">
+              <div class="pp-cc-m-header">
+                <span class="pp-cc-m-lbl">Report Age</span>
+                <span class="pp-cc-m-status pp-s-amber"><i class="fa-solid fa-clock"></i> 21 Days Old</span>
+              </div>
+              <div class="pp-cc-m-bar"><div class="pp-cc-m-fill pp-mf-amber" style="width:88%"></div></div>
+            </div>
+            <div class="pp-cc-metric">
+              <div class="pp-cc-m-header">
+                <span class="pp-cc-m-lbl">Compliance</span>
+                <span class="pp-cc-m-status pp-s-red"><i class="fa-solid fa-triangle-exclamation"></i> 3 Overdue</span>
+              </div>
+              <div class="pp-cc-m-bar"><div class="pp-cc-m-fill pp-mf-red" style="width:5%"></div></div>
+            </div>
+            <div class="pp-cc-metric">
+              <div class="pp-cc-m-header">
+                <span class="pp-cc-m-lbl">Profitability</span>
+                <span class="pp-cc-m-status pp-s-amber"><i class="fa-solid fa-question"></i> Unclear</span>
+              </div>
+              <div class="pp-cc-m-bar"><div class="pp-cc-m-fill pp-mf-amber" style="width:30%"></div></div>
+            </div>
+          </div>
+
+          <div class="pp-cc-chart-wrap">
+            <div class="pp-cc-chart-title">Business Visibility Score — Declining Trend</div>
+            <svg class="pp-cc-chart" viewBox="0 0 240 48" preserveAspectRatio="none">
+              <defs>
+                <linearGradient id="ppChartGrad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#ef4444" stop-opacity="0.2"/>
+                  <stop offset="100%" stop-color="#ef4444" stop-opacity="0"/>
+                </linearGradient>
+              </defs>
+              <polygon fill="url(#ppChartGrad)" points="0,48 0,8 40,13 80,20 120,28 160,38 200,44 240,46 240,48"/>
+              <polyline id="ppChartLine" class="pp-chart-line" fill="none" stroke="#ef4444" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"
+                points="0,8 40,13 80,20 120,28 160,38 200,44 240,46"/>
+              <circle cx="240" cy="46" r="3.5" fill="#ef4444" style="animation:ppAlertBlink 1.2s ease-in-out infinite;"/>
+            </svg>
+          </div>
+
+          <div class="pp-cc-alerts">
+            <div class="pp-alert pp-alert-red">
+              <i class="fa-solid fa-circle-xmark"></i>
+              <span>Cash flow crisis approaching — zero visibility</span>
+            </div>
+            <div class="pp-alert pp-alert-amber">
+              <i class="fa-solid fa-triangle-exclamation"></i>
+              <span>VAT &amp; Corporate Tax deadlines overdue</span>
+            </div>
+            <div class="pp-alert pp-alert-red">
+              <i class="fa-solid fa-circle-xmark"></i>
+              <span>Financial reports delayed 21+ days</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Floating insight -->
+        <div class="pp-float-insight">
+          <div class="pp-fi-icon"><i class="fa-solid fa-lightbulb"></i></div>
+          <div>
+            <div class="pp-fi-title">Did you know?</div>
+            <div class="pp-fi-text">72% of SME failures are linked to poor financial visibility and cash flow mismanagement.</div>
+          </div>
+        </div>
+
+      </div><!-- /chaos side -->
+
+      <!-- RIGHT: Problem cards -->
+      <div class="pp-problems-side fade-in-right">
+        <div class="pp-problems-grid">
+
+          <div class="pp-problem-card" style="--pp-acc:#ef4444;--pp-acc-rgb:239,68,68;">
+            <div class="pp-pc-glow"></div>
+            <div class="pp-pc-icon"><i class="fa-solid fa-user-clock"></i></div>
+            <h4 class="pp-pc-title">Junior-Managed Accounts</h4>
+            <p class="pp-pc-desc">Financial function handled without senior oversight — leading to errors, blind spots, and strategic misalignment.</p>
+            <div class="pp-pc-impact"><i class="fa-solid fa-triangle-exclamation"></i><span>Strategic blind spots</span></div>
+          </div>
+
+          <div class="pp-problem-card" style="--pp-acc:#f59e0b;--pp-acc-rgb:245,158,11;">
+            <div class="pp-pc-glow"></div>
+            <div class="pp-pc-icon"><i class="fa-solid fa-shield-halved"></i></div>
+            <h4 class="pp-pc-title">Compliance Risks</h4>
+            <p class="pp-pc-desc">VAT, Corporate Tax, and audit obligations managed reactively — creating exposure to penalties and last-minute stress.</p>
+            <div class="pp-pc-impact"><i class="fa-solid fa-triangle-exclamation"></i><span>Penalty exposure</span></div>
+          </div>
+
+          <div class="pp-problem-card" style="--pp-acc:#ea580c;--pp-acc-rgb:234,88,12;">
+            <div class="pp-pc-glow"></div>
+            <div class="pp-pc-icon"><i class="fa-solid fa-file-lines"></i></div>
+            <h4 class="pp-pc-title">Manual, Delayed Reporting</h4>
+            <p class="pp-pc-desc">Reports take too long to prepare and are outdated by the time they reach decision-makers.</p>
+            <div class="pp-pc-impact"><i class="fa-solid fa-clock"></i><span>21+ day delays</span></div>
+          </div>
+
+          <div class="pp-problem-card" style="--pp-acc:#ef4444;--pp-acc-rgb:239,68,68;">
+            <div class="pp-pc-glow"></div>
+            <div class="pp-pc-icon"><i class="fa-solid fa-droplet"></i></div>
+            <h4 class="pp-pc-title">No Cash Flow Visibility</h4>
+            <p class="pp-pc-desc">Business owners don't know their real cash position until it becomes a crisis — not a strategy.</p>
+            <div class="pp-pc-impact"><i class="fa-solid fa-triangle-exclamation"></i><span>Crisis discovered too late</span></div>
+          </div>
+
+          <div class="pp-problem-card" style="--pp-acc:#f59e0b;--pp-acc-rgb:245,158,11;">
+            <div class="pp-pc-glow"></div>
+            <div class="pp-pc-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+            <h4 class="pp-pc-title">No Profitability Clarity</h4>
+            <p class="pp-pc-desc">Revenue looks healthy but profits are unclear — no visibility into which products or markets are actually profitable.</p>
+            <div class="pp-pc-impact"><i class="fa-solid fa-triangle-exclamation"></i><span>Losing money unknowingly</span></div>
+          </div>
+
+          <div class="pp-problem-card" style="--pp-acc:#ea580c;--pp-acc-rgb:234,88,12;">
+            <div class="pp-pc-glow"></div>
+            <div class="pp-pc-icon"><i class="fa-solid fa-chart-line"></i></div>
+            <h4 class="pp-pc-title">Finance Isn't Strategic</h4>
+            <p class="pp-pc-desc">Accounting is handled but finance is never used as a growth tool — no planning, no forecasting, no strategic direction.</p>
+            <div class="pp-pc-impact"><i class="fa-solid fa-arrow-trend-down"></i><span>Growth left on the table</span></div>
+          </div>
+
+        </div>
+      </div><!-- /problems side -->
+    </div><!-- /pp-layout -->
+
+    <!-- Transition strip -->
+    <div class="pp-transition-strip fade-in">
+      <div class="pp-ts-left">
+        <i class="fa-solid fa-arrow-trend-up"></i>
+        <span>Sound familiar? <strong>You're not alone.</strong> These are exactly the problems Virtual CFO was built to solve.</span>
+      </div>
+      <a href="#plans" class="pp-ts-btn">
+        See the Solution <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<script>
+/* Pain Points: SVG draw + stagger card reveal */
+(function () {
+  var section = document.querySelector('.pp-section');
+  if (!section) return;
+  var fired = false;
+  new IntersectionObserver(function (entries) {
+    if (!entries[0].isIntersecting || fired) return;
+    fired = true;
+    var line = document.getElementById('ppChartLine');
+    if (line) line.classList.add('pp-line-drawn');
+    section.querySelectorAll('.pp-problem-card').forEach(function (card, i) {
+      setTimeout(function () { card.classList.add('pp-card-in'); }, i * 100);
+    });
+  }, { threshold: 0.15 }).observe(section);
+})();
+</script>
+
+<!-- WHAT'S INCLUDED — PREMIUM REDESIGN -->
+<section class="cfi-section">
+
+  <div class="cfi-bg" aria-hidden="true">
+    <div class="cfi-orb cfi-orb-1"></div>
+    <div class="cfi-orb cfi-orb-2"></div>
+    <div class="cfi-grid-overlay"></div>
+  </div>
+
+  <div class="container">
+    <div class="cfi-layout">
+
+      <!-- LEFT: Content -->
+      <div class="fade-in-left">
+
+        <div class="section-label cfi-badge">What's Included</div>
+
+        <h2 class="cfi-heading">A Complete <em>CFO Function</em><br>for Your Business</h2>
+
+        <p class="cfi-desc">Our Virtual CFO engagement goes beyond advice — we embed ourselves into your finance function and deliver tangible results every month.</p>
+        <p class="cfi-desc">From the first review to ongoing strategic support, we become the financial backbone your business needs to grow with confidence.</p>
+
+        <div class="cfi-stats">
+          <div class="cfi-stat">
+            <div class="cfi-stat-num">200+</div>
+            <div class="cfi-stat-lbl">Businesses Served</div>
+          </div>
+          <div class="cfi-stat-sep"></div>
+          <div class="cfi-stat">
+            <div class="cfi-stat-num">70%+</div>
+            <div class="cfi-stat-lbl">Cost Savings</div>
+          </div>
+          <div class="cfi-stat-sep"></div>
+          <div class="cfi-stat">
+            <div class="cfi-stat-num">5+ Yrs</div>
+            <div class="cfi-stat-lbl">Avg. Client Stay</div>
+          </div>
+        </div>
+
+        <a href="contact.html#consultation" class="btn btn-primary cfi-cta" style="gap:10px;">
+          <i class="fa-solid fa-calendar-check"></i>
+          Start with Free Consultation
+          <i class="fa-solid fa-arrow-right cfi-cta-arrow"></i>
+        </a>
+
+      </div>
+
+      <!-- RIGHT: CFO Operating Modules -->
+      <div class="fade-in-right">
+        <div class="cfi-modules">
+
+          <!-- 1. Financial Strategy & Planning -->
+          <div class="cfi-module" style="--cfi-acc:#2E6DA4;--cfi-acc-rgb:46,109,164;">
+            <div class="cfi-mod-glow"></div>
+            <div class="cfi-mod-icon"><i class="fa-solid fa-chart-pie"></i></div>
+            <div class="cfi-mod-title">Financial Strategy &amp; Planning</div>
+            <div class="cfi-mod-desc">Annual budgets, rolling forecasts, and strategic financial roadmaps aligned to growth goals.</div>
+            <div class="cfi-mod-indicator">
+              <div class="cfi-mi-label">Budget vs Actual</div>
+              <div class="cfi-mi-bars">
+                <div class="cfi-mi-bar cfi-mi-bar-budget" style="height:12px"></div>
+                <div class="cfi-mi-bar cfi-mi-bar-actual" style="height:18px"></div>
+                <div class="cfi-mi-bar cfi-mi-bar-budget" style="height:10px"></div>
+                <div class="cfi-mi-bar cfi-mi-bar-actual" style="height:16px"></div>
+                <div class="cfi-mi-bar cfi-mi-bar-budget" style="height:14px"></div>
+                <div class="cfi-mi-bar cfi-mi-bar-actual" style="height:20px"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. Cash Flow Management -->
+          <div class="cfi-module" style="--cfi-acc:#0891b2;--cfi-acc-rgb:8,145,178;">
+            <div class="cfi-mod-glow"></div>
+            <div class="cfi-mod-icon"><i class="fa-solid fa-droplet"></i></div>
+            <div class="cfi-mod-title">Cash Flow Management</div>
+            <div class="cfi-mod-desc">Real-time cash position tracking, working capital optimization, and liquidity planning.</div>
+            <div class="cfi-mod-indicator">
+              <div class="cfi-mi-label">Cash Position</div>
+              <div class="cfi-mi-chip"><i class="fa-solid fa-arrow-trend-up"></i> Healthy &amp; Positive</div>
+            </div>
+          </div>
+
+          <!-- 3. Performance Monitoring -->
+          <div class="cfi-module" style="--cfi-acc:#7c3aed;--cfi-acc-rgb:124,58,237;">
+            <div class="cfi-mod-glow"></div>
+            <div class="cfi-mod-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+            <div class="cfi-mod-title">Performance Monitoring</div>
+            <div class="cfi-mod-desc">Monthly KPI reviews, variance analysis, and exception reporting for confident decisions.</div>
+            <div class="cfi-mod-indicator">
+              <div class="cfi-mi-label">vs Target</div>
+              <div class="cfi-mi-chip"><i class="fa-solid fa-caret-up"></i> +24.8% above plan</div>
+            </div>
+          </div>
+
+          <!-- 4. Power BI Dashboards -->
+          <div class="cfi-module" style="--cfi-acc:#d97706;--cfi-acc-rgb:217,119,6;">
+            <div class="cfi-mod-glow"></div>
+            <div class="cfi-mod-icon"><i class="fa-solid fa-chart-bar"></i></div>
+            <div class="cfi-mod-title">Power BI Dashboards</div>
+            <div class="cfi-mod-desc">Real-time financial dashboards tailored to your business drivers — live on any device, anywhere.</div>
+            <div class="cfi-mod-indicator">
+              <div class="cfi-mi-label">Dashboard Activity</div>
+              <div class="cfi-mi-sparkline">
+                <div class="cfi-mi-sp-bar" style="height:8px"></div>
+                <div class="cfi-mi-sp-bar" style="height:13px"></div>
+                <div class="cfi-mi-sp-bar" style="height:10px"></div>
+                <div class="cfi-mi-sp-bar" style="height:16px"></div>
+                <div class="cfi-mi-sp-bar" style="height:11px"></div>
+                <div class="cfi-mi-sp-bar cfi-mi-sp-bar-last" style="height:18px"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5. Compliance Oversight -->
+          <div class="cfi-module" style="--cfi-acc:#16a34a;--cfi-acc-rgb:22,163,74;">
+            <div class="cfi-mod-glow"></div>
+            <div class="cfi-mod-icon"><i class="fa-solid fa-shield-halved"></i></div>
+            <div class="cfi-mod-title">Compliance Oversight</div>
+            <div class="cfi-mod-desc">VAT, Corporate Tax, and audit readiness managed proactively — zero missed deadlines, zero penalties.</div>
+            <div class="cfi-mod-indicator">
+              <div class="cfi-mi-label">Deadlines Met</div>
+              <div class="cfi-mi-checks">
+                <div class="cfi-mi-check"><i class="fa-solid fa-check"></i></div>
+                <div class="cfi-mi-check"><i class="fa-solid fa-check"></i></div>
+                <div class="cfi-mi-check"><i class="fa-solid fa-check"></i></div>
+                <span style="font-size:0.68rem;font-weight:700;color:#16a34a;margin-left:5px;">All Clear</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 6. Strategic Advisory -->
+          <div class="cfi-module" style="--cfi-acc:#ea580c;--cfi-acc-rgb:234,88,12;">
+            <div class="cfi-mod-glow"></div>
+            <div class="cfi-mod-icon"><i class="fa-solid fa-comments"></i></div>
+            <div class="cfi-mod-title">Strategic Advisory</div>
+            <div class="cfi-mod-desc">Regular CFO-level sessions with your leadership team on growth decisions and financial strategy.</div>
+            <div class="cfi-mod-indicator">
+              <div class="cfi-mi-label">Next CFO Session</div>
+              <div class="cfi-mi-chip"><i class="fa-solid fa-calendar-check"></i> Scheduled This Week</div>
+            </div>
+          </div>
+
         </div>
       </div>
-      <div class="what-includes fade-in-right">
-        <div class="wi-item"><div class="wi-icon"><i class="fa-solid fa-chart-pie"></i></div><div><h5>Financial Strategy & Planning</h5><p>Annual budgets, rolling forecasts, and strategic financial roadmaps.</p></div></div>
-        <div class="wi-item"><div class="wi-icon"><i class="fa-solid fa-droplet"></i></div><div><h5>Cash Flow Management</h5><p>Real-time cash position tracking, working capital optimization.</p></div></div>
-        <div class="wi-item"><div class="wi-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div><div><h5>Performance Monitoring</h5><p>Monthly KPI reviews, variance analysis, and exception reporting.</p></div></div>
-        <div class="wi-item"><div class="wi-icon"><i class="fa-solid fa-chart-bar"></i></div><div><h5>Power BI Dashboards</h5><p>Real-time financial dashboards tailored to your business drivers.</p></div></div>
-        <div class="wi-item"><div class="wi-icon"><i class="fa-solid fa-shield-halved"></i></div><div><h5>Compliance Oversight</h5><p>VAT, Corporate Tax, audit readiness managed proactively.</p></div></div>
-        <div class="wi-item"><div class="wi-icon"><i class="fa-solid fa-comments"></i></div><div><h5>Strategic Advisory</h5><p>Regular CFO-level sessions with your leadership team on growth decisions.</p></div></div>
-      </div>
+
     </div>
   </div>
 </section>
 
-<!-- COMPARISON TABLE -->
-<section class="section">
-  <div class="container">
-    <div class="text-center mb-48 fade-in">
-      <div class="section-label">The Comparison</div>
-      <h2 class="section-title">Virtual CFO vs. Traditional Accounting</h2>
+<script>
+/* CFO Included: stagger module reveal */
+(function () {
+  var grid = document.querySelector('.cfi-modules');
+  if (!grid) return;
+  var fired = false;
+  new IntersectionObserver(function (entries) {
+    if (!entries[0].isIntersecting || fired) return;
+    fired = true;
+    grid.querySelectorAll('.cfi-module').forEach(function (m, i) {
+      setTimeout(function () { m.classList.add('cfi-mod-in'); }, i * 110);
+    });
+  }, { threshold: 0.15 }).observe(grid);
+})();
+</script>
+
+<!-- COMPARISON — PREMIUM REDESIGN -->
+<section class="cmp-section">
+
+  <div class="cmp-bg" aria-hidden="true">
+    <div class="cmp-bg-orb cmp-orb-1"></div>
+    <div class="cmp-bg-orb cmp-orb-2"></div>
+    <div class="cmp-bg-grid"></div>
+  </div>
+
+  <div class="container" style="position:relative;z-index:1;">
+
+    <!-- Header -->
+    <div class="cmp-header fade-in">
+      <div class="section-label cmp-badge">The Comparison</div>
+      <h2 class="cmp-heading">Virtual CFO vs.<br><span class="cmp-accent">Traditional Accounting</span></h2>
+      <p class="cmp-subtitle">Stop limiting your business to compliance-only finance. See the complete picture of what strategic CFO support actually delivers.</p>
     </div>
-    <div style="overflow-x:auto" class="fade-in">
-      <table class="comparison-table">
-        <thead>
-          <tr>
-            <th class="th-feature">What You Get</th>
-            <th class="th-no"><i class="fa-solid fa-xmark"></i> Traditional Accountant</th>
-            <th class="th-yes"><i class="fa-solid fa-check"></i> Virtual CFO</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>Financial record-keeping & bookkeeping</td><td>✓</td><td>✓</td></tr>
-          <tr><td>VAT & Tax compliance</td><td>✓</td><td>✓</td></tr>
-          <tr><td>Audit support</td><td>Limited</td><td>✓ Full</td></tr>
-          <tr><td>Monthly closing & MIS reports</td><td>Basic</td><td>✓ Structured</td></tr>
-          <tr><td>Real-time Power BI dashboards</td><td>✗</td><td>✓</td></tr>
-          <tr><td>Financial strategy & planning</td><td>✗</td><td>✓</td></tr>
-          <tr><td>Cash flow management</td><td>✗</td><td>✓</td></tr>
-          <tr><td>Profitability analysis</td><td>✗</td><td>✓</td></tr>
-          <tr><td>Budget vs. Actual tracking</td><td>✗</td><td>✓</td></tr>
-          <tr><td>Strategic decision support</td><td>✗</td><td>✓</td></tr>
-          <tr><td>Process optimization</td><td>✗</td><td>✓</td></tr>
-          <tr><td>Proactive financial leadership</td><td>✗</td><td>✓</td></tr>
-        </tbody>
-      </table>
+
+    <!-- Two panels + centre divider -->
+    <div class="cmp-panels">
+
+      <!-- ══ LEFT: Traditional Accountant ══ -->
+      <div class="cmp-panel cmp-panel-old">
+
+        <div class="cmp-panel-header cmp-ph-old">
+          <div class="cmp-ph-badge cmp-ph-badge-old"><i class="fa-solid fa-xmark"></i> Traditional Accountant</div>
+          <div class="cmp-ph-sub">Compliance-only · Historical · Reactive</div>
+          <div class="cmp-ph-visual cmp-phv-old">
+            <div class="cmp-phv-row"><span class="cmp-phv-label">Last Report</span><span class="cmp-phv-val cmp-phv-late">21 Days Old</span></div>
+            <div class="cmp-phv-row"><span class="cmp-phv-label">Cash Flow</span><span class="cmp-phv-val cmp-phv-unknown">Unknown</span></div>
+            <div class="cmp-phv-row"><span class="cmp-phv-label">CFO Strategy</span><span class="cmp-phv-val cmp-phv-none">Not Available</span></div>
+          </div>
+        </div>
+
+        <div class="cmp-panel-body">
+          <div class="cmp-item cmp-item-basic">
+            <i class="fa-solid fa-check"></i>
+            <div><div class="cmp-item-name">Financial record-keeping</div><div class="cmp-note-basic">Basic bookkeeping only</div></div>
+          </div>
+          <div class="cmp-item cmp-item-basic">
+            <i class="fa-solid fa-check"></i>
+            <div><div class="cmp-item-name">VAT &amp; Tax compliance</div><div class="cmp-note-basic">Reactive, deadline-driven</div></div>
+          </div>
+          <div class="cmp-item cmp-item-limited">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            <div><div class="cmp-item-name">Audit support</div><div class="cmp-item-chip cmp-chip-limited">Limited</div></div>
+          </div>
+          <div class="cmp-item cmp-item-limited">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            <div><div class="cmp-item-name">Monthly closing &amp; MIS reports</div><div class="cmp-item-chip cmp-chip-limited">Basic only</div></div>
+          </div>
+          <div class="cmp-sep cmp-sep-old">
+            <div class="cmp-sep-line"></div>
+            <span class="cmp-sep-lbl">✗ Not available below</span>
+            <div class="cmp-sep-line"></div>
+          </div>
+          <div class="cmp-item cmp-item-no"><i class="fa-solid fa-xmark"></i><div class="cmp-item-name">Real-time Power BI dashboards</div></div>
+          <div class="cmp-item cmp-item-no"><i class="fa-solid fa-xmark"></i><div class="cmp-item-name">Financial strategy &amp; planning</div></div>
+          <div class="cmp-item cmp-item-no"><i class="fa-solid fa-xmark"></i><div class="cmp-item-name">Cash flow management</div></div>
+          <div class="cmp-item cmp-item-no"><i class="fa-solid fa-xmark"></i><div class="cmp-item-name">Profitability analysis</div></div>
+          <div class="cmp-item cmp-item-no"><i class="fa-solid fa-xmark"></i><div class="cmp-item-name">Budget vs. Actual tracking</div></div>
+          <div class="cmp-item cmp-item-no"><i class="fa-solid fa-xmark"></i><div class="cmp-item-name">Strategic decision support</div></div>
+          <div class="cmp-item cmp-item-no"><i class="fa-solid fa-xmark"></i><div class="cmp-item-name">Process optimization</div></div>
+          <div class="cmp-item cmp-item-no"><i class="fa-solid fa-xmark"></i><div class="cmp-item-name">Proactive financial leadership</div></div>
+        </div>
+
+        <div class="cmp-panel-footer cmp-pf-old">
+          <div class="cmp-pf-label">Typical Cost</div>
+          <div class="cmp-pf-val">AED 50K–120K / yr</div>
+          <div class="cmp-pf-note">Compliance only · No strategic layer</div>
+        </div>
+      </div>
+
+      <!-- ══ CENTRE: Transformation divider ══ -->
+      <div class="cmp-vs-divider">
+        <div class="cmp-vs-line"></div>
+        <div class="cmp-vs-badge cmp-visible"><i class="fa-solid fa-arrow-right"></i>VS</div>
+        <div class="cmp-vs-excl-pill">+8<br>Exclusive</div>
+        <div class="cmp-vs-label">Upgrade</div>
+        <div class="cmp-vs-line"></div>
+      </div>
+
+      <!-- ══ RIGHT: Virtual CFO ══ -->
+      <div class="cmp-panel cmp-panel-new">
+
+        <div class="cmp-panel-header cmp-ph-new" style="position:relative;">
+          <div class="cmp-recommended-stamp">Recommended</div>
+          <div class="cmp-ph-badge cmp-ph-badge-new"><i class="fa-solid fa-circle-check"></i> Virtual CFO</div>
+          <div class="cmp-ph-sub">Strategic · Real-time · CA-Led · Proactive</div>
+          <div class="cmp-ph-visual cmp-phv-new">
+            <div class="cmp-phv-row"><span class="cmp-phv-label">Dashboard</span><span class="cmp-phv-val cmp-phv-live"><span class="cmp-phv-dot"></span>Live · Real-Time</span></div>
+            <div class="cmp-phv-row"><span class="cmp-phv-label">Cash Flow</span><span class="cmp-phv-val cmp-phv-healthy">↑ Healthy &amp; Tracked</span></div>
+            <div class="cmp-phv-row"><span class="cmp-phv-label">CFO Strategy</span><span class="cmp-phv-val cmp-phv-active">Active &amp; Growing</span></div>
+          </div>
+          <div class="cmp-ph-excl-count"><i class="fa-solid fa-star"></i> 8 CFO-Exclusive Capabilities Included</div>
+        </div>
+
+        <div class="cmp-panel-body">
+          <div class="cmp-item cmp-item-yes">
+            <i class="fa-solid fa-circle-check"></i>
+            <div><div class="cmp-item-name">Financial record-keeping</div><div class="cmp-item-chip cmp-chip-yes">Comprehensive</div></div>
+          </div>
+          <div class="cmp-item cmp-item-yes">
+            <i class="fa-solid fa-circle-check"></i>
+            <div><div class="cmp-item-name">VAT &amp; Tax compliance</div><div class="cmp-item-chip cmp-chip-yes">Proactive &amp; Planned</div></div>
+          </div>
+          <div class="cmp-item cmp-item-yes">
+            <i class="fa-solid fa-circle-check"></i>
+            <div><div class="cmp-item-name">Audit support</div><div class="cmp-item-chip cmp-chip-yes">Full Year-Round</div></div>
+          </div>
+          <div class="cmp-item cmp-item-yes">
+            <i class="fa-solid fa-circle-check"></i>
+            <div><div class="cmp-item-name">Monthly closing &amp; MIS reports</div><div class="cmp-item-chip cmp-chip-yes">Structured + Insights</div></div>
+          </div>
+          <div class="cmp-sep cmp-sep-new">
+            <div class="cmp-sep-line"></div>
+            <span class="cmp-sep-lbl">★ CFO Exclusive</span>
+            <div class="cmp-sep-line"></div>
+          </div>
+          <div class="cmp-item cmp-item-exclusive">
+            <i class="fa-solid fa-circle-check"></i>
+            <div><div class="cmp-item-name">Real-time Power BI dashboards</div><div class="cmp-item-chip cmp-chip-excl">Live Dashboards</div></div>
+          </div>
+          <div class="cmp-item cmp-item-exclusive">
+            <i class="fa-solid fa-circle-check"></i>
+            <div><div class="cmp-item-name">Financial strategy &amp; planning</div><div class="cmp-item-chip cmp-chip-excl">CFO Level</div></div>
+          </div>
+          <div class="cmp-item cmp-item-exclusive">
+            <i class="fa-solid fa-circle-check"></i>
+            <div><div class="cmp-item-name">Cash flow management</div><div class="cmp-item-chip cmp-chip-excl">Real-Time Position</div></div>
+          </div>
+          <div class="cmp-item cmp-item-exclusive">
+            <i class="fa-solid fa-circle-check"></i>
+            <div><div class="cmp-item-name">Profitability analysis</div><div class="cmp-item-chip cmp-chip-excl">By Segment</div></div>
+          </div>
+          <div class="cmp-item cmp-item-exclusive">
+            <i class="fa-solid fa-circle-check"></i>
+            <div><div class="cmp-item-name">Budget vs. Actual tracking</div><div class="cmp-item-chip cmp-chip-excl">Monthly Reviews</div></div>
+          </div>
+          <div class="cmp-item cmp-item-exclusive">
+            <i class="fa-solid fa-circle-check"></i>
+            <div><div class="cmp-item-name">Strategic decision support</div><div class="cmp-item-chip cmp-chip-excl">CFO Sessions</div></div>
+          </div>
+          <div class="cmp-item cmp-item-exclusive">
+            <i class="fa-solid fa-circle-check"></i>
+            <div><div class="cmp-item-name">Process optimization</div><div class="cmp-item-chip cmp-chip-excl">Automation</div></div>
+          </div>
+          <div class="cmp-item cmp-item-exclusive">
+            <i class="fa-solid fa-circle-check"></i>
+            <div><div class="cmp-item-name">Proactive financial leadership</div><div class="cmp-item-chip cmp-chip-excl">CA-Led</div></div>
+          </div>
+        </div>
+
+        <div class="cmp-panel-footer cmp-pf-new">
+          <div class="cmp-pf-label">Cost vs Full-Time CFO</div>
+          <div class="cmp-pf-val cmp-pf-val-new">Fraction of the Cost</div>
+          <div class="cmp-pf-note">Full CFO function · Complete strategy</div>
+          <div class="cmp-pf-excl-num"><i class="fa-solid fa-star"></i> Includes 8 capabilities traditional accounting can't provide</div>
+        </div>
+      </div>
+
+    </div><!-- /cmp-panels -->
+
+    <!-- CTA strip -->
+    <div class="cmp-cta fade-in">
+      <div class="cmp-cta-text">
+        <i class="fa-solid fa-arrow-trend-up"></i>
+        <span>Ready to upgrade from traditional accounting to a <strong>complete CFO function?</strong></span>
+      </div>
+      <a href="contact.html#consultation" class="cmp-cta-btn">
+        <i class="fa-solid fa-calendar-check"></i>
+        Book Free Consultation
+        <i class="fa-solid fa-arrow-right cmp-cta-arrow"></i>
+      </a>
     </div>
+
   </div>
 </section>
 
-<!-- PLANS -->
-<section class="section bg-light" id="plans">
-  <div class="container">
-    <div class="text-center mb-64 fade-in">
-      <div class="section-label">Engagement Plans</div>
-      <h2 class="section-title">Choose the Right Level of Support</h2>
-      <p class="section-subtitle mt-16">All plans are flexible and customizable. Contact us for a tailored proposal.</p>
+<script>
+/* Comparison: slide-in panel reveal */
+(function () {
+  var wrap = document.querySelector('.cmp-panels');
+  if (!wrap) return;
+  var panels = wrap.querySelectorAll('.cmp-panel');
+  var fired = false;
+  new IntersectionObserver(function (entries) {
+    if (!entries[0].isIntersecting || fired) return;
+    fired = true;
+    panels.forEach(function (p, i) {
+      setTimeout(function () { p.classList.add('cmp-visible'); }, i * 200);
+    });
+  }, { threshold: 0.18 }).observe(wrap);
+})();
+</script>
+
+<!-- PLANS — PREMIUM REDESIGN -->
+<section class="ep-section" id="plans">
+
+  <div class="ep-bg" aria-hidden="true">
+    <div class="ep-orb ep-orb-1"></div>
+    <div class="ep-orb ep-orb-2"></div>
+    <div class="ep-bg-grid"></div>
+  </div>
+
+  <div class="container" style="position:relative;z-index:1;">
+
+    <!-- Header -->
+    <div class="ep-header fade-in">
+      <div class="section-label ep-badge">Engagement Plans</div>
+      <h2 class="ep-heading">Choose Your <span class="ep-accent">CFO Partnership</span> Level</h2>
+      <p class="ep-subtitle">All plans are fully customized to your business — no templates, no one-size-fits-all. Book a free consultation and we'll design your plan.</p>
     </div>
-    <div class="pricing-grid">
-      <div class="pricing-card fade-in">
-        <div class="pricing-name">Pro</div>
-        <div class="pricing-price">Custom <span>/ month</span></div>
-        <div class="pricing-desc">Build Strong Financial Foundations — ideal for SMEs looking to bring structure and clarity to their finance function.</div>
-        <ul class="pricing-features">
-          <li><i class="fa-solid fa-check"></i> Monthly closing & reconciliation</li>
-          <li><i class="fa-solid fa-check"></i> MIS reporting — P&L, BS, Cash Flow</li>
-          <li><i class="fa-solid fa-check"></i> VAT & compliance management</li>
-          <li><i class="fa-solid fa-check"></i> Basic Power BI dashboard</li>
-          <li><i class="fa-solid fa-check"></i> Monthly CFO review session</li>
-          <li><i class="fa-solid fa-check"></i> Email & WhatsApp support</li>
-        </ul>
-        <a href="contact.html#consultation" class="btn btn-outline" style="width:100%;justify-content:center">Get Started</a>
-      </div>
-      <div class="pricing-card featured fade-in">
-        <div class="pricing-name">Premium</div>
-        <div class="pricing-price">Custom <span>/ month</span></div>
-        <div class="pricing-desc">Performance & Profitability Optimization — for scaling companies that need deeper financial intelligence and strategy.</div>
-        <ul class="pricing-features">
-          <li><i class="fa-solid fa-check"></i> Everything in Pro</li>
-          <li><i class="fa-solid fa-check"></i> Full Power BI dashboard suite</li>
-          <li><i class="fa-solid fa-check"></i> Cash flow forecasting</li>
-          <li><i class="fa-solid fa-check"></i> Budget vs. Actual tracking</li>
-          <li><i class="fa-solid fa-check"></i> Corporate Tax management</li>
-          <li><i class="fa-solid fa-check"></i> Profitability analysis by segment</li>
-          <li><i class="fa-solid fa-check"></i> Bi-weekly CFO sessions</li>
-          <li><i class="fa-solid fa-check"></i> Process optimization review</li>
-        </ul>
-        <a href="contact.html#consultation" class="btn btn-secondary" style="width:100%;justify-content:center">Get Started</a>
-      </div>
-      <div class="pricing-card fade-in">
-        <div class="pricing-name">Enterprise</div>
-        <div class="pricing-price">Custom <span>/ month</span></div>
-        <div class="pricing-desc">Full Strategic CFO Leadership — for complex businesses, group entities, and organizations needing deep CFO involvement.</div>
-        <ul class="pricing-features">
-          <li><i class="fa-solid fa-check"></i> Everything in Premium</li>
-          <li><i class="fa-solid fa-check"></i> Group consolidation</li>
-          <li><i class="fa-solid fa-check"></i> Multi-entity, multi-currency</li>
-          <li><i class="fa-solid fa-check"></i> Financial modeling</li>
-          <li><i class="fa-solid fa-check"></i> Investor/board reporting</li>
-          <li><i class="fa-solid fa-check"></i> Weekly CFO engagement</li>
-          <li><i class="fa-solid fa-check"></i> Full finance function management</li>
-          <li><i class="fa-solid fa-check"></i> Dedicated CFO support</li>
-        </ul>
-        <a href="contact.html#consultation" class="btn btn-outline" style="width:100%;justify-content:center">Get Started</a>
-      </div>
+
+    <!-- Trust strip -->
+    <div class="ep-trust-strip fade-in">
+      <div class="ep-ts-item"><i class="fa-solid fa-circle-check"></i><span>No long-term lock-in</span></div>
+      <div class="ep-ts-dot"></div>
+      <div class="ep-ts-item"><i class="fa-solid fa-circle-check"></i><span>100% Custom — no templates</span></div>
+      <div class="ep-ts-dot"></div>
+      <div class="ep-ts-item"><i class="fa-solid fa-circle-check"></i><span>Free consultation first</span></div>
+      <div class="ep-ts-dot"></div>
+      <div class="ep-ts-item"><i class="fa-solid fa-circle-check"></i><span>CA-Led advisory team</span></div>
     </div>
+
+    <!-- Plan cards -->
+    <div class="ep-grid">
+
+      <!-- ── Plan 1: Pro (Foundation) ── -->
+      <div class="ep-card ep-card-1">
+        <div class="ep-card-glow"></div>
+        <div class="ep-plan-tier">Foundation</div>
+        <h3 class="ep-plan-name">Pro</h3>
+        <p class="ep-plan-desc">Build Strong Financial Foundations — ideal for SMEs looking to bring structure and clarity to their finance function.</p>
+
+        <div class="ep-engagement">
+          <div class="ep-eng-label">CFO Engagement Level</div>
+          <div class="ep-eng-bar"><div class="ep-eng-fill" data-w="40"></div></div>
+          <div class="ep-eng-detail"><i class="fa-solid fa-calendar-check"></i> Monthly CFO Sessions</div>
+        </div>
+
+        <div class="ep-price">
+          <span class="ep-price-label">Investment</span>
+          <span class="ep-price-val">Custom</span>
+          <span class="ep-price-per">/ month</span>
+        </div>
+
+        <div class="ep-features">
+          <div class="ep-feat-group">
+            <div class="ep-feat-group-label">Core Reporting</div>
+            <div class="ep-feat-item"><i class="fa-solid fa-check"></i><span>Monthly closing &amp; reconciliation</span></div>
+            <div class="ep-feat-item"><i class="fa-solid fa-check"></i><span>MIS reporting — P&amp;L, BS, Cash Flow</span></div>
+          </div>
+          <div class="ep-feat-group">
+            <div class="ep-feat-group-label">Compliance</div>
+            <div class="ep-feat-item"><i class="fa-solid fa-check"></i><span>VAT &amp; compliance management</span></div>
+          </div>
+          <div class="ep-feat-group">
+            <div class="ep-feat-group-label">Intelligence &amp; Support</div>
+            <div class="ep-feat-item"><i class="fa-solid fa-check"></i><span>Basic Power BI dashboard</span></div>
+            <div class="ep-feat-item"><i class="fa-solid fa-check"></i><span>Monthly CFO review session</span></div>
+            <div class="ep-feat-item"><i class="fa-solid fa-check"></i><span>Email &amp; WhatsApp support</span></div>
+          </div>
+        </div>
+
+        <a href="contact.html#consultation" class="ep-cta ep-cta-ghost">
+          <i class="fa-solid fa-calendar-check"></i>
+          Get Tailored Proposal
+          <i class="fa-solid fa-arrow-right ep-cta-arrow"></i>
+        </a>
+      </div>
+
+      <!-- ── Plan 2: Premium (Growth) — FEATURED ── -->
+      <div class="ep-card ep-card-2 ep-featured">
+        <div class="ep-featured-badge"><i class="fa-solid fa-star"></i> Most Popular</div>
+        <div class="ep-shimmer"></div>
+        <div class="ep-plan-tier ep-tier-gold">Growth</div>
+        <h3 class="ep-plan-name">Premium</h3>
+        <p class="ep-plan-desc">Performance &amp; Profitability Optimization — for scaling companies that need deeper financial intelligence and strategy.</p>
+
+        <div class="ep-engagement">
+          <div class="ep-eng-label">CFO Engagement Level</div>
+          <div class="ep-eng-bar"><div class="ep-eng-fill ep-eng-fill-gold" data-w="70"></div></div>
+          <div class="ep-eng-detail"><i class="fa-solid fa-calendar-check"></i> Bi-Weekly CFO Sessions</div>
+        </div>
+
+        <div class="ep-price">
+          <span class="ep-price-label">Investment</span>
+          <span class="ep-price-val">Custom</span>
+          <span class="ep-price-per">/ month</span>
+        </div>
+
+        <div class="ep-features">
+          <div class="ep-feat-group">
+            <div class="ep-feat-group-label">Everything in Pro, plus:</div>
+            <div class="ep-feat-item ep-excl"><i class="fa-solid fa-circle-check"></i><span>Full Power BI dashboard suite</span></div>
+            <div class="ep-feat-item ep-excl"><i class="fa-solid fa-circle-check"></i><span>Cash flow forecasting</span></div>
+            <div class="ep-feat-item ep-excl"><i class="fa-solid fa-circle-check"></i><span>Budget vs. Actual tracking</span></div>
+            <div class="ep-feat-item ep-excl"><i class="fa-solid fa-circle-check"></i><span>Corporate Tax management</span></div>
+            <div class="ep-feat-item ep-excl"><i class="fa-solid fa-circle-check"></i><span>Profitability analysis by segment</span></div>
+            <div class="ep-feat-item ep-excl"><i class="fa-solid fa-circle-check"></i><span>Bi-weekly CFO sessions</span></div>
+            <div class="ep-feat-item ep-excl"><i class="fa-solid fa-circle-check"></i><span>Process optimization review</span></div>
+          </div>
+        </div>
+
+        <a href="contact.html#consultation" class="ep-cta ep-cta-gold">
+          <i class="fa-solid fa-calendar-check"></i>
+          Get Tailored Proposal
+          <i class="fa-solid fa-arrow-right ep-cta-arrow"></i>
+        </a>
+      </div>
+
+      <!-- ── Plan 3: Enterprise (Leadership) ── -->
+      <div class="ep-card ep-card-3">
+        <div class="ep-card-glow"></div>
+        <div class="ep-plan-tier ep-tier-purple">Leadership</div>
+        <h3 class="ep-plan-name">Enterprise</h3>
+        <p class="ep-plan-desc">Full Strategic CFO Leadership — for complex businesses, group entities, and organizations needing deep CFO involvement.</p>
+
+        <div class="ep-engagement">
+          <div class="ep-eng-label">CFO Engagement Level</div>
+          <div class="ep-eng-bar"><div class="ep-eng-fill ep-eng-fill-purple" data-w="100"></div></div>
+          <div class="ep-eng-detail"><i class="fa-solid fa-infinity"></i> Dedicated CFO Partnership</div>
+        </div>
+
+        <div class="ep-price">
+          <span class="ep-price-label">Investment</span>
+          <span class="ep-price-val">Custom</span>
+          <span class="ep-price-per">/ month</span>
+        </div>
+
+        <div class="ep-features">
+          <div class="ep-feat-group">
+            <div class="ep-feat-group-label">Everything in Premium, plus:</div>
+            <div class="ep-feat-item"><i class="fa-solid fa-check"></i><span>Group consolidation</span></div>
+            <div class="ep-feat-item"><i class="fa-solid fa-check"></i><span>Multi-entity, multi-currency</span></div>
+            <div class="ep-feat-item"><i class="fa-solid fa-check"></i><span>Financial modeling</span></div>
+            <div class="ep-feat-item"><i class="fa-solid fa-check"></i><span>Investor / board reporting</span></div>
+            <div class="ep-feat-item"><i class="fa-solid fa-check"></i><span>Weekly CFO engagement</span></div>
+            <div class="ep-feat-item"><i class="fa-solid fa-check"></i><span>Full finance function management</span></div>
+            <div class="ep-feat-item"><i class="fa-solid fa-check"></i><span>Dedicated CFO support</span></div>
+          </div>
+        </div>
+
+        <a href="contact.html#consultation" class="ep-cta ep-cta-ghost ep-cta-ghost-p">
+          <i class="fa-solid fa-calendar-check"></i>
+          Get Tailored Proposal
+          <i class="fa-solid fa-arrow-right ep-cta-arrow"></i>
+        </a>
+      </div>
+
+    </div><!-- /ep-grid -->
+
+    <!-- Bottom note -->
+    <div class="ep-bottom-note fade-in">
+      <i class="fa-solid fa-circle-info"></i>
+      All plans begin with a <strong>free consultation</strong> — we assess your business and design the right engagement.
+      <a href="contact.html#consultation" class="ep-note-link">Book yours now <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+
   </div>
 </section>
+
+<script>
+/* Engagement plans: card stagger + bar fill */
+(function () {
+  var section = document.querySelector('.ep-section');
+  if (!section) return;
+  var fired = false;
+  new IntersectionObserver(function (entries) {
+    if (!entries[0].isIntersecting || fired) return;
+    fired = true;
+    section.querySelectorAll('.ep-card').forEach(function (card, i) {
+      setTimeout(function () {
+        card.classList.add('ep-revealed');
+        var fill = card.querySelector('.ep-eng-fill');
+        if (fill) fill.style.width = (fill.dataset.w || '0') + '%';
+      }, i * 140);
+    });
+  }, { threshold: 0.15 }).observe(section);
+})();
+</script>
 
 <!-- PROCESS -->
-<section class="section">
-  <div class="container">
+<section class="section process-system-section" id="process">
+  <div class="process-bg" aria-hidden="true">
+    <div class="process-orb process-orb-1"></div>
+    <div class="process-orb process-orb-2"></div>
+    <div class="process-orb process-orb-3"></div>
+    <div class="process-grid-lines"></div>
+  </div>
+  <div class="container" style="position:relative;z-index:1;">
     <div class="text-center mb-64 fade-in">
-      <div class="section-label">Our Process</div>
-      <h2 class="section-title">How We Transform Your Finance Function</h2>
+      <div class="section-label process-badge">OUR PROCESS</div>
+      <h2 class="section-title process-title">How We Transform Your Finance Function</h2>
+      <p class="process-description">A premium finance transformation journey, built as a CFO-grade operating system that turns complexity into clarity, automation, and strategic execution.</p>
     </div>
-    <div class="process-grid">
-      <div class="process-card fade-in"><div class="process-num">1</div><h4>Free Consultation</h4><p>We understand your business, current finance setup, and identify the biggest gaps and opportunities.</p></div>
-      <div class="process-card fade-in"><div class="process-num">2</div><h4>Customized Proposal</h4><p>We design a tailored engagement plan — the right services at the right level for your specific business needs.</p></div>
-      <div class="process-card fade-in"><div class="process-num">3</div><h4>Onboarding & Implementation</h4><p>Fast onboarding. We review your accounts, set up systems, and begin delivering structured reports and insights.</p></div>
-      <div class="process-card fade-in"><div class="process-num">4</div><h4>Ongoing CFO Partnership</h4><p>Monthly reviews, real-time dashboards, strategic sessions, and continuous support as your business grows.</p></div>
+    <div class="process-system-layout">
+      <div class="process-hub-card fade-in-up">
+        <div class="process-hub-top">
+          <span class="process-hub-chip">Executive finance command center</span>
+          <div class="process-hub-summary">Connected dashboards, live KPI signals, and structured financial workflows for enterprise-grade decision velocity.</div>
+        </div>
+        <div class="process-hub-kpis">
+          <div class="process-hub-kpi">
+            <div class="process-kpi-label">Forecast accuracy</div>
+            <div class="process-kpi-value" data-value="94"><span>0</span><small>%</small></div>
+          </div>
+          <div class="process-hub-kpi">
+            <div class="process-kpi-label">Automation coverage</div>
+            <div class="process-kpi-value" data-value="78"><span>0</span><small>%</small></div>
+          </div>
+          <div class="process-hub-kpi">
+            <div class="process-kpi-label">Reporting velocity</div>
+            <div class="process-kpi-value" data-value="5"><span>0</span><small>d</small></div>
+          </div>
+        </div>
+        <div class="process-hub-graph">
+          <div class="process-graph-header">
+            <span>Live finance momentum</span>
+            <strong>Q2 operational pulse</strong>
+          </div>
+          <div class="process-graph-visual">
+            <svg viewBox="0 0 240 90" class="process-graph-line" preserveAspectRatio="none">
+              <defs>
+                <linearGradient id="processFlowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#f5c518"/>
+                  <stop offset="45%" stop-color="#3b82f6"/>
+                  <stop offset="100%" stop-color="#8b5cf6"/>
+                </linearGradient>
+              </defs>
+              <path d="M10 72 C50 70, 70 42, 110 40 C140 38, 160 56, 200 32 C220 20, 230 18, 240 22"
+                fill="none" stroke="url(#processFlowGradient)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <div class="process-graph-points">
+              <span class="process-graph-point"></span>
+              <span class="process-graph-point"></span>
+              <span class="process-graph-point"></span>
+            </div>
+          </div>
+          <div class="process-graph-meta">
+            <div><strong>+32%</strong><small>visibility uplift</small></div>
+            <div><strong>1.8x</strong><small>decision output</small></div>
+            <div><strong>4</strong><small>critical dashboards</small></div>
+          </div>
+        </div>
+        <div class="process-hub-footer">
+          <div class="process-hub-pill"><i class="fa-solid fa-signal"></i> Active workflow orchestration</div>
+          <div class="process-hub-pill process-pill-green"><i class="fa-solid fa-shield-check"></i> CFO-ready governance</div>
+        </div>
+      </div>
+
+      <div class="process-stages">
+        <div class="process-stage fade-in-up">
+          <div class="stage-icon"><i class="fa-solid fa-search-dollar"></i></div>
+          <div>
+            <h4>Strategic Discovery</h4>
+            <p>Diagnose your finance function, map risks, and define the transformation blueprint for growth.</p>
+            <div class="stage-tag">Business model and KPI intake</div>
+          </div>
+        </div>
+
+        <div class="process-stage fade-in-up">
+          <div class="stage-icon"><i class="fa-solid fa-chart-column"></i></div>
+          <div>
+            <h4>Insight Architecture</h4>
+            <p>Design dashboard-ready reporting, KPI strategy, and executive scorecards that drive smarter decisions.</p>
+            <div class="stage-tag">Reporting, forecast and KPI design</div>
+          </div>
+        </div>
+
+        <div class="process-stage fade-in-up">
+          <div class="stage-icon"><i class="fa-solid fa-network-wired"></i></div>
+          <div>
+            <h4>Systems Integration</h4>
+            <p>Connect accounting, reporting and automation systems into a seamless finance operating network.</p>
+            <div class="stage-tag">Automation, controls and data flow</div>
+          </div>
+        </div>
+
+        <div class="process-stage fade-in-up">
+          <div class="stage-icon"><i class="fa-solid fa-handshake-simple"></i></div>
+          <div>
+            <h4>Transformation Partnership</h4>
+            <p>Operate with ongoing CFO leadership, continuous process optimization, and enterprise-scale execution.</p>
+            <div class="stage-tag">CFO insights, review and scaling</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="process-highlight-strip fade-in">
+      <div class="strip-item"><strong>Smart workflow signals</strong> guide every stage with clarity and precision.</div>
+      <div class="strip-item"><strong>Connected finance systems</strong> work together as a single enterprise operating layer.</div>
+      <div class="strip-item"><strong>Executive-level insight</strong> turns the process into confident action.</div>
     </div>
   </div>
 </section>
 
+<script>
+(function () {
+  var section = document.getElementById('process');
+  if (!section) return;
+  var fired = false;
+  var graph = section.querySelector('.process-graph-line path');
+  var points = section.querySelectorAll('.process-graph-point');
+  var kpis = section.querySelectorAll('.process-kpi-value span');
+  var stages = section.querySelectorAll('.process-stage');
+
+  function animateCount(el, target) {
+    var start = performance.now();
+    var duration = 900;
+    (function tick(now) {
+      var progress = Math.min((now - start) / duration, 1);
+      el.textContent = Math.round(target * progress);
+      if (progress < 1) requestAnimationFrame(tick);
+    })(start);
+  }
+
+  new IntersectionObserver(function (entries) {
+    if (!entries[0].isIntersecting || fired) return;
+    fired = true;
+    stages.forEach(function (block, index) {
+      setTimeout(function () { block.classList.add('stage-active'); }, 180 * index);
+    });
+
+    kpis.forEach(function (span) {
+      var parent = span.parentNode;
+      var value = parseInt(parent.dataset.value, 10);
+      if (!isNaN(value)) animateCount(span, value);
+    });
+
+    if (graph) {
+      var length = graph.getTotalLength();
+      graph.style.strokeDasharray = length;
+      graph.style.strokeDashoffset = length;
+      setTimeout(function () { graph.style.strokeDashoffset = 0; }, 250);
+    }
+
+    points.forEach(function (dot, index) {
+      setTimeout(function () { dot.classList.add('point-active'); }, 340 + index * 120);
+    });
+  }, { threshold: 0.22 }).observe(section);
+})();
+</script>
+
 <!-- TESTIMONIALS -->
-<section class="section bg-light">
-  <div class="container">
-    <div class="text-center mb-48 fade-in">
+<section class="section tst-section" id="testimonials">
+  <div class="tst-bg-decor" aria-hidden="true">
+    <div class="tst-orb tst-orb-1"></div>
+    <div class="tst-orb tst-orb-2"></div>
+    <div class="tst-bg-grid"></div>
+  </div>
+
+  <div class="container" style="position:relative;z-index:1;">
+    <div class="text-center mb-40 fade-in">
       <div class="section-label">Client Stories</div>
-      <h2 class="section-title">What Our Virtual CFO Clients Say</h2>
+      <h2 class="section-title"><span class="section-title-underline">What Our Virtual CFO Clients Say</span></h2>
+      <p class="section-subtitle mt-16">Trusted by finance leaders who demand clarity, control and executive-level financial transformation.</p>
     </div>
-    <div class="testimonials-grid">
-      <div class="testimonial-card fade-in">
-        <div class="testimonial-quote">"</div>
-        <div class="stars">★★★★★</div>
-        <p class="testimonial-text">The level of financial oversight and strategic clarity we now have is something I never thought possible for a business our size. Virtual CFO has been a game-changer for how we run our finances.</p>
-        <div class="testimonial-author"><div class="author-avatar">TK</div><div><div class="author-name">Tawab Kazemi</div><div class="author-title">Founder, 4E Road Safety Consultants</div></div></div>
+
+    <div class="tst-trust-strip fade-in">
+      <div class="tst-trust-item">
+        <div class="tst-trust-num">200+</div>
+        <div class="tst-trust-lbl">Businesses Served</div>
       </div>
-      <div class="testimonial-card fade-in">
-        <div class="testimonial-quote">"</div>
-        <div class="stars">★★★★★</div>
-        <p class="testimonial-text">We went from having no real financial structure to a fully managed finance function with real-time dashboards. The team understands both finance and business — a rare combination.</p>
-        <div class="testimonial-author"><div class="author-avatar">ME</div><div><div class="author-name">Murtuza Ezzi</div><div class="author-title">CEO, Index Infotech Group</div></div></div>
+      <div class="tst-trust-sep"></div>
+      <div class="tst-trust-item">
+        <div class="tst-trust-num">4.9 ★</div>
+        <div class="tst-trust-lbl">Average Rating</div>
       </div>
-      <div class="testimonial-card fade-in">
-        <div class="testimonial-quote">"</div>
-        <div class="stars">★★★★★</div>
-        <p class="testimonial-text">Having Virtual CFO means we always have a senior financial mind thinking about our business. The strategic value they bring far exceeds what we pay — it's the best investment we've made.</p>
-        <div class="testimonial-author"><div class="author-avatar">MK</div><div><div class="author-name">Mohammad Khamusi</div><div class="author-title">Partner, Fulk Diesel Trading</div></div></div>
+      <div class="tst-trust-sep"></div>
+      <div class="tst-trust-item">
+        <div class="tst-trust-num">98%</div>
+        <div class="tst-trust-lbl">Client Satisfaction</div>
+      </div>
+      <div class="tst-trust-sep"></div>
+      <div class="tst-trust-item">
+        <div class="tst-trust-num">5 Yrs</div>
+        <div class="tst-trust-lbl">Avg. Client Retention</div>
       </div>
     </div>
+
+    <div class="tst-slider-outer fade-in" data-visible="1">
+      <button class="tst-nav-btn tst-prev" id="tstPrev" aria-label="Previous testimonial"><i class="fa-solid fa-chevron-left"></i></button>
+      <div class="tst-slider-viewport" id="tstViewport">
+        <div class="tst-slider-track" id="tstTrack">
+
+          <div class="tst-slide">
+            <div class="tst-card">
+              <div class="tst-card-top-line"></div>
+              <div class="tst-card-header">
+                <div class="tst-quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+                <div class="tst-service-tag"><i class="fa-solid fa-chart-line"></i> Virtual CFO Services</div>
+              </div>
+              <div class="tst-stars">★★★★★</div>
+              <p class="tst-text">The level of financial oversight and strategic clarity we now have is something I never thought possible for a business our size. Virtual CFO has been a game-changer for how we run our finances.</p>
+              <div class="tst-author">
+                <div class="tst-avatar tst-av-2">TK</div>
+                <div class="tst-author-body">
+                  <div class="tst-author-name">Tawab Kazemi</div>
+                  <div class="tst-author-role">Founder, 4E Road Safety Consultants</div>
+                </div>
+                <div class="tst-verified" title="Verified Client"><i class="fa-solid fa-circle-check"></i></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tst-slide">
+            <div class="tst-card">
+              <div class="tst-card-top-line"></div>
+              <div class="tst-card-header">
+                <div class="tst-quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+                <div class="tst-service-tag"><i class="fa-solid fa-chart-line"></i> Virtual CFO Services</div>
+              </div>
+              <div class="tst-stars">★★★★★</div>
+              <p class="tst-text">We went from having no real financial structure to a fully managed finance function with real-time dashboards. The team understands both finance and business — a rare combination.</p>
+              <div class="tst-author">
+                <div class="tst-avatar tst-av-1">ME</div>
+                <div class="tst-author-body">
+                  <div class="tst-author-name">Murtuza Ezzi</div>
+                  <div class="tst-author-role">CEO, Index Infotech Group</div>
+                </div>
+                <div class="tst-verified" title="Verified Client"><i class="fa-solid fa-circle-check"></i></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tst-slide">
+            <div class="tst-card">
+              <div class="tst-card-top-line"></div>
+              <div class="tst-card-header">
+                <div class="tst-quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+                <div class="tst-service-tag"><i class="fa-solid fa-chart-bar"></i> Virtual CFO Services</div>
+              </div>
+              <div class="tst-stars">★★★★★</div>
+              <p class="tst-text">Having Virtual CFO means we always have a senior financial mind thinking about our business. The strategic value they bring far exceeds what we pay — it's the best investment we've made.</p>
+              <div class="tst-author">
+                <div class="tst-avatar tst-av-3">MK</div>
+                <div class="tst-author-body">
+                  <div class="tst-author-name">Mohammad Khamusi</div>
+                  <div class="tst-author-role">Partner, Fulk Diesel Trading</div>
+                </div>
+                <div class="tst-verified" title="Verified Client"><i class="fa-solid fa-circle-check"></i></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <button class="tst-nav-btn tst-next" id="tstNext" aria-label="Next testimonial"><i class="fa-solid fa-chevron-right"></i></button>
+    </div>
+
+    <div class="tst-dots" id="tstDots" aria-label="Testimonial navigation"></div>
   </div>
 </section>
 
 <!-- FAQ -->
-<section class="section">
-  <div class="container" style="max-width:800px">
-    <div class="text-center mb-48 fade-in">
-      <div class="section-label">FAQ</div>
-      <h2 class="section-title">Virtual CFO — Common Questions</h2>
-    </div>
-    <div class="faq-list fade-in">
-      <div class="faq-item">
-        <button class="faq-question">Is a Virtual CFO the same as an in-house CFO? <i class="fa-solid fa-plus faq-icon"></i></button>
-        <div class="faq-answer"><div class="faq-answer-inner">A Virtual CFO provides the same strategic expertise and financial leadership as an in-house CFO, but on a flexible, part-time basis. You get all the value without the full-time salary, benefits, and overhead costs.</div></div>
+<section class="section faq-section" id="faq">
+  <div class="faq-bg-decor" aria-hidden="true">
+    <div class="faq-bg-orb faq-orb-1"></div>
+    <div class="faq-bg-orb faq-orb-2"></div>
+    <div class="faq-bg-grid"></div>
+  </div>
+
+  <div class="container" style="position:relative;z-index:1;">
+    <div class="faq-layout">
+
+      <div class="faq-left fade-in-left">
+        <div class="section-label">FAQ</div>
+        <h2 class="section-title">Virtual CFO — Common Questions</h2>
       </div>
-      <div class="faq-item">
-        <button class="faq-question">How many hours per month do you dedicate to my business? <i class="fa-solid fa-plus faq-icon"></i></button>
-        <div class="faq-answer"><div class="faq-answer-inner">This varies by engagement plan. We customize the time and touchpoints based on your business complexity, reporting needs, and strategic requirements — ensuring the right level of support at every stage.</div></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question">Do you work remotely or visit our office? <i class="fa-solid fa-plus faq-icon"></i></button>
-        <div class="faq-answer"><div class="faq-answer-inner">We work both remotely and on-site as required. Most of our work is delivered remotely via digital tools, with periodic on-site meetings for strategic sessions and reviews — especially for UAE-based clients.</div></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question">Can you work with our existing accountant? <i class="fa-solid fa-plus faq-icon"></i></button>
-        <div class="faq-answer"><div class="faq-answer-inner">Absolutely. We work alongside your existing accounting team, adding the CFO-level layer of review, strategy, and oversight. We complement — never replace — your existing team.</div></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question">How quickly will I see results? <i class="fa-solid fa-plus faq-icon"></i></button>
-        <div class="faq-answer"><div class="faq-answer-inner">Most clients see immediate improvements in financial clarity and reporting within the first month. Strategic impact — better profitability, cash flow control, and growth planning — builds over the first 2–3 months of engagement.</div></div>
+
+      <div class="faq-right fade-in-right">
+        <div class="faq-list faq-list-premium">
+          <div class="faq-item">
+            <button class="faq-question">
+              <div class="fq-icon"><i class="fa-solid fa-question"></i></div>
+              <span class="fq-text">Is a Virtual CFO the same as an in-house CFO?</span>
+              <div class="fq-toggle"><i class="fa-solid fa-chevron-down"></i></div>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">A Virtual CFO provides the same strategic expertise and financial leadership as an in-house CFO, but on a flexible, part-time basis. You get all the value without the full-time salary, benefits, and overhead costs.</div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <div class="fq-icon"><i class="fa-solid fa-question"></i></div>
+              <span class="fq-text">How many hours per month do you dedicate to my business?</span>
+              <div class="fq-toggle"><i class="fa-solid fa-chevron-down"></i></div>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">This varies by engagement plan. We customize the time and touchpoints based on your business complexity, reporting needs, and strategic requirements — ensuring the right level of support at every stage.</div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <div class="fq-icon"><i class="fa-solid fa-question"></i></div>
+              <span class="fq-text">Do you work remotely or visit our office?</span>
+              <div class="fq-toggle"><i class="fa-solid fa-chevron-down"></i></div>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">We work both remotely and on-site as required. Most of our work is delivered remotely via digital tools, with periodic on-site meetings for strategic sessions and reviews — especially for UAE-based clients.</div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <div class="fq-icon"><i class="fa-solid fa-question"></i></div>
+              <span class="fq-text">Can you work with our existing accountant?</span>
+              <div class="fq-toggle"><i class="fa-solid fa-chevron-down"></i></div>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">Absolutely. We work alongside your existing accounting team, adding the CFO-level layer of review, strategy, and oversight. We complement — never replace — your existing team.</div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <div class="fq-icon"><i class="fa-solid fa-question"></i></div>
+              <span class="fq-text">How quickly will I see results?</span>
+              <div class="fq-toggle"><i class="fa-solid fa-chevron-down"></i></div>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">Most clients see immediate improvements in financial clarity and reporting within the first month. Strategic impact — better profitability, cash flow control, and growth planning — builds over the first 2–3 months of engagement.</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CTA -->
-<section class="section-sm">
-  <div class="container">
-    <div class="cta-section fade-in">
-      <h2>Get a CFO for Your Business Today</h2>
-      <p>Book a free consultation. We'll assess your business and show you exactly how Virtual CFO can transform your finance function.</p>
-      <div class="cta-btns">
-        <a href="contact.html#consultation" class="btn btn-primary"><i class="fa-solid fa-calendar-check"></i> Book Free Consultation</a>
-        <a href="tel:+971565075253" class="btn btn-white"><i class="fa-solid fa-phone"></i> Call Now: +971 56 507 5253</a>
-      </div>
+<!-- CTA — PREMIUM REDESIGN -->
+<section class="pcta-section" id="cta">
+  <!-- Layered background -->
+  <div class="pcta-bg" aria-hidden="true">
+    <div class="pcta-orb pcta-orb-1"></div>
+    <div class="pcta-orb pcta-orb-2"></div>
+    <div class="pcta-orb pcta-orb-3"></div>
+    <div class="pcta-grid-overlay"></div>
+    <div class="pcta-particles">
+      <span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span>
     </div>
+  </div>
+
+  <div class="container">
+    <div class="pcta-layout">
+
+      <!-- ═══ LEFT: CTA Content ═══ -->
+      <div class="pcta-left fade-in-left">
+
+        <!-- Badge -->
+        <div class="pcta-badge">
+          <span class="pcta-badge-dot"></span>
+          <i class="fa-solid fa-star"></i>
+          Free Consultation Available — No Obligation
+        </div>
+
+        <!-- Heading -->
+        <h2 class="pcta-heading">
+          Get a CFO for Your Business Today
+        </h2>
+
+        <!-- Sub -->
+        <p class="pcta-sub">Book a free consultation. We'll assess your business and show you exactly how Virtual CFO can transform your finance function.</p>
+
+        <!-- Buttons -->
+        <div class="pcta-btns">
+          <a href="contact.html#consultation" class="btn btn-primary pcta-btn-primary">
+            <i class="fa-solid fa-calendar-check"></i>
+            Book Free Consultation
+            <i class="fa-solid fa-arrow-right pcta-btn-arrow"></i>
+          </a>
+          <a href="tel:+971565075253" class="pcta-btn-ghost">
+            <i class="fa-solid fa-phone"></i>
+            Call Now: +971 56 507 5253
+          </a>
+        </div>
+
+        <!-- Trust Indicators -->
+        <div class="pcta-trust">
+          <div class="pcta-trust-item"><i class="fa-solid fa-circle-check"></i><span>No commitment required</span></div>
+          <div class="pcta-trust-item"><i class="fa-solid fa-circle-check"></i><span>200+ businesses served</span></div>
+          <div class="pcta-trust-item"><i class="fa-solid fa-circle-check"></i><span>Reply within 24 hours</span></div>
+          <div class="pcta-trust-item"><i class="fa-solid fa-circle-check"></i><span>UAE &amp; worldwide</span></div>
+        </div>
+      </div>
+
+      <!-- ═══ RIGHT: Finance Dashboard Widget ═══ -->
+      <div class="pcta-right fade-in-right">
+
+        <!-- Floating mini cards -->
+        <div class="pcta-float-card pcta-fc-top">
+          <div class="pcta-fc-icon pcta-fci-yellow"><i class="fa-solid fa-arrow-trend-up"></i></div>
+          <div class="pcta-fc-body">
+            <div class="pcta-fc-val">Save 70%+</div>
+            <div class="pcta-fc-lbl">vs. Full-Time CFO</div>
+          </div>
+        </div>
+
+        <!-- Main stats card -->
+        <div class="pcta-stats-card">
+          <div class="pcta-sc-shimmer"></div>
+          <div class="pcta-sc-header">
+            <div class="pcta-sc-dots"><span></span><span></span><span></span></div>
+            <span class="pcta-sc-title"><i class="fa-solid fa-chart-line"></i> Virtual CFO Value Dashboard</span>
+            <div class="pcta-sc-live"><span></span>ACTIVE</div>
+          </div>
+
+          <div class="pcta-sc-metrics">
+            <div class="pcta-sc-metric">
+              <div class="pcta-sc-val">94%</div>
+              <div class="pcta-sc-lbl">Finance Efficiency</div>
+              <div class="pcta-sc-trend"><i class="fa-solid fa-caret-up"></i> 18.4%</div>
+            </div>
+            <div class="pcta-sc-metric">
+              <div class="pcta-sc-val">+32%</div>
+              <div class="pcta-sc-lbl">Cost Savings</div>
+              <div class="pcta-sc-trend"><i class="fa-solid fa-caret-up"></i> +32%</div>
+            </div>
+            <div class="pcta-sc-metric">
+              <div class="pcta-sc-val">5 Yrs</div>
+              <div class="pcta-sc-lbl">Avg. Retention</div>
+              <div class="pcta-sc-trend" style="color:#4ade80;"><i class="fa-solid fa-circle-check"></i> Trusted</div>
+            </div>
+          </div>
+
+          <!-- Mini bar chart -->
+          <div class="pcta-mini-chart">
+            <div class="pcta-mc-bar" style="height:38%"></div>
+            <div class="pcta-mc-bar" style="height:58%"></div>
+            <div class="pcta-mc-bar" style="height:48%"></div>
+            <div class="pcta-mc-bar" style="height:72%"></div>
+            <div class="pcta-mc-bar" style="height:62%"></div>
+            <div class="pcta-mc-bar pcta-mc-gold" style="height:88%"></div>
+            <div class="pcta-mc-bar pcta-mc-gold" style="height:82%"></div>
+          </div>
+          <div class="pcta-chart-months">
+            <span>Jun</span><span>Jul</span><span>Aug</span><span>Sep</span><span>Oct</span><span>Nov</span><span>Dec</span>
+          </div>
+        </div>
+
+        <!-- Bottom float card -->
+        <div class="pcta-float-card pcta-fc-bottom">
+          <div class="pcta-fc-icon pcta-fci-green"><i class="fa-solid fa-shield-halved"></i></div>
+          <div class="pcta-fc-body">
+            <div class="pcta-fc-val">98%</div>
+            <div class="pcta-fc-lbl">Client Satisfaction</div>
+          </div>
+        </div>
+
+      </div><!-- /pcta-right -->
+    </div><!-- /pcta-layout -->
   </div>
 </section>
 

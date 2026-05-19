@@ -102,6 +102,10 @@
   /* ── Responsive visible count ── */
   function getVisible() {
     var w = window.innerWidth;
+    var visibleOverride = parseInt((outer && outer.dataset.visible) || (track && track.dataset.visible), 10);
+    if (!isNaN(visibleOverride) && visibleOverride > 0) {
+      return visibleOverride;
+    }
     if (w < 640)  return 1;
     if (w < 1024) return 2;
     return Math.min(3, total);
@@ -380,60 +384,84 @@ window.addEventListener('scroll', () => {
   navbar?.classList.toggle('scrolled', window.scrollY > 40);
 }, { passive: true });
 
-// Hamburger menu
-const hamburger = document.querySelector('.hamburger');
-const navMenu = document.querySelector('.nav-menu');
-const navOverlay = document.querySelector('.nav-overlay');
+// Hamburger menu — initialized after DOM is ready
+var hamburger, navMenu, navOverlay;
 
 function closeMenu() {
-  hamburger?.classList.remove('open');
-  navMenu?.classList.remove('open');
-  navOverlay?.classList.remove('open');
+  if (hamburger) { hamburger.classList.remove('open'); hamburger.setAttribute('aria-expanded', 'false'); }
+  if (navMenu) {
+    navMenu.classList.remove('open');
+    navMenu.querySelectorAll('.nav-dropdown').forEach(function (d) { d.classList.remove('mobile-open', 'open'); });
+  }
+  if (navOverlay) navOverlay.classList.remove('open');
   document.body.style.overflow = '';
 }
 
-hamburger?.addEventListener('click', () => {
-  const isOpen = navMenu.classList.toggle('open');
-  hamburger.classList.toggle('open');
-  navOverlay?.classList.toggle('open', isOpen);
-  document.body.style.overflow = isOpen ? 'hidden' : '';
-});
+function initMobileNav() {
+  hamburger  = document.querySelector('.hamburger');
+  navMenu    = document.querySelector('.nav-menu');
+  navOverlay = document.querySelector('.nav-overlay');
 
-// Close on overlay click
-navOverlay?.addEventListener('click', closeMenu);
+  if (!hamburger || !navMenu) return;
 
-// Close button inside panel
-document.querySelector('#navClose')?.addEventListener('click', closeMenu);
-
-// Close menu on link click
-document.querySelectorAll('.nav-link').forEach(link => {
-  link.addEventListener('click', closeMenu);
-});
-
-// Touch / click dropdown support for tablets & mobile
-document.querySelectorAll('.nav-dropdown > .nav-link').forEach(link => {
-  link.addEventListener('click', (e) => {
-    const dropdown = link.closest('.nav-dropdown');
-    if (window.innerWidth <= 768) {
-      // Mobile: toggle sub-menu inline
-      e.preventDefault();
-      dropdown.classList.toggle('mobile-open');
-    } else if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-      // Tablet touch: show dropdown below nav item
-      e.preventDefault();
-      const isOpen = dropdown.classList.contains('open');
-      document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
-      if (!isOpen) dropdown.classList.add('open');
-    }
+  // Open / close the mobile slide-in panel
+  hamburger.addEventListener('click', function () {
+    var isOpen = navMenu.classList.toggle('open');
+    hamburger.classList.toggle('open');
+    hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    if (navOverlay) navOverlay.classList.toggle('open', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
   });
-});
+
+  // Close on overlay click
+  if (navOverlay) navOverlay.addEventListener('click', closeMenu);
+
+  // Close button (X) inside panel
+  var navClose = document.getElementById('navClose');
+  if (navClose) navClose.addEventListener('click', closeMenu);
+
+  // Leaf nav-links close the panel and navigate normally
+  // Dropdown PARENT links on mobile do NOT close — they expand the sub-menu instead
+  document.querySelectorAll('.nav-link').forEach(function (link) {
+    link.addEventListener('click', function () {
+      var isMobile     = window.innerWidth <= 768;
+      var isDropParent = !!link.closest('.nav-dropdown');
+      if (isMobile && isDropParent) return; // handled by dropdown toggle below
+      closeMenu();
+    });
+  });
+
+  // Sub-items inside the Services dropdown: close panel on tap
+  document.querySelectorAll('.nav-dropdown-menu a').forEach(function (subLink) {
+    subLink.addEventListener('click', closeMenu);
+  });
+
+  // Dropdown parent link: on mobile toggle sub-menu; on touch-only tablet open below nav
+  document.querySelectorAll('.nav-dropdown > .nav-link').forEach(function (link) {
+    link.addEventListener('click', function (e) {
+      var dropdown = link.closest('.nav-dropdown');
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+        dropdown.classList.toggle('mobile-open');
+      } else if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+        e.preventDefault();
+        var wasOpen = dropdown.classList.contains('open');
+        document.querySelectorAll('.nav-dropdown').forEach(function (d) { d.classList.remove('open'); });
+        if (!wasOpen) dropdown.classList.add('open');
+      }
+    });
+  });
+}
 
 // Close tablet dropdown when clicking outside
-document.addEventListener('click', (e) => {
+document.addEventListener('click', function (e) {
   if (!e.target.closest('.nav-dropdown')) {
-    document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+    document.querySelectorAll('.nav-dropdown').forEach(function (d) { d.classList.remove('open'); });
   }
 });
+
+// Run immediately (scripts at bottom of body, components.js already injected nav)
+initMobileNav();
 
 // Active nav link
 const currentPage = window.location.pathname.split('/').pop() || 'index.html';

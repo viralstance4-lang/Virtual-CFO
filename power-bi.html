@@ -811,16 +811,6 @@
     @media(max-width:900px){ .intg-panels{grid-template-columns:1fr;} .intg-flow-banner{display:none;} }
     @media(max-width:640px){ .intg-cards{grid-template-columns:repeat(2,1fr);} }
 
-    .why-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
-    .why-card {
-      background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1);
-      border-radius:var(--radius); padding:24px; transition:var(--transition);
-    }
-    .why-card:hover { background:rgba(255,255,255,0.1); border-color:var(--yellow); }
-    .why-num { font-size:2rem; font-weight:900; color:var(--yellow); line-height:1; margin-bottom:12px; }
-    .why-card h4 { color:var(--white); margin-bottom:8px; }
-    .why-card p { font-size:0.86rem; color:rgba(255,255,255,0.6); }
-
     @media(max-width:1024px){
       .bi-hero .container{grid-template-columns:1fr}
       .bi-mockup-wrap{display:none}
@@ -829,7 +819,6 @@
       .problems-grid{grid-template-columns:1fr}
       .dashboard-types{grid-template-columns:1fr}
       .integrations-grid{grid-template-columns:repeat(2,1fr)}
-      .why-grid{grid-template-columns:1fr}
     }
   </style>
 </head>
@@ -987,29 +976,6 @@
     </div>
   </div>
 </section>
-
-<!-- ══ TRUST BAR (enhanced) ══════════════════════════ -->
-<div class="trust-bar">
-  <div class="trust-track">
-    <div class="trust-item"><i class="fa-solid fa-database"></i> Tally Integration</div>
-    <div class="trust-item"><i class="fa-solid fa-server"></i> SAP / ERP Connect</div>
-    <div class="trust-item"><i class="fa-solid fa-file-excel"></i> Excel Automation</div>
-    <div class="trust-item"><i class="fa-solid fa-lock"></i> Secure Access Control</div>
-    <div class="trust-item"><i class="fa-solid fa-mobile-screen"></i> Mobile-Ready Reports</div>
-    <div class="trust-item"><i class="fa-solid fa-arrows-rotate"></i> Real-Time Refresh</div>
-    <div class="trust-item"><i class="fa-solid fa-cloud"></i> Cloud &amp; On-Premise</div>
-    <div class="trust-item"><i class="fa-solid fa-chart-line"></i> 100+ Dashboards Built</div>
-    <!-- Duplicate for seamless loop -->
-    <div class="trust-item"><i class="fa-solid fa-database"></i> Tally Integration</div>
-    <div class="trust-item"><i class="fa-solid fa-server"></i> SAP / ERP Connect</div>
-    <div class="trust-item"><i class="fa-solid fa-file-excel"></i> Excel Automation</div>
-    <div class="trust-item"><i class="fa-solid fa-lock"></i> Secure Access Control</div>
-    <div class="trust-item"><i class="fa-solid fa-mobile-screen"></i> Mobile-Ready Reports</div>
-    <div class="trust-item"><i class="fa-solid fa-arrows-rotate"></i> Real-Time Refresh</div>
-    <div class="trust-item"><i class="fa-solid fa-cloud"></i> Cloud &amp; On-Premise</div>
-    <div class="trust-item"><i class="fa-solid fa-chart-line"></i> 100+ Dashboards Built</div>
-  </div>
-</div>
 
 <!-- ══ PROBLEMS — PREMIUM ══════════════════════════════ -->
 <section class="prb-section" id="problems">
@@ -1668,195 +1634,1046 @@
 })();
 </script>
 
-<!-- CASE STUDIES -->
-<section class="section bg-light" id="case-studies">
-  <div class="container">
-    <div class="text-center mb-48 fade-in">
+<!-- CASE STUDIES — PREMIUM REDESIGN -->
+<section class="cs-section" id="case-studies">
+
+  <!-- Background -->
+  <div class="cs-bg" aria-hidden="true">
+    <div class="cs-bg-orb cs-orb-1"></div>
+    <div class="cs-bg-orb cs-orb-2"></div>
+    <div class="cs-bg-grid"></div>
+  </div>
+
+  <div class="container" style="position:relative;z-index:1;">
+
+    <!-- Section Header -->
+    <div class="cs-header fade-in">
       <div class="section-label">Success Stories</div>
-      <h2 class="section-title">Real Results From Real Businesses</h2>
-    </div>
-    <div class="case-study-grid">
-      <div class="case-card fade-in">
-        <div class="case-card-header">
-          <div class="case-tag">Multi-Entity · Finance</div>
-          <h3>Index Infotech Group</h3>
-          <p>Multi-company performance visibility across 5 entities, multiple countries and currencies.</p>
+      <h2 class="cs-heading">Real Results From <span class="cs-heading-accent">Real Businesses</span></h2>
+      <p class="cs-subtitle">Every dashboard tells a story of transformation. Here are four businesses that turned fragmented data into clear, confident decisions.</p>
+
+      <!-- Trust stat bar -->
+      <div class="cs-trust-bar">
+        <div class="cs-ts">
+          <span class="cs-ts-num cs-cu" data-val="100" data-sfx="+">100+</span>
+          <span class="cs-ts-lbl">Dashboards Built</span>
         </div>
-        <div class="case-card-body">
-          <h5>Challenge</h5>
-          <p>Managing performance across 5 companies, multiple countries and currencies created fragmented visibility. Leadership lacked a unified view, making group-level decision-making complex and delayed.</p>
-          <h5>Our Approach</h5>
-          <p>Implemented a Power BI consolidation framework integrating financial data across entities, geographies, and currencies into a single CFO-level dashboard.</p>
-          <div class="case-outcomes">
-            <div class="outcome-item"><i class="fa-solid fa-circle-check"></i> Unified view across all companies in real time</div>
-            <div class="outcome-item"><i class="fa-solid fa-circle-check"></i> Standardized reporting across entities</div>
-            <div class="outcome-item"><i class="fa-solid fa-circle-check"></i> Elimination of fragmented data sources</div>
-            <div class="outcome-item"><i class="fa-solid fa-circle-check"></i> Faster, more confident group-level decisions</div>
-          </div>
+        <div class="cs-ts-sep"></div>
+        <div class="cs-ts">
+          <span class="cs-ts-num cs-cu" data-val="80" data-sfx="%+">80%+</span>
+          <span class="cs-ts-lbl">Avg. Time Saved</span>
         </div>
-      </div>
-      <div class="case-card fade-in">
-        <div class="case-card-header">
-          <div class="case-tag">Manufacturing · Automation</div>
-          <h3>Ajabshah Industries</h3>
-          <p>From delayed manual reports to real-time financial intelligence.</p>
+        <div class="cs-ts-sep"></div>
+        <div class="cs-ts">
+          <span class="cs-ts-num cs-cu" data-val="200" data-sfx="+">200+</span>
+          <span class="cs-ts-lbl">Businesses Served</span>
         </div>
-        <div class="case-card-body">
-          <h5>Challenge</h5>
-          <p>Financial reporting was manual and time-consuming. Extensive time spent on preparing reports led to delayed decisions and an overloaded accounting team.</p>
-          <h5>Our Approach</h5>
-          <p>Implemented automated Power BI dashboards and integrated financial systems to deliver real-time financial analysis on a secure, accessible platform.</p>
-          <div class="case-outcomes">
-            <div class="outcome-item"><i class="fa-solid fa-circle-check"></i> Reporting time reduced by 80%+</div>
-            <div class="outcome-item"><i class="fa-solid fa-circle-check"></i> Instant access to financial data anytime</div>
-            <div class="outcome-item"><i class="fa-solid fa-circle-check"></i> Significant reduction in manual effort</div>
-            <div class="outcome-item"><i class="fa-solid fa-circle-check"></i> Leadership gained real-time visibility</div>
-          </div>
-        </div>
-      </div>
-      <div class="case-card fade-in">
-        <div class="case-card-header">
-          <div class="case-tag">Investment · Portfolio</div>
-          <h3>Al Moiziya Investment Company</h3>
-          <p>Centralized portfolio performance visibility across multiple invested companies.</p>
-        </div>
-        <div class="case-card-body">
-          <h5>Challenge</h5>
-          <p>Tracking performance across multiple invested companies was complex, fragmented, and inefficient, with no consolidated view of portfolio performance.</p>
-          <h5>Our Approach</h5>
-          <p>Built a centralized Power BI dashboard consolidating financial data across all investments into a single, structured view.</p>
-          <div class="case-outcomes">
-            <div class="outcome-item"><i class="fa-solid fa-circle-check"></i> Real-time visibility across all portfolio companies</div>
-            <div class="outcome-item"><i class="fa-solid fa-circle-check"></i> Standardized performance tracking</div>
-            <div class="outcome-item"><i class="fa-solid fa-circle-check"></i> Smarter capital allocation decisions</div>
-            <div class="outcome-item"><i class="fa-solid fa-circle-check"></i> Simplified consolidation process</div>
-          </div>
-        </div>
-      </div>
-      <div class="case-card fade-in">
-        <div class="case-card-header">
-          <div class="case-tag">Medical · Field Sales</div>
-          <h3>Milab Scientific</h3>
-          <p>Mobile-first dashboards for a field-based sales team with locked data.</p>
-        </div>
-        <div class="case-card-body">
-          <h5>Challenge</h5>
-          <p>Sales team was always in the field but data was locked in the system — no mobile access, no real-time visibility into orders, collections, or performance.</p>
-          <h5>Our Approach</h5>
-          <p>Designed mobile-optimized Power BI reports with real-time data sync, allowing the sales team to access live performance data from anywhere.</p>
-          <div class="case-outcomes">
-            <div class="outcome-item"><i class="fa-solid fa-circle-check"></i> Faster decisions and accurate order management</div>
-            <div class="outcome-item"><i class="fa-solid fa-circle-check"></i> Better collections and customer visibility</div>
-            <div class="outcome-item"><i class="fa-solid fa-circle-check"></i> Complete clarity on business performance</div>
-            <div class="outcome-item"><i class="fa-solid fa-circle-check"></i> Field team empowered with live data</div>
-          </div>
+        <div class="cs-ts-sep"></div>
+        <div class="cs-ts">
+          <span class="cs-ts-num">4.9<span class="cs-ts-denom">/5</span></span>
+          <span class="cs-ts-lbl">Client Rating</span>
         </div>
       </div>
     </div>
+
+    <!-- Case Study Grid -->
+    <div class="cs-grid">
+
+      <!-- ── Card 1: Index Infotech Group ── -->
+      <div class="cs-card" style="--cs-acc:#F5C518;--cs-acc-rgb:245,197,24;--cs-top:linear-gradient(145deg,#0f2744 0%,#1a3a5c 60%,#1e4570 100%);">
+        <div class="cs-card-top">
+          <div class="cs-shimmer"></div>
+          <!-- Meta row -->
+          <div class="cs-top-meta">
+            <span class="cs-tag"><i class="fa-solid fa-building-columns"></i> Multi-Entity · Finance</span>
+            <span class="cs-verified"><i class="fa-solid fa-circle-check"></i> Verified</span>
+          </div>
+          <!-- Company -->
+          <h3 class="cs-company">Index Infotech Group</h3>
+          <p class="cs-tagline">5 entities, multiple countries &amp; currencies — unified into one CFO dashboard.</p>
+          <!-- KPI row -->
+          <div class="cs-kpis">
+            <div class="cs-kpi">
+              <div class="cs-kpi-val"><span class="cs-cu" data-val="80" data-sfx="%">0</span></div>
+              <div class="cs-kpi-lbl">Faster Reporting</div>
+            </div>
+            <div class="cs-kpi-divider"></div>
+            <div class="cs-kpi">
+              <div class="cs-kpi-val"><span class="cs-cu" data-val="5" data-sfx="">0</span></div>
+              <div class="cs-kpi-lbl">Entities Unified</div>
+            </div>
+          </div>
+          <!-- Before → After -->
+          <div class="cs-transform">
+            <div class="cs-tf-side">
+              <span class="cs-tf-label">Before</span>
+              <span class="cs-tf-val cs-tf-before">21 days</span>
+            </div>
+            <div class="cs-tf-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+            <div class="cs-tf-side">
+              <span class="cs-tf-label">After</span>
+              <span class="cs-tf-val cs-tf-after">2 days</span>
+            </div>
+          </div>
+          <!-- Mini animated bar chart -->
+          <div class="cs-minichart">
+            <div class="cs-mc-bars">
+              <div class="cs-mc-col">
+                <div class="cs-mc-bar cs-mc-bar-b" data-h="88"></div>
+                <span class="cs-mc-lbl">Before</span>
+              </div>
+              <div class="cs-mc-col">
+                <div class="cs-mc-bar cs-mc-bar-a" data-h="13"></div>
+                <span class="cs-mc-lbl">After</span>
+              </div>
+            </div>
+            <div class="cs-mc-note">Reporting Cycle Time</div>
+          </div>
+        </div>
+        <!-- Body -->
+        <div class="cs-card-body">
+          <div class="cs-results-head"><i class="fa-solid fa-circle-check"></i> Results Delivered</div>
+          <div class="cs-results">
+            <div class="cs-result"><i class="fa-solid fa-check"></i><span>Unified view across all 5 companies in real time</span></div>
+            <div class="cs-result"><i class="fa-solid fa-check"></i><span>Standardized reporting across all entities &amp; currencies</span></div>
+            <div class="cs-result"><i class="fa-solid fa-check"></i><span>Elimination of all fragmented data sources</span></div>
+            <div class="cs-result"><i class="fa-solid fa-check"></i><span>Faster, more confident group-level decisions</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Card 2: Ajabshah Industries ── -->
+      <div class="cs-card" style="--cs-acc:#4ade80;--cs-acc-rgb:74,222,128;--cs-top:linear-gradient(145deg,#0d2d1a 0%,#14402a 60%,#174d32 100%);">
+        <div class="cs-card-top">
+          <div class="cs-shimmer"></div>
+          <div class="cs-top-meta">
+            <span class="cs-tag"><i class="fa-solid fa-industry"></i> Manufacturing · Automation</span>
+            <span class="cs-verified"><i class="fa-solid fa-circle-check"></i> Verified</span>
+          </div>
+          <h3 class="cs-company">Ajabshah Industries</h3>
+          <p class="cs-tagline">From delayed manual reports to automated real-time financial intelligence.</p>
+          <div class="cs-kpis">
+            <div class="cs-kpi">
+              <div class="cs-kpi-val"><span class="cs-cu" data-val="80" data-sfx="%+">0</span></div>
+              <div class="cs-kpi-lbl">Time Reduced</div>
+            </div>
+            <div class="cs-kpi-divider"></div>
+            <div class="cs-kpi">
+              <div class="cs-kpi-val">Live</div>
+              <div class="cs-kpi-lbl">Data Access</div>
+            </div>
+          </div>
+          <div class="cs-transform">
+            <div class="cs-tf-side">
+              <span class="cs-tf-label">Before</span>
+              <span class="cs-tf-val cs-tf-before">3–5 days</span>
+            </div>
+            <div class="cs-tf-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+            <div class="cs-tf-side">
+              <span class="cs-tf-label">After</span>
+              <span class="cs-tf-val cs-tf-after">Real-time</span>
+            </div>
+          </div>
+          <div class="cs-minichart">
+            <div class="cs-mc-bars">
+              <div class="cs-mc-col">
+                <div class="cs-mc-bar cs-mc-bar-b" data-h="84"></div>
+                <span class="cs-mc-lbl">Before</span>
+              </div>
+              <div class="cs-mc-col">
+                <div class="cs-mc-bar cs-mc-bar-a" data-h="8"></div>
+                <span class="cs-mc-lbl">After</span>
+              </div>
+            </div>
+            <div class="cs-mc-note">Manual Reporting Effort</div>
+          </div>
+        </div>
+        <div class="cs-card-body">
+          <div class="cs-results-head"><i class="fa-solid fa-circle-check"></i> Results Delivered</div>
+          <div class="cs-results">
+            <div class="cs-result"><i class="fa-solid fa-check"></i><span>Reporting time reduced by 80%+</span></div>
+            <div class="cs-result"><i class="fa-solid fa-check"></i><span>Instant access to financial data anytime, anywhere</span></div>
+            <div class="cs-result"><i class="fa-solid fa-check"></i><span>Significant reduction in manual effort &amp; errors</span></div>
+            <div class="cs-result"><i class="fa-solid fa-check"></i><span>Leadership gained real-time financial visibility</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Card 3: Al Moiziya Investment Company ── -->
+      <div class="cs-card" style="--cs-acc:#c084fc;--cs-acc-rgb:192,132,252;--cs-top:linear-gradient(145deg,#1a0d2e 0%,#281545 60%,#301a52 100%);">
+        <div class="cs-card-top">
+          <div class="cs-shimmer"></div>
+          <div class="cs-top-meta">
+            <span class="cs-tag"><i class="fa-solid fa-chart-pie"></i> Investment · Portfolio</span>
+            <span class="cs-verified"><i class="fa-solid fa-circle-check"></i> Verified</span>
+          </div>
+          <h3 class="cs-company">Al Moiziya Investment</h3>
+          <p class="cs-tagline">Centralized portfolio performance visibility across all invested companies.</p>
+          <div class="cs-kpis">
+            <div class="cs-kpi">
+              <div class="cs-kpi-val"><span class="cs-cu" data-val="100" data-sfx="%">0</span></div>
+              <div class="cs-kpi-lbl">Portfolio Visible</div>
+            </div>
+            <div class="cs-kpi-divider"></div>
+            <div class="cs-kpi">
+              <div class="cs-kpi-val"><span class="cs-cu" data-val="1" data-sfx="">0</span></div>
+              <div class="cs-kpi-lbl">Unified Dashboard</div>
+            </div>
+          </div>
+          <div class="cs-transform">
+            <div class="cs-tf-side">
+              <span class="cs-tf-label">Before</span>
+              <span class="cs-tf-val cs-tf-before">Fragmented</span>
+            </div>
+            <div class="cs-tf-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+            <div class="cs-tf-side">
+              <span class="cs-tf-label">After</span>
+              <span class="cs-tf-val cs-tf-after">Unified View</span>
+            </div>
+          </div>
+          <div class="cs-minichart">
+            <div class="cs-mc-bars">
+              <div class="cs-mc-col">
+                <div class="cs-mc-bar cs-mc-bar-b" data-h="22"></div>
+                <span class="cs-mc-lbl">Before</span>
+              </div>
+              <div class="cs-mc-col">
+                <div class="cs-mc-bar cs-mc-bar-a" data-h="94"></div>
+                <span class="cs-mc-lbl">After</span>
+              </div>
+            </div>
+            <div class="cs-mc-note">Portfolio Visibility</div>
+          </div>
+        </div>
+        <div class="cs-card-body">
+          <div class="cs-results-head"><i class="fa-solid fa-circle-check"></i> Results Delivered</div>
+          <div class="cs-results">
+            <div class="cs-result"><i class="fa-solid fa-check"></i><span>Real-time visibility across all portfolio companies</span></div>
+            <div class="cs-result"><i class="fa-solid fa-check"></i><span>Standardized performance tracking across entities</span></div>
+            <div class="cs-result"><i class="fa-solid fa-check"></i><span>Smarter, faster capital allocation decisions</span></div>
+            <div class="cs-result"><i class="fa-solid fa-check"></i><span>Simplified consolidation &amp; reporting process</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Card 4: Milab Scientific ── -->
+      <div class="cs-card" style="--cs-acc:#38bdf8;--cs-acc-rgb:56,189,248;--cs-top:linear-gradient(145deg,#0a2030 0%,#0e3048 60%,#103858 100%);">
+        <div class="cs-card-top">
+          <div class="cs-shimmer"></div>
+          <div class="cs-top-meta">
+            <span class="cs-tag"><i class="fa-solid fa-mobile-screen-button"></i> Medical · Field Sales</span>
+            <span class="cs-verified"><i class="fa-solid fa-circle-check"></i> Verified</span>
+          </div>
+          <h3 class="cs-company">Milab Scientific</h3>
+          <p class="cs-tagline">Mobile-first dashboards giving a field sales team live data access anywhere.</p>
+          <div class="cs-kpis">
+            <div class="cs-kpi">
+              <div class="cs-kpi-val"><span class="cs-cu" data-val="100" data-sfx="%">0</span></div>
+              <div class="cs-kpi-lbl">Mobile Access</div>
+            </div>
+            <div class="cs-kpi-divider"></div>
+            <div class="cs-kpi">
+              <div class="cs-kpi-val">24/7</div>
+              <div class="cs-kpi-lbl">Live Data</div>
+            </div>
+          </div>
+          <div class="cs-transform">
+            <div class="cs-tf-side">
+              <span class="cs-tf-label">Before</span>
+              <span class="cs-tf-val cs-tf-before">0% Mobile</span>
+            </div>
+            <div class="cs-tf-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+            <div class="cs-tf-side">
+              <span class="cs-tf-label">After</span>
+              <span class="cs-tf-val cs-tf-after">100% Mobile</span>
+            </div>
+          </div>
+          <div class="cs-minichart">
+            <div class="cs-mc-bars">
+              <div class="cs-mc-col">
+                <div class="cs-mc-bar cs-mc-bar-b" data-h="6"></div>
+                <span class="cs-mc-lbl">Before</span>
+              </div>
+              <div class="cs-mc-col">
+                <div class="cs-mc-bar cs-mc-bar-a" data-h="96"></div>
+                <span class="cs-mc-lbl">After</span>
+              </div>
+            </div>
+            <div class="cs-mc-note">Mobile Data Accessibility</div>
+          </div>
+        </div>
+        <div class="cs-card-body">
+          <div class="cs-results-head"><i class="fa-solid fa-circle-check"></i> Results Delivered</div>
+          <div class="cs-results">
+            <div class="cs-result"><i class="fa-solid fa-check"></i><span>Faster decisions &amp; accurate order management in the field</span></div>
+            <div class="cs-result"><i class="fa-solid fa-check"></i><span>Better collections tracking &amp; customer visibility</span></div>
+            <div class="cs-result"><i class="fa-solid fa-check"></i><span>Complete clarity on business performance, anywhere</span></div>
+            <div class="cs-result"><i class="fa-solid fa-check"></i><span>Field team empowered with live, real-time data</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /cs-grid -->
+
+    <!-- Bottom CTA strip -->
+    <div class="cs-cta-strip fade-in">
+      <div class="cs-cta-left">
+        <i class="fa-solid fa-star cs-cta-star"></i>
+        <div>
+          <div class="cs-cta-title">Ready to become the next success story?</div>
+          <div class="cs-cta-sub">Book a free consultation — we'll show you exactly what's possible for your business.</div>
+        </div>
+      </div>
+      <a href="contact.html#consultation" class="cs-cta-btn">
+        <i class="fa-solid fa-calendar-check"></i>
+        Book Free Consultation
+        <i class="fa-solid fa-arrow-right cs-cta-arrow"></i>
+      </a>
+    </div>
+
   </div>
 </section>
 
-<!-- WHY CHOOSE US -->
-<section class="section dark-section">
-  <div class="container">
-    <div class="text-center mb-48 fade-in">
-      <div class="section-label">Why Us</div>
-      <h2 class="section-title">Why Choose Virtual CFO for Power BI?</h2>
+<script>
+/* Case Studies: counter-up + bar chart + stagger reveal */
+(function () {
+  /* ── Counter-up ── */
+  function animateCounter(el) {
+    var target = parseFloat(el.dataset.val);
+    var suffix = el.dataset.sfx || '';
+    var duration = 1600;
+    var start = performance.now();
+    var isInt = Number.isInteger(target);
+    (function tick(now) {
+      var p = Math.min((now - start) / duration, 1);
+      var ease = 1 - Math.pow(1 - p, 3);
+      var val = target * ease;
+      el.textContent = (isInt ? Math.round(val) : val.toFixed(1)) + suffix;
+      if (p < 1) requestAnimationFrame(tick);
+      else el.textContent = (isInt ? target : target.toFixed(1)) + suffix;
+    })(start);
+  }
+
+  /* ── Animate bars for one card ── */
+  function animateBars(card) {
+    card.querySelectorAll('.cs-mc-bar').forEach(function (bar) {
+      bar.style.height = bar.dataset.h + '%';
+    });
+  }
+
+  /* ── Stagger-reveal cards ── */
+  var cards = document.querySelectorAll('.cs-card');
+  var trustCountersDone = false;
+
+  var headerObs = new IntersectionObserver(function (entries) {
+    if (entries[0].isIntersecting && !trustCountersDone) {
+      trustCountersDone = true;
+      document.querySelectorAll('.cs-header .cs-cu').forEach(function (el) {
+        setTimeout(function () { animateCounter(el); }, 200);
+      });
+    }
+  }, { threshold: 0.4 });
+  var hdr = document.querySelector('.cs-header');
+  if (hdr) headerObs.observe(hdr);
+
+  cards.forEach(function (card, i) {
+    var done = false;
+    var obs = new IntersectionObserver(function (entries) {
+      if (entries[0].isIntersecting && !done) {
+        done = true;
+        setTimeout(function () {
+          card.classList.add('cs-revealed');
+          animateBars(card);
+          card.querySelectorAll('.cs-cu').forEach(function (el) {
+            setTimeout(function () { animateCounter(el); }, 400);
+          });
+          card.querySelectorAll('.cs-result').forEach(function (r, j) {
+            setTimeout(function () { r.classList.add('cs-result-in'); }, 600 + j * 100);
+          });
+        }, i * 120);
+        obs.disconnect();
+      }
+    }, { threshold: 0.15 });
+    obs.observe(card);
+  });
+})();
+</script>
+
+<!-- WHY CHOOSE US — PREMIUM REDESIGN -->
+<section class="wcu-section">
+
+  <!-- Background -->
+  <div class="wcu-bg" aria-hidden="true">
+    <div class="wcu-orb wcu-orb-1"></div>
+    <div class="wcu-orb wcu-orb-2"></div>
+    <div class="wcu-orb wcu-orb-3"></div>
+    <div class="wcu-grid-overlay"></div>
+  </div>
+
+  <div class="container" style="position:relative;z-index:1;">
+
+    <!-- Section Header -->
+    <div class="wcu-header fade-in">
+      <div class="section-label wcu-badge">Why Us</div>
+      <h2 class="wcu-heading">Why Choose <span class="wcu-accent">Virtual CFO</span><br>for Power BI?</h2>
+      <p class="wcu-subtitle">Finance professionals who build dashboards — not IT consultants guessing at your numbers. Here's what sets us apart.</p>
+
+      <!-- Achievement pill strip -->
+      <div class="wcu-achievements">
+        <div class="wcu-ach">
+          <span class="wcu-ach-num">20+</span>
+          <span class="wcu-ach-lbl">Years Experience</span>
+        </div>
+        <div class="wcu-ach-sep"></div>
+        <div class="wcu-ach">
+          <span class="wcu-ach-num">100+</span>
+          <span class="wcu-ach-lbl">Dashboards Delivered</span>
+        </div>
+        <div class="wcu-ach-sep"></div>
+        <div class="wcu-ach">
+          <span class="wcu-ach-num">CA</span>
+          <span class="wcu-ach-lbl">Chartered Accountant Led</span>
+        </div>
+        <div class="wcu-ach-sep"></div>
+        <div class="wcu-ach">
+          <span class="wcu-ach-num">Zero</span>
+          <span class="wcu-ach-lbl">Templates Used</span>
+        </div>
+      </div>
     </div>
-    <div class="why-grid">
-      <div class="why-card fade-in">
-        <div class="why-num">01</div>
-        <h4>Finance-First, Not Just Tech</h4>
-        <p>We are finance professionals who use Power BI — not IT consultants who don't understand your numbers. Dashboards are built around your business drivers.</p>
+
+    <!-- Advantage cards -->
+    <div class="wcu-cards">
+
+      <!-- 01 — Finance-First -->
+      <div class="wcu-card" style="--wcu-acc:#F5C518;--wcu-acc-rgb:245,197,24;">
+        <div class="wcu-card-glow"></div>
+        <div class="wcu-card-line"></div>
+        <span class="wcu-card-num">01</span>
+        <div class="wcu-icon-wrap"><i class="fa-solid fa-chart-line"></i></div>
+        <h4 class="wcu-card-title">Finance-First, Not Just Tech</h4>
+        <p class="wcu-card-desc">We are finance professionals who use Power BI — not IT consultants who don't understand your numbers. Every dashboard is built around your business drivers and CFO-level thinking.</p>
+        <div class="wcu-card-chip"><i class="fa-solid fa-circle-check"></i><span>CA-Led · 20+ Yrs Experience</span></div>
       </div>
-      <div class="why-card fade-in">
-        <div class="why-num">02</div>
-        <h4>Proven Tally Integration</h4>
-        <p>Proprietary R&D for secure Tally database access — one of the few proven implementations in the UAE. No ERP migration required.</p>
+
+      <!-- 02 — Tally Integration -->
+      <div class="wcu-card" style="--wcu-acc:#4ade80;--wcu-acc-rgb:74,222,128;">
+        <div class="wcu-card-glow"></div>
+        <div class="wcu-card-line"></div>
+        <span class="wcu-card-num">02</span>
+        <div class="wcu-icon-wrap"><i class="fa-solid fa-database"></i></div>
+        <h4 class="wcu-card-title">Proven Tally Integration</h4>
+        <p class="wcu-card-desc">Proprietary R&amp;D for secure Tally database access — one of the few proven implementations in the UAE. Connect Power BI directly to your Tally data, no ERP migration required.</p>
+        <div class="wcu-card-chip"><i class="fa-solid fa-award"></i><span>UAE's Proven Tally–BI Solution</span></div>
       </div>
-      <div class="why-card fade-in">
-        <div class="why-num">03</div>
-        <h4>100+ Implementations</h4>
-        <p>Across retail, manufacturing, investment, logistics, F&B, and more — we've delivered 100+ custom dashboards with measurable business impact.</p>
+
+      <!-- 03 — 100+ Implementations -->
+      <div class="wcu-card" style="--wcu-acc:#60a5fa;--wcu-acc-rgb:96,165,250;">
+        <div class="wcu-card-glow"></div>
+        <div class="wcu-card-line"></div>
+        <span class="wcu-card-num">03</span>
+        <div class="wcu-icon-wrap"><i class="fa-solid fa-check-double"></i></div>
+        <h4 class="wcu-card-title">100+ Implementations</h4>
+        <p class="wcu-card-desc">Across retail, manufacturing, investment, logistics, F&amp;B, and more — we've delivered 100+ custom dashboards with measurable, documented business impact across 8+ industries.</p>
+        <div class="wcu-card-chip"><i class="fa-solid fa-building"></i><span>8+ Industries · Measurable Impact</span></div>
       </div>
-      <div class="why-card fade-in">
-        <div class="why-num">04</div>
-        <h4>Fully Custom — No Templates</h4>
-        <p>Every dashboard is built from scratch for your specific business model, KPIs, and decision-making structure. You get insights, not just charts.</p>
+
+      <!-- 04 — Fully Custom -->
+      <div class="wcu-card" style="--wcu-acc:#c084fc;--wcu-acc-rgb:192,132,252;">
+        <div class="wcu-card-glow"></div>
+        <div class="wcu-card-line"></div>
+        <span class="wcu-card-num">04</span>
+        <div class="wcu-icon-wrap"><i class="fa-solid fa-pen-ruler"></i></div>
+        <h4 class="wcu-card-title">Fully Custom — No Templates</h4>
+        <p class="wcu-card-desc">Every dashboard is built from scratch for your specific business model, KPIs, and decision-making structure. You get real business insights — not chart templates filled with your data.</p>
+        <div class="wcu-card-chip"><i class="fa-solid fa-star"></i><span>Zero Templates · 100% Bespoke</span></div>
       </div>
-      <div class="why-card fade-in">
-        <div class="why-num">05</div>
-        <h4>Access Control & Security</h4>
-        <p>Role-based access ensures each user only sees what they need to. Full data security with enterprise-grade Power BI service infrastructure.</p>
+
+      <!-- 05 — Security -->
+      <div class="wcu-card" style="--wcu-acc:#38bdf8;--wcu-acc-rgb:56,189,248;">
+        <div class="wcu-card-glow"></div>
+        <div class="wcu-card-line"></div>
+        <span class="wcu-card-num">05</span>
+        <div class="wcu-icon-wrap"><i class="fa-solid fa-shield-halved"></i></div>
+        <h4 class="wcu-card-title">Access Control &amp; Security</h4>
+        <p class="wcu-card-desc">Role-based access ensures each user only sees what they need. Full data security with enterprise-grade Power BI service infrastructure — Microsoft-backed and audit-ready.</p>
+        <div class="wcu-card-chip"><i class="fa-solid fa-lock"></i><span>Enterprise-Grade Security</span></div>
       </div>
-      <div class="why-card fade-in">
-        <div class="why-num">06</div>
-        <h4>Ongoing Support & Evolution</h4>
-        <p>We don't just build and walk away. We continuously optimize your dashboards as your business grows and reporting needs evolve.</p>
+
+      <!-- 06 — Ongoing Support -->
+      <div class="wcu-card" style="--wcu-acc:#fb923c;--wcu-acc-rgb:251,146,60;">
+        <div class="wcu-card-glow"></div>
+        <div class="wcu-card-line"></div>
+        <span class="wcu-card-num">06</span>
+        <div class="wcu-icon-wrap"><i class="fa-solid fa-headset"></i></div>
+        <h4 class="wcu-card-title">Ongoing Support &amp; Evolution</h4>
+        <p class="wcu-card-desc">We don't just build and walk away. We continuously optimize your dashboards as your business grows, reporting needs evolve, and new data sources come online.</p>
+        <div class="wcu-card-chip"><i class="fa-solid fa-infinity"></i><span>Lifetime Optimization Support</span></div>
+      </div>
+
+    </div><!-- /wcu-cards -->
+
+    <!-- Integration ecosystem strip -->
+    <div class="wcu-eco-strip fade-in">
+      <div class="wcu-eco-label">
+        <span class="wcu-eco-dot"></span>
+        Connects to your existing systems
+      </div>
+      <div class="wcu-eco-items">
+        <div class="wcu-eco-item"><i class="fa-solid fa-database"></i><span>Tally</span></div>
+        <div class="wcu-eco-item"><i class="fa-solid fa-server"></i><span>SAP</span></div>
+        <div class="wcu-eco-item"><i class="fa-solid fa-file-invoice-dollar"></i><span>QuickBooks</span></div>
+        <div class="wcu-eco-item"><i class="fa-solid fa-calculator"></i><span>Zoho Books</span></div>
+        <div class="wcu-eco-item"><i class="fa-solid fa-gears"></i><span>Odoo</span></div>
+        <div class="wcu-eco-item"><i class="fa-solid fa-building-columns"></i><span>Dynamics 365</span></div>
+        <div class="wcu-eco-item"><i class="fa-solid fa-file-excel"></i><span>Excel / Sheets</span></div>
+        <div class="wcu-eco-item"><i class="fa-solid fa-circle-nodes"></i><span>+ Any API</span></div>
       </div>
     </div>
+
   </div>
 </section>
 
-<!-- PROCESS -->
-<section class="section">
-  <div class="container">
-    <div class="text-center mb-64 fade-in">
+<script>
+/* Why Choose Us: stagger card reveal */
+(function () {
+  var grid = document.querySelector('.wcu-cards');
+  if (!grid) return;
+  var cards = grid.querySelectorAll('.wcu-card');
+  var fired = false;
+  var obs = new IntersectionObserver(function (entries) {
+    if (entries[0].isIntersecting && !fired) {
+      fired = true;
+      cards.forEach(function (c, i) {
+        setTimeout(function () { c.classList.add('wcu-revealed'); }, i * 110);
+      });
+      obs.disconnect();
+    }
+  }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+  obs.observe(grid);
+})();
+</script>
+
+<!-- PROCESS — PREMIUM REDESIGN -->
+<section class="pip-section">
+
+  <div class="pip-bg" aria-hidden="true">
+    <div class="pip-orb pip-orb-1"></div>
+    <div class="pip-orb pip-orb-2"></div>
+    <div class="pip-bg-grid"></div>
+  </div>
+
+  <div class="container" style="position:relative;z-index:1;">
+
+    <!-- Header -->
+    <div class="pip-header fade-in">
       <div class="section-label">How It Works</div>
-      <h2 class="section-title">Our Power BI Implementation Process</h2>
+      <h2 class="pip-heading">Our Power BI <span class="pip-accent">Implementation Process</span></h2>
+      <p class="pip-subtitle">From secure data connection to live dashboards your team uses every day — delivered in weeks, not months.</p>
     </div>
-    <div class="process-grid">
-      <div class="process-card fade-in"><div class="process-num"><i class="fa-solid fa-plug" style="font-size:1.2rem"></i></div><h4>Connect</h4><p>Secure sync with your accounting system, ERP, or data source — no disruption to your existing operations.</p></div>
-      <div class="process-card fade-in"><div class="process-num"><i class="fa-solid fa-hammer" style="font-size:1.2rem"></i></div><h4>Build</h4><p>Custom dashboards designed around your specific KPIs, business drivers, and leadership reporting needs.</p></div>
-      <div class="process-card fade-in"><div class="process-num"><i class="fa-solid fa-rocket" style="font-size:1.2rem"></i></div><h4>Implement</h4><p>Deploy with user access control, training for your team, and full handover documentation.</p></div>
-      <div class="process-card fade-in"><div class="process-num"><i class="fa-solid fa-headset" style="font-size:1.2rem"></i></div><h4>Ongoing Support</h4><p>Continuous optimization, new dashboard additions, and strategic guidance as your needs evolve.</p></div>
+
+    <!-- Journey grid: nodes + connecting rail + cards -->
+    <div class="pip-journey">
+
+      <!-- Animated connecting rail -->
+      <div class="pip-rail-wrap" aria-hidden="true">
+        <div class="pip-rail-bg"></div>
+        <div class="pip-rail-fill" id="pipRailFill"></div>
+      </div>
+
+      <!-- ── Step 1: Connect ── -->
+      <div class="pip-step" style="--pip-acc:#2E6DA4;--pip-acc-rgb:46,109,164;">
+        <div class="pip-node">
+          <div class="pip-node-ring"></div>
+          <i class="fa-solid fa-plug"></i>
+          <span class="pip-node-label">01</span>
+        </div>
+        <div class="pip-vline" aria-hidden="true"></div>
+        <div class="pip-card">
+          <div class="pip-card-glow"></div>
+          <div class="pip-card-topbar"></div>
+          <div class="pip-card-head">
+            <span class="pip-step-tag">Step 01</span>
+            <div class="pip-icon-wrap"><i class="fa-solid fa-plug"></i></div>
+          </div>
+          <h4 class="pip-title">Connect</h4>
+          <p class="pip-desc">Secure sync with your accounting system, ERP, or data source — zero disruption to your existing operations.</p>
+          <div class="pip-mv pip-mv-connect">
+            <div class="pip-mvc-sources">
+              <span class="pip-mvc-src"><i class="fa-solid fa-database"></i>Tally</span>
+              <span class="pip-mvc-src"><i class="fa-solid fa-server"></i>SAP</span>
+              <span class="pip-mvc-src"><i class="fa-solid fa-table"></i>Excel</span>
+            </div>
+            <div class="pip-mvc-flow">
+              <div class="pip-mvc-line"><div class="pip-mvc-dot"></div></div>
+              <i class="fa-solid fa-chevron-right"></i>
+            </div>
+            <div class="pip-mvc-dest">
+              <i class="fa-solid fa-chart-bar"></i>
+              <span>Power BI</span>
+            </div>
+          </div>
+          <div class="pip-timeframe"><i class="fa-regular fa-calendar"></i><span>Week 1–2</span></div>
+        </div>
+      </div>
+
+      <!-- ── Step 2: Build ── -->
+      <div class="pip-step" style="--pip-acc:#7c3aed;--pip-acc-rgb:124,58,237;">
+        <div class="pip-node">
+          <div class="pip-node-ring"></div>
+          <i class="fa-solid fa-pen-ruler"></i>
+          <span class="pip-node-label">02</span>
+        </div>
+        <div class="pip-vline" aria-hidden="true"></div>
+        <div class="pip-card">
+          <div class="pip-card-glow"></div>
+          <div class="pip-card-topbar"></div>
+          <div class="pip-card-head">
+            <span class="pip-step-tag">Step 02</span>
+            <div class="pip-icon-wrap"><i class="fa-solid fa-pen-ruler"></i></div>
+          </div>
+          <h4 class="pip-title">Build</h4>
+          <p class="pip-desc">Custom dashboards designed around your specific KPIs, business drivers, and leadership reporting needs.</p>
+          <div class="pip-mv pip-mv-build">
+            <div class="pip-mvb-row">
+              <span class="pip-mvb-lbl">Revenue</span>
+              <div class="pip-mvb-track"><div class="pip-mvb-fill" data-w="88"></div></div>
+            </div>
+            <div class="pip-mvb-row">
+              <span class="pip-mvb-lbl">Margins</span>
+              <div class="pip-mvb-track"><div class="pip-mvb-fill" data-w="74"></div></div>
+            </div>
+            <div class="pip-mvb-row">
+              <span class="pip-mvb-lbl">Cash Flow</span>
+              <div class="pip-mvb-track"><div class="pip-mvb-fill" data-w="61"></div></div>
+            </div>
+          </div>
+          <div class="pip-timeframe"><i class="fa-regular fa-calendar"></i><span>Week 2–4</span></div>
+        </div>
+      </div>
+
+      <!-- ── Step 3: Implement ── -->
+      <div class="pip-step" style="--pip-acc:#16a34a;--pip-acc-rgb:22,163,74;">
+        <div class="pip-node">
+          <div class="pip-node-ring"></div>
+          <i class="fa-solid fa-rocket"></i>
+          <span class="pip-node-label">03</span>
+        </div>
+        <div class="pip-vline" aria-hidden="true"></div>
+        <div class="pip-card">
+          <div class="pip-card-glow"></div>
+          <div class="pip-card-topbar"></div>
+          <div class="pip-card-head">
+            <span class="pip-step-tag">Step 03</span>
+            <div class="pip-icon-wrap"><i class="fa-solid fa-rocket"></i></div>
+          </div>
+          <h4 class="pip-title">Implement</h4>
+          <p class="pip-desc">Deploy with role-based access control, team training, and complete handover documentation — go-live ready.</p>
+          <div class="pip-mv pip-mv-deploy">
+            <div class="pip-mvi-item pip-mvi-done"><i class="fa-solid fa-circle-check"></i><span>Role-based Access</span></div>
+            <div class="pip-mvi-item pip-mvi-done"><i class="fa-solid fa-circle-check"></i><span>Team Training</span></div>
+            <div class="pip-mvi-item pip-mvi-done"><i class="fa-solid fa-circle-check"></i><span>Documentation</span></div>
+            <div class="pip-mvi-item pip-mvi-live"><i class="fa-solid fa-bolt"></i><span>Going Live</span></div>
+          </div>
+          <div class="pip-timeframe"><i class="fa-regular fa-calendar"></i><span>Week 3–5</span></div>
+        </div>
+      </div>
+
+      <!-- ── Step 4: Ongoing Support ── -->
+      <div class="pip-step" style="--pip-acc:#ea580c;--pip-acc-rgb:234,88,12;">
+        <div class="pip-node">
+          <div class="pip-node-ring"></div>
+          <i class="fa-solid fa-headset"></i>
+          <span class="pip-node-label">04</span>
+        </div>
+        <div class="pip-vline" aria-hidden="true"></div>
+        <div class="pip-card">
+          <div class="pip-card-glow"></div>
+          <div class="pip-card-topbar"></div>
+          <div class="pip-card-head">
+            <span class="pip-step-tag">Step 04</span>
+            <div class="pip-icon-wrap"><i class="fa-solid fa-headset"></i></div>
+          </div>
+          <h4 class="pip-title">Ongoing Support</h4>
+          <p class="pip-desc">Continuous optimization, new dashboard additions, and strategic guidance as your business needs evolve.</p>
+          <div class="pip-mv pip-mv-support">
+            <div class="pip-mvs-metrics">
+              <div class="pip-mvs-m"><div class="pip-mvs-val">98%</div><div class="pip-mvs-lbl">Uptime</div></div>
+              <div class="pip-mvs-m"><div class="pip-mvs-val">&lt;2h</div><div class="pip-mvs-lbl">Response</div></div>
+              <div class="pip-mvs-m"><div class="pip-mvs-val">∞</div><div class="pip-mvs-lbl">Updates</div></div>
+            </div>
+            <div class="pip-mvs-status"><span class="pip-mvs-dot"></span>Support Always Active</div>
+          </div>
+          <div class="pip-timeframe"><i class="fa-solid fa-infinity"></i><span>Ongoing</span></div>
+        </div>
+      </div>
+
+    </div><!-- /pip-journey -->
+
+    <!-- Bottom CTA strip -->
+    <div class="pip-cta fade-in">
+      <div class="pip-cta-info">
+        <div class="pip-cta-icon-wrap"><i class="fa-solid fa-calendar-check"></i></div>
+        <div>
+          <div class="pip-cta-title">Ready to start your implementation journey?</div>
+          <div class="pip-cta-sub">Most clients go live within 3–4 weeks of first engagement.</div>
+        </div>
+      </div>
+      <a href="contact.html#consultation" class="pip-cta-btn">
+        <i class="fa-solid fa-calendar-check"></i>
+        Book Free Consultation
+        <i class="fa-solid fa-arrow-right pip-cta-arrow"></i>
+      </a>
     </div>
+
   </div>
 </section>
 
-<!-- FAQ -->
-<section class="section bg-light">
-  <div class="container" style="max-width:800px">
-    <div class="text-center mb-48 fade-in">
-      <div class="section-label">FAQ</div>
-      <h2 class="section-title">Power BI — Common Questions</h2>
-    </div>
-    <div class="faq-list fade-in">
-      <div class="faq-item">
-        <button class="faq-question">Do I need to change my accounting software to use Power BI? <i class="fa-solid fa-plus faq-icon"></i></button>
-        <div class="faq-answer"><div class="faq-answer-inner">No. We integrate Power BI with your existing system — whether it's Tally, Zoho, QuickBooks, SAP, or Excel. No migration required.</div></div>
+<script>
+/* Process: rail fill + node activation + card reveal + bar animation */
+(function () {
+  var section = document.querySelector('.pip-section');
+  if (!section) return;
+  var fill    = document.getElementById('pipRailFill');
+  var nodes   = section.querySelectorAll('.pip-node');
+  var cards   = section.querySelectorAll('.pip-card');
+  var bars    = section.querySelectorAll('.pip-mvb-fill');
+  var fired   = false;
+
+  new IntersectionObserver(function (entries) {
+    if (!entries[0].isIntersecting || fired) return;
+    fired = true;
+
+    /* 1. Fill the rail */
+    if (fill) { setTimeout(function () { fill.style.width = '100%'; }, 100); }
+
+    /* 2. Activate nodes sequentially */
+    nodes.forEach(function (n, i) {
+      setTimeout(function () { n.classList.add('pip-node-active'); }, 200 + i * 320);
+    });
+
+    /* 3. Stagger-reveal cards */
+    cards.forEach(function (c, i) {
+      setTimeout(function () { c.classList.add('pip-card-in'); }, 150 + i * 130);
+    });
+
+    /* 4. Fill build bars */
+    setTimeout(function () {
+      bars.forEach(function (b) { b.style.width = b.dataset.w + '%'; });
+    }, 700);
+
+  }, { threshold: 0.18 }).observe(section);
+})();
+</script>
+
+<!-- FAQ — PREMIUM REDESIGN -->
+<section class="pfq-section">
+
+  <div class="pfq-bg" aria-hidden="true">
+    <div class="pfq-orb pfq-orb-1"></div>
+    <div class="pfq-orb pfq-orb-2"></div>
+    <div class="pfq-bg-grid"></div>
+  </div>
+
+  <div class="container" style="position:relative;z-index:1;">
+    <div class="pfq-layout">
+
+      <!-- ══ LEFT: Header + stats + support card ══ -->
+      <div class="pfq-left fade-in-left">
+
+        <div class="section-label">FAQ</div>
+        <h2 class="pfq-heading">Power BI —<br><span class="pfq-accent">Common Questions</span></h2>
+        <p class="pfq-subtitle">Honest, straight-to-the-point answers about our Power BI implementation service.</p>
+
+        <!-- Trust stats -->
+        <div class="pfq-stats">
+          <div class="pfq-stat">
+            <span class="pfq-stat-num">5</span>
+            <span class="pfq-stat-lbl">Questions Answered</span>
+          </div>
+          <div class="pfq-stat-sep"></div>
+          <div class="pfq-stat">
+            <span class="pfq-stat-num">&lt;2h</span>
+            <span class="pfq-stat-lbl">Avg. Response</span>
+          </div>
+          <div class="pfq-stat-sep"></div>
+          <div class="pfq-stat">
+            <span class="pfq-stat-num">Free</span>
+            <span class="pfq-stat-lbl">Consultation</span>
+          </div>
+        </div>
+
+        <!-- Support card -->
+        <div class="pfq-support-card">
+          <div class="pfq-sc-top">
+            <div class="pfq-sc-icon"><i class="fa-solid fa-headset"></i></div>
+            <div class="pfq-sc-info">
+              <div class="pfq-sc-title">Still have questions?</div>
+              <div class="pfq-sc-sub">Our team replies within a few hours.</div>
+            </div>
+            <div class="pfq-sc-status"><span class="pfq-sc-dot"></span>Online</div>
+          </div>
+          <div class="pfq-sc-actions">
+            <a href="contact.html#consultation" class="pfq-sc-btn pfq-sc-primary">
+              <i class="fa-solid fa-calendar-check"></i> Book Free Consultation
+            </a>
+            <a href="contact.html" class="pfq-sc-btn pfq-sc-ghost">
+              <i class="fa-solid fa-message"></i> Send a Message
+            </a>
+          </div>
+        </div>
+
       </div>
-      <div class="faq-item">
-        <button class="faq-question">How long does it take to implement a Power BI dashboard? <i class="fa-solid fa-plus faq-icon"></i></button>
-        <div class="faq-answer"><div class="faq-answer-inner">A standard dashboard set is typically delivered in 3–4 weeks. Complex multi-entity or multi-system integrations may take 6–8 weeks depending on scope.</div></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question">Can I access reports on my phone? <i class="fa-solid fa-plus faq-icon"></i></button>
-        <div class="faq-answer"><div class="faq-answer-inner">Yes. All dashboards are fully mobile-responsive and accessible via the Power BI mobile app — securely, from anywhere in the world.</div></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question">How is data security handled? <i class="fa-solid fa-plus faq-icon"></i></button>
-        <div class="faq-answer"><div class="faq-answer-inner">We implement row-level and role-level access controls so each user only sees data relevant to their function. Data is hosted on Microsoft's enterprise Power BI service with full encryption.</div></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question">What does Power BI cost? <i class="fa-solid fa-plus faq-icon"></i></button>
-        <div class="faq-answer"><div class="faq-answer-inner">Implementation cost depends on the number and complexity of dashboards, systems to integrate, and ongoing support requirements. Book a free consultation and we'll provide a tailored proposal.</div></div>
-      </div>
-    </div>
+
+      <!-- ══ RIGHT: FAQ accordion ══ -->
+      <div class="pfq-right fade-in-right">
+
+        <!-- Q1: Integration -->
+        <div class="pfq-item">
+          <button class="pfq-q" type="button">
+            <div class="pfq-q-icon"><i class="fa-solid fa-plug"></i></div>
+            <span class="pfq-q-text">Do I need to change my accounting software to use Power BI?</span>
+            <div class="pfq-q-chevron"><i class="fa-solid fa-chevron-down"></i></div>
+          </button>
+          <div class="pfq-a">
+            <div class="pfq-a-inner">
+              <p>No. We integrate Power BI directly with your existing system — no migration required. We connect securely to the system you already use.</p>
+              <div class="pfq-a-tags">
+                <span class="pfq-a-tag"><i class="fa-solid fa-database"></i> Tally</span>
+                <span class="pfq-a-tag"><i class="fa-solid fa-server"></i> SAP</span>
+                <span class="pfq-a-tag"><i class="fa-solid fa-calculator"></i> QuickBooks</span>
+                <span class="pfq-a-tag"><i class="fa-solid fa-gears"></i> Zoho Books</span>
+                <span class="pfq-a-tag"><i class="fa-solid fa-table"></i> Excel</span>
+                <span class="pfq-a-tag pfq-a-tag-more"><i class="fa-solid fa-circle-nodes"></i> + More</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Q2: Timeline -->
+        <div class="pfq-item">
+          <button class="pfq-q" type="button">
+            <div class="pfq-q-icon"><i class="fa-solid fa-clock"></i></div>
+            <span class="pfq-q-text">How long does it take to implement a Power BI dashboard?</span>
+            <div class="pfq-q-chevron"><i class="fa-solid fa-chevron-down"></i></div>
+          </button>
+          <div class="pfq-a">
+            <div class="pfq-a-inner">
+              <p>A standard dashboard set is typically delivered in <strong>3–4 weeks</strong>. Multi-entity or multi-system integrations may take 6–8 weeks depending on scope.</p>
+              <div class="pfq-a-timeline">
+                <div class="pfq-at-item">
+                  <div class="pfq-at-dot" style="background:#2E6DA4;"></div>
+                  <div class="pfq-at-line"></div>
+                  <div class="pfq-at-label">Week 1–2</div>
+                  <div class="pfq-at-sub">Connect &amp; Diagnose</div>
+                </div>
+                <div class="pfq-at-item">
+                  <div class="pfq-at-dot" style="background:#7c3aed;"></div>
+                  <div class="pfq-at-line"></div>
+                  <div class="pfq-at-label">Week 2–4</div>
+                  <div class="pfq-at-sub">Build &amp; Refine</div>
+                </div>
+                <div class="pfq-at-item pfq-at-last">
+                  <div class="pfq-at-dot" style="background:#16a34a;"></div>
+                  <div class="pfq-at-label">Week 3–5</div>
+                  <div class="pfq-at-sub">Deploy &amp; Go Live</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Q3: Mobile -->
+        <div class="pfq-item">
+          <button class="pfq-q" type="button">
+            <div class="pfq-q-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
+            <span class="pfq-q-text">Can I access reports on my phone?</span>
+            <div class="pfq-q-chevron"><i class="fa-solid fa-chevron-down"></i></div>
+          </button>
+          <div class="pfq-a">
+            <div class="pfq-a-inner">
+              <p>Yes. All dashboards are fully mobile-responsive and accessible via the <strong>Power BI mobile app</strong> — securely, from anywhere in the world, on any device.</p>
+              <div class="pfq-a-checks">
+                <div class="pfq-a-check"><i class="fa-solid fa-circle-check"></i><span>iOS &amp; Android Power BI app</span></div>
+                <div class="pfq-a-check"><i class="fa-solid fa-circle-check"></i><span>Microsoft enterprise security on mobile</span></div>
+                <div class="pfq-a-check"><i class="fa-solid fa-circle-check"></i><span>Real-time data sync — always current</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Q4: Security -->
+        <div class="pfq-item">
+          <button class="pfq-q" type="button">
+            <div class="pfq-q-icon"><i class="fa-solid fa-shield-halved"></i></div>
+            <span class="pfq-q-text">How is data security handled?</span>
+            <div class="pfq-q-chevron"><i class="fa-solid fa-chevron-down"></i></div>
+          </button>
+          <div class="pfq-a">
+            <div class="pfq-a-inner">
+              <p>We implement <strong>row-level and role-level access controls</strong> so each user only sees what's relevant to their function. Data is hosted on Microsoft's enterprise Power BI service with full encryption.</p>
+              <div class="pfq-a-checks">
+                <div class="pfq-a-check"><i class="fa-solid fa-circle-check"></i><span>Role-based &amp; row-level security</span></div>
+                <div class="pfq-a-check"><i class="fa-solid fa-circle-check"></i><span>Microsoft enterprise cloud infrastructure</span></div>
+                <div class="pfq-a-check"><i class="fa-solid fa-circle-check"></i><span>Full encryption at rest &amp; in transit</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Q5: Cost -->
+        <div class="pfq-item pfq-item-gold">
+          <button class="pfq-q" type="button">
+            <div class="pfq-q-icon pfq-q-icon-gold"><i class="fa-solid fa-tag"></i></div>
+            <span class="pfq-q-text">What does Power BI implementation cost?</span>
+            <div class="pfq-q-chevron"><i class="fa-solid fa-chevron-down"></i></div>
+          </button>
+          <div class="pfq-a">
+            <div class="pfq-a-inner">
+              <p>Cost depends on the number and complexity of dashboards, systems to integrate, and ongoing support. We provide a <strong>tailored proposal</strong> after a free consultation — no guesswork, no generic pricing.</p>
+              <a href="contact.html#consultation" class="pfq-a-cta">
+                <i class="fa-solid fa-calendar-check"></i>
+                Get a Free Quote
+                <i class="fa-solid fa-arrow-right pfq-a-cta-arrow"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /pfq-right -->
+    </div><!-- /pfq-layout -->
   </div>
 </section>
 
-<!-- CTA -->
-<section class="section-sm">
+<script>
+/* FAQ accordion */
+(function () {
+  var items = document.querySelectorAll('.pfq-item');
+  items.forEach(function (item) {
+    var btn = item.querySelector('.pfq-q');
+    if (!btn) return;
+    btn.addEventListener('click', function () {
+      var isOpen = item.classList.contains('pfq-open');
+      items.forEach(function (i) { i.classList.remove('pfq-open'); });
+      if (!isOpen) item.classList.add('pfq-open');
+    });
+  });
+})();
+</script>
+
+<!-- CTA — same layout as homepage pcta-section -->
+<section class="pcta-section" id="cta">
+  <div class="pcta-bg" aria-hidden="true">
+    <div class="pcta-orb pcta-orb-1"></div>
+    <div class="pcta-orb pcta-orb-2"></div>
+    <div class="pcta-orb pcta-orb-3"></div>
+    <div class="pcta-grid-overlay"></div>
+    <div class="pcta-particles">
+      <span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span>
+    </div>
+  </div>
+
   <div class="container">
-    <div class="cta-section fade-in">
-      <h2>Ready to See Your Business in Real Time?</h2>
-      <p>Book a free Power BI demo. We'll show you exactly what your business could look like with live, automated dashboards.</p>
-      <div class="cta-btns">
-        <a href="contact.html#consultation" class="btn btn-primary"><i class="fa-solid fa-calendar-check"></i> Book Free Demo</a>
-        <a href="tel:+971565075253" class="btn btn-white"><i class="fa-solid fa-phone"></i> Call Now</a>
+    <div class="pcta-layout">
+
+      <!-- LEFT: CTA Content -->
+      <div class="pcta-left fade-in-left">
+
+        <div class="pcta-badge">
+          <span class="pcta-badge-dot"></span>
+          <i class="fa-solid fa-star"></i>
+          Free Power BI Demo — No Obligation
+        </div>
+
+        <h2 class="pcta-heading">
+          Ready to See Your<br>
+          <span class="pcta-heading-accent">Business in Real Time?</span>
+        </h2>
+
+        <p class="pcta-sub">Book a free demo. We'll show you exactly what your business could look like with live, automated Power BI dashboards — built around your data.</p>
+
+        <div class="pcta-btns">
+          <a href="contact.html#consultation" class="btn btn-primary pcta-btn-primary">
+            <i class="fa-solid fa-calendar-check"></i>
+            Book Free Demo
+            <i class="fa-solid fa-arrow-right pcta-btn-arrow"></i>
+          </a>
+          <a href="tel:+971565075253" class="pcta-btn-ghost">
+            <i class="fa-solid fa-phone"></i>
+            Call Now
+          </a>
+        </div>
+
+        <div class="pcta-trust">
+          <div class="pcta-trust-item"><i class="fa-solid fa-circle-check"></i><span>No commitment required</span></div>
+          <div class="pcta-trust-item"><i class="fa-solid fa-circle-check"></i><span>100+ dashboards delivered</span></div>
+          <div class="pcta-trust-item"><i class="fa-solid fa-circle-check"></i><span>Live in 3–4 weeks</span></div>
+          <div class="pcta-trust-item"><i class="fa-solid fa-circle-check"></i><span>UAE &amp; worldwide</span></div>
+        </div>
       </div>
-    </div>
+
+      <!-- RIGHT: Power BI Dashboard Widget -->
+      <div class="pcta-right fade-in-right">
+
+        <div class="pcta-float-card pcta-fc-top">
+          <div class="pcta-fc-icon pcta-fci-yellow"><i class="fa-solid fa-bolt"></i></div>
+          <div class="pcta-fc-body">
+            <div class="pcta-fc-val">Real-time</div>
+            <div class="pcta-fc-lbl">Live Data Sync</div>
+          </div>
+        </div>
+
+        <div class="pcta-stats-card">
+          <div class="pcta-sc-shimmer"></div>
+          <div class="pcta-sc-header">
+            <div class="pcta-sc-dots"><span></span><span></span><span></span></div>
+            <span class="pcta-sc-title"><i class="fa-solid fa-chart-bar"></i> Power BI Impact Dashboard</span>
+            <div class="pcta-sc-live"><span></span>LIVE</div>
+          </div>
+
+          <div class="pcta-sc-metrics">
+            <div class="pcta-sc-metric">
+              <div class="pcta-sc-val">80%+</div>
+              <div class="pcta-sc-lbl">Time Saved</div>
+              <div class="pcta-sc-trend"><i class="fa-solid fa-caret-down"></i> Reporting effort</div>
+            </div>
+            <div class="pcta-sc-metric">
+              <div class="pcta-sc-val">100+</div>
+              <div class="pcta-sc-lbl">Dashboards Built</div>
+              <div class="pcta-sc-trend"><i class="fa-solid fa-caret-up"></i> 8+ Industries</div>
+            </div>
+            <div class="pcta-sc-metric">
+              <div class="pcta-sc-val">3–4 Wks</div>
+              <div class="pcta-sc-lbl">Go-Live Time</div>
+              <div class="pcta-sc-trend" style="color:#4ade80;"><i class="fa-solid fa-circle-check"></i> Fast deploy</div>
+            </div>
+          </div>
+
+          <div class="pcta-mini-chart">
+            <div class="pcta-mc-bar" style="height:30%"></div>
+            <div class="pcta-mc-bar" style="height:50%"></div>
+            <div class="pcta-mc-bar" style="height:42%"></div>
+            <div class="pcta-mc-bar" style="height:68%"></div>
+            <div class="pcta-mc-bar" style="height:58%"></div>
+            <div class="pcta-mc-bar pcta-mc-gold" style="height:84%"></div>
+            <div class="pcta-mc-bar pcta-mc-gold" style="height:92%"></div>
+          </div>
+          <div class="pcta-chart-months">
+            <span>Jun</span><span>Jul</span><span>Aug</span><span>Sep</span><span>Oct</span><span>Nov</span><span>Dec</span>
+          </div>
+        </div>
+
+        <div class="pcta-float-card pcta-fc-bottom">
+          <div class="pcta-fc-icon pcta-fci-green"><i class="fa-solid fa-shield-halved"></i></div>
+          <div class="pcta-fc-body">
+            <div class="pcta-fc-val">98%</div>
+            <div class="pcta-fc-lbl">Client Satisfaction</div>
+          </div>
+        </div>
+
+      </div><!-- /pcta-right -->
+    </div><!-- /pcta-layout -->
   </div>
 </section>
 
