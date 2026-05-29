@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Insights & Knowledge Hub | Virtual CFO Management Consultancy</title>
+  <meta name="description" content="Finance insights, expert articles, Power BI guides, free resources, and business education for SMEs and growing businesses in UAE and worldwide."/>
+  <meta name="keywords" content="Virtual CFO insights, finance articles UAE, Power BI guides, cash flow management, financial reporting, Dubai CFO blog, business finance resources"/>
+  <meta property="og:title" content="Insights & Knowledge Hub | Virtual CFO Management Consultancy"/>
+  <meta property="og:description" content="Expert finance articles, CFO insights, Power BI guides, and practical resources for business owners."/>
+  <meta property="og:type" content="website"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <style>
+    /* ══ HERO ════════════════════════════════════════ */
+    .ins-hero {
+      background: linear-gradient(160deg,#f0f8ff 0%,#e4effe 35%,#f0f7ff 65%,#e8f2ff 100%);
+      padding: 80px 0 96px; position: relative; overflow: hidden; text-align: center;
+    }
+    .ins-hero-decor { position: absolute; inset: 0; pointer-events: none; }
+    .ins-orb { position: absolute; border-radius: 50%; filter: blur(80px); }
+    .ins-orb-1 { width:520px; height:520px; background:radial-gradient(circle,rgba(59,130,246,0.18),transparent 70%); top:-150px; right:-100px; animation:orbFloat1 16s ease-in-out infinite; }
+    .ins-orb-2 { width:420px; height:420px; background:radial-gradient(circle,rgba(245,197,24,0.14),transparent 70%); bottom:-100px; left:-60px; animation:orbFloat2 20s ease-in-out infinite; }
+    .ins-orb-3 { width:300px; height:300px; background:radial-gradient(circle,rgba(30,64,175,0.10),transparent 70%); top:35%; left:40%; animation:orbFloat3 14s ease-in-out infinite; }
+    .ins-hero-grid {
+      position: absolute; inset: 0;
+      background-image: linear-gradient(rgba(30,64,175,0.045) 1px,transparent 1px), linear-gradient(90deg,rgba(30,64,175,0.045) 1px,transparent 1px);
+      background-size: 60px 60px;
+    }
+    .ins-hero .container { position: relative; z-index: 1; }
+    .ins-hero h1 { color:var(--dark); margin-bottom:16px; }
+    .ins-hero h1 span { color:var(--blue); }
+    .ins-hero-sub { color:var(--gray); font-size:1.1rem; max-width:600px; margin:0 auto 40px; line-height:1.75; }
+    .ins-hero-stats {
+      display:flex; justify-content:center; align-items:center; gap:0; flex-wrap:wrap;
+      background:rgba(255,255,255,0.7); border:1px solid rgba(46,109,164,0.15);
+      border-radius:var(--radius-lg); padding:20px 32px; max-width:680px; margin:0 auto 36px;
+      backdrop-filter:blur(8px); box-shadow:0 4px 24px rgba(30,64,175,0.08);
+    }
+    .ins-stat { display:flex; flex-direction:column; align-items:center; gap:4px; flex:1; min-width:110px; padding:8px 16px; }
+    .ins-stat-num { font-size:1.5rem; font-weight:800; color:var(--dark); line-height:1; }
+    .ins-stat-lbl { font-size:0.74rem; color:var(--gray); font-weight:500; letter-spacing:0.4px; white-space:nowrap; }
+    .ins-stat-sep { width:1px; height:36px; background:rgba(30,64,175,0.12); flex-shrink:0; }
+
+    /* Category filter */
+    .ins-filter {
+      display:flex; gap:8px; flex-wrap:wrap; justify-content:center;
+    }
+    .ins-filter-btn {
+      padding:9px 20px; border-radius:50px; border:1.5px solid rgba(46,109,164,0.2);
+      font-size:0.85rem; font-weight:600; color:var(--gray); cursor:pointer;
+      background:rgba(255,255,255,0.8); transition:all 0.25s ease;
+      display:inline-flex; align-items:center; gap:6px;
+      backdrop-filter:blur(6px);
+    }
+    .ins-filter-btn:hover { border-color:var(--blue); color:var(--blue); background:#fff; }
+    .ins-filter-btn.active { background:var(--blue); color:#fff; border-color:var(--blue); box-shadow:0 4px 14px rgba(46,109,164,0.3); }
+    .ins-filter-btn img { width:14px; height:14px; }
+
+    /* ══ FEATURED ARTICLE ══════════════════════════ */
+    .ins-featured-section {
+      padding:72px 0 56px; background:#fff; position:relative; overflow:hidden;
+    }
+    .ins-featured-section::before {
+      content:''; position:absolute; inset:0;
+      background-image:linear-gradient(rgba(30,64,175,0.022) 1px,transparent 1px),linear-gradient(90deg,rgba(30,64,175,0.022) 1px,transparent 1px);
+      background-size:60px 60px;
+    }
+    .ins-featured-section .container { position:relative; z-index:1; }
+    .ins-feat-card {
+      display:grid; grid-template-columns:1fr 1fr; gap:0;
+      background:#fff; border:1px solid var(--border); border-radius:24px; overflow:hidden;
+      box-shadow:0 12px 48px rgba(0,0,0,0.08); transition:all 0.35s cubic-bezier(0.4,0,0.2,1);
+    }
+    .ins-feat-card:hover { transform:translateY(-4px); box-shadow:0 20px 64px rgba(0,0,0,0.12); }
+    .ins-feat-img {
+      background:linear-gradient(135deg,#0a1628 0%,#0d2444 50%,#1a3a6b 100%);
+      display:flex; align-items:center; justify-content:center; font-size:5rem;
+      color:rgba(255,255,255,0.15); position:relative; overflow:hidden; min-height:320px;
+    }
+    .ins-feat-img i { position:relative; z-index:1; color:var(--yellow); font-size:4rem; }
+    .ins-feat-img::before {
+      content:''; position:absolute; inset:0;
+      background:radial-gradient(circle at 30% 50%,rgba(245,197,24,0.15),transparent 60%);
+    }
+    .ins-feat-badge {
+      position:absolute; top:20px; left:20px;
+      background:rgba(46,109,164,0.85); color:#fff;
+      font-size:0.72rem; font-weight:700; padding:5px 14px; border-radius:50px;
+      display:flex; align-items:center; gap:6px;
+    }
+    .ins-feat-featured {
+      position:absolute; top:20px; right:20px;
+      background:linear-gradient(135deg,#F5C518,#d4a800); color:#0d1a2e;
+      font-size:0.68rem; font-weight:800; padding:5px 12px; border-radius:50px;
+      letter-spacing:0.5px; text-transform:uppercase;
+    }
+    .ins-feat-body { padding:36px 40px; display:flex; flex-direction:column; justify-content:center; }
+    .ins-feat-meta { display:flex; align-items:center; gap:14px; font-size:0.78rem; color:var(--gray); margin-bottom:16px; }
+    .ins-feat-meta i { font-size:0.7rem; }
+    .ins-feat-body h2 { font-size:1.5rem; font-weight:800; color:var(--dark); line-height:1.35; margin-bottom:14px; }
+    .ins-feat-body p { font-size:0.92rem; color:var(--gray); line-height:1.75; margin-bottom:24px; }
+    .ins-feat-link {
+      display:inline-flex; align-items:center; gap:8px;
+      background:var(--blue); color:#fff; padding:12px 24px; border-radius:8px;
+      font-size:0.9rem; font-weight:700; text-decoration:none;
+      transition:all 0.25s ease; width:fit-content;
+    }
+    .ins-feat-link:hover { background:var(--blue-dark); transform:translateX(3px); }
+
+    /* ══ ARTICLES GRID ═════════════════════════════ */
+    .ins-art-section {
+      padding:72px 0 96px;
+      background:linear-gradient(160deg,#f8fbff 0%,#f4f8ff 50%,#f8fbff 100%);
+      position:relative; overflow:hidden;
+    }
+    .ins-art-section::before {
+      content:''; position:absolute; inset:0;
+      background-image:linear-gradient(rgba(30,64,175,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(30,64,175,0.025) 1px,transparent 1px);
+      background-size:60px 60px;
+    }
+    .ins-art-section .container { position:relative; z-index:1; }
+    .ins-art-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+    .ins-art-card {
+      background:#fff; border:1px solid var(--border); border-radius:20px;
+      overflow:hidden; transition:all 0.35s cubic-bezier(0.4,0,0.2,1); position:relative;
+    }
+    .ins-art-card:hover { transform:translateY(-7px); box-shadow:0 20px 56px rgba(0,0,0,0.1); border-color:rgba(46,109,164,0.2); }
+    .ins-art-card[style*="display:none"] { display:none !important; }
+    .ins-art-line {
+      position:absolute; top:0; left:0; right:0; height:3px; border-radius:20px 20px 0 0;
+      transform:scaleX(0); transform-origin:left; transition:transform 0.4s cubic-bezier(0.4,0,0.2,1);
+    }
+    .ins-art-card:hover .ins-art-line { transform:scaleX(1); }
+    .ins-art-img {
+      height:148px; display:flex; align-items:center; justify-content:center;
+      font-size:2.6rem; position:relative; overflow:hidden;
+    }
+    .ins-art-img::before {
+      content:''; position:absolute; inset:0;
+      background-image:radial-gradient(circle,rgba(255,255,255,0.06) 1px,transparent 1px);
+      background-size:20px 20px;
+    }
+    .ins-art-img i { position:relative; z-index:1; }
+    .ins-art-body { padding:20px 22px 18px; }
+    .ins-art-tag { display:inline-flex; align-items:center; gap:5px; font-size:0.7rem; font-weight:700; letter-spacing:1px; text-transform:uppercase; padding:4px 12px; border-radius:50px; margin-bottom:11px; }
+    .ins-art-body h4 { color:var(--dark); font-size:0.95rem; font-weight:700; line-height:1.45; margin-bottom:9px; transition:color 0.2s; }
+    .ins-art-card:hover h4 { color:var(--blue); }
+    .ins-art-body p { font-size:0.82rem; color:var(--gray); margin-bottom:14px; line-height:1.65; }
+    .ins-art-foot { display:flex; align-items:center; justify-content:space-between; padding-top:13px; border-top:1px solid var(--border); }
+    .ins-art-meta { font-size:0.74rem; color:var(--gray); display:flex; align-items:center; gap:7px; }
+    .ins-art-meta i { font-size:0.68rem; }
+    .ins-art-link { display:inline-flex; align-items:center; gap:5px; font-size:0.78rem; font-weight:700; color:var(--blue); text-decoration:none; transition:all 0.2s ease; }
+    .ins-art-link:hover { gap:9px; color:var(--yellow-dark); }
+    .ins-no-results { display:none; text-align:center; padding:60px 0; color:var(--gray); grid-column:1/-1; }
+    .ins-no-results i { font-size:2.5rem; margin-bottom:16px; opacity:0.4; display:block; }
+
+    /* ══ VIDEOS ════════════════════════════════════ */
+    .ins-vid-section {
+      padding:96px 0; position:relative; overflow:hidden;
+      background:linear-gradient(160deg,#f0f8ff 0%,#e4effe 40%,#f0f7ff 70%,#e8f2ff 100%);
+    }
+    .ins-vid-bg { position:absolute; inset:0; z-index:0; pointer-events:none; }
+    .ins-vo-1 { position:absolute; border-radius:50%; filter:blur(80px); width:500px; height:500px; background:radial-gradient(circle,rgba(59,130,246,0.18),transparent 70%); top:-120px; left:-80px; animation:orbFloat1 16s ease-in-out infinite; }
+    .ins-vo-2 { position:absolute; border-radius:50%; filter:blur(80px); width:400px; height:400px; background:radial-gradient(circle,rgba(245,197,24,0.14),transparent 70%); bottom:-100px; right:-60px; animation:orbFloat2 20s ease-in-out infinite; }
+    .ins-vid-grid-pat {
+      position:absolute; inset:0;
+      background-image:linear-gradient(rgba(30,64,175,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(30,64,175,0.04) 1px,transparent 1px);
+      background-size:60px 60px;
+    }
+    .ins-vid-section .container { position:relative; z-index:1; }
+    .ins-vid-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:20px; }
+    .ins-vid-card {
+      border-radius:20px; overflow:hidden; aspect-ratio:16/9;
+      position:relative; cursor:pointer;
+      display:flex; align-items:center; justify-content:center;
+      transition:all 0.35s cubic-bezier(0.4,0,0.2,1);
+      box-shadow:0 8px 32px rgba(0,0,0,0.2);
+    }
+    .ins-vid-card:hover { transform:translateY(-6px) scale(1.01); box-shadow:0 20px 56px rgba(0,0,0,0.3); }
+    .ins-vid-bg-icon { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-size:6rem; color:rgba(255,255,255,0.05); }
+    .ins-vid-overlay {
+      position:absolute; inset:0;
+      background:linear-gradient(to top,rgba(0,0,0,0.72),rgba(0,0,0,0.18));
+      display:flex; flex-direction:column; align-items:center; justify-content:center; gap:14px;
+    }
+    .ins-vid-tag {
+      display:inline-flex; align-items:center; gap:5px;
+      background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.2);
+      border-radius:100px; padding:4px 12px; font-size:0.7rem; font-weight:600; color:rgba(255,255,255,0.85);
+    }
+    .ins-play-btn {
+      width:68px; height:68px; border-radius:50%;
+      background:linear-gradient(135deg,#F5C518,#d4a800); color:#0d1a2e;
+      display:flex; align-items:center; justify-content:center; font-size:1.4rem;
+      box-shadow:0 8px 24px rgba(245,197,24,0.5); transition:all 0.3s ease;
+    }
+    .ins-vid-card:hover .ins-play-btn { transform:scale(1.12); box-shadow:0 12px 36px rgba(245,197,24,0.65); }
+    .ins-vid-label { color:#fff; font-size:0.88rem; font-weight:700; text-align:center; padding:0 20px; line-height:1.45; }
+
+    /* ══ GUIDES ════════════════════════════════════ */
+    .ins-guides-section { padding:96px 0; background:#fff; position:relative; overflow:hidden; }
+    .ins-guides-section::before {
+      content:''; position:absolute; inset:0;
+      background-image:linear-gradient(rgba(30,64,175,0.022) 1px,transparent 1px),linear-gradient(90deg,rgba(30,64,175,0.022) 1px,transparent 1px);
+      background-size:60px 60px;
+    }
+    .ins-guides-section .container { position:relative; z-index:1; }
+    .ins-guides-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:20px; }
+    .ins-guide-card {
+      display:flex; align-items:flex-start; gap:18px;
+      background:#fff; border:1px solid var(--border); border-radius:18px;
+      padding:26px 24px; transition:all 0.35s cubic-bezier(0.4,0,0.2,1);
+      position:relative; overflow:hidden;
+    }
+    .ins-guide-card::before {
+      content:''; position:absolute; top:0; left:0; right:0; height:3px;
+      background:var(--gl, var(--blue));
+      transform:scaleX(0); transform-origin:left; border-radius:18px 18px 0 0;
+      transition:transform 0.4s cubic-bezier(0.4,0,0.2,1);
+    }
+    .ins-guide-card:hover { border-color:rgba(46,109,164,0.18); transform:translateY(-4px); box-shadow:0 12px 40px rgba(0,0,0,0.08); }
+    .ins-guide-card:hover::before { transform:scaleX(1); }
+    .ins-guide-icon {
+      width:54px; height:54px; border-radius:14px; flex-shrink:0;
+      display:flex; align-items:center; justify-content:center; font-size:1.25rem;
+      transition:all 0.3s ease; box-shadow:0 4px 12px rgba(0,0,0,0.08);
+    }
+    .ins-guide-card:hover .ins-guide-icon { transform:scale(1.1) rotate(-4deg); }
+    .ins-guide-card h4 { color:var(--dark); font-size:0.97rem; font-weight:700; margin-bottom:6px; line-height:1.4; }
+    .ins-guide-card p { font-size:0.82rem; color:var(--gray); margin-bottom:14px; line-height:1.6; }
+    .ins-guide-link { display:inline-flex; align-items:center; gap:6px; font-size:0.81rem; font-weight:700; color:var(--blue); text-decoration:none; transition:all 0.2s ease; }
+    .ins-guide-link:hover { gap:10px; color:var(--yellow-dark); }
+    .ins-guide-link i { font-size:0.75rem; }
+
+    /* ══ NEWSLETTER ════════════════════════════════ */
+    .ins-nl-section {
+      padding:96px 0; position:relative; overflow:hidden;
+      background:linear-gradient(145deg,#071a38 0%,#0d2444 55%,#112b56 100%);
+    }
+    .ins-nl-bg { position:absolute; inset:0; pointer-events:none; }
+    .ins-nl-o1 { position:absolute; width:500px; height:500px; border-radius:50%; filter:blur(80px); background:radial-gradient(circle,rgba(46,109,164,0.3),transparent 70%); top:-150px; left:-80px; animation:orbFloat1 15s ease-in-out infinite; }
+    .ins-nl-o2 { position:absolute; width:400px; height:400px; border-radius:50%; filter:blur(80px); background:radial-gradient(circle,rgba(245,197,24,0.18),transparent 70%); bottom:-100px; right:-60px; animation:orbFloat2 20s ease-in-out infinite; }
+    .ins-nl-grid { position:absolute; inset:0; background-image:radial-gradient(circle,rgba(255,255,255,0.04) 1px,transparent 1px); background-size:28px 28px; }
+    .ins-nl-section .container { position:relative; z-index:1; }
+    .ins-nl-wrap { max-width:640px; margin:0 auto; text-align:center; }
+    .ins-nl-badge {
+      display:inline-flex; align-items:center; gap:8px;
+      background:rgba(245,197,24,0.12); border:1px solid rgba(245,197,24,0.28);
+      border-radius:100px; padding:6px 16px; margin-bottom:24px;
+      font-size:0.78rem; font-weight:700; color:#F5C518; letter-spacing:0.5px;
+    }
+    .ins-nl-dot { width:6px; height:6px; border-radius:50%; background:#F5C518; animation:livePulse 1.5s infinite; }
+    .ins-nl-wrap h2 { color:#fff; margin-bottom:14px; }
+    .ins-nl-wrap > p { color:rgba(255,255,255,0.65); font-size:1.05rem; margin-bottom:36px; }
+    .ins-nl-form {
+      display:flex; gap:0; max-width:520px; margin:0 auto 16px;
+      background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15);
+      border-radius:14px; padding:6px 6px 6px 20px;
+    }
+    .ins-nl-input { flex:1; background:transparent; border:none; outline:none; font-size:0.92rem; font-family:'Inter',sans-serif; color:#fff; padding:8px 0; }
+    .ins-nl-input::placeholder { color:rgba(255,255,255,0.38); }
+    .ins-nl-btn {
+      background:linear-gradient(135deg,#F5C518,#d4a800); color:#0d1a2e;
+      border:none; border-radius:10px; padding:12px 22px;
+      font-size:0.9rem; font-weight:800; font-family:'Inter',sans-serif;
+      cursor:pointer; display:flex; align-items:center; gap:7px;
+      transition:all 0.3s ease; white-space:nowrap;
+      box-shadow:0 4px 16px rgba(245,197,24,0.35);
+    }
+    .ins-nl-btn:hover { transform:translateY(-1px); box-shadow:0 8px 24px rgba(245,197,24,0.5); }
+    .ins-nl-note { font-size:0.76rem; color:rgba(255,255,255,0.32); margin-bottom:28px; }
+    .ins-nl-trust { display:flex; align-items:center; justify-content:center; gap:20px; flex-wrap:wrap; }
+    .ins-nl-ti { display:flex; align-items:center; gap:6px; font-size:0.78rem; color:rgba(255,255,255,0.48); font-weight:500; }
+    .ins-nl-ti i { color:rgba(245,197,24,0.65); font-size:0.7rem; }
+
+    /* ── Responsive ─────────────────────────────── */
+    @media(max-width:1024px){ .ins-art-grid{ grid-template-columns:repeat(2,1fr); } }
+    @media(max-width:768px){
+      .ins-art-grid,.ins-vid-grid,.ins-guides-grid{ grid-template-columns:1fr; }
+      .ins-feat-card{ grid-template-columns:1fr; }
+      .ins-feat-img{ min-height:200px; }
+      .ins-feat-body{ padding:24px 28px; }
+      .ins-hero-stats{ padding:16px 20px; }
+      .ins-stat-sep{ display:none; }
+      .ins-nl-form{ flex-direction:column; padding:14px 16px; border-radius:12px; }
+      .ins-nl-btn{ justify-content:center; }
+    }
+    @media(max-width:480px){
+      .ins-art-grid{ grid-template-columns:1fr; }
+      .ins-filter-btn{ font-size:0.8rem; padding:7px 14px; }
+    }
+  </style>
+</head>
+<body>
+<div id="site-nav"></div>
+
+<!-- ══ HERO ══════════════════════════════════════════ -->
+<section class="ins-hero">
+  <div class="ins-hero-decor" aria-hidden="true">
+    <div class="ins-orb ins-orb-1"></div>
+    <div class="ins-orb ins-orb-2"></div>
+    <div class="ins-orb ins-orb-3"></div>
+    <div class="ins-hero-grid"></div>
+  </div>
+  <div class="container">
+    <div class="section-label">Knowledge Hub</div>
+    <h1>Finance <span>Insights</span> &amp; Resources<br>for Business Leaders</h1>
+    <p class="ins-hero-sub">Expert articles, practical guides, video resources, and finance education — everything you need to make smarter financial decisions and grow with confidence.</p>
+
+    <div class="ins-hero-stats fade-in">
+      <div class="ins-stat"><div class="ins-stat-num">10+</div><div class="ins-stat-lbl">Finance Articles</div></div>
+      <div class="ins-stat-sep"></div>
+      <div class="ins-stat"><div class="ins-stat-num">4</div><div class="ins-stat-lbl">Expert Videos</div></div>
+      <div class="ins-stat-sep"></div>
+      <div class="ins-stat"><div class="ins-stat-num">6</div><div class="ins-stat-lbl">Free Guides</div></div>
+      <div class="ins-stat-sep"></div>
+      <div class="ins-stat"><div class="ins-stat-num">Free</div><div class="ins-stat-lbl">Consultation</div></div>
+    </div>
+
+    <!-- Category Filter -->
+    <div class="ins-filter fade-in" id="insFilter">
+      <button class="ins-filter-btn active" data-filter="all"><i class="fa-solid fa-grid-2"></i> All Content</button>
+      <button class="ins-filter-btn" data-filter="virtual-cfo"><i class="fa-solid fa-chart-line"></i> Virtual CFO</button>
+      <button class="ins-filter-btn" data-filter="finance-strategy"><i class="fa-solid fa-file-chart-column"></i> Finance Strategy</button>
+      <button class="ins-filter-btn" data-filter="power-bi"><img src="./power-bi.png" alt="Power BI"> Power BI</button>
+      <button class="ins-filter-btn" data-filter="cash-flow"><i class="fa-solid fa-droplet"></i> Cash Flow</button>
+      <button class="ins-filter-btn" data-filter="compliance"><i class="fa-solid fa-shield-halved"></i> Compliance</button>
+      <button class="ins-filter-btn" data-filter="process"><i class="fa-solid fa-gears"></i> Process</button>
+      <button class="ins-filter-btn" data-filter="guides"><i class="fa-solid fa-book-open"></i> Guides</button>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FEATURED ARTICLE ═══════════════════════════════ -->
+<section class="ins-featured-section" id="insFilterTarget">
+  <div class="container">
+
+    <div class="text-center mb-48 fade-in">
+      <div class="section-label">Featured</div>
+      <h2 class="section-title"><span class="section-title-underline">Start Here</span></h2>
+    </div>
+
+    <div class="ins-feat-card fade-in ins-article-card" data-category="virtual-cfo">
+      <div class="ins-feat-img">
+        <i class="fa-solid fa-chart-line"></i>
+        <span class="ins-feat-badge"><i class="fa-solid fa-briefcase"></i> Virtual CFO</span>
+        <span class="ins-feat-featured"><i class="fa-solid fa-star"></i> Featured</span>
+      </div>
+      <div class="ins-feat-body">
+        <div class="ins-feat-meta">
+          <span><i class="fa-regular fa-calendar"></i> April 15, 2025</span>
+          <span><i class="fa-regular fa-clock"></i> 8 min read</span>
+        </div>
+        <h2>Why Every Growing SME Needs a Virtual CFO in 2025</h2>
+        <p>Most business owners think hiring an accountant is enough. Discover why strategic CFO-level oversight is the difference between surviving and scaling — and how to access it without the full-time cost.</p>
+        <a href="blog-virtual-cfo-benefits.html" class="ins-feat-link">
+          Read Full Article <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ LATEST INSIGHTS — ARTICLE GRID ════════════════ -->
+<section class="ins-art-section">
+  <div class="container">
+
+    <div class="text-center mb-48 fade-in">
+      <div class="section-label">Latest Insights</div>
+      <h2 class="section-title"><span class="section-title-underline">Finance Articles &amp; Guides</span></h2>
+      <p class="section-subtitle mt-16">Expert perspectives on CFO strategy, reporting, compliance, and financial transformation — written for business owners.</p>
+    </div>
+
+    <div class="ins-art-grid" id="insArtGrid">
+
+      <!-- Article 1: Financial Reporting -->
+      <div class="ins-art-card fade-in-up stagger-1 ins-article-card" data-category="finance-strategy">
+        <div class="ins-art-line" style="background:linear-gradient(90deg,#d4a800,#F5C518)"></div>
+        <div class="ins-art-img" style="background:linear-gradient(135deg,#1a0f00,#3d2500)">
+          <i class="fa-solid fa-chart-bar" style="color:#F5C518"></i>
+        </div>
+        <div class="ins-art-body">
+          <span class="ins-art-tag" style="background:rgba(212,168,0,0.12);color:#b48700">Finance Strategy</span>
+          <h4>5 Financial Reporting Best Practices Every Growing Business Must Follow</h4>
+          <p>Transform raw numbers into actionable business intelligence and management confidence with these proven practices.</p>
+          <div class="ins-art-foot">
+            <div class="ins-art-meta"><i class="fa-regular fa-clock"></i> 6 min read · Finance Strategy</div>
+            <a href="blog-financial-reporting.html" class="ins-art-link">Read <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Article 2: Power BI -->
+      <div class="ins-art-card fade-in-up stagger-2 ins-article-card" data-category="power-bi">
+        <div class="ins-art-line" style="background:linear-gradient(90deg,#7c3aed,#a855f7)"></div>
+        <div class="ins-art-img" style="background:linear-gradient(135deg,#0d0a1f,#1e1550)">
+          <i class="fa-solid fa-chart-pie" style="color:#a78bfa"></i>
+        </div>
+        <div class="ins-art-body">
+          <span class="ins-art-tag" style="background:rgba(109,40,217,0.1);color:#7c3aed">
+            <span class="powerbi-label">Power BI<img src="./power-bi.png" alt="Power BI Logo"></span>
+          </span>
+          <h4>How <span class="powerbi-label">Power BI<img src="./power-bi.png" alt="Power BI Logo"></span> is Transforming Financial Decision-Making for UAE Businesses</h4>
+          <p>Stop waiting days for Excel reports. Get real-time dashboards, automated reporting, and the clarity to make faster decisions.</p>
+          <div class="ins-art-foot">
+            <div class="ins-art-meta"><i class="fa-regular fa-clock"></i> 7 min read · Analytics</div>
+            <a href="blog-power-bi-dashboards.html" class="ins-art-link">Read <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Article 3: Cash Flow -->
+      <div class="ins-art-card fade-in-up stagger-3 ins-article-card" data-category="cash-flow">
+        <div class="ins-art-line" style="background:linear-gradient(90deg,#16a34a,#22c55e)"></div>
+        <div class="ins-art-img" style="background:linear-gradient(135deg,#041a0a,#0f4020)">
+          <i class="fa-solid fa-droplet" style="color:#4ade80"></i>
+        </div>
+        <div class="ins-art-body">
+          <span class="ins-art-tag" style="background:rgba(34,197,94,0.1);color:#16a34a">Cash Flow</span>
+          <h4>The Complete Cash Flow Management Guide for SMEs in the UAE</h4>
+          <p>The proven framework — including the 13-week rolling forecast — that keeps UAE businesses liquid, stable, and in control.</p>
+          <div class="ins-art-foot">
+            <div class="ins-art-meta"><i class="fa-regular fa-clock"></i> 9 min read · Cash Flow</div>
+            <a href="blog-cash-flow-management.html" class="ins-art-link">Read <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Article 4: Virtual CFO -->
+      <div class="ins-art-card fade-in-up stagger-1 ins-article-card" data-category="virtual-cfo">
+        <div class="ins-art-line" style="background:linear-gradient(90deg,#2E6DA4,#4a8cc4)"></div>
+        <div class="ins-art-img" style="background:linear-gradient(135deg,#0a1628,#1a3a6b)">
+          <i class="fa-solid fa-chart-line" style="color:#F5C518"></i>
+        </div>
+        <div class="ins-art-body">
+          <span class="ins-art-tag" style="background:rgba(46,109,164,0.1);color:var(--blue)">Virtual CFO</span>
+          <h4>Why Every SME Needs a CFO — Not Just an Accountant</h4>
+          <p>Understand the critical difference between accounting and strategic finance, and why your business needs both to grow sustainably.</p>
+          <div class="ins-art-foot">
+            <div class="ins-art-meta"><i class="fa-regular fa-clock"></i> 5 min read · Finance Strategy</div>
+            <a href="blog-virtual-cfo-benefits.html" class="ins-art-link">Read <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Article 5: Power BI / Tally -->
+      <div class="ins-art-card fade-in-up stagger-2 ins-article-card" data-category="power-bi">
+        <div class="ins-art-line" style="background:linear-gradient(90deg,#F5C518,#d4a800)"></div>
+        <div class="ins-art-img" style="background:linear-gradient(135deg,#0f172a,#1e3a5f)">
+          <i class="fa-solid fa-chart-bar" style="color:#F5C518"></i>
+        </div>
+        <div class="ins-art-body">
+          <span class="ins-art-tag" style="background:rgba(245,197,24,0.15);color:#b48700">
+            <span class="powerbi-label">Power BI<img src="./power-bi.png" alt="Power BI Logo"></span>
+          </span>
+          <h4>How to Stop Exporting Tally Data to Excel — A <span class="powerbi-label">Power BI<img src="./power-bi.png" alt="Power BI Logo"></span> Guide</h4>
+          <p>Integrate <span class="powerbi-label">Power BI<img src="./power-bi.png" alt="Power BI Logo"></span> with Tally to automate reporting and eliminate manual Excel work forever.</p>
+          <div class="ins-art-foot">
+            <div class="ins-art-meta"><i class="fa-regular fa-clock"></i> 7 min read · Automation</div>
+            <a href="blog-power-bi-dashboards.html" class="ins-art-link">Read <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Article 6: Compliance -->
+      <div class="ins-art-card fade-in-up stagger-3 ins-article-card" data-category="compliance">
+        <div class="ins-art-line" style="background:linear-gradient(90deg,#9333ea,#a855f7)"></div>
+        <div class="ins-art-img" style="background:linear-gradient(135deg,#1a0a2a,#3a1a5b)">
+          <i class="fa-solid fa-shield-halved" style="color:#a78bfa"></i>
+        </div>
+        <div class="ins-art-body">
+          <span class="ins-art-tag" style="background:rgba(168,85,247,0.1);color:#9333ea">Compliance</span>
+          <h4>UAE Corporate Tax 2024: What Every Business Owner Must Know</h4>
+          <p>A practical guide to the UAE Corporate Tax framework, key deadlines, and how to ensure your business stays compliant.</p>
+          <div class="ins-art-foot">
+            <div class="ins-art-meta"><i class="fa-regular fa-clock"></i> 8 min read · Tax &amp; Compliance</div>
+            <a href="blog-financial-reporting.html" class="ins-art-link">Read <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Article 7: MIS Reporting -->
+      <div class="ins-art-card fade-in-up stagger-1 ins-article-card" data-category="finance-strategy">
+        <div class="ins-art-line" style="background:linear-gradient(90deg,#F5C518,#d4a800)"></div>
+        <div class="ins-art-img" style="background:linear-gradient(135deg,#1a1000,#3a2800)">
+          <i class="fa-solid fa-magnifying-glass-chart" style="color:#F5C518"></i>
+        </div>
+        <div class="ins-art-body">
+          <span class="ins-art-tag" style="background:rgba(245,197,24,0.15);color:#b48700">MIS Reporting</span>
+          <h4>What a Good MIS Report Should Tell Your Business — and What Most Don't</h4>
+          <p>Most MIS reports show data. Great MIS reports drive decisions. Here's what structured, actionable management reporting looks like.</p>
+          <div class="ins-art-foot">
+            <div class="ins-art-meta"><i class="fa-regular fa-clock"></i> 5 min read · Reporting</div>
+            <a href="blog-financial-reporting.html" class="ins-art-link">Read <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Article 8: Process -->
+      <div class="ins-art-card fade-in-up stagger-2 ins-article-card" data-category="process">
+        <div class="ins-art-line" style="background:linear-gradient(90deg,#2E6DA4,#4a8cc4)"></div>
+        <div class="ins-art-img" style="background:linear-gradient(135deg,#0a1a2a,#1a3a5b)">
+          <i class="fa-solid fa-gears" style="color:#60a5fa"></i>
+        </div>
+        <div class="ins-art-body">
+          <span class="ins-art-tag" style="background:rgba(46,109,164,0.1);color:var(--blue)">Process</span>
+          <h4>5 Finance Process Gaps That Are Costing Your Business — And How to Fix Them</h4>
+          <p>A practical audit of the most common finance process inefficiencies in SMEs and the structured approach to eliminating each one.</p>
+          <div class="ins-art-foot">
+            <div class="ins-art-meta"><i class="fa-regular fa-clock"></i> 6 min read · Process Optimization</div>
+            <a href="blog-virtual-cfo-benefits.html" class="ins-art-link">Read <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- No results -->
+      <div class="ins-no-results" id="insNoResults">
+        <i class="fa-solid fa-filter"></i>
+        <p>No articles found in this category. <a href="#" onclick="resetInsFilter(event)" style="color:var(--blue)">View all content</a></p>
+      </div>
+
+    </div><!-- /ins-art-grid -->
+  </div>
+</section>
+
+<!-- ══ VIDEOS ═════════════════════════════════════════ -->
+<section class="ins-vid-section">
+  <div class="ins-vid-bg" aria-hidden="true">
+    <div class="ins-vo-1"></div>
+    <div class="ins-vo-2"></div>
+    <div class="ins-vid-grid-pat"></div>
+  </div>
+  <div class="container">
+    <div class="text-center mb-64 fade-in">
+      <div class="section-label">Video Resources</div>
+      <h2 class="section-title"><span class="section-title-underline">Learn From Our Finance Experts</span></h2>
+      <p class="section-subtitle mt-16">Short, actionable videos on CFO strategy, <span class="powerbi-label">Power BI<img src="./power-bi.png" alt="Power BI Logo"></span>, and financial management for business owners.</p>
+    </div>
+    <div class="ins-vid-grid">
+
+      <div class="ins-vid-card fade-in-up stagger-1" style="background:linear-gradient(135deg,#0a1628,#1a3a6b)">
+        <div class="ins-vid-bg-icon"><i class="fa-solid fa-chart-line"></i></div>
+        <div class="ins-vid-overlay">
+          <div class="ins-vid-tag"><i class="fa-solid fa-play"></i> 3 min</div>
+          <div class="ins-play-btn"><i class="fa-solid fa-play" style="margin-left:3px"></i></div>
+          <div class="ins-vid-label">What is a Virtual CFO? — 3 Minute Explainer</div>
+        </div>
+      </div>
+
+      <div class="ins-vid-card fade-in-up stagger-2" style="background:linear-gradient(135deg,#0f172a,#1e3a5f)">
+        <div class="ins-vid-bg-icon"><i class="fa-solid fa-chart-bar"></i></div>
+        <div class="ins-vid-overlay">
+          <div class="ins-vid-tag"><i class="fa-solid fa-play"></i> 8 min</div>
+          <div class="ins-play-btn"><i class="fa-solid fa-play" style="margin-left:3px"></i></div>
+          <div class="ins-vid-label"><span class="powerbi-label">Power BI<img src="./power-bi.png" alt="Power BI Logo"></span> for Finance — Live Dashboard Demo</div>
+        </div>
+      </div>
+
+      <div class="ins-vid-card fade-in-up stagger-3" style="background:linear-gradient(135deg,#0a2010,#1a4a2a)">
+        <div class="ins-vid-bg-icon"><i class="fa-solid fa-droplet"></i></div>
+        <div class="ins-vid-overlay">
+          <div class="ins-vid-tag"><i class="fa-solid fa-play"></i> 6 min</div>
+          <div class="ins-play-btn"><i class="fa-solid fa-play" style="margin-left:3px"></i></div>
+          <div class="ins-vid-label">Cash Flow Planning for SMEs — Step by Step</div>
+        </div>
+      </div>
+
+      <div class="ins-vid-card fade-in-up stagger-4" style="background:linear-gradient(135deg,#1a1000,#3a2800)">
+        <div class="ins-vid-bg-icon"><i class="fa-solid fa-shield-halved"></i></div>
+        <div class="ins-vid-overlay">
+          <div class="ins-vid-tag"><i class="fa-solid fa-play"></i> 5 min</div>
+          <div class="ins-play-btn"><i class="fa-solid fa-play" style="margin-left:3px"></i></div>
+          <div class="ins-vid-label">UAE Corporate Tax — What You Need to Know</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ FREE GUIDES ════════════════════════════════════ -->
+<section class="ins-guides-section">
+  <div class="container">
+    <div class="text-center mb-64 fade-in">
+      <div class="section-label">Free Downloads</div>
+      <h2 class="section-title"><span class="section-title-underline">Practical Finance Guides for Business Owners</span></h2>
+      <p class="section-subtitle mt-16">Ready-to-use templates and checklists built for SMEs and growing businesses — completely free.</p>
+    </div>
+    <div class="ins-guides-grid">
+
+      <div class="ins-guide-card fade-in-up stagger-1" style="--gl:var(--blue)">
+        <div class="ins-guide-icon" style="background:linear-gradient(135deg,rgba(46,109,164,0.12),rgba(46,109,164,0.06));color:var(--blue)"><i class="fa-solid fa-file-pdf"></i></div>
+        <div>
+          <h4>The SME Finance Health Check</h4>
+          <p>A 10-point checklist to assess the strength of your finance function and identify the biggest gaps.</p>
+          <a href="contact.html#consultation" class="ins-guide-link"><i class="fa-solid fa-download"></i> Download Free <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="ins-guide-card fade-in-up stagger-2" style="--gl:#F5C518">
+        <div class="ins-guide-icon" style="background:linear-gradient(135deg,rgba(245,197,24,0.18),rgba(245,197,24,0.08));color:#b48700"><i class="fa-solid fa-chart-bar"></i></div>
+        <div>
+          <h4><span class="powerbi-label">Power BI<img src="./power-bi.png" alt="Power BI Logo"></span> Dashboard Checklist</h4>
+          <p>The 15 essential KPIs every business should track — with setup guidance for your dashboard.</p>
+          <a href="contact.html#consultation" class="ins-guide-link"><i class="fa-solid fa-download"></i> Download Free <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="ins-guide-card fade-in-up stagger-3" style="--gl:#16a34a">
+        <div class="ins-guide-icon" style="background:linear-gradient(135deg,rgba(34,197,94,0.12),rgba(34,197,94,0.06));color:#16a34a"><i class="fa-solid fa-droplet"></i></div>
+        <div>
+          <h4>Cash Flow Forecasting Template</h4>
+          <p>A ready-to-use 13-week cash flow forecasting template with instructions for SMEs and growing businesses.</p>
+          <a href="contact.html#consultation" class="ins-guide-link"><i class="fa-solid fa-download"></i> Download Free <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="ins-guide-card fade-in-up stagger-4" style="--gl:#9333ea">
+        <div class="ins-guide-icon" style="background:linear-gradient(135deg,rgba(168,85,247,0.12),rgba(168,85,247,0.06));color:#9333ea"><i class="fa-solid fa-shield-halved"></i></div>
+        <div>
+          <h4>UAE Tax Compliance Calendar 2024</h4>
+          <p>Key VAT, Corporate Tax, and E-Invoicing deadlines for UAE businesses — never miss a filing date again.</p>
+          <a href="contact.html#consultation" class="ins-guide-link"><i class="fa-solid fa-download"></i> Download Free <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="ins-guide-card fade-in-up stagger-1" style="--gl:#ea580c">
+        <div class="ins-guide-icon" style="background:linear-gradient(135deg,rgba(234,88,12,0.12),rgba(234,88,12,0.06));color:#ea580c"><i class="fa-solid fa-gears"></i></div>
+        <div>
+          <h4>Finance Process Audit Template</h4>
+          <p>Map and assess your current finance workflows to identify bottlenecks, gaps, and optimization opportunities.</p>
+          <a href="contact.html#consultation" class="ins-guide-link"><i class="fa-solid fa-download"></i> Download Free <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="ins-guide-card fade-in-up stagger-2" style="--gl:var(--blue)">
+        <div class="ins-guide-icon" style="background:linear-gradient(135deg,rgba(46,109,164,0.12),rgba(46,109,164,0.06));color:var(--blue)"><i class="fa-solid fa-calculator"></i></div>
+        <div>
+          <h4>Virtual CFO ROI Calculator</h4>
+          <p>Calculate the potential return on investment from engaging a Virtual CFO versus operating without one.</p>
+          <a href="contact.html#consultation" class="ins-guide-link"><i class="fa-solid fa-arrow-right"></i> Access Free <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ NEWSLETTER ═════════════════════════════════════ -->
+<section class="ins-nl-section">
+  <div class="ins-nl-bg" aria-hidden="true">
+    <div class="ins-nl-o1"></div>
+    <div class="ins-nl-o2"></div>
+    <div class="ins-nl-grid"></div>
+  </div>
+  <div class="container">
+    <div class="ins-nl-wrap fade-in">
+      <div class="ins-nl-badge">
+        <span class="ins-nl-dot"></span>
+        <i class="fa-solid fa-envelope-open-text"></i>
+        Monthly Finance Intelligence
+      </div>
+      <h2>Get Finance Insights<br>Delivered to Your Inbox</h2>
+      <p>Monthly tips on CFO strategy, <span class="powerbi-label">Power BI<img src="./power-bi.png" alt="Power BI Logo"></span>, compliance, and financial best practices — for business owners and finance leaders.</p>
+      <div class="ins-nl-form">
+        <input type="email" class="ins-nl-input" placeholder="Enter your email address…"/>
+        <button class="ins-nl-btn" type="button">Subscribe <i class="fa-solid fa-arrow-right"></i></button>
+      </div>
+      <p class="ins-nl-note">No spam. Unsubscribe anytime.</p>
+      <div class="ins-nl-trust">
+        <div class="ins-nl-ti"><i class="fa-solid fa-circle-check"></i> 100% Free</div>
+        <div class="ins-nl-ti"><i class="fa-solid fa-circle-check"></i> No Spam</div>
+        <div class="ins-nl-ti"><i class="fa-solid fa-circle-check"></i> Unsubscribe Anytime</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FAQ ════════════════════════════════════════════ -->
+<section class="section faq-section" id="faq">
+  <div class="faq-bg-decor" aria-hidden="true">
+    <div class="faq-bg-orb faq-orb-1"></div>
+    <div class="faq-bg-orb faq-orb-2"></div>
+    <div class="faq-bg-grid"></div>
+  </div>
+  <div class="container" style="position:relative;z-index:1;">
+    <div class="faq-layout">
+      <div class="faq-left fade-in-left">
+        <div class="section-label">FAQ</div>
+        <h2 class="section-title">Finance Questions<br>Answered</h2>
+        <p class="section-subtitle mt-16">Common financial questions from business owners — answered clearly and practically by our CFO team.</p>
+        <div class="faq-quick-stats">
+          <div class="faq-stat"><div class="faq-stat-num">5</div><div class="faq-stat-lbl">FAQs Answered</div></div>
+          <div class="faq-stat"><div class="faq-stat-num">CFO</div><div class="faq-stat-lbl">Level Answers</div></div>
+          <div class="faq-stat"><div class="faq-stat-num">Free</div><div class="faq-stat-lbl">Consultation</div></div>
+        </div>
+        <a href="contact.html#consultation" class="btn btn-secondary faq-cta-btn">
+          <i class="fa-solid fa-calendar-check"></i> Book Free Consultation
+        </a>
+        <div class="faq-deco-card">
+          <div class="faq-deco-icon"><i class="fa-solid fa-headset"></i></div>
+          <div>
+            <div class="faq-deco-title">Still have questions?</div>
+            <div class="faq-deco-sub">Book a free consultation — no obligation</div>
+          </div>
+        </div>
+      </div>
+      <div class="faq-right fade-in-right">
+        <div class="faq-list faq-list-premium">
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <div class="fq-icon"><i class="fa-solid fa-file-invoice"></i></div>
+              <span class="fq-text">What is the difference between management accounts and statutory accounts?</span>
+              <div class="fq-toggle"><i class="fa-solid fa-chevron-down"></i></div>
+            </button>
+            <div class="faq-answer"><div class="faq-answer-inner">Management accounts are prepared internally for business decision-making — they can be monthly, formatted any way you need, and focused on performance. Statutory accounts are formal financial statements prepared for regulatory filing, following accounting standards (IFRS or local GAAP).</div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <div class="fq-icon"><i class="fa-solid fa-calendar-days"></i></div>
+              <span class="fq-text">How often should a business review its financials?</span>
+              <div class="fq-toggle"><i class="fa-solid fa-chevron-down"></i></div>
+            </button>
+            <div class="faq-answer"><div class="faq-answer-inner">At a minimum, monthly. High-growth or cash-intensive businesses should review key metrics weekly. With <span class="powerbi-label">Power BI<img src="./power-bi.png" alt="Power BI Logo"></span> dashboards, real-time monitoring becomes possible — allowing you to catch issues and opportunities as they emerge.</div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <div class="fq-icon"><i class="fa-solid fa-building-columns"></i></div>
+              <span class="fq-text">What is UAE Corporate Tax and who does it apply to?</span>
+              <div class="fq-toggle"><i class="fa-solid fa-chevron-down"></i></div>
+            </button>
+            <div class="faq-answer"><div class="faq-answer-inner">UAE Corporate Tax applies to businesses with taxable income exceeding AED 375,000 at a standard rate of 9%. It came into effect for financial years starting on or after June 1, 2023. Free zone entities may qualify for 0% on qualifying income. Proper compliance requires timely registration, accurate accounting, and annual tax return filing.</div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <div class="fq-icon"><i class="fa-solid fa-droplet"></i></div>
+              <span class="fq-text">What does a good cash flow forecast include?</span>
+              <div class="fq-toggle"><i class="fa-solid fa-chevron-down"></i></div>
+            </button>
+            <div class="faq-answer"><div class="faq-answer-inner">A solid cash flow forecast includes: opening cash balance, expected receipts from sales/collections, planned payments (suppliers, payroll, overheads, loan repayments), net cash movement per period, and closing cash balance. A 13-week rolling forecast is the gold standard for operational cash management.</div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <div class="fq-icon fq-icon-gold"><i class="fa-solid fa-circle-check"></i></div>
+              <span class="fq-text">How do I know if my accounts are accurate?</span>
+              <div class="fq-toggle"><i class="fa-solid fa-chevron-down"></i></div>
+            </button>
+            <div class="faq-answer"><div class="faq-answer-inner">Key indicators of accurate accounts include: all bank accounts fully reconciled, AR and AP ledgers matching supporting documents, inter-company balances cleared, fixed assets properly recorded and depreciated, and no unexplained suspense or clearing balances. A CFO-level review can quickly identify gaps and ensure your numbers are trustworthy.</div></div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA ════════════════════════════════════════════ -->
+<section class="pcta-section" id="cta">
+  <div class="pcta-bg" aria-hidden="true">
+    <div class="pcta-orb pcta-orb-1"></div>
+    <div class="pcta-orb pcta-orb-2"></div>
+    <div class="pcta-orb pcta-orb-3"></div>
+    <div class="pcta-grid-overlay"></div>
+    <div class="pcta-particles"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+  </div>
+  <div class="container">
+    <div class="pcta-layout">
+      <div class="pcta-left fade-in-left">
+        <div class="pcta-badge">
+          <span class="pcta-badge-dot"></span>
+          <i class="fa-solid fa-star"></i>
+          Free Consultation Available — No Obligation
+        </div>
+        <h2 class="pcta-heading">
+          Have a Finance Challenge<br>
+          <span class="pcta-heading-accent">in Your Business?</span>
+        </h2>
+        <p class="pcta-sub">Speak directly with our CFO team — no obligation, just clarity on how to move your finance function forward.</p>
+        <div class="pcta-btns">
+          <a href="contact.html#consultation" class="btn btn-primary pcta-btn-primary">
+            <i class="fa-solid fa-calendar-check"></i>
+            Book Free Consultation
+            <i class="fa-solid fa-arrow-right pcta-btn-arrow"></i>
+          </a>
+          <a href="success-stories.html" class="pcta-btn-ghost">
+            <i class="fa-solid fa-star"></i> See Success Stories
+          </a>
+        </div>
+        <div class="pcta-trust">
+          <div class="pcta-trust-item"><i class="fa-solid fa-circle-check"></i><span>No commitment required</span></div>
+          <div class="pcta-trust-item"><i class="fa-solid fa-circle-check"></i><span>200+ businesses served</span></div>
+          <div class="pcta-trust-item"><i class="fa-solid fa-circle-check"></i><span>Reply within 24 hours</span></div>
+          <div class="pcta-trust-item"><i class="fa-solid fa-circle-check"></i><span>UAE &amp; worldwide</span></div>
+        </div>
+      </div>
+      <div class="pcta-right fade-in-right">
+        <div class="pcta-float-card pcta-fc-top">
+          <div class="pcta-fc-icon pcta-fci-yellow"><i class="fa-solid fa-book-open"></i></div>
+          <div class="pcta-fc-body"><div class="pcta-fc-val">10+</div><div class="pcta-fc-lbl">Expert Articles</div></div>
+        </div>
+        <div class="pcta-stats-card">
+          <div class="pcta-sc-shimmer"></div>
+          <div class="pcta-sc-header">
+            <div class="pcta-sc-dots"><span></span><span></span><span></span></div>
+            <span class="pcta-sc-title"><i class="fa-solid fa-lightbulb"></i> Knowledge Hub</span>
+            <div class="pcta-sc-live"><span></span>LIVE</div>
+          </div>
+          <div class="pcta-sc-metrics">
+            <div class="pcta-sc-metric"><div class="pcta-sc-val">10+</div><div class="pcta-sc-lbl">Finance Articles</div><div class="pcta-sc-trend"><i class="fa-solid fa-caret-up"></i> Growing</div></div>
+            <div class="pcta-sc-metric"><div class="pcta-sc-val">6</div><div class="pcta-sc-lbl">Free Guides</div><div class="pcta-sc-trend"><i class="fa-solid fa-download"></i> Free</div></div>
+            <div class="pcta-sc-metric"><div class="pcta-sc-val">4</div><div class="pcta-sc-lbl">Expert Videos</div><div class="pcta-sc-trend" style="color:#4ade80"><i class="fa-solid fa-play"></i> Watch</div></div>
+          </div>
+          <div class="pcta-mini-chart">
+            <div class="pcta-mc-bar" style="height:38%"></div>
+            <div class="pcta-mc-bar" style="height:58%"></div>
+            <div class="pcta-mc-bar" style="height:48%"></div>
+            <div class="pcta-mc-bar" style="height:72%"></div>
+            <div class="pcta-mc-bar" style="height:62%"></div>
+            <div class="pcta-mc-bar pcta-mc-gold" style="height:88%"></div>
+            <div class="pcta-mc-bar pcta-mc-gold" style="height:82%"></div>
+          </div>
+          <div class="pcta-chart-months"><span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span><span>Jul</span></div>
+        </div>
+        <div class="pcta-float-card pcta-fc-bottom">
+          <div class="pcta-fc-icon pcta-fci-green"><i class="fa-solid fa-circle-check"></i></div>
+          <div class="pcta-fc-body"><div class="pcta-fc-val">Free</div><div class="pcta-fc-lbl">Consultation Available</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/components.js"></script>
+<script src="js/main.js"></script>
+<script>
+(function () {
+  var filterBtns = document.querySelectorAll('.ins-filter-btn');
+  var cards = document.querySelectorAll('.ins-article-card');
+  var noResults = document.getElementById('insNoResults');
+
+  function applyFilter(filter) {
+    var visible = 0;
+    cards.forEach(function (card) {
+      var match = filter === 'all' || card.dataset.category === filter || filter === 'guides';
+      if (filter === 'guides') match = card.dataset.category === 'guides' || false;
+      card.style.display = (filter === 'all' || card.dataset.category === filter) ? '' : 'none';
+      if (card.style.display !== 'none') visible++;
+    });
+    if (noResults) noResults.style.display = visible === 0 ? 'block' : 'none';
+    /* Scroll to articles on filter */
+    if (filter !== 'all') {
+      var target = document.querySelector('.ins-art-section');
+      if (target) setTimeout(function () { target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 60);
+    }
+  }
+
+  filterBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      filterBtns.forEach(function (b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      applyFilter(btn.dataset.filter);
+    });
+  });
+
+  window.resetInsFilter = function (e) {
+    if (e) e.preventDefault();
+    filterBtns.forEach(function (b) { b.classList.remove('active'); });
+    document.querySelector('[data-filter="all"]').classList.add('active');
+    applyFilter('all');
+  };
+
+  /* Stagger card animations */
+  document.querySelectorAll('.ins-art-card').forEach(function (card, i) {
+    card.style.transitionDelay = (i * 0.07) + 's';
+  });
+})();
+</script>
+</body>
+</html>

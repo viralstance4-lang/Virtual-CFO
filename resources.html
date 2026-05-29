@@ -4,6 +4,8 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Resources & Insights | Virtual CFO Management Consultancy</title>
+  <meta http-equiv="refresh" content="0; url=insights.html"/>
+  <link rel="canonical" href="insights.html"/>
   <meta name="description" content="Finance insights, guides, and resources for business owners — from cash flow management to Power BI dashboards and CFO strategy."/>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"/>
   <link rel="stylesheet" href="css/style.css"/>
@@ -26,10 +28,6 @@
       background-size: 60px 60px;
     }
     .rsc-hero .container { position: relative; z-index: 1; }
-    .rsc-breadcrumb { display:flex; align-items:center; gap:8px; justify-content:center; font-size:0.82rem; color:var(--gray); margin-bottom:20px; }
-    .rsc-breadcrumb a { color:var(--gray); text-decoration:none; transition:color 0.2s; }
-    .rsc-breadcrumb a:hover { color:var(--blue); }
-    .rsc-breadcrumb i { font-size:0.65rem; }
     .rsc-hero h1 { color:var(--dark); margin-bottom:16px; }
     .rsc-hero-sub { color:var(--gray); font-size:1.1rem; max-width:600px; margin:0 auto 48px; }
     .rsc-hero-stats {
@@ -45,7 +43,7 @@
 
     /* ══ ARTICLES ════════════════════════════════════ */
     .rsc-art-section {
-      padding:96px 0;
+      padding:70px 0;
       background:linear-gradient(160deg,#f8fbff 0%,#f4f8ff 50%,#f8fbff 100%);
       position:relative; overflow:hidden;
     }
@@ -89,7 +87,7 @@
 
     /* ══ VIDEOS ══════════════════════════════════════ */
     .rsc-vid-section {
-      padding:96px 0; position:relative; overflow:hidden;
+      padding:70px 0; position:relative; overflow:hidden;
       background:linear-gradient(160deg,#f0f8ff 0%,#e4effe 40%,#f0f7ff 70%,#e8f2ff 100%);
     }
     .rsc-vid-bg { position:absolute; inset:0; z-index:0; pointer-events:none; }
@@ -132,7 +130,7 @@
     .rsc-vid-label { color:#fff; font-size:0.88rem; font-weight:700; text-align:center; padding:0 20px; line-height:1.45; }
 
     /* ══ GUIDES ══════════════════════════════════════ */
-    .rsc-guides-section { padding:96px 0; background:#fff; position:relative; overflow:hidden; }
+    .rsc-guides-section { padding:70px 0; background:#fff; position:relative; overflow:hidden; }
     .rsc-guides-section::before {
       content:''; position:absolute; inset:0;
       background-image:linear-gradient(rgba(30,64,175,0.022) 1px,transparent 1px),linear-gradient(90deg,rgba(30,64,175,0.022) 1px,transparent 1px);
@@ -168,7 +166,7 @@
 
     /* ══ CASE STUDIES ════════════════════════════════ */
     .rsc-cases-section {
-      padding:96px 0; position:relative; overflow:hidden;
+      padding:70px 0; position:relative; overflow:hidden;
       background:linear-gradient(160deg,#f0f8ff 0%,#e4effe 40%,#f0f7ff 70%,#e8f2ff 100%);
     }
     .rsc-cases-bg { position:absolute; inset:0; z-index:0; pointer-events:none; }
@@ -183,7 +181,7 @@
 
     /* ══ NEWSLETTER ══════════════════════════════════ */
     .rsc-nl-section {
-      padding:96px 0; position:relative; overflow:hidden;
+      padding:70px 0; position:relative; overflow:hidden;
       background:linear-gradient(145deg,#071a38 0%,#0d2444 55%,#112b56 100%);
     }
     .rsc-nl-bg { position:absolute; inset:0; pointer-events:none; }
@@ -252,11 +250,6 @@
     <div class="rsc-hero-grid"></div>
   </div>
   <div class="container">
-    <div class="rsc-breadcrumb">
-      <a href="index.html">Home</a>
-      <i class="fa-solid fa-chevron-right"></i>
-      <span>Resources</span>
-    </div>
     <div class="section-label">Knowledge Hub</div>
     <h1>Finance Insights for<br>Business Leaders</h1>
     <p class="rsc-hero-sub">Practical guides, case studies, and insights to help you make smarter financial decisions and grow with confidence.</p>
@@ -302,9 +295,9 @@
           <i class="fa-solid fa-chart-bar" style="color:#F5C518"></i>
         </div>
         <div class="rsc-art-body">
-          <span class="rsc-art-tag" style="background:rgba(245,197,24,0.15);color:#b48700">Power BI</span>
-          <h4>How to Stop Exporting Tally Data to Excel — A Power BI Guide</h4>
-          <p>Step-by-step look at how businesses using Tally can integrate Power BI to automate reporting and eliminate manual Excel work forever.</p>
+          <span class="rsc-art-tag" style="background:rgba(245,197,24,0.15);color:#b48700"><span class="powerbi-label">Power BI<img src="./power-bi.png" alt="Power BI Logo"></span></span>
+          <h4>How to Stop Exporting Tally Data to Excel — A <span class="powerbi-label">Power BI<img src="./power-bi.png" alt="Power BI Logo"></span> Guide</h4>
+          <p>Step-by-step look at how businesses using Tally can integrate <span class="powerbi-label">Power BI<img src="./power-bi.png" alt="Power BI Logo"></span> to automate reporting and eliminate manual Excel work forever.</p>
           <div class="rsc-art-foot">
             <div class="rsc-art-meta"><i class="fa-regular fa-clock"></i> 7 min read <span>·</span> Automation</div>
             <a href="blog-power-bi-dashboards.html" class="rsc-art-link">Read <i class="fa-solid fa-arrow-right"></i></a>
@@ -391,7 +384,7 @@
     <div class="text-center mb-64 fade-in">
       <div class="section-label">Video Resources</div>
       <h2 class="section-title"><span class="section-title-underline">Learn From Our Finance Experts</span></h2>
-      <p class="section-subtitle mt-16">Short, actionable videos on CFO strategy, Power BI, and financial management for business owners.</p>
+      <p class="section-subtitle mt-16">Short, actionable videos on CFO strategy, <span class="powerbi-label">Power BI<img src="./power-bi.png" alt="Power BI Logo"></span>, and financial management for business owners.</p>
     </div>
     <div class="rsc-vid-grid">
 
@@ -409,7 +402,7 @@
         <div class="rsc-vid-overlay">
           <div class="rsc-vid-tag"><i class="fa-solid fa-play"></i> 8 min</div>
           <div class="rsc-play-btn"><i class="fa-solid fa-play" style="margin-left:3px"></i></div>
-          <div class="rsc-vid-label">Power BI for Finance — Live Dashboard Demo</div>
+          <div class="rsc-vid-label"><span class="powerbi-label">Power BI<img src="./power-bi.png" alt="Power BI Logo"></span> for Finance — Live Dashboard Demo</div>
         </div>
       </div>
 
@@ -457,8 +450,8 @@
       <div class="rsc-guide-card fade-in-up stagger-2" style="--gl:#F5C518">
         <div class="rsc-guide-icon" style="background:linear-gradient(135deg,rgba(245,197,24,0.18),rgba(245,197,24,0.08));color:#b48700"><i class="fa-solid fa-chart-bar"></i></div>
         <div>
-          <h4>Power BI Dashboard Checklist</h4>
-          <p>The 15 essential KPIs every business should be tracking on their Power BI dashboard — with setup guidance.</p>
+          <h4><span class="powerbi-label">Power BI<img src="./power-bi.png" alt="Power BI Logo"></span> Dashboard Checklist</h4>
+          <p>The 15 essential KPIs every business should be tracking on their <span class="powerbi-label">Power BI<img src="./power-bi.png" alt="Power BI Logo"></span> dashboard — with setup guidance.</p>
           <a href="contact.html#consultation" class="rsc-guide-link">Download Free <i class="fa-solid fa-arrow-right"></i></a>
         </div>
       </div>
@@ -536,7 +529,7 @@
       </div>
       <div class="case-card fade-in-right">
         <div class="case-card-header">
-          <div class="case-tag">Power BI · Investment</div>
+          <div class="case-tag"><span class="powerbi-label">Power BI<img src="./power-bi.png" alt="Power BI Logo"></span> · Investment</div>
           <h3>Al Moiziya Investment Company</h3>
           <p>Centralized portfolio visibility across multiple investments</p>
         </div>
@@ -573,7 +566,7 @@
         Monthly Finance Intelligence
       </div>
       <h2>Get Finance Insights<br>Delivered to Your Inbox</h2>
-      <p>Monthly tips on CFO strategy, Power BI, compliance, and financial best practices — for business owners and finance leaders.</p>
+      <p>Monthly tips on CFO strategy, <span class="powerbi-label">Power BI<img src="./power-bi.png" alt="Power BI Logo"></span>, compliance, and financial best practices — for business owners and finance leaders.</p>
       <div class="rsc-nl-form">
         <input type="email" class="rsc-nl-input" placeholder="Enter your email address…"/>
         <button class="rsc-nl-btn" type="button">Subscribe <i class="fa-solid fa-arrow-right"></i></button>
@@ -635,7 +628,7 @@
               <span class="fq-text">How often should a business review its financials?</span>
               <div class="fq-toggle"><i class="fa-solid fa-chevron-down"></i></div>
             </button>
-            <div class="faq-answer"><div class="faq-answer-inner">At a minimum, monthly. High-growth or cash-intensive businesses should review key metrics weekly. With Power BI dashboards, real-time monitoring becomes possible — allowing you to catch issues and opportunities as they emerge.</div></div>
+            <div class="faq-answer"><div class="faq-answer-inner">At a minimum, monthly. High-growth or cash-intensive businesses should review key metrics weekly. With <span class="powerbi-label">Power BI<img src="./power-bi.png" alt="Power BI Logo"></span> dashboards, real-time monitoring becomes possible — allowing you to catch issues and opportunities as they emerge.</div></div>
           </div>
 
           <div class="faq-item">

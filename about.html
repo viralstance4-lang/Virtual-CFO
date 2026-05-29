@@ -155,6 +155,207 @@
     @media(max-width:480px) {
       .usps-grid { grid-template-columns: 1fr; }
     }
+
+    /* ===========================
+       TEAM SECTION
+    =========================== */
+    .team-section {
+      background: var(--light-gray);
+      position: relative;
+      overflow: hidden;
+    }
+    .team-bg { position: absolute; inset: 0; z-index: 0; }
+    .team-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(90px);
+      pointer-events: none;
+    }
+    .team-orb-1 {
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(46,109,164,0.16), transparent 70%);
+      top: -140px; left: -140px;
+    }
+    .team-orb-2 {
+      width: 420px; height: 420px;
+      background: radial-gradient(circle, rgba(245,197,24,0.13), transparent 70%);
+      bottom: -100px; right: -100px;
+    }
+    .team-bg-grid {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(46,109,164,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(46,109,164,0.04) 1px, transparent 1px);
+      background-size: 48px 48px;
+    }
+
+    /* Grid */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    /* Card base */
+    .team-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 36px 28px 32px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.35s cubic-bezier(0.4,0,0.2,1),
+                  box-shadow 0.35s cubic-bezier(0.4,0,0.2,1),
+                  border-color 0.35s cubic-bezier(0.4,0,0.2,1);
+    }
+    .team-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--blue), var(--blue-light));
+      transform: scaleX(0);
+      transform-origin: left center;
+      transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
+    }
+    .team-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 16px 48px rgba(46,109,164,0.14);
+      border-color: rgba(46,109,164,0.25);
+    }
+    .team-card:hover::before { transform: scaleX(1); }
+
+    /* Featured (Founder) card */
+    .team-card-featured {
+      background: linear-gradient(145deg, var(--blue-dark) 0%, var(--blue) 100%);
+      border-color: transparent;
+    }
+    .team-card-featured::before {
+      background: linear-gradient(90deg, var(--yellow), #ffe566);
+    }
+    .team-card-featured:hover {
+      border-color: transparent;
+      box-shadow: 0 16px 48px rgba(46,109,164,0.38);
+    }
+    .team-card-featured .team-name { color: var(--white); }
+    .team-card-featured .team-desc { color: rgba(255,255,255,0.82); }
+
+    /* Shimmer sweep */
+    .team-card-shimmer {
+      position: absolute;
+      top: 0; left: -100%;
+      width: 50%; height: 100%;
+      background: linear-gradient(105deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
+      transition: left 0.7s ease;
+      pointer-events: none;
+    }
+    .team-card-featured:hover .team-card-shimmer { left: 170%; }
+
+    /* Avatar */
+    .team-avatar-wrap {
+      position: relative;
+      margin-bottom: 18px;
+      flex-shrink: 0;
+    }
+    .team-avatar {
+      width: 110px; height: 110px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem; font-weight: 800;
+      letter-spacing: -0.5px;
+      color: var(--white);
+      position: relative; z-index: 1;
+      transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
+    }
+    .team-card:hover .team-avatar { transform: scale(1.06); }
+    .team-av-featured {
+      width: 124px; height: 124px;
+      font-size: 1.45rem;
+      background: rgba(255,255,255,0.18);
+      border: 2px solid rgba(255,255,255,0.35);
+      backdrop-filter: blur(6px);
+    }
+    .team-av-blue   { background: linear-gradient(135deg, var(--blue), var(--blue-dark)); }
+    .team-av-teal   { background: linear-gradient(135deg, #0d9488, #0f766e); }
+    .team-av-purple { background: linear-gradient(135deg, #7c3aed, #5b21b6); }
+    .team-av-green  { background: linear-gradient(135deg, #16a34a, #15803d); }
+    .team-av-pink   { background: linear-gradient(135deg, #db2777, #be185d); }
+
+    /* Spinning dashed ring */
+    .team-av-ring {
+      position: absolute;
+      inset: -6px;
+      border-radius: 50%;
+      border: 2px dashed rgba(46,109,164,0.3);
+      animation: teamRingSpin 14s linear infinite;
+    }
+    .team-card-featured .team-av-ring {
+      border-color: rgba(245,197,24,0.5);
+    }
+    @keyframes teamRingSpin { to { transform: rotate(360deg); } }
+
+    /* Role badge */
+    .team-card-role {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.69rem;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      padding: 4px 13px;
+      border-radius: 50px;
+      background: rgba(46,109,164,0.1);
+      color: var(--blue);
+      border: 1px solid rgba(46,109,164,0.2);
+      margin-bottom: 12px;
+    }
+    .team-badge-gold {
+      background: rgba(245,197,24,0.2);
+      color: #92400e;
+      border-color: rgba(245,197,24,0.45);
+    }
+    .team-badge-purple {
+      background: rgba(124,58,237,0.1);
+      color: #7c3aed;
+      border-color: rgba(124,58,237,0.25);
+    }
+    .team-badge-pink {
+      background: rgba(219,39,119,0.1);
+      color: #db2777;
+      border-color: rgba(219,39,119,0.25);
+    }
+
+    /* Name */
+    .team-name {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+
+    /* Description */
+    .team-desc {
+      font-size: 0.875rem;
+      color: var(--gray);
+      line-height: 1.72;
+      flex: 1;
+    }
+
+    /* Responsive */
+    @media(max-width: 992px) {
+      .team-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media(max-width: 576px) {
+      .team-grid { grid-template-columns: 1fr; }
+      .team-card { padding: 28px 22px; }
+    }
   </style>
 </head>
 <body>
@@ -175,12 +376,6 @@
   </div>
 
   <div class="container" style="position:relative;z-index:1;">
-    <!-- Breadcrumb -->
-    <div class="breadcrumb about-breadcrumb fade-in">
-      <a href="index.html">Home</a>
-      <i class="fa-solid fa-chevron-right"></i>
-      <span>About Us</span>
-    </div>
 
     <div class="about-hero-grid">
 
@@ -191,7 +386,7 @@
 
         <h1 class="about-hero-heading">
           Built to Give Every Business
-          <span class="about-heading-accent">Access to a Real CFO</span>
+          <span class="about-heading-accent">Benefits of a Seasoned or Experience CFO</span>
         </h1>
 
         <p class="about-hero-sub">After years in finance across continents and industries, we recognized a critical gap — businesses have financial data, but often lack the <strong>strategic direction, visibility, and financial leadership</strong> needed to grow.</p>
@@ -206,8 +401,8 @@
           </div>
           <div class="about-stat-sep"></div>
           <div class="about-stat">
-            <div class="about-stat-num"><span data-target="8" data-suffix="+">8+</span></div>
-            <div class="about-stat-lbl">Years Experience</div>
+            <div class="about-stat-num"><span data-target="44" data-suffix="+">44+</span></div>
+            <div class="about-stat-lbl">Years Collective Exp.</div>
           </div>
           <div class="about-stat-sep"></div>
           <div class="about-stat">
@@ -350,7 +545,7 @@
       <!-- VISION -->
       <div class="vm-premium-card vm-vision fade-in-left">
         <div class="vm-card-shimmer vm-shimmer-blue"></div>
-        <div class="vm-card-watermark">01</div>
+        <!-- <div class="vm-card-watermark">01</div> -->
 
         <div class="vm-card-top">
           <div class="vm-premium-icon vm-icon-blue"><i class="fa-solid fa-eye"></i></div>
@@ -381,7 +576,7 @@
       <!-- MISSION -->
       <div class="vm-premium-card vm-mission fade-in-right">
         <div class="vm-card-shimmer vm-shimmer-gold"></div>
-        <div class="vm-card-watermark">02</div>
+        <!-- <div class="vm-card-watermark">02</div> -->
 
         <div class="vm-card-top">
           <div class="vm-premium-icon vm-icon-gold"><i class="fa-solid fa-bullseye"></i></div>
@@ -389,11 +584,11 @@
         </div>
 
         <h3 class="vm-card-heading">Moving Beyond Traditional Accounting</h3>
-        <p class="vm-card-text">To move businesses beyond traditional accounting through CFO-level strategy, Power BI reporting, and automation — delivering clarity and confident decision-making to every organization we serve.</p>
+        <p class="vm-card-text">To move businesses beyond traditional accounting through CFO-level strategy, <span class="powerbi-label">Power BI<img src="./power-bi.png" alt="Power BI Logo"></span> reporting, and automation — delivering clarity and confident decision-making to every organization we serve.</p>
 
         <div class="vm-card-pillars">
           <div class="vm-pillar vm-pillar-gold"><i class="fa-solid fa-shield-halved"></i> CFO Strategy</div>
-          <div class="vm-pillar vm-pillar-gold"><i class="fa-solid fa-chart-bar"></i> Power BI</div>
+          <div class="vm-pillar vm-pillar-gold"><i class="fa-solid fa-chart-bar"></i> <span class="powerbi-label">Power BI<img src="./power-bi.png" alt="Power BI Logo"></span></div>
           <div class="vm-pillar vm-pillar-gold"><i class="fa-solid fa-bolt"></i> Automation</div>
         </div>
 
@@ -492,7 +687,9 @@
           <!-- Avatar -->
           <div class="fs-avatar-wrap">
             <div class="fs-avatar-ring"></div>
-            <div class="fs-avatar"><i class="fa-solid fa-user-tie"></i></div>
+            <div class="fs-avatar" style="background:none;overflow:hidden;padding:0;">
+              <img src="img/Husain-Arif.jpg" alt="Husain Arif — Founder &amp; Principal CFO" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block;"/>
+            </div>
           </div>
 
           <div class="fs-name">Founder &amp; Principal CFO</div>
@@ -507,9 +704,10 @@
           </div>
 
           <!-- Mini metrics strip -->
-          <div class="fs-metrics-row">
+           
+          <!-- <div class="fs-metrics-row">
             <div class="fs-mini-metric">
-              <div class="fs-mm-num">20+</div>
+              <div class="fs-mm-num">22+</div>
               <div class="fs-mm-lbl">Years in Finance</div>
             </div>
             <div class="fs-mm-sep"></div>
@@ -522,7 +720,7 @@
               <div class="fs-mm-num">200+</div>
               <div class="fs-mm-lbl">Businesses</div>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
 
@@ -702,7 +900,7 @@
     <!-- Bottom Achievement Strip -->
     <div class="htl-bottom-strip fade-in">
       <div class="htl-bs">
-        <div class="htl-bs-num"><span data-target="20" data-suffix="+">20+</span></div>
+        <div class="htl-bs-num"><span data-target="22" data-suffix="+">22+</span></div>
         <div class="htl-bs-lbl">Years in Finance</div>
       </div>
       <div class="htl-bs-sep"></div>
@@ -741,7 +939,7 @@
       <h2 class="section-title">
         <span class="section-title-underline">What Makes Us Different</span>
       </h2>
-      <p class="section-subtitle mt-16">Six core strengths that set Virtual CFO apart — built over 20+ years of real-world finance experience and tested across 200+ businesses worldwide.</p>
+      <p class="section-subtitle mt-16">Six core strengths that set Virtual CFO apart — built on 44+ years of collective finance experience and tested across 200+ businesses worldwide.</p>
     </div>
 
     <!-- Feature Cards Grid -->
@@ -753,8 +951,8 @@
         <div class="usp-card-num usp-cn-light">01</div>
         <div class="usp-picon usp-pi-white"><i class="fa-solid fa-graduation-cap"></i></div>
         <h4 class="usp-card-title">Extensive Expertise</h4>
-        <p class="usp-card-desc">20+ years of hands-on finance experience across audit, group controllership, and CFO advisory roles across multiple industries and countries.</p>
-        <div class="usp-card-tag usp-tag-light"><i class="fa-solid fa-star"></i> 20+ Years Experience</div>
+        <p class="usp-card-desc">22+ years of hands-on finance experience across audit, group controllership, and CFO advisory roles across multiple industries and countries.</p>
+        <div class="usp-card-tag usp-tag-light"><i class="fa-solid fa-star"></i> 22+ Years Experience</div>
       </div>
 
       <!-- 02: Result-Driven -->
@@ -773,8 +971,8 @@
         <div class="usp-card-num">03</div>
         <div class="usp-picon usp-pi-teal"><i class="fa-solid fa-microchip"></i></div>
         <h4 class="usp-card-title">Cutting-Edge Technology</h4>
-        <p class="usp-card-desc">Power BI, automation tools, and system integrations form the backbone of our delivery — replacing manual processes with intelligent, real-time insights.</p>
-        <div class="usp-card-tag usp-tag-teal"><i class="fa-solid fa-chart-bar"></i> Power BI · Automation</div>
+        <p class="usp-card-desc"><span class="powerbi-label">Power BI<img src="./power-bi.png" alt="Power BI Logo"></span>, automation tools, and system integrations form the backbone of our delivery — replacing manual processes with intelligent, real-time insights.</p>
+        <div class="usp-card-tag usp-tag-teal"><i class="fa-solid fa-chart-bar"></i> <span class="powerbi-label">Power BI<img src="./power-bi.png" alt="Power BI Logo"></span> · Automation</div>
       </div>
 
       <!-- 04: Customized -->
@@ -826,6 +1024,119 @@
       </div>
     </div>
 
+  </div>
+</section>
+
+<!-- LEADERSHIP TEAM ─────────────────────────────────── -->
+<section class="section team-section" id="team">
+  <div class="team-bg" aria-hidden="true">
+    <div class="team-orb team-orb-1"></div>
+    <div class="team-orb team-orb-2"></div>
+    <div class="team-bg-grid"></div>
+  </div>
+
+  <div class="container" style="position:relative;z-index:1;">
+
+    <!-- Section Header -->
+    <div class="text-center mb-48 fade-in">
+      <div class="section-label">The Team</div>
+      <h2 class="section-title">
+        <span class="section-title-underline">Meet Our Leadership Team</span>
+      </h2>
+      <p class="section-subtitle mt-16">A team of seasoned finance professionals, technology experts, and strategic advisors — united by one purpose: delivering measurable financial outcomes for every client.</p>
+    </div>
+
+    <!-- Team Grid -->
+    <div class="team-grid">
+
+      <!-- 01: Husain Arif — Founder & CEO (Featured) -->
+      <div class="team-card team-card-featured fade-in-up stagger-1">
+        <div class="team-card-shimmer"></div>
+        <div class="team-avatar-wrap">
+          <div class="team-avatar team-av-featured" style="background:none;padding:0;overflow:hidden;">
+              <img src="img/Husain-Arif.jpg" alt="Husain Arif" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block;"/>
+            </div>
+          <div class="team-av-ring"></div>
+        </div>
+        <div class="team-card-role team-badge-gold">
+          <i class="fa-solid fa-crown"></i> Founder &amp; CEO
+        </div>
+        <h3 class="team-name">Husain Arif</h3>
+        <p class="team-desc">A Chartered Accountant with over 22 years of experience in finance, he founded Virtual CFO to pursue his passion to help business owners transform numbers into measurable outcomes. He is on a mission to take CFO-level financial expertise and automation to businesses of all sizes.</p>
+      </div>
+
+      <!-- 02: Zoeb Nomani — Strategic Partner -->
+      <div class="team-card fade-in-up stagger-2">
+        <div class="team-avatar-wrap">
+          <div class="team-avatar team-av-teal">ZN</div>
+          <div class="team-av-ring"></div>
+        </div>
+        <div class="team-card-role">
+          <i class="fa-solid fa-handshake"></i> Strategic Partner
+        </div>
+        <h3 class="team-name">Zoeb Nomani</h3>
+        <p class="team-desc">A senior Chartered Accountant with over four decades of cross-industry experience, recognized for his strategic mindset, strong governance, and expertise in leading large organizations.</p>
+      </div>
+
+      <!-- 03: Hashim Nadir — Sr Financial Consultant -->
+      <div class="team-card fade-in-up stagger-3">
+        <div class="team-avatar-wrap">
+          <div class="team-avatar team-av-blue" style="background:none;padding:0;overflow:hidden;">
+            <img src="img/Hashim-Nadir.jpg" alt="Hashim Nadir" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block;"/>
+          </div>
+          <div class="team-av-ring"></div>
+        </div>
+        <div class="team-card-role">
+          <i class="fa-solid fa-chart-line"></i> Sr Financial Consultant
+        </div>
+        <h3 class="team-name">Hashim Nadir</h3>
+        <p class="team-desc">A finance expert committed to excellence, enabling seamless delivery. Known for building strong client relationships and fostering collaborative success.</p>
+      </div>
+
+      <!-- 04: Rohit Negi — Sr Power BI Developer -->
+      <div class="team-card fade-in-up stagger-4">
+        <div class="team-avatar-wrap">
+          <div class="team-avatar team-av-purple">RN</div>
+          <div class="team-av-ring"></div>
+        </div>
+        <div class="team-card-role team-badge-purple">
+          <i class="fa-solid fa-chart-bar"></i> Sr Power BI Developer
+        </div>
+        <h3 class="team-name">Rohit Negi</h3>
+        <p class="team-desc">The mind behind our powerful dashboard designs, an expert skilled in translating complex data into meaningful insights. Also known for a solution-oriented thinking style.</p>
+      </div>
+
+      <!-- 05: Krithikesh Kirubakaran — Sr Accountant -->
+      <div class="team-card fade-in-up stagger-5">
+        <div class="team-avatar-wrap">
+          <div class="team-avatar team-av-green" style="background:none;padding:0;overflow:hidden;">
+            <img src="img/Krithikesh.jpg" alt="Krithikesh Kirubakaran" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block;"/>
+          </div>
+          <div class="team-av-ring"></div>
+        </div>
+        <div class="team-card-role">
+          <i class="fa-solid fa-calculator"></i> Sr Accountant
+        </div>
+        <h3 class="team-name">Krithikesh Kirubakaran</h3>
+        <p class="team-desc">A CIMA-qualified professional with sharp analytical skills and strong aptitude for technology-enabled outcomes and Excel-driven solutions.</p>
+      </div>
+
+      <!-- 06: Neha Balwani — Marketing Specialist -->
+      <div class="team-card fade-in-up stagger-6">
+        <div class="team-avatar-wrap">
+          <div class="team-avatar team-av-pink" style="background:none;padding:0;overflow:hidden;">
+            <img src="img/Neha.jpg" alt="Neha Balwani" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block;"/>
+          </div>
+          <div class="team-av-ring"></div>
+        </div>
+        <div class="team-card-role team-badge-pink">
+          <i class="fa-solid fa-bullhorn"></i> Marketing Specialist
+        </div>
+        <h3 class="team-name">Neha Balwani</h3>
+        <p class="team-desc">A University Merit Holder and MBA graduate with experience across Client Relations and Public Relations that brings effective communication and execution.</p>
+      </div>
+
+    </div><!-- /team-grid -->
   </div>
 </section>
 
@@ -886,12 +1197,12 @@
               <div class="tst-card-top-line"></div>
               <div class="tst-card-header">
                 <div class="tst-quote-icon"><i class="fa-solid fa-quote-left"></i></div>
-                <div class="tst-service-tag"><i class="fa-solid fa-chart-line"></i> Virtual CFO + Power BI</div>
+                <div class="tst-service-tag"><i class="fa-solid fa-chart-line"></i> Virtual CFO + <span class="powerbi-label">Power BI<img src="./power-bi.png" alt="Power BI Logo"></span></div>
               </div>
               <div class="tst-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
               <p class="tst-text">"Virtual CFO completely transformed how we view our financials across 5 companies. We now have a unified real-time dashboard and make decisions with full confidence."</p>
               <div class="tst-author">
-                <div class="tst-avatar tst-av-1">ME</div>
+                <img class="tst-avatar" src="img/clients/Murtuza_Ezzi-Index-Infotech.jpeg" alt="Murtuza Ezzi" loading="lazy"/>
                 <div class="tst-author-body">
                   <div class="tst-author-name">Murtuza Ezzi</div>
                   <div class="tst-author-role">CEO, Index Infotech Group</div>
@@ -912,7 +1223,7 @@
               <div class="tst-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
               <p class="tst-text">"Having Virtual CFO meant I could finally step back from managing accounts and focus on growing the business. True CFO-level expertise and partnership at every step."</p>
               <div class="tst-author">
-                <div class="tst-avatar tst-av-2">TK</div>
+                <img class="tst-avatar" src="img/clients/Tawab-4E.jpeg" alt="Tawab Kazemi" loading="lazy"/>
                 <div class="tst-author-body">
                   <div class="tst-author-name">Tawab Kazemi</div>
                   <div class="tst-author-role">Founder, 4E Road Safety Consultants</div>
@@ -937,6 +1248,48 @@
                 <div class="tst-author-body">
                   <div class="tst-author-name">Mohammad Khamusi</div>
                   <div class="tst-author-role">Partner, Fulk Diesel Trading</div>
+                </div>
+                <div class="tst-verified" title="Verified Client"><i class="fa-solid fa-circle-check"></i></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 4 -->
+          <div class="tst-slide">
+            <div class="tst-card">
+              <div class="tst-card-top-line"></div>
+              <div class="tst-card-header">
+                <div class="tst-quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+                <div class="tst-service-tag"><i class="fa-solid fa-chart-bar"></i> <span class="powerbi-label">Power BI<img src="./power-bi.png" alt="Power BI Logo"></span> · Manufacturing</div>
+              </div>
+              <div class="tst-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <p class="tst-text">"Virtual CFO completely automated our reporting. What used to take 3–5 days of manual work is now live and accessible in seconds. The impact on our decision-making has been remarkable."</p>
+              <div class="tst-author">
+                <img class="tst-avatar" src="img/clients/Ali_Ajabshah-Ajabshah-Industries.jpg" alt="Ali Ajabshah" loading="lazy"/>
+                <div class="tst-author-body">
+                  <div class="tst-author-name">Ali Ajabshah</div>
+                  <div class="tst-author-role">Director, Ajabshah Industries</div>
+                </div>
+                <div class="tst-verified" title="Verified Client"><i class="fa-solid fa-circle-check"></i></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 5 -->
+          <div class="tst-slide">
+            <div class="tst-card">
+              <div class="tst-card-top-line"></div>
+              <div class="tst-card-header">
+                <div class="tst-quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+                <div class="tst-service-tag"><i class="fa-solid fa-shield-halved"></i> Virtual CFO · Compliance</div>
+              </div>
+              <div class="tst-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <p class="tst-text">"Engaging Virtual CFO was one of the best decisions we made. They brought structure, clarity, and compliance to our finance function. We now have full confidence in our numbers."</p>
+              <div class="tst-author">
+                <img class="tst-avatar" src="img/clients/Abdeali_Taheri-Safetech.jpeg" alt="Abdeali Taheri" loading="lazy"/>
+                <div class="tst-author-body">
+                  <div class="tst-author-name">Abdeali Taheri</div>
+                  <div class="tst-author-role">CEO, Safetech</div>
                 </div>
                 <div class="tst-verified" title="Verified Client"><i class="fa-solid fa-circle-check"></i></div>
               </div>
@@ -1016,7 +1369,7 @@
               <div class="fq-toggle"><i class="fa-solid fa-chevron-down"></i></div>
             </button>
             <div class="faq-answer">
-              <div class="faq-answer-inner">Virtual CFO was founded by a Chartered Accountant (qualified 2004) with over 20 years of finance experience, including serving as Group Financial Controller at Midcom Group — a $1B+ turnover conglomerate operating across 9 countries.</div>
+              <div class="faq-answer-inner">Virtual CFO was founded by a Chartered Accountant (qualified 2004) with over 22 years of finance experience, including serving as Group Financial Controller at Midcom Group — a $1B+ turnover conglomerate operating across 9 countries.</div>
             </div>
           </div>
 
@@ -1052,7 +1405,7 @@
               <div class="fq-toggle"><i class="fa-solid fa-chevron-down"></i></div>
             </button>
             <div class="faq-answer">
-              <div class="faq-answer-inner">We combine deep CFO-level expertise with cutting-edge technology (Power BI, automation) and a truly customized approach — no templates. We don't just report the past; we help you plan, optimize, and grow with real-time financial intelligence.</div>
+              <div class="faq-answer-inner">We combine deep CFO-level expertise with cutting-edge technology (<span class="powerbi-label">Power BI<img src="./power-bi.png" alt="Power BI Logo"></span>, automation) and a truly customized approach — no templates. We don't just report the past; we help you plan, optimize, and grow with real-time financial intelligence.</div>
             </div>
           </div>
 
@@ -1109,7 +1462,7 @@
 
         <div class="pcta-trust">
           <div class="pcta-trust-item"><i class="fa-solid fa-circle-check"></i><span>Chartered Accountant led</span></div>
-          <div class="pcta-trust-item"><i class="fa-solid fa-circle-check"></i><span>20+ years experience</span></div>
+          <div class="pcta-trust-item"><i class="fa-solid fa-circle-check"></i><span>44+ years collective experience</span></div>
           <div class="pcta-trust-item"><i class="fa-solid fa-circle-check"></i><span>No obligation, free consultation</span></div>
           <div class="pcta-trust-item"><i class="fa-solid fa-circle-check"></i><span>UAE &amp; worldwide</span></div>
         </div>
@@ -1152,7 +1505,7 @@
               <div class="about-pi-icon"><i class="fa-solid fa-check"></i></div>
               <div class="about-pi-text">
                 <div class="about-pi-title">Real-Time Financial Clarity</div>
-                <div class="about-pi-sub">Power BI dashboards, live data, instant decisions</div>
+                <div class="about-pi-sub"><span class="powerbi-label">Power BI<img src="./power-bi.png" alt="Power BI Logo"></span> dashboards, live data, instant decisions</div>
               </div>
             </div>
             <div class="about-promise-item">
@@ -1166,7 +1519,7 @@
               <div class="about-pi-icon about-pi-gold"><i class="fa-solid fa-star"></i></div>
               <div class="about-pi-text">
                 <div class="about-pi-title">CFO-Level Leadership</div>
-                <div class="about-pi-sub">20+ years expertise — without the full-time cost</div>
+                <div class="about-pi-sub">22+ years expertise — without the full-time cost</div>
               </div>
             </div>
           </div>
@@ -1175,8 +1528,8 @@
            
           <div class="about-promise-metrics">
             <div class="about-pm">
-              <div class="about-pm-num">20+</div>
-              <div class="about-pm-lbl">Years Experience</div>
+              <div class="about-pm-num">44+</div>
+              <div class="about-pm-lbl">Years Collective Exp.</div>
             </div>
             <div class="about-pm-sep"></div>
             <div class="about-pm">
@@ -1206,7 +1559,7 @@
     <!-- Bottom Strip — About specific -->
      
     <!-- <div class="pcta-metrics fade-in">
-      <div class="pcta-metric"><div class="pcta-m-num">8+</div><div class="pcta-m-lbl">Years CFO Practice</div></div>
+      <div class="pcta-metric"><div class="pcta-m-num">44+</div><div class="pcta-m-lbl">Years Collective Exp.</div></div>
       <div class="pcta-metric"><div class="pcta-m-num">200+</div><div class="pcta-m-lbl">Businesses Served</div></div>
       <div class="pcta-metric"><div class="pcta-m-num">9</div><div class="pcta-m-lbl">Countries Experience</div></div>
       <div class="pcta-metric"><div class="pcta-m-num">$1B+</div><div class="pcta-m-lbl">Revenue Managed</div></div>

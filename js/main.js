@@ -626,6 +626,22 @@ if (mockupChart) chartObs.observe(mockupChart);
 const contactForm = document.getElementById('contactForm');
 contactForm?.addEventListener('submit', async (e) => {
   e.preventDefault();
+
+  /* ── Phone field validation ── */
+  const phoneInput = contactForm.querySelector('#phone');
+  const phoneError = document.getElementById('phoneError');
+  if (phoneInput && !phoneInput.value.trim()) {
+    phoneInput.classList.add('error');
+    phoneInput.classList.remove('valid');
+    if (phoneError) phoneError.classList.add('show');
+    phoneInput.focus();
+    return;
+  }
+  if (phoneInput) {
+    phoneInput.classList.remove('error');
+    if (phoneError) phoneError.classList.remove('show');
+  }
+
   const btn = contactForm.querySelector('button[type="submit"]');
   const originalText = btn.innerHTML;
   btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
@@ -737,55 +753,90 @@ window.addEventListener('load', () => {
   }, { passive: true });
 })();
 
-// 2. Typing / rotating text for hero headline
+// 2. Sequential typewriter animation for hero headline — all lines visible with infinite loop
 (function () {
-  const el = document.getElementById('heroTypingText');
-  if (!el) return;
+  const lineEls = [
+    document.getElementById('heroLine1'),
+    document.getElementById('heroLine2'),
+    document.getElementById('heroLine3'),
+  ];
+  
+  if (!lineEls[0]) return;
 
-  const phrases = [
-    'Virtual CFO Services',
-    'Finance Consulting',
-    'Financial Growth',
-    'Business Analytics',
-    'Startup Finance Solutions',
-    'CFO Dashboard Services',
+  const lines = [
+    'Scale your business with a Virtual CFO',
+    'We turn Data into Decisions',
+    'Without strategy and systems, growth becomes risky',
   ];
 
-  let phraseIdx = 0;
-  let charIdx   = 0;
-  let deleting  = false;
+  const SPEED_TYPE = 50;
+  const PAUSE_BETWEEN_LINES = 900;
+  const PAUSE_BEFORE_LOOP = 2500;
 
-  const SPEED_TYPE   = 65;
-  const SPEED_DELETE = 32;
-  const PAUSE_END    = 2200;
-  const PAUSE_START  = 380;
+  // Type a single line into its element
+  function typeLineAsync(lineIdx) {
+    return new Promise((resolve) => {
+      const el = lineEls[lineIdx];
+      const text = lines[lineIdx];
+      let charIdx = 0;
 
-  function tick() {
-    const current = phrases[phraseIdx];
-    if (deleting) {
-      charIdx--;
-      el.textContent = current.substring(0, charIdx);
-      if (charIdx === 0) {
-        deleting  = false;
-        phraseIdx = (phraseIdx + 1) % phrases.length;
-        setTimeout(tick, PAUSE_START);
-      } else {
-        setTimeout(tick, SPEED_DELETE);
+      function typeChar() {
+        if (charIdx < text.length) {
+          el.textContent = text.substring(0, ++charIdx);
+          setTimeout(typeChar, SPEED_TYPE);
+        } else {
+          resolve();
+        }
       }
-    } else {
-      charIdx++;
-      el.textContent = current.substring(0, charIdx);
-      if (charIdx === current.length) {
-        deleting = true;
-        setTimeout(tick, PAUSE_END);
-      } else {
-        setTimeout(tick, SPEED_TYPE);
+
+      typeChar();
+    });
+  }
+
+  // Erase all lines
+  function eraseAllLines() {
+    return new Promise((resolve) => {
+      function eraseChar() {
+        let anyContent = false;
+        lineEls.forEach(el => {
+          if (el.textContent.length > 0) {
+            el.textContent = el.textContent.substring(0, el.textContent.length - 1);
+            anyContent = true;
+          }
+        });
+
+        if (anyContent) {
+          setTimeout(eraseChar, 25);
+        } else {
+          resolve();
+        }
       }
+
+      eraseChar();
+    });
+  }
+
+  // Execute animation sequence with infinite loop
+  async function startAnimation() {
+    while (true) {
+      // Type all lines
+      for (let i = 0; i < lines.length; i++) {
+        await typeLineAsync(i);
+        if (i < lines.length - 1) {
+          await new Promise(r => setTimeout(r, PAUSE_BETWEEN_LINES));
+        }
+      }
+      // Pause before erasing
+      await new Promise(r => setTimeout(r, PAUSE_BEFORE_LOOP));
+      // Erase all lines
+      await eraseAllLines();
+      // Pause before starting again
+      await new Promise(r => setTimeout(r, 400));
     }
   }
 
   // Kick off after initial fade-in settles
-  setTimeout(tick, 1400);
+  setTimeout(() => startAnimation(), 1400);
 })();
 
 // 3. Hero Live Chart — smooth animated revenue & profit lines

@@ -37,8 +37,8 @@ const NAVBAR_HTML = `
       </li>
       <li><a href="power-bi.html" class="nav-link">Power BI</a></li>
       <li><a href="virtual-cfo.html" class="nav-link">Virtual CFO</a></li>
-      <li><a href="resources.html" class="nav-link">Resources</a></li>
-      <li><a href="blog.html" class="nav-link">Blog</a></li>
+      <li><a href="insights.html" class="nav-link">Insights</a></li>
+      <li><a href="success-stories.html" class="nav-link">Success Stories</a></li>
       <li><a href="contact.html" class="nav-link">Contact</a></li>
       <li><a href="contact.html#consultation" class="btn btn-primary nav-cta">Free Consultation</a></li>
     </ul>
@@ -84,8 +84,8 @@ const FOOTER_HTML = `
         <h5 style="font-size:0.8rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:18px;">Company</h5>
         <div class="footer-links" style="display:flex;flex-direction:column;gap:10px;">
           <a href="about.html" class="footer-link" style="font-size:0.88rem;color:rgba(255,255,255,0.65);text-decoration:none;display:flex;align-items:center;gap:8px;transition:color 0.3s,padding-left 0.3s;"><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;color:#F5C518;"></i>About Us</a>
-          <a href="resources.html" class="footer-link" style="font-size:0.88rem;color:rgba(255,255,255,0.65);text-decoration:none;display:flex;align-items:center;gap:8px;transition:color 0.3s,padding-left 0.3s;"><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;color:#F5C518;"></i>Resources &amp; Insights</a>
-          <a href="blog.html" class="footer-link" style="font-size:0.88rem;color:rgba(255,255,255,0.65);text-decoration:none;display:flex;align-items:center;gap:8px;transition:color 0.3s,padding-left 0.3s;"><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;color:#F5C518;"></i>Blog &amp; Articles</a>
+          <a href="insights.html" class="footer-link" style="font-size:0.88rem;color:rgba(255,255,255,0.65);text-decoration:none;display:flex;align-items:center;gap:8px;transition:color 0.3s,padding-left 0.3s;"><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;color:#F5C518;"></i>Insights &amp; Resources</a>
+          <a href="success-stories.html" class="footer-link" style="font-size:0.88rem;color:rgba(255,255,255,0.65);text-decoration:none;display:flex;align-items:center;gap:8px;transition:color 0.3s,padding-left 0.3s;"><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;color:#F5C518;"></i>Success Stories</a>
           <a href="contact.html" class="footer-link" style="font-size:0.88rem;color:rgba(255,255,255,0.65);text-decoration:none;display:flex;align-items:center;gap:8px;transition:color 0.3s,padding-left 0.3s;"><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;color:#F5C518;"></i>Contact Us</a>
           <a href="contact.html#consultation" class="footer-link" style="font-size:0.88rem;color:rgba(255,255,255,0.65);text-decoration:none;display:flex;align-items:center;gap:8px;transition:color 0.3s,padding-left 0.3s;"><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;color:#F5C518;"></i>Free Consultation</a>
         </div>
@@ -108,11 +108,8 @@ const FOOTER_HTML = `
     </div>
 
     <!-- Footer Bottom -->
-    <div class="footer-bottom" style="margin-top:40px;padding:20px 0;border-top:1px solid rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
-      <span style="font-size:0.82rem;color:rgba(255,255,255,0.35);">&copy; 2025 Virtual CFO Management Consultancy. All rights reserved.</span>
-      <div style="display:flex;align-items:center;gap:20px;">
-        <span style="font-size:0.78rem;color:rgba(255,255,255,0.28);display:flex;align-items:center;gap:6px;"><i class="fa-solid fa-clock" style="color:#F5C518;font-size:0.7rem;"></i>Mon&ndash;Sat: 9:30 AM &ndash; 6:30 PM GST</span>
-      </div>
+    <div class="footer-bottom" style="margin-top:40px;padding:20px 0;border-top:1px solid rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:12px;">
+      <span style="font-size:0.82rem;color:rgba(255,255,255,0.35);">&copy; 2025 Virtual CFO Management Consultancy. All rights reserved. &nbsp;·&nbsp; Developed by <a href="https://virallstance.com/" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#F5C518'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Virall Stance</a></span>
     </div>
   </div>
 </footer>

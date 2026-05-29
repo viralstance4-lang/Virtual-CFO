@@ -63,14 +63,6 @@
       width: 6px; height: 6px; border-radius: 50%;
       background: var(--blue); animation: pulse 1.5s infinite;
     }
-    .ctc-breadcrumb {
-      display: flex; align-items: center; gap: 8px; justify-content: center;
-      font-size: 0.82rem; color: var(--gray); margin-bottom: 20px;
-    }
-    .ctc-breadcrumb a { color: var(--gray); text-decoration: none; transition: color 0.2s; }
-    .ctc-breadcrumb a:hover { color: var(--blue); }
-    .ctc-breadcrumb i { font-size: 0.65rem; }
-
     /* Hero Stats Strip */
     .ctc-hero-stats {
       display: flex; justify-content: center; align-items: center;
@@ -261,31 +253,6 @@
     .ctc-ic-sub a:hover { color:var(--blue); }
     .ctc-info-divider { height:1px; background:var(--border); margin:0 12px; }
 
-    /* Hours block */
-    .ctc-hours-wrap {
-      background:linear-gradient(135deg,#f8fbff,#f0f6ff);
-      border-top:1px solid var(--border); padding:18px 22px;
-    }
-    .ctc-hours-head { display:flex; align-items:center; justify-content:space-between; margin-bottom:12px; }
-    .ctc-hours-title { font-size:0.73rem; font-weight:700; color:var(--dark); text-transform:uppercase; letter-spacing:1px; }
-    .ctc-hours-open {
-      display:inline-flex; align-items:center; gap:5px;
-      font-size:0.7rem; font-weight:700; color:#16a34a;
-      background:rgba(22,163,74,0.08); border:1px solid rgba(22,163,74,0.22);
-      border-radius:100px; padding:3px 10px;
-    }
-    .ctc-hours-open-dot { width:5px; height:5px; border-radius:50%; background:#16a34a; animation:pulse 1.5s infinite; }
-    .ctc-hours-grid { display:grid; grid-template-columns:1fr 1fr; gap:5px; }
-    .ctc-hour-item {
-      display:flex; justify-content:space-between; align-items:center;
-      padding:8px 11px; background:rgba(255,255,255,0.85);
-      border-radius:8px; font-size:0.78rem;
-      border:1px solid rgba(46,109,164,0.07); transition:all 0.2s ease;
-    }
-    .ctc-hour-item:hover { background:#fff; border-color:rgba(46,109,164,0.2); }
-    .ctc-hour-day { font-weight:700; color:var(--dark); }
-    .ctc-hour-time { color:var(--gray); font-size:0.75rem; }
-
     /* Map CTA */
     .ctc-map-cta { border-top:1px solid var(--border); padding:16px 22px; }
     .ctc-map-btn {
@@ -388,6 +355,9 @@
     .ctc-input::placeholder { color:#adb5bd; }
     .ctc-input.valid { border-color:#16a34a; }
     .ctc-input.valid + .ctc-input-icon { color:#16a34a; }
+    .ctc-input.error { border-color:#ef4444; box-shadow:0 0 0 3px rgba(239,68,68,0.08); }
+    .ctc-error-msg { display:none; align-items:center; gap:5px; font-size:0.76rem; color:#ef4444; font-weight:500; margin-top:5px; }
+    .ctc-error-msg.show { display:flex; }
 
     /* Textarea */
     .ctc-textarea {
@@ -418,7 +388,7 @@
     .ctc-select:focus { border-color:var(--blue); background:#fff; box-shadow:0 0 0 4px rgba(46,109,164,0.09); }
 
     /* Service checkboxes — custom pill design */
-    .ctc-svc-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:16px; }
+    .ctc-svc-grid { display:grid; grid-template-columns:1fr; gap:8px; margin-bottom:16px; }
     .ctc-svc-opt { position:relative; }
     .ctc-svc-opt input[type="checkbox"] { position:absolute; opacity:0; width:0; height:0; }
     .ctc-svc-opt label {
@@ -549,9 +519,7 @@
       .ctc-svc-grid{ grid-template-columns:1fr; }
       .ctc-form-header{ padding:20px; }
       .ctc-form-body{ padding:20px; }
-      .ctc-hours-grid{ grid-template-columns:1fr; }
-      .ctc-hours-wrap{ padding:16px 20px; }
-      .ctc-map-cta{ padding:12px 20px; }
+.ctc-map-cta{ padding:12px 20px; }
       .ctc-info-body{ padding:4px 10px 0; }
       .ctc-fh-top{ flex-direction:column; }
     }
@@ -569,11 +537,6 @@
     <div class="ctc-hero-grid"></div>
   </div>
   <div class="container">
-    <div class="ctc-breadcrumb">
-      <a href="index.html">Home</a>
-      <i class="fa-solid fa-chevron-right"></i>
-      <span>Contact Us</span>
-    </div>
     <div class="ctc-hero-badge">
       <span class="ctc-hero-badge-dot"></span>
       <i class="fa-solid fa-star"></i>
@@ -712,33 +675,7 @@
               <div class="ctc-ic-sub">Reply within 24 hours</div>
             </div>
           </div>
-          <div class="ctc-info-divider"></div>
 
-          <div class="ctc-info-card">
-            <div class="ctc-ic-icon"><i class="fa-solid fa-clock"></i></div>
-            <div>
-              <div class="ctc-ic-lbl">Working Hours</div>
-              <div class="ctc-ic-val">Monday – Saturday</div>
-              <div class="ctc-ic-sub">9:30 AM – 6:30 PM (GST)</div>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- Office Hours Grid -->
-        <div class="ctc-hours-wrap">
-          <div class="ctc-hours-head">
-            <div class="ctc-hours-title">Office Hours</div>
-            <div class="ctc-hours-open"><span class="ctc-hours-open-dot"></span> Open Today</div>
-          </div>
-          <div class="ctc-hours-grid">
-            <div class="ctc-hour-item"><span class="ctc-hour-day">Monday</span><span class="ctc-hour-time">9:30–18:30</span></div>
-            <div class="ctc-hour-item"><span class="ctc-hour-day">Tuesday</span><span class="ctc-hour-time">9:30–18:30</span></div>
-            <div class="ctc-hour-item"><span class="ctc-hour-day">Wednesday</span><span class="ctc-hour-time">9:30–18:30</span></div>
-            <div class="ctc-hour-item"><span class="ctc-hour-day">Thursday</span><span class="ctc-hour-time">9:30–18:30</span></div>
-            <div class="ctc-hour-item"><span class="ctc-hour-day">Friday</span><span class="ctc-hour-time">9:30–18:30</span></div>
-            <div class="ctc-hour-item"><span class="ctc-hour-day">Saturday</span><span class="ctc-hour-time">9:30–18:30</span></div>
-          </div>
         </div>
 
         <!-- Map CTA -->
@@ -814,40 +751,41 @@
                 </div>
               </div>
               <div class="ctc-field">
-                <label for="phone">Phone / WhatsApp</label>
+                <label for="phone">Phone / WhatsApp *</label>
                 <div class="ctc-input-wrap">
                   <i class="fa-solid fa-phone ctc-input-icon"></i>
-                  <input type="tel" id="phone" name="phone" class="ctc-input" placeholder="+971 XX XXX XXXX"/>
+                  <input type="tel" id="phone" name="phone" class="ctc-input" placeholder="+971 XX XXX XXXX" required inputmode="tel" autocomplete="tel"/>
                 </div>
+                <div class="ctc-error-msg" id="phoneError"><i class="fa-solid fa-circle-exclamation"></i> Please enter your phone number</div>
               </div>
             </div>
 
             <div class="ctc-field">
-              <label>Services Interested In</label>
+              <label>What do you need help with?</label>
               <div class="ctc-svc-grid">
                 <div class="ctc-svc-opt">
-                  <input type="checkbox" id="s1" name="services[]" value="Virtual CFO"/>
-                  <label for="s1"><span class="ctc-svc-box"><i class="fa-solid fa-check"></i></span> Virtual CFO Services</label>
+                  <input type="checkbox" id="s1" name="services[]" value="No accountant — need full service"/>
+                  <label for="s1"><span class="ctc-svc-box"><i class="fa-solid fa-check"></i></span> I don't have an accountant and need someone to take care of everything</label>
                 </div>
                 <div class="ctc-svc-opt">
-                  <input type="checkbox" id="s2" name="services[]" value="Month-end Closing"/>
-                  <label for="s2"><span class="ctc-svc-box"><i class="fa-solid fa-check"></i></span> Month-end Closing &amp; MIS</label>
+                  <input type="checkbox" id="s2" name="services[]" value="Has accountant — reconciliation concerns"/>
+                  <label for="s2"><span class="ctc-svc-box"><i class="fa-solid fa-check"></i></span> I have an accountant but not sure if my accounts are reconciled</label>
                 </div>
                 <div class="ctc-svc-opt">
-                  <input type="checkbox" id="s3" name="services[]" value="Audit Tax"/>
-                  <label for="s3"><span class="ctc-svc-box"><i class="fa-solid fa-check"></i></span> Audit &amp; Tax Compliance</label>
+                  <input type="checkbox" id="s3" name="services[]" value="No financial visibility"/>
+                  <label for="s3"><span class="ctc-svc-box"><i class="fa-solid fa-check"></i></span> I don't have Financial Visibility</label>
                 </div>
                 <div class="ctc-svc-opt">
-                  <input type="checkbox" id="s4" name="services[]" value="Power BI"/>
-                  <label for="s4"><span class="ctc-svc-box"><i class="fa-solid fa-check"></i></span> Power BI Solutions</label>
+                  <input type="checkbox" id="s4" name="services[]" value="Tax compliance support"/>
+                  <label for="s4"><span class="ctc-svc-box"><i class="fa-solid fa-check"></i></span> I need support with Tax Compliance</label>
                 </div>
                 <div class="ctc-svc-opt">
-                  <input type="checkbox" id="s5" name="services[]" value="Process Optimization"/>
-                  <label for="s5"><span class="ctc-svc-box"><i class="fa-solid fa-check"></i></span> Process Optimization</label>
+                  <input type="checkbox" id="s5" name="services[]" value="High-level financial leadership"/>
+                  <label for="s5"><span class="ctc-svc-box"><i class="fa-solid fa-check"></i></span> I need high-level financial leadership</label>
                 </div>
                 <div class="ctc-svc-opt">
-                  <input type="checkbox" id="s6" name="services[]" value="Other"/>
-                  <label for="s6"><span class="ctc-svc-box"><i class="fa-solid fa-check"></i></span> Other / Not Sure</label>
+                  <input type="checkbox" id="s6" name="services[]" value="Not sure — need guidance"/>
+                  <label for="s6"><span class="ctc-svc-box"><i class="fa-solid fa-check"></i></span> I am not sure (need guidance)</label>
                 </div>
               </div>
             </div>
@@ -868,8 +806,8 @@
             </div>
 
             <div class="ctc-field">
-              <label for="message">Tell Us About Your Business *</label>
-              <textarea id="message" name="message" class="ctc-textarea" placeholder="Briefly describe your current finance setup, key challenges, and what you're hoping to achieve…" required></textarea>
+              <label for="message">What's your biggest challenge right now? *</label>
+              <textarea id="message" name="message" class="ctc-textarea" placeholder="Briefly describe your current finance or business challenge…" required></textarea>
             </div>
 
             <div class="ctc-terms-row">
@@ -884,7 +822,7 @@
 
             <button type="submit" class="ctc-submit-btn" id="ctcSubmitBtn">
               <span class="ctc-btn-shine"></span>
-              <span class="ctc-btn-text"><i class="fa-solid fa-paper-plane"></i>&nbsp; Send Message &amp; Book Consultation</span>
+              <span class="ctc-btn-text"><i class="fa-solid fa-calendar-check"></i>&nbsp; Book Your Free Consultation Now</span>
               <span class="ctc-btn-icon"><i class="fa-solid fa-arrow-right"></i></span>
               <span class="ctc-btn-spinner"></span>
             </button>
@@ -1164,10 +1102,22 @@
   /* ── Input micro-validation on blur ─────────────── */
   document.querySelectorAll('.ctc-input[required]').forEach(function(inp){
     inp.addEventListener('blur', function(){
+      var errEl = this.id ? document.getElementById(this.id + 'Error') : null;
       if(this.value.trim()){
         this.classList.add('valid');
+        this.classList.remove('error');
+        if(errEl) errEl.classList.remove('show');
       } else {
         this.classList.remove('valid');
+        this.classList.add('error');
+        if(errEl) errEl.classList.add('show');
+      }
+    });
+    inp.addEventListener('input', function(){
+      if(this.value.trim()){
+        this.classList.remove('error');
+        var errEl = this.id ? document.getElementById(this.id + 'Error') : null;
+        if(errEl) errEl.classList.remove('show');
       }
     });
   });
