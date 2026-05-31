@@ -317,9 +317,9 @@
   bars.forEach(function(bar) { obs.observe(bar); });
 })();
 
-/* ── Comparison section: stagger row reveal ── */
+/* ── Comparison table: stagger row reveal on scroll ── */
 (function () {
-  var rows = document.querySelectorAll('.cmp-row');
+  var rows = document.querySelectorAll('.cmp-trow');
   if (!rows.length) return;
 
   var rowObs = new IntersectionObserver(function(entries) {
@@ -329,7 +329,7 @@
         rowObs.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.15 });
+  }, { threshold: 0.1 });
 
   rows.forEach(function(row) { rowObs.observe(row); });
 })();
@@ -753,90 +753,59 @@ window.addEventListener('load', () => {
   }, { passive: true });
 })();
 
-// 2. Sequential typewriter animation for hero headline — all lines visible with infinite loop
+// 2. Typing headline — type char-by-char, pause, delete, advance, repeat
 (function () {
-  const lineEls = [
-    document.getElementById('heroLine1'),
-    document.getElementById('heroLine2'),
-    document.getElementById('heroLine3'),
-  ];
-  
-  if (!lineEls[0]) return;
+  var el = document.getElementById('typingHeadline');
+  if (!el) return;
 
-  const lines = [
-    'Scale your business with a Virtual CFO',
-    'We turn Data into Decisions',
-    'Without strategy and systems, growth becomes risky',
+  // \n becomes <br> at render time — each string is exactly 2 visual lines
+  var headlines = [
+    'Scale your business with\na Virtual CFO',
+    'We turn Data into\nDecisions',
+    'Without strategy and systems,\ngrowth becomes risky',
   ];
 
-  const SPEED_TYPE = 50;
-  const PAUSE_BETWEEN_LINES = 900;
-  const PAUSE_BEFORE_LOOP = 2500;
+  var SPEED_TYPE   = 55;   // ms per character while typing
+  var SPEED_DELETE = 28;   // ms per character while deleting (faster)
+  var PAUSE_FULL   = 2500; // ms to show fully typed text before deleting
+  var PAUSE_EMPTY  = 350;  // ms pause after fully deleted before next starts
 
-  // Type a single line into its element
-  function typeLineAsync(lineIdx) {
-    return new Promise((resolve) => {
-      const el = lineEls[lineIdx];
-      const text = lines[lineIdx];
-      let charIdx = 0;
+  var current    = 0;
+  var charIdx    = 0;
+  var isDeleting = false;
 
-      function typeChar() {
-        if (charIdx < text.length) {
-          el.textContent = text.substring(0, ++charIdx);
-          setTimeout(typeChar, SPEED_TYPE);
-        } else {
-          resolve();
-        }
-      }
-
-      typeChar();
-    });
+  function render() {
+    var visible = headlines[current].substring(0, charIdx).replace(/\n/g, '<br>');
+    el.innerHTML = visible + '<span class="typing-cursor" aria-hidden="true"></span>';
   }
 
-  // Erase all lines
-  function eraseAllLines() {
-    return new Promise((resolve) => {
-      function eraseChar() {
-        let anyContent = false;
-        lineEls.forEach(el => {
-          if (el.textContent.length > 0) {
-            el.textContent = el.textContent.substring(0, el.textContent.length - 1);
-            anyContent = true;
-          }
-        });
+  function tick() {
+    var len = headlines[current].length;
 
-        if (anyContent) {
-          setTimeout(eraseChar, 25);
-        } else {
-          resolve();
-        }
+    if (isDeleting) {
+      charIdx--;
+      render();
+      if (charIdx === 0) {
+        isDeleting = false;
+        current    = (current + 1) % headlines.length;
+        setTimeout(tick, PAUSE_EMPTY);
+      } else {
+        setTimeout(tick, SPEED_DELETE);
       }
-
-      eraseChar();
-    });
-  }
-
-  // Execute animation sequence with infinite loop
-  async function startAnimation() {
-    while (true) {
-      // Type all lines
-      for (let i = 0; i < lines.length; i++) {
-        await typeLineAsync(i);
-        if (i < lines.length - 1) {
-          await new Promise(r => setTimeout(r, PAUSE_BETWEEN_LINES));
-        }
+    } else {
+      charIdx++;
+      render();
+      if (charIdx === len) {
+        isDeleting = true;
+        setTimeout(tick, PAUSE_FULL);
+      } else {
+        setTimeout(tick, SPEED_TYPE);
       }
-      // Pause before erasing
-      await new Promise(r => setTimeout(r, PAUSE_BEFORE_LOOP));
-      // Erase all lines
-      await eraseAllLines();
-      // Pause before starting again
-      await new Promise(r => setTimeout(r, 400));
     }
   }
 
-  // Kick off after initial fade-in settles
-  setTimeout(() => startAnimation(), 1400);
+  render(); // show empty container with blinking cursor immediately
+  setTimeout(tick, 500);
 })();
 
 // 3. Hero Live Chart — smooth animated revenue & profit lines

@@ -427,56 +427,45 @@ p { font-size: 1rem; color: var(--gray); line-height: 1.75; }
   box-shadow: 0 0 8px rgba(245,197,24,0.9);
 }
 
-/* HEADLINE — gradient text (green to yellow) on light bg */
-.hero-headline {
-  margin-bottom: 22px;
+/* TYPING HEADLINE — fixed 2-line height, left-aligned, no CLS */
+.hero-typing-container {
+  position: relative;
   font-size: clamp(1.3rem, 2.8vw, 1.9rem);
-  font-weight: 800;
-  line-height: 1.35;
-  letter-spacing: -0.01em;
+  height: 2.9em;     /* exactly 2 lines: 2 × line-height(1.45) */
+  margin-bottom: 22px;
+  overflow: visible; /* cursor must not be clipped */
 }
 
-.hero-headline em {
-  font-style: normal;
-  display: block;
-  min-height: 1.45em;
-  position: relative;
+#typingHeadline {
+  margin: 0;
+  padding: 0;
+  font-size: 1em;    /* inherits container's clamp font-size */
   font-weight: 800;
-  white-space: normal;
-  word-spacing: normal;
-  word-break: break-word;
-  /* Gradient text color */
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+  text-align: left;
   background: linear-gradient(135deg, #16a34a 0%, #22c55e 40%, #F5C518 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  /* Fallback color for browsers without gradient support */
   color: #16a34a;
 }
 
-.hero-headline em:last-child::after {
-  content: '';
-  position: absolute;
-  right: -8px;
-  top: 0;
-  width: 3px;
-  height: 1em;
-  background: linear-gradient(135deg, #16a34a 0%, #F5C518 100%);
-  animation: blinkCursor 0.7s step-end infinite;
-  opacity: 1;
+/* Blinking cursor injected by JS inside #typingHeadline */
+.typing-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 0.85em;
+  background: #22c55e;
+  margin-left: 3px;
+  vertical-align: text-bottom;
   border-radius: 1px;
-}
-
-.typewriter-text {
-  display: block;
-  min-width: fit-content;
-  min-height: 1.45em;
+  animation: blinkCursor 0.75s step-end infinite;
 }
 
 @keyframes blinkCursor {
   0%, 100% { opacity: 1; }
-  49%       { opacity: 1; }
-  50%, 99% { opacity: 0; }
+  50%       { opacity: 0; }
 }
 
 .hero-desc {
@@ -2849,7 +2838,15 @@ h3 img.powerbi-logo {
 =========================== */
 @media (max-width: 1024px) {
   .hero .container { grid-template-columns: 1fr; }
-  .hero-mockup-wrap { display: none; }
+  .hero-mockup-wrap {
+    display: block;
+    margin-top: 28px;
+    padding: 8px 4px;       /* remove float-card overflow spacing */
+  }
+  .float-card { display: none; }   /* hide absolute float cards — they'd overlap on mobile */
+  .dashboard-mockup {
+    box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+  }
   .services-grid { grid-template-columns: repeat(2, 1fr); }
   .stats-grid { grid-template-columns: repeat(2, 1fr); }
   .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
@@ -2963,8 +2960,7 @@ h3 img.powerbi-logo {
   .footer-grid { grid-template-columns: 1fr; }
   .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
   .cta-section { padding: 48px 24px; }
-  .hero h1 { font-size: 1.6rem; }
-  .hero-headline { font-size: 1.4rem; line-height: 1.35; }
+  .hero-typing-container { font-size: 1.4rem; }
   .hero-trust-row { flex-wrap: wrap; }
   .hero-badge { margin-bottom: 20px; font-size: 0.72rem; }
   .hero-desc { font-size: 1rem; margin-bottom: 26px; max-width: 100%; }
@@ -2987,9 +2983,13 @@ h3 img.powerbi-logo {
   .mockup-cards { grid-template-columns: repeat(2, 1fr); }
   .hero-btns { flex-direction: column; align-items: stretch; }
   .hero-btns .btn { justify-content: center; }
-  .hero-headline { font-size: 1.2rem; line-height: 1.4; }
+  .hero-typing-container { font-size: 1.2rem; }
   .hero-stat-num { font-size: 1.65rem; }
   .hero-trust-row { gap: 12px; }
+}
+
+@media (max-width: 360px) {
+  .hero-typing-container { font-size: 1rem; }
 }
 
 /* ===========================
@@ -7344,12 +7344,15 @@ a, button, .btn { -webkit-tap-highlight-color: transparent; }
 .about-founder-avatar {
   width: 44px; height: 44px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #2E6DA4, #4a8cc4);
-  color: #ffffff;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.2rem;
+  overflow: hidden;
   flex-shrink: 0;
   box-shadow: 0 4px 14px rgba(46,109,164,0.3);
+  border: 2px solid rgba(46,109,164,0.25);
+}
+.about-founder-avatar img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
 }
 .about-founder-info { flex: 1; }
 .about-founder-name { font-size: 0.85rem; font-weight: 700; color: #0f172a; }
@@ -7384,8 +7387,12 @@ a, button, .btn { -webkit-tap-highlight-color: transparent; }
 
 /* ── Responsive ───────────────────────────────────── */
 @media (max-width: 1024px) {
-  .about-hero-grid { grid-template-columns: 1fr; gap: 40px; }
-  .about-hero-right { display: none; }
+  .about-hero-grid { grid-template-columns: 1fr; gap: 32px; }
+  .about-hero-right {
+    display: block;
+    padding: 8px 4px;        /* remove overflow spacing reserved for float cards */
+  }
+  .about-float-card { display: none; }   /* hide absolute float cards on mobile */
   .about-hero-section { padding: 72px 0 48px; }
 }
 
@@ -9520,8 +9527,12 @@ a, button, .btn { -webkit-tap-highlight-color: transparent; }
 
 /* ── Responsive ───────────────────────────────────── */
 @media (max-width: 1024px) {
-  .svc-hero-layout { grid-template-columns: 1fr; gap: 40px; }
-  .svc-hero-right  { display: none; }
+  .svc-hero-layout { grid-template-columns: 1fr; gap: 32px; }
+  .svc-hero-right {
+    display: block;
+    padding: 8px 4px;
+  }
+  .svc-float-card { display: none; }
   .svc-hero-section { padding: 100px 0 56px; }
 }
 
@@ -10055,14 +10066,13 @@ a, button, .btn { -webkit-tap-highlight-color: transparent; }
    PREMIUM COMPARISON SECTION — Virtual CFO vs Traditional
 ===================================================== */
 
-/* Section wrapper */
+/* ── SECTION WRAPPER ──────────────────────────────── */
 .vcfo-compare-section {
   position: relative;
   overflow: hidden;
   background: linear-gradient(160deg, #f0f8ff 0%, #e8f3ff 35%, #f5f8ff 65%, #eef5ff 100%);
 }
 
-/* Background decoration */
 .vcfo-compare-bg-decor {
   position: absolute;
   inset: 0;
@@ -10102,293 +10112,299 @@ a, button, .btn { -webkit-tap-highlight-color: transparent; }
 
 .vcfo-compare-section .container { position: relative; z-index: 1; }
 
-/* Section heading */
 .compare-heading-old { color: #374151; }
 .compare-heading-vs  { color: #94a3b8; font-weight: 400; font-style: italic; margin: 0 6px; }
 .compare-heading-new { color: #1e3a8a; }
 
-/* ── COMPARISON GRID ───────────────────────────────── */
-.vcfo-compare-grid {
-  display: grid;
-  grid-template-columns: 1fr 64px 1fr;
-  gap: 0;
-  align-items: stretch;
+/* ── TABLE OUTER CARD ─────────────────────────────── */
+.cmp-table {
+  background: #ffffff;
+  border-radius: 24px;
+  border: 1.5px solid rgba(46,109,164,0.14);
+  box-shadow:
+    0 2px 4px rgba(0,0,0,0.03),
+    0 16px 56px rgba(30,64,175,0.09);
+  overflow: hidden;
   margin-bottom: 40px;
 }
 
-/* ── COMPARE PANEL ─────────────────────────────────── */
-.cmp-panel {
-  border-radius: 24px;
-  overflow: hidden;
-  position: relative;
+/* Shared 3-column grid used by header, each row, and footer */
+.cmp-thead,
+.cmp-trow,
+.cmp-tfoot {
+  display: grid;
+  grid-template-columns: 1fr 190px 230px;
+  align-items: stretch;
+}
+
+/* ── COLUMN HEADERS ───────────────────────────────── */
+.cmp-thead {
+  border-bottom: 2px solid rgba(46,109,164,0.1);
+}
+
+.cmp-th-feature {
+  padding: 26px 28px;
+  background: #f8faff;
+  border-right: 1px solid rgba(0,0,0,0.06);
+  display: flex;
+  align-items: flex-end;
+}
+
+.cmp-th-feature-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: #94a3b8;
+}
+
+.cmp-th {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 28px 16px 22px;
+  text-align: center;
+  gap: 8px;
+  position: relative;
 }
 
-/* Left panel — Traditional */
-.cmp-panel-left {
-  background: rgba(255,255,255,0.75);
-  border: 1.5px solid rgba(239,68,68,0.15);
-  box-shadow: 0 4px 32px rgba(239,68,68,0.06), 0 2px 8px rgba(0,0,0,0.04);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+.cmp-th-trad {
+  background: #fafafa;
+  border-right: 1px solid rgba(0,0,0,0.06);
 }
 
-/* Right panel — Virtual CFO */
-.cmp-panel-right {
-  background: rgba(255,255,255,0.88);
-  border: 1.5px solid rgba(46,109,164,0.28);
-  box-shadow: 0 8px 48px rgba(30,64,175,0.14), 0 2px 8px rgba(0,0,0,0.04);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+/* Virtual CFO column — premium dark-blue header */
+.cmp-th-vcfo {
+  background: linear-gradient(165deg, #152e5a 0%, #1e3a8a 50%, #2E6DA4 100%);
 }
 
-/* Top shimmer accent */
-.cmp-panel-shimmer {
+/* "Recommended" ribbon at the very top of the VCO column */
+.cmp-th-recommended {
   position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 3px;
-  border-radius: 24px 24px 0 0;
-}
-
-.cmp-shimmer-red  { background: linear-gradient(90deg, #ef4444, #f87171, #ef4444); }
-.cmp-shimmer-blue { background: linear-gradient(90deg, #2E6DA4, #4a8cc4, #F5C518, #4a8cc4, #2E6DA4); }
-
-/* ── PANEL HEADER ──────────────────────────────────── */
-.cmp-panel-header {
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, #16a34a, #22c55e);
+  color: #fff;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 4px 16px;
+  border-radius: 0 0 10px 10px;
+  white-space: nowrap;
   display: flex;
   align-items: center;
-  gap: 14px;
-  padding: 28px 28px 22px;
-  border-bottom: 1px solid rgba(0,0,0,0.05);
+  gap: 5px;
 }
 
-.cmp-panel-icon {
-  width: 52px; height: 52px;
+.cmp-th-icon {
+  width: 50px; height: 50px;
   border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   flex-shrink: 0;
 }
 
-.cmp-icon-red {
-  background: linear-gradient(135deg, #fee2e2, #fecaca);
-  color: #dc2626;
+.cmp-th-icon-red  { background: #fee2e2; color: #dc2626; }
+.cmp-th-icon-blue {
+  background: rgba(255,255,255,0.18);
+  color: #fff;
+  border: 1.5px solid rgba(255,255,255,0.28);
 }
 
-.cmp-icon-blue {
-  background: linear-gradient(135deg, #2E6DA4, #4a8cc4);
-  color: #ffffff;
-  box-shadow: 0 6px 20px rgba(46,109,164,0.32);
-}
-
-.cmp-panel-title {
-  font-size: 1.05rem;
+.cmp-th-name {
+  font-size: 0.95rem;
   font-weight: 800;
-  line-height: 1.2;
+  line-height: 1.25;
 }
 
-.cmp-title-red  { color: #dc2626; }
-.cmp-title-blue { color: #1e3a8a; }
+.cmp-th-trad .cmp-th-name { color: #374151; }
+.cmp-th-vcfo .cmp-th-name { color: #ffffff; }
 
-.cmp-panel-subtitle {
-  font-size: 0.74rem;
-  color: #94a3b8;
-  margin-top: 3px;
+.cmp-th-tags {
+  font-size: 0.67rem;
   font-weight: 500;
   letter-spacing: 0.3px;
 }
 
-.cmp-panel-badge {
-  margin-left: auto;
+.cmp-th-trad .cmp-th-tags { color: #94a3b8; }
+.cmp-th-vcfo .cmp-th-tags { color: rgba(255,255,255,0.55); }
+
+/* ── BODY ROWS ────────────────────────────────────── */
+.cmp-tbody { display: flex; flex-direction: column; }
+
+.cmp-trow {
+  border-bottom: 1px solid rgba(0,0,0,0.048);
+  /* Scroll-reveal: start hidden, slide in from left */
+  opacity: 0;
+  transform: translateX(-14px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.cmp-trow.row-visible {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: calc(var(--stagger) * 0.07s);
+}
+
+.cmp-trow:last-child { border-bottom: none; }
+
+/* Zebra striping — feature + traditional cells only */
+.cmp-trow:nth-child(even) .cmp-td-feature,
+.cmp-trow:nth-child(even) .cmp-td-trad {
+  background: #f8faff;
+}
+
+/* VCO column always has a blue tint — even rows get slightly deeper */
+.cmp-trow:nth-child(even) .cmp-td-vcfo {
+  background: rgba(46,109,164,0.07);
+}
+
+/* Hover: highlight entire row */
+.cmp-trow:hover .cmp-td-feature,
+.cmp-trow:hover .cmp-td-trad {
+  background: #eef4ff;
+  transition: background 0.18s ease;
+}
+
+.cmp-trow:hover .cmp-td-vcfo {
+  background: rgba(46,109,164,0.12);
+  transition: background 0.18s ease;
+}
+
+/* Feature label cell */
+.cmp-td-feature {
   display: flex;
   align-items: center;
-  gap: 5px;
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.8px;
-  text-transform: uppercase;
-  padding: 5px 12px;
-  border-radius: 50px;
-  white-space: nowrap;
-  flex-shrink: 0;
+  gap: 12px;
+  padding: 15px 24px;
+  border-right: 1px solid rgba(0,0,0,0.05);
+  transition: background 0.18s ease;
 }
 
-.cmp-badge-red {
-  background: rgba(239,68,68,0.1);
-  color: #dc2626;
-  border: 1px solid rgba(239,68,68,0.2);
-}
-
-.cmp-badge-green {
-  background: rgba(22,163,74,0.1);
-  color: #16a34a;
-  border: 1px solid rgba(22,163,74,0.2);
-}
-
-/* ── COMPARISON ROWS ───────────────────────────────── */
-.cmp-rows { flex: 1; }
-
-.cmp-row {
-  display: flex;
-  align-items: flex-start;
-  gap: 14px;
-  padding: 15px 28px;
-  border-bottom: 1px solid rgba(0,0,0,0.04);
-  transition: background 0.25s ease, transform 0.25s ease;
-  cursor: default;
-  /* Stagger reveal via JS */
-  opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.5s ease, transform 0.5s ease, background 0.25s ease;
-}
-
-.cmp-row.row-visible {
-  opacity: 1;
-  transform: translateY(0);
-  transition-delay: calc(var(--stagger) * 0.08s);
-}
-
-.cmp-row:last-child { border-bottom: none; }
-
-.cmp-panel-left  .cmp-row:hover { background: rgba(239,68,68,0.03);  transform: translateX(4px); }
-.cmp-panel-right .cmp-row:hover { background: rgba(46,109,164,0.04); transform: translateX(4px); }
-
-.cmp-row-icon {
-  width: 30px; height: 30px;
-  border-radius: 50%;
+.cmp-feat-icon {
+  width: 32px; height: 32px;
+  border-radius: 9px;
+  background: linear-gradient(135deg, #eff6ff, #dbeafe);
+  color: #2E6DA4;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.78rem;
+  font-size: 0.8rem;
   flex-shrink: 0;
-  margin-top: 1px;
-  transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
 }
 
-.cmp-row:hover .cmp-row-icon { transform: scale(1.15); }
-
-.cmp-icon-x {
-  background: rgba(239,68,68,0.1);
-  color: #dc2626;
-  border: 1px solid rgba(239,68,68,0.2);
-}
-
-.cmp-icon-check {
-  background: linear-gradient(135deg, #16a34a, #22c55e);
-  color: #ffffff;
-  box-shadow: 0 3px 10px rgba(22,163,74,0.28);
-}
-
-.cmp-row-body { display: flex; flex-direction: column; gap: 3px; }
-
-.cmp-row-title {
-  font-size: 0.92rem;
+.cmp-td-feature > span:last-child {
+  font-size: 0.9rem;
   font-weight: 600;
+  color: #1e293b;
   line-height: 1.4;
 }
 
-.cmp-row-bad  .cmp-row-title { color: #374151; }
-.cmp-row-good .cmp-row-title { color: #0f172a; }
-
-.cmp-row-desc {
-  font-size: 0.8rem;
-  color: #64748b;
-  line-height: 1.55;
-}
-
-/* ── PANEL FOOTER ──────────────────────────────────── */
-.cmp-panel-footer {
+/* Value cells */
+.cmp-td {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 16px 28px;
-  font-size: 0.82rem;
-  font-weight: 600;
-  border-top: 1px solid rgba(0,0,0,0.05);
-  margin-top: auto;
+  justify-content: center;
+  padding: 15px 12px;
+  transition: background 0.18s ease;
 }
 
-.cmp-footer-red {
-  background: rgba(239,68,68,0.05);
+.cmp-td-trad {
+  border-right: 1px solid rgba(0,0,0,0.05);
+}
+
+/* VCO column base tint — creates the visual "column" effect */
+.cmp-td-vcfo {
+  background: rgba(46,109,164,0.045);
+}
+
+/* ── INDICATOR PILLS ──────────────────────────────── */
+.cmp-pip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  border-radius: 50px;
+  padding: 6px 12px;
+  min-width: 38px;
+  white-space: nowrap;
+  transition: transform 0.25s cubic-bezier(0.34,1.56,0.64,1);
+}
+
+.cmp-trow:hover .cmp-pip { transform: scale(1.08); }
+
+/* Soft green check — Traditional "yes" */
+.cmp-pip-yes {
+  background: rgba(22,163,74,0.1);
+  color: #16a34a;
+  border: 1px solid rgba(22,163,74,0.22);
+}
+
+/* Solid green — Virtual CFO "yes" */
+.cmp-pip-yes-strong {
+  background: linear-gradient(135deg, #16a34a, #22c55e);
+  color: #ffffff;
+  box-shadow: 0 3px 10px rgba(22,163,74,0.3);
+}
+
+/* Red X — not available */
+.cmp-pip-no {
+  background: rgba(239,68,68,0.08);
   color: #dc2626;
+  border: 1px solid rgba(239,68,68,0.18);
 }
 
-.cmp-footer-blue {
-  background: linear-gradient(135deg, rgba(46,109,164,0.08), rgba(74,140,196,0.06));
+/* Amber — partial / limited */
+.cmp-pip-limited {
+  background: rgba(245,158,11,0.1);
+  color: #d97706;
+  border: 1px solid rgba(245,158,11,0.22);
+}
+
+/* ── TABLE FOOTER SUMMARY ─────────────────────────── */
+.cmp-tfoot {
+  border-top: 2px solid rgba(46,109,164,0.1);
+}
+
+.cmp-tf-feature {
+  background: #f8faff;
+  border-right: 1px solid rgba(0,0,0,0.06);
+  padding: 16px 24px;
+}
+
+.cmp-tf-trad {
+  background: #fafafa;
+  border-right: 1px solid rgba(0,0,0,0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 14px 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #ef4444;
+}
+
+.cmp-tf-vcfo {
+  background: rgba(46,109,164,0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 14px 12px;
+  font-size: 0.8rem;
+  font-weight: 700;
   color: #1e3a8a;
 }
 
-/* ── VS DIVIDER ────────────────────────────────────── */
-.cmp-vs-center {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  padding: 0 4px;
-}
-
-.cmp-vs-line {
-  width: 2px;
-  flex: 1;
-}
-
-.cmp-vs-line-top {
-  background: linear-gradient(to bottom, transparent, rgba(30,64,175,0.2));
-}
-
-.cmp-vs-line-bottom {
-  background: linear-gradient(to bottom, rgba(30,64,175,0.2), transparent);
-}
-
-.cmp-vs-badge {
-  width: 52px; height: 52px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #2E6DA4, #4a8cc4);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  z-index: 2;
-  box-shadow: 0 4px 20px rgba(46,109,164,0.4), 0 0 0 6px rgba(46,109,164,0.08);
-  animation: vsBadgePulse 3s ease-in-out infinite;
-}
-
-.cmp-vs-badge span {
-  font-size: 0.75rem;
-  font-weight: 900;
-  color: #ffffff;
-  letter-spacing: 1.5px;
-}
-
-@keyframes vsBadgePulse {
-  0%, 100% { box-shadow: 0 4px 20px rgba(46,109,164,0.4), 0 0 0 6px rgba(46,109,164,0.08); }
-  50%       { box-shadow: 0 6px 28px rgba(46,109,164,0.5), 0 0 0 10px rgba(46,109,164,0.12); }
-}
-
-.cmp-vs-dot {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 8px; height: 8px;
-  border-radius: 50%;
-  background: rgba(46,109,164,0.25);
-  animation: vsDotPulse 2s ease-in-out infinite;
-}
-
-.cmp-vs-dot:nth-child(3) { animation-delay: 0.4s; }
-.cmp-vs-dot:nth-child(4) { animation-delay: 0.8s; }
-.cmp-vs-dot:nth-child(5) { animation-delay: 1.2s; }
-
-@keyframes vsDotPulse {
-  0%, 100% { transform: translateX(-50%) scale(1); opacity: 0.4; }
-  50%       { transform: translateX(-50%) scale(1.4); opacity: 0.9; }
-}
-
-/* ── CTA STRIP ─────────────────────────────────────── */
+/* ── CTA STRIP ────────────────────────────────────── */
 .cmp-cta-strip {
   display: flex;
   align-items: center;
@@ -10428,11 +10444,7 @@ a, button, .btn { -webkit-tap-highlight-color: transparent; }
   margin-bottom: 12px;
 }
 
-.cmp-cta-trust {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-}
+.cmp-cta-trust { display: flex; gap: 20px; flex-wrap: wrap; }
 
 .cmp-trust-item {
   display: flex;
@@ -10454,65 +10466,46 @@ a, button, .btn { -webkit-tap-highlight-color: transparent; }
   z-index: 1;
 }
 
-.cmp-btn-arrow {
-  transition: transform 0.3s ease;
-}
+.cmp-btn-arrow { transition: transform 0.3s ease; }
+.cmp-cta-btn:hover .cmp-btn-arrow { transform: translateX(6px); }
 
-.cmp-cta-btn:hover .cmp-btn-arrow {
-  transform: translateX(6px);
-}
-
-/* ── RESPONSIVE ────────────────────────────────────── */
+/* ── RESPONSIVE ───────────────────────────────────── */
 @media (max-width: 1024px) {
-  .vcfo-compare-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
+  .cmp-thead,
+  .cmp-trow,
+  .cmp-tfoot { grid-template-columns: 1fr 150px 170px; }
 
-  .cmp-vs-center {
-    flex-direction: row;
-    padding: 0;
-    height: auto;
-  }
-
-  .cmp-vs-line {
-    flex: 1;
-    height: 2px;
-    width: auto;
-  }
-
-  .cmp-vs-line-top {
-    background: linear-gradient(to right, transparent, rgba(30,64,175,0.2));
-  }
-
-  .cmp-vs-line-bottom {
-    background: linear-gradient(to right, rgba(30,64,175,0.2), transparent);
-  }
-
-  .cmp-vs-dot { display: none; }
-
-  .cmp-cta-strip {
-    flex-direction: column;
-    text-align: center;
-    padding: 28px 24px;
-  }
-
+  .cmp-cta-strip { flex-direction: column; text-align: center; padding: 28px 24px; }
   .cmp-cta-trust { justify-content: center; }
 }
 
 @media (max-width: 768px) {
-  .cmp-panel-header { padding: 20px 20px 16px; gap: 10px; }
-  .cmp-panel-badge  { display: none; }
-  .cmp-row          { padding: 13px 20px; }
-  .cmp-panel-footer { padding: 14px 20px; }
-  .cmp-cta-strip    { border-radius: 16px; }
+  .cmp-thead,
+  .cmp-trow,
+  .cmp-tfoot { grid-template-columns: 1fr 80px 104px; }
+
+  .cmp-th-tags         { display: none; }
+  .cmp-th-name         { font-size: 0.8rem; }
+  .cmp-th-icon         { width: 38px; height: 38px; font-size: 1rem; }
+  .cmp-th-feature,
+  .cmp-td-feature      { padding: 13px 16px; gap: 8px; }
+  .cmp-td-feature > span:last-child { font-size: 0.82rem; }
+  .cmp-feat-icon       { width: 26px; height: 26px; font-size: 0.72rem; border-radius: 6px; }
+  .cmp-td              { padding: 13px 8px; }
+  .cmp-pip             { padding: 5px 9px; font-size: 0.72rem; min-width: 32px; }
+  .cmp-tf-feature      { padding: 14px 16px; }
+  .cmp-cta-strip       { border-radius: 16px; }
 }
 
 @media (max-width: 480px) {
-  .cmp-panel-title  { font-size: 0.95rem; }
-  .cmp-row-title    { font-size: 0.88rem; }
-  .cmp-row-desc     { font-size: 0.76rem; }
-  .cmp-cta-btn      { width: 100%; justify-content: center; }
+  .cmp-thead,
+  .cmp-trow,
+  .cmp-tfoot { grid-template-columns: 1fr 66px 88px; }
+
+  .cmp-th-recommended  { font-size: 0.56rem; padding: 3px 10px; }
+  .cmp-td-feature > span:last-child { font-size: 0.76rem; }
+  .cmp-pip             { font-size: 0.68rem; padding: 4px 7px; min-width: 28px; }
+  .cmp-cta-btn         { width: 100%; justify-content: center; }
 }
 
 /* ═══════════════════════════════════════════════════════════════
@@ -12798,4 +12791,267 @@ a, button, .btn { -webkit-tap-highlight-color: transparent; }
   .pfq-at-line { display: none; }
   .pfq-stats { flex-direction: column; max-width: 100%; }
   .pfq-stat-sep { width: 60px; height: 1px; }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   MOBILE EXPERIENCE IMPROVEMENTS
+   ▸ All rules are max-width guards — desktop is never affected.
+   ▸ Breakpoints: ≤768px (phones + small tablets)
+                  ≤480px (phones)
+                  ≤440px (comparison table special layout)
+                  ≤360px (very small phones)
+═══════════════════════════════════════════════════════════════ */
+
+/* ─────────────────────────────────────────────────────────────
+   1. GLOBAL RHYTHM — section padding, spacing utilities
+───────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  /* Reduce from 70px / 48px to breathable-but-compact values */
+  .section    { padding: 52px 0; }
+  .section-sm { padding: 34px 0; }
+
+  /* Tighter container gutters on narrow screens */
+  .container { padding-left: 16px; padding-right: 16px; }
+
+  /* Spacing utilities used as margin helpers */
+  .mb-64 { margin-bottom: 36px !important; }
+  .mb-48 { margin-bottom: 26px !important; }
+  .mt-16 { margin-top:    10px !important; }
+}
+
+@media (max-width: 480px) {
+  .section    { padding: 44px 0; }
+  .section-sm { padding: 28px 0; }
+  .mb-64      { margin-bottom: 28px !important; }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   2. TYPOGRAPHY — headings, labels, subtitles
+───────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  /* Section labels (currently 1rem on desktop) */
+  .section-label {
+    font-size: 0.72rem;
+    letter-spacing: 1.2px;
+    padding: 6px 14px;
+    margin-bottom: 10px;
+  }
+
+  /* Section titles inherit from h2's clamp() — add a mobile floor */
+  .section-title {
+    font-size: clamp(1.5rem, 5.5vw, 2.1rem);
+    line-height: 1.22;
+    margin-bottom: 12px;
+  }
+
+  /* Section subtitles */
+  .section-subtitle {
+    font-size: 0.94rem;
+    line-height: 1.68;
+    max-width: 100% !important;
+  }
+
+  /* Body text */
+  p { font-size: 0.95rem; line-height: 1.72; }
+}
+
+@media (max-width: 480px) {
+  .section-title    { font-size: clamp(1.3rem, 5.2vw, 1.75rem); }
+  .section-subtitle { font-size: 0.9rem; }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   3. BUTTONS — touch targets & tap comfort
+───────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  /* Minimum 48px height for accessible tap targets (WCAG 2.5.5) */
+  .btn {
+    min-height: 48px;
+    padding: 13px 22px;
+    font-size: 0.91rem;
+  }
+
+  /* Full-width CTAs inside comparison/hero strip */
+  .cmp-cta-btn,
+  .cta-section .btn {
+    min-height: 52px;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   4. HERO SECTION
+───────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  /* Trust / rating row */
+  .hero-avatar      { width: 34px; height: 34px; border-width: 2px; }
+  .hero-stars       { font-size: 0.9rem; }
+  .hero-rating-text { font-size: 0.76rem; }
+
+  /* Stats strip */
+  .hero-stat-num   { font-size: 1.72rem; }
+  .hero-stat-label { font-size: 0.7rem; letter-spacing: 0.2px; }
+
+  /* Description */
+  .hero-desc { font-size: 0.94rem; line-height: 1.72; }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   5. WHAT IS A VIRTUAL CFO — comparison table (≤768px)
+───────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  /* Section intro text */
+  .vcfo-compare-section .section-subtitle { margin-top: 10px; }
+
+  /* Card shell */
+  .cmp-table { border-radius: 16px; margin-bottom: 28px; }
+
+  /* CTA strip below the table */
+  .cmp-cta-strip {
+    padding: 24px 18px;
+    border-radius: 16px;
+    gap: 18px;
+  }
+  .cmp-cta-heading  { font-size: 1.05rem; margin-bottom: 10px; }
+  .cmp-trust-item   { font-size: 0.78rem; gap: 5px; }
+}
+
+/* ─── Stacked layout for very small phones (≤440px) ─────── */
+/*     Feature label sits full-width above; Trad | CFO below  */
+@media (max-width: 440px) {
+  /* Header: drop the empty feature column, show both titles */
+  .cmp-thead  { grid-template-columns: 1fr 1fr; }
+  .cmp-th-feature { display: none; }
+  .cmp-th { padding: 24px 10px 16px; }
+
+  .cmp-th-trad .cmp-th-name,
+  .cmp-th-vcfo .cmp-th-name { font-size: 0.82rem; }
+
+  .cmp-th-icon { width: 36px; height: 36px; font-size: 0.95rem; }
+
+  /* Shrink recommended ribbon to fit the narrower column */
+  .cmp-th-recommended { font-size: 0.52rem; padding: 3px 8px; letter-spacing: 0.4px; }
+
+  /* Each row: feature name spans full width on top,
+     then traditional and VCO values sit side-by-side below */
+  .cmp-trow {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+  }
+
+  .cmp-td-feature {
+    grid-column: 1 / -1;        /* full-width row */
+    border-right: none;
+    border-bottom: 1px solid rgba(46,109,164,0.1);
+    padding: 10px 14px;
+    background: #eff6ff !important;
+    border-left: 3px solid rgba(46,109,164,0.25);
+  }
+
+  /* Reset zebra for feature cells — uniform shade looks cleaner */
+  .cmp-trow:nth-child(even) .cmp-td-feature { background: #e8f2ff !important; }
+  .cmp-trow:nth-child(odd)  .cmp-td-feature { background: #eff6ff !important; }
+
+  /* VCO / Trad cells fill the row below the feature name */
+  .cmp-td-trad { border-right: 1px solid rgba(0,0,0,0.05); }
+  .cmp-td      { justify-content: center; padding: 11px 8px; }
+
+  /* Feature icon — slightly smaller */
+  .cmp-feat-icon {
+    width: 24px; height: 24px;
+    font-size: 0.7rem; border-radius: 6px;
+  }
+
+  .cmp-td-feature > span:last-child {
+    font-size: 0.8rem;
+    font-weight: 600;
+    line-height: 1.35;
+  }
+
+  /* Indicator pills */
+  .cmp-pip { font-size: 0.7rem; padding: 5px 9px; min-width: 30px; }
+
+  /* Footer row — same 2-col pattern, no feature column */
+  .cmp-tfoot { grid-template-columns: 1fr 1fr; }
+  .cmp-tf-feature { display: none; }
+  .cmp-tf-trad,
+  .cmp-tf-vcfo    { font-size: 0.76rem; padding: 12px 10px; }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   6. STATS SECTION
+───────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .stat-num   { font-size: 2.6rem; }
+  .stat-label { font-size: 0.82rem; }
+  .stat-card  { padding: 26px 18px; }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   7. SERVICE CARDS
+───────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .service-card { padding: 24px 18px; }
+  .service-card h3 { font-size: 1.05rem; }
+  .service-card p  { font-size: 0.88rem; }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   8. TESTIMONIALS
+───────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .tst-quote { font-size: 0.9rem; line-height: 1.65; }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   9. GLOBAL CTA SECTIONS
+───────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .cta-section { padding: 44px 20px !important; border-radius: 16px; }
+  .cta-section h2 { font-size: clamp(1.35rem, 5vw, 1.9rem) !important; line-height: 1.25; }
+  .cta-section p  { font-size: 0.93rem !important; }
+  .cta-trust { gap: 10px; }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   10. FOOTER
+───────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .footer-desc    { font-size: 0.88rem; line-height: 1.65; }
+  .footer-heading { font-size: 0.82rem; letter-spacing: 0.5px; }
+
+  /* Footer links — slightly larger touch area */
+  .footer-links a,
+  .footer-link {
+    min-height: 36px;
+    display: flex;
+    align-items: center;
+    font-size: 0.87rem;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   11. PREVENT OVERFLOW — catch-all safety net
+───────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  /* Prevent any section from causing horizontal scroll */
+  .section,
+  .vcfo-compare-section,
+  .hero { overflow-x: hidden; }
+
+  /* Ensure images never stretch beyond their container */
+  img { max-width: 100%; height: auto; }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   12. EXTRA SMALL PHONES (≤360px) — on top of ≤380px block
+───────────────────────────────────────────────────────────── */
+@media (max-width: 360px) {
+  .section    { padding: 40px 0; }
+  .container  { padding-left: 12px; padding-right: 12px; }
+
+  .section-title { font-size: clamp(1.2rem, 5vw, 1.5rem); }
+
+  /* CMP table at this size: even tighter pips */
+  .cmp-pip { padding: 4px 7px; font-size: 0.65rem; min-width: 26px; }
+  .cmp-td-feature > span:last-child { font-size: 0.74rem; }
 }

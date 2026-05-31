@@ -104,9 +104,8 @@
     }
     .bi-hero .hero-stats { border-color: rgba(30,64,175,0.1) !important; }
 
-    /* ══ BI DASHBOARD — LIGHT ANIMATED REDESIGN ═══════ */
+    /* ══ BI DASHBOARD IMAGE ═════════════════════════════ */
     .bi-dashboard {
-      background: #ffffff;
       border: 1px solid rgba(212,168,0,0.2);
       box-shadow: 0 28px 72px rgba(0,0,0,0.1), 0 4px 16px rgba(212,168,0,0.08);
       animation: dashReveal 0.9s cubic-bezier(0.4,0,0.2,1) 0.3s both;
@@ -115,30 +114,6 @@
       from{ opacity:0; transform:translateY(24px) scale(0.97); }
       to{ opacity:1; transform:translateY(0) scale(1); }
     }
-
-    /* Topbar */
-    .bi-topbar {
-      background: linear-gradient(135deg,#fffef7 0%,#ffffff 100%);
-      border-bottom: 1px solid rgba(212,168,0,0.14);
-    }
-    .bi-logo { color: #b48700; }
-    .bi-nav-item { color: #6b7280; }
-    .bi-nav-item.active,.bi-nav-item:hover { background:rgba(212,168,0,0.12); color:#b48700; }
-
-    /* Live indicator */
-    .bi-live-ind {
-      margin-left:auto; display:flex; align-items:center; gap:5px;
-      font-size:0.68rem; font-weight:700; color:#16a34a;
-      background:rgba(22,163,74,0.08); border:1px solid rgba(22,163,74,0.2);
-      border-radius:100px; padding:3px 10px;
-    }
-    .bi-live-dot2 {
-      width:6px; height:6px; border-radius:50%; background:#16a34a;
-      box-shadow:0 0 0 0 rgba(22,163,74,0.5); animation:livePulse 1.5s infinite;
-    }
-
-    /* Body */
-    .bi-body { background:linear-gradient(135deg,#fafbff 0%,#f8fafc 100%); padding:16px; }
 
     /* KPI Cards */
     .bi-kpi {
@@ -756,15 +731,17 @@
       z-index:2;
       box-shadow:0 8px 32px rgba(46,109,164,0.12);
     }
-    /* Icon */
+    /* Icon — white card displaying actual brand logo */
     .intg-icon2 {
       width:50px; height:50px; border-radius:14px; margin:0 auto 11px;
-      display:flex; align-items:center; justify-content:center; font-size:1.2rem;
-      background:rgba(46,109,164,0.08); color:var(--blue);
+      display:flex; align-items:center; justify-content:center;
+      background:#fff; border:1px solid rgba(0,0,0,0.08);
+      overflow:hidden; padding:6px;
       transition:all 0.35s cubic-bezier(0.4,0,0.2,1);
-      box-shadow:0 3px 10px rgba(46,109,164,0.1);
+      box-shadow:0 2px 8px rgba(0,0,0,0.07);
       animation:intgFloat 5s ease-in-out infinite;
     }
+    .intg-icon2 img { width:100%; height:100%; object-fit:contain; display:block; }
     .intg-card:nth-child(1) .intg-icon2 { animation-delay:0s; }
     .intg-card:nth-child(2) .intg-icon2 { animation-delay:0.35s; }
     .intg-card:nth-child(3) .intg-icon2 { animation-delay:0.7s; }
@@ -773,13 +750,13 @@
     .intg-card:nth-child(6) .intg-icon2 { animation-delay:1.75s; }
     @keyframes intgFloat{ 0%,100%{transform:translateY(0);} 50%{transform:translateY(-5px);} }
     .intg-card:hover .intg-icon2 {
-      background:linear-gradient(135deg,var(--blue),#1a4f7a); color:#fff;
-      transform:scale(1.12) rotate(-6deg); animation-play-state:paused;
-      box-shadow:0 8px 22px rgba(46,109,164,0.32);
+      transform:scale(1.1) rotate(-5deg); animation-play-state:paused;
+      box-shadow:0 8px 22px rgba(46,109,164,0.18);
+      border-color:rgba(46,109,164,0.28);
     }
-    /* ERP panel icon color */
-    .intg-panel.intg-erp .intg-icon2 { background:rgba(147,51,234,0.08); color:#9333ea; box-shadow:0 3px 10px rgba(147,51,234,0.1); }
-    .intg-panel.intg-erp .intg-card:hover .intg-icon2 { background:linear-gradient(135deg,#9333ea,#7c22d4); color:#fff; box-shadow:0 8px 22px rgba(147,51,234,0.32); }
+    /* ERP panel — keep white bg, subtle purple hover glow */
+    .intg-panel.intg-erp .intg-icon2 { background:#fff; border-color:rgba(147,51,234,0.1); }
+    .intg-panel.intg-erp .intg-card:hover .intg-icon2 { box-shadow:0 8px 22px rgba(147,51,234,0.2); border-color:rgba(147,51,234,0.3); }
     .intg-panel.intg-erp .intg-card::before { background:linear-gradient(90deg,#9333ea,#F5C518,#9333ea); background-size:200% 100%; animation:shimmerLine 3s linear infinite; }
     .intg-panel.intg-erp .intg-cat-count { color:#9333ea; background:rgba(147,51,234,0.08); border-color:rgba(147,51,234,0.15); }
     /* Name */
@@ -813,13 +790,22 @@
     @media(max-width:640px){ .intg-cards{grid-template-columns:repeat(2,1fr);} }
 
     @media(max-width:1024px){
-      .bi-hero .container{grid-template-columns:1fr}
-      .bi-mockup-wrap{display:none}
+      .bi-hero .container { grid-template-columns:1fr }
+      .bi-mockup-wrap {
+        display: block;
+        margin-top: 32px;
+        padding: 0 4px;
+      }
+      .bi-fc { display: none; }        /* hide float cards — they'd overlap on mobile */
+      .bi-dashboard {
+        box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+      }
     }
     @media(max-width:768px){
       .problems-grid{grid-template-columns:1fr}
       .dashboard-types{grid-template-columns:1fr}
       .integrations-grid{grid-template-columns:repeat(2,1fr)}
+      .bi-mockup-wrap { margin-top: 24px; }
     }
 
     /* ══ WHAT IS POWER BI — EDUCATIONAL ══════════════ */
@@ -974,7 +960,7 @@
     .vid-accent { color:#d4a800; }
     .vid-sub { font-size:1rem; color:rgba(255,255,255,0.62); max-width:600px; margin:0 auto 48px; line-height:1.75; }
 
-    .vid-container { position:relative; padding-bottom:56.25%; height:0; overflow:hidden;
+    .vid-container { position:relative; padding-bottom:42%; height:0; overflow:hidden;
       border-radius:20px; box-shadow:0 32px 80px rgba(0,0,0,0.5),0 8px 24px rgba(212,168,0,0.15);
       border:1px solid rgba(255,255,255,0.08); background:#0a1628; }
     .vid-container iframe { position:absolute; top:0; left:0; width:100%; height:100%; border:none; border-radius:20px; }
@@ -1077,10 +1063,10 @@
       <div class="bi-badge">
         <span class="bi-badge-dot"></span>
         <i class="fa-solid fa-bolt"></i>
-        <span class="powerbi-label">Power BI<img src="./power-bi.png" alt="Power BI Logo"></span> Consulting &amp; Solutions
+        <span class="powerbi-label">Power BI</span> Consulting &amp; Solutions
       </div>
 
-      <h1>Still Exporting Data to Excel?<br><em><span class="powerbi-label">Power BI<img src="./power-bi.png" alt="Power BI Logo"></span> Fixes That.</em></h1>
+      <h1>Still Exporting Data to Excel?<br><em><span class="powerbi-label">Power BI</span> Fixes That.</em></h1>
 
       <p>We replace manual, fragmented reporting with automated real-time dashboards — giving you instant financial intelligence, anywhere, anytime.</p>
 
@@ -1145,61 +1131,9 @@
         </div>
       </div>
 
-      <!-- BI Dashboard Mockup -->
+      <!-- Gartner Dashboard -->
       <div class="bi-dashboard">
-        <div class="bi-topbar">
-          <div class="bi-logo"><i class="fa-solid fa-chart-bar"></i> <span class="powerbi-label">Power BI<img src="./power-bi.png" alt="Power BI Logo"></span></div>
-          <div class="bi-nav">
-            <div class="bi-nav-item active">Financial</div>
-            <div class="bi-nav-item">Sales</div>
-            <div class="bi-nav-item">Operations</div>
-            <div class="bi-nav-item">Portfolio</div>
-          </div>
-          <div class="bi-live-ind">
-            <span class="bi-live-dot2"></span> LIVE
-          </div>
-        </div>
-        <div class="bi-body">
-
-          <div class="bi-kpi">
-            <div class="bi-kpi-val" data-val="AED 8.4M" data-num="8.4" data-prefix="AED " data-suffix="M">AED 8.4M</div>
-            <div class="bi-kpi-label">Revenue YTD</div>
-            <div class="bi-kpi-trend up">▲ 22.4%</div>
-            <div class="bi-kpi-progress"><div class="bi-kpi-prog-fill"></div></div>
-          </div>
-
-          <div class="bi-kpi">
-            <div class="bi-kpi-val" data-val="68.3%" data-num="68.3" data-prefix="" data-suffix="%">68.3%</div>
-            <div class="bi-kpi-label">Gross Margin</div>
-            <div class="bi-kpi-trend up">▲ 5.1%</div>
-            <div class="bi-kpi-progress"><div class="bi-kpi-prog-fill"></div></div>
-          </div>
-
-          <div class="bi-kpi">
-            <div class="bi-kpi-val" data-val="AED 2.1M" data-num="2.1" data-prefix="AED " data-suffix="M">AED 2.1M</div>
-            <div class="bi-kpi-label">Net Profit</div>
-            <div class="bi-kpi-trend up">▲ 18.7%</div>
-            <div class="bi-kpi-progress"><div class="bi-kpi-prog-fill"></div></div>
-          </div>
-
-          <div class="bi-kpi">
-            <div class="bi-kpi-val" data-val="47 Days" data-num="47" data-prefix="" data-suffix=" Days">47 Days</div>
-            <div class="bi-kpi-label">DSO</div>
-            <div class="bi-kpi-trend down">▼ 8 Days</div>
-            <div class="bi-kpi-progress"><div class="bi-kpi-prog-fill"></div></div>
-          </div>
-
-          <div class="bi-charts">
-            <div class="bi-chart-area">
-              <div class="bi-chart-title">Revenue vs Target — Monthly</div>
-              <svg id="biLineChart" width="100%" height="90" style="position:absolute;bottom:10px;left:0;right:0;padding:0 16px"></svg>
-            </div>
-            <div class="bi-donut">
-              <canvas id="donutChart" width="120" height="120"></canvas>
-            </div>
-          </div>
-
-        </div>
+        <img src="img/Gartner.gif" alt="Gartner Power BI Dashboard" style="width:100%;height:auto;display:block;"/>
       </div>
 
     </div>
@@ -1227,15 +1161,15 @@
         </div>
 
         <h2 class="wpbi-heading">
-          What is <span class="wpbi-accent"><span class="powerbi-label">Power BI<img src="./power-bi.png" alt="Power BI Logo"></span>?</span>
+          What is <span class="wpbi-accent"><span class="powerbi-label">Power BI</span>?</span>
         </h2>
 
         <p class="wpbi-intro">
-          <span class="powerbi-label">Power BI<img src="./power-bi.png" alt="Power BI Logo"></span> is a <strong>business intelligence tool by Microsoft</strong> that transforms raw data from across your business into interactive dashboards and real-time reports — giving you instant clarity on exactly how your business is performing.
+          <span class="powerbi-label">Power BI</span> is a <strong>business intelligence tool by Microsoft</strong> that transforms raw data from across your business into interactive dashboards and real-time reports — giving you instant clarity on exactly how your business is performing.
         </p>
 
         <p class="wpbi-desc">
-          Think of it as your business's <strong>control tower</strong>. Instead of waiting days for Excel reports to be compiled, <span class="powerbi-label">Power BI<img src="./power-bi.png" alt="Power BI Logo"></span> pulls data directly from your accounting system, ERP, or spreadsheets and displays it as <strong>live, visual, always-current dashboards</strong> — accessible from any device, anywhere.
+          Think of it as your business's <strong>control tower</strong>. Instead of waiting days for Excel reports to be compiled, <span class="powerbi-label">Power BI</span> pulls data directly from your accounting system, ERP, or spreadsheets and displays it as <strong>live, visual, always-current dashboards</strong> — accessible from any device, anywhere.
         </p>
 
         <div class="wpbi-features">
@@ -1332,8 +1266,8 @@
         <i class="fa-solid fa-arrow-trend-up"></i>
         The Business Case
       </div>
-      <h2 class="section-title">Why Businesses <span class="wbpbi-accent">Choose <span class="powerbi-label">Power BI<img src="./power-bi.png" alt="Power BI Logo"></span></span></h2>
-      <p class="section-subtitle mt-16">From SMEs to large enterprises — businesses that switch to <span class="powerbi-label">Power BI<img src="./power-bi.png" alt="Power BI Logo"></span> reporting see measurable impact from day one.</p>
+      <h2 class="section-title">Why Businesses <span class="wbpbi-accent">Choose <span class="powerbi-label">Power BI</span></span></h2>
+      <p class="section-subtitle mt-16">From SMEs to large enterprises — businesses that switch to <span class="powerbi-label">Power BI</span> reporting see measurable impact from day one.</p>
     </div>
 
     <div class="wbpbi-grid-cards" id="wbpbiGrid">
@@ -1499,7 +1433,7 @@
     <!-- Header -->
     <div class="text-center mb-56 fade-in">
       <div class="trn-badge"><span class="trn-badge-dot"></span> The Transformation</div>
-      <h2 class="section-title trn-heading">Before vs. After<br><span class="trn-heading-accent"><span class="powerbi-label">Power BI<img src="./power-bi.png" alt="Power BI Logo"></span> Integration</span></h2>
+      <h2 class="section-title trn-heading">Before vs. After<br><span class="trn-heading-accent"><span class="powerbi-label">Power BI</span> Integration</span></h2>
       <p class="trn-sub mt-16">Real impact, measurable results — from reporting chaos to real-time financial intelligence.</p>
     </div>
 
@@ -1514,7 +1448,7 @@
             <div class="trn-ph-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
             <div>
               <div class="trn-ph-badge">× Before</div>
-              <div class="trn-ph-title">Without <span class="powerbi-label">Power BI<img src="./power-bi.png" alt="Power BI Logo"></span></div>
+              <div class="trn-ph-title">Without <span class="powerbi-label">Power BI</span></div>
               <div class="trn-ph-sub">Manual &nbsp;·&nbsp; Delayed &nbsp;·&nbsp; Fragmented</div>
             </div>
           </div>
@@ -1553,10 +1487,10 @@
         <div class="trn-panel-line"></div>
         <div class="trn-panel-inner">
           <div class="trn-panel-head">
-            <div class="trn-ph-icon"><i class="fa-solid fa-chart-bar"></i></div>
+            <div class="trn-ph-icon"><img src="./power-bi.png" style="width: 70%; height: 70%; object-fit: cover;" alt="Power BI Logo"></div>
             <div>
               <div class="trn-ph-badge">✓ After</div>
-              <div class="trn-ph-title">With <span class="powerbi-label">Power BI<img src="./power-bi.png" alt="Power BI Logo"></span></div>
+              <div class="trn-ph-title">With <span class="powerbi-label">Power BI</span></div>
               <div class="trn-ph-sub">Automated &nbsp;·&nbsp; Real-time &nbsp;·&nbsp; Intelligent</div>
             </div>
           </div>
@@ -1623,8 +1557,8 @@
         <i class="fa-solid fa-play"></i>
         Live Demo
       </div>
-      <h2 class="vid-heading">See <span class="vid-accent"><span class="powerbi-label" style="color:inherit;">Power BI<img src="./power-bi.png" alt="Power BI Logo" style="filter:brightness(0) invert(1);"></span></span> in Action</h2>
-      <p class="vid-sub">Watch how <span class="powerbi-label">Power BI<img src="./power-bi.png" alt="Power BI Logo"></span> transforms complex business data into clear, interactive dashboards that drive real decisions — in minutes, not days.</p>
+      <h2 class="vid-heading">See <span class="vid-accent"><span class="powerbi-label" style="color:inherit;">Power BI</span></span> in Action</h2>
+      <p class="vid-sub">Watch how <span class="powerbi-label">Power BI</span> transforms complex business data into clear, interactive dashboards that drive real decisions — in minutes, not days.</p>
     </div>
 
     <!-- Responsive 16:9 Video Embed -->
@@ -1869,32 +1803,44 @@
         </div>
         <div class="intg-cards">
           <div class="intg-card">
-            <div class="intg-icon2"><i class="fa-solid fa-calculator"></i></div>
+            <div class="intg-icon2">
+              <img src="https://cdn.simpleicons.org/tallyprimer" alt="Tally" loading="lazy"/>
+            </div>
             <div class="intg-name">Tally</div>
             <div class="intg-conn"><span class="intg-conn-dot"></span> Connected</div>
           </div>
           <div class="intg-card">
-            <div class="intg-icon2"><i class="fa-solid fa-z"></i></div>
+            <div class="intg-icon2">
+              <img src="https://cdn.simpleicons.org/zoho" alt="Zoho Books" loading="lazy"/>
+            </div>
             <div class="intg-name">Zoho Books</div>
             <div class="intg-conn"><span class="intg-conn-dot"></span> Connected</div>
           </div>
           <div class="intg-card">
-            <div class="intg-icon2"><i class="fa-solid fa-q"></i></div>
+            <div class="intg-icon2">
+              <img src="https://cdn.simpleicons.org/quickbooks" alt="QuickBooks" loading="lazy"/>
+            </div>
             <div class="intg-name">QuickBooks</div>
             <div class="intg-conn"><span class="intg-conn-dot"></span> Connected</div>
           </div>
           <div class="intg-card">
-            <div class="intg-icon2"><i class="fa-solid fa-x"></i></div>
+            <div class="intg-icon2">
+              <img src="https://cdn.simpleicons.org/xero" alt="Xero" loading="lazy"/>
+            </div>
             <div class="intg-name">Xero</div>
             <div class="intg-conn"><span class="intg-conn-dot"></span> Connected</div>
           </div>
           <div class="intg-card">
-            <div class="intg-icon2"><i class="fa-solid fa-s"></i></div>
+            <div class="intg-icon2">
+              <img src="https://cdn.simpleicons.org/sage" alt="Sage" loading="lazy"/>
+            </div>
             <div class="intg-name">Sage</div>
             <div class="intg-conn"><span class="intg-conn-dot"></span> Connected</div>
           </div>
           <div class="intg-card">
-            <div class="intg-icon2"><i class="fa-solid fa-file-excel"></i></div>
+            <div class="intg-icon2">
+              <img src="https://cdn.simpleicons.org/microsoftexcel" alt="Excel / CSV" loading="lazy"/>
+            </div>
             <div class="intg-name">Excel / CSV</div>
             <div class="intg-conn"><span class="intg-conn-dot"></span> Connected</div>
           </div>
@@ -1910,32 +1856,44 @@
         </div>
         <div class="intg-cards">
           <div class="intg-card">
-            <div class="intg-icon2"><i class="fa-solid fa-circle-nodes"></i></div>
+            <div class="intg-icon2">
+              <img src="https://cdn.simpleicons.org/sap" alt="SAP" loading="lazy"/>
+            </div>
             <div class="intg-name">SAP</div>
             <div class="intg-conn"><span class="intg-conn-dot"></span> Connected</div>
           </div>
           <div class="intg-card">
-            <div class="intg-icon2"><i class="fa-brands fa-microsoft"></i></div>
+            <div class="intg-icon2">
+              <img src="https://cdn.simpleicons.org/microsoftdynamics365" alt="MS Dynamics" loading="lazy"/>
+            </div>
             <div class="intg-name">MS Dynamics</div>
             <div class="intg-conn"><span class="intg-conn-dot"></span> Connected</div>
           </div>
           <div class="intg-card">
-            <div class="intg-icon2"><i class="fa-solid fa-o"></i></div>
+            <div class="intg-icon2">
+              <img src="https://cdn.simpleicons.org/odoo" alt="Odoo" loading="lazy"/>
+            </div>
             <div class="intg-name">Odoo</div>
             <div class="intg-conn"><span class="intg-conn-dot"></span> Connected</div>
           </div>
           <div class="intg-card">
-            <div class="intg-icon2"><i class="fa-solid fa-e"></i></div>
+            <div class="intg-icon2">
+              <img src="https://cdn.simpleicons.org/frappe" alt="ERPNext" loading="lazy"/>
+            </div>
             <div class="intg-name">ERPNext</div>
             <div class="intg-conn"><span class="intg-conn-dot"></span> Connected</div>
           </div>
           <div class="intg-card">
-            <div class="intg-icon2"><i class="fa-solid fa-f"></i></div>
+            <div class="intg-icon2">
+              <img src="https://www.google.com/s2/favicons?domain=focussoftnet.com&sz=64" alt="Focus" loading="lazy"/>
+            </div>
             <div class="intg-name">Focus</div>
             <div class="intg-conn"><span class="intg-conn-dot"></span> Connected</div>
           </div>
           <div class="intg-card">
-            <div class="intg-icon2"><i class="fa-solid fa-bolt"></i></div>
+            <div class="intg-icon2">
+              <img src="https://www.google.com/s2/favicons?domain=epicor.com&sz=64" alt="Epicor" loading="lazy"/>
+            </div>
             <div class="intg-name">Epicor</div>
             <div class="intg-conn"><span class="intg-conn-dot"></span> Connected</div>
           </div>
@@ -2509,11 +2467,11 @@
         </div>
 
         <h2 class="grt-heading">
-          <span class="grt-accent"><span class="powerbi-label">Power BI<img src="./power-bi.png" alt="Power BI Logo"></span></span> — Recognized as a Global Leader in Business Intelligence
+          <span class="grt-accent"><span class="powerbi-label">Power BI</span></span> — Recognized as a Global Leader in Business Intelligence
         </h2>
 
         <p class="grt-desc">
-          <span class="powerbi-label">Power BI<img src="./power-bi.png" alt="Power BI Logo"></span> is not just software — it is the world's leading business analytics platform, consistently recognized by independent analysts for its completeness of vision and proven ability to execute across organizations of all sizes.
+          <span class="powerbi-label">Power BI</span> is not just software — it is the world's leading business analytics platform, consistently recognized by independent analysts for its completeness of vision and proven ability to execute across organizations of all sizes.
         </p>
 
         <div class="grt-facts">
@@ -2603,7 +2561,7 @@
     <!-- Section Header -->
     <div class="wcu-header fade-in">
       <div class="section-label wcu-badge">Why Us</div>
-      <h2 class="wcu-heading">Why Choose <span class="wcu-accent">Virtual CFO</span><br>for <span class="powerbi-label">Power BI<img src="./power-bi.png" alt="Power BI Logo"></span>?</h2>
+      <h2 class="wcu-heading">Why Choose <span class="wcu-accent">Virtual CFO</span><br>for <span class="powerbi-label">Power BI</span>?</h2>
       <p class="wcu-subtitle">Finance professionals who build dashboards — not IT consultants guessing at your numbers. Here's what sets us apart.</p>
 
       <!-- Achievement pill strip -->
@@ -2640,7 +2598,7 @@
         <span class="wcu-card-num">01</span>
         <div class="wcu-icon-wrap"><i class="fa-solid fa-chart-line"></i></div>
         <h4 class="wcu-card-title">Finance-First, Not Just Tech</h4>
-        <p class="wcu-card-desc">We are finance professionals who use <span class="powerbi-label">Power BI<img src="./power-bi.png" alt="Power BI Logo"></span> — not IT consultants who don't understand your numbers. Every dashboard is built around your business drivers and CFO-level thinking.</p>
+        <p class="wcu-card-desc">We are finance professionals who use <span class="powerbi-label">Power BI</span> — not IT consultants who don't understand your numbers. Every dashboard is built around your business drivers and CFO-level thinking.</p>
         <div class="wcu-card-chip"><i class="fa-solid fa-circle-check"></i><span>CA-Led · 44+ Yrs Collective Exp.</span></div>
       </div>
 
@@ -2651,7 +2609,7 @@
         <span class="wcu-card-num">02</span>
         <div class="wcu-icon-wrap"><i class="fa-solid fa-database"></i></div>
         <h4 class="wcu-card-title">Proven Tally Integration</h4>
-        <p class="wcu-card-desc">Proprietary R&amp;D for secure Tally database access — one of the few proven implementations in the UAE. Connect <span class="powerbi-label">Power BI<img src="./power-bi.png" alt="Power BI Logo"></span> directly to your Tally data, no ERP migration required.</p>
+        <p class="wcu-card-desc">Proprietary R&amp;D for secure Tally database access — one of the few proven implementations in the UAE. Connect <span class="powerbi-label">Power BI</span> directly to your Tally data, no ERP migration required.</p>
         <div class="wcu-card-chip"><i class="fa-solid fa-award"></i><span>UAE's Proven Tally–BI Solution</span></div>
       </div>
 
@@ -2684,7 +2642,7 @@
         <span class="wcu-card-num">05</span>
         <div class="wcu-icon-wrap"><i class="fa-solid fa-shield-halved"></i></div>
         <h4 class="wcu-card-title">Access Control &amp; Security</h4>
-        <p class="wcu-card-desc">Role-based access ensures each user only sees what they need. Full data security with enterprise-grade <span class="powerbi-label">Power BI<img src="./power-bi.png" alt="Power BI Logo"></span> service infrastructure — Microsoft-backed and audit-ready.</p>
+        <p class="wcu-card-desc">Role-based access ensures each user only sees what they need. Full data security with enterprise-grade <span class="powerbi-label">Power BI</span> service infrastructure — Microsoft-backed and audit-ready.</p>
         <div class="wcu-card-chip"><i class="fa-solid fa-lock"></i><span>Enterprise-Grade Security</span></div>
       </div>
 
@@ -2756,7 +2714,7 @@
     <!-- Header -->
     <div class="pip-header fade-in">
       <div class="section-label">How It Works</div>
-      <h2 class="pip-heading">Our <span class="powerbi-label">Power BI<img src="./power-bi.png" alt="Power BI Logo"></span> <span class="pip-accent">Implementation Process</span></h2>
+      <h2 class="pip-heading">Our <span class="powerbi-label">Power BI</span> <span class="pip-accent">Implementation Process</span></h2>
       <p class="pip-subtitle">From secure data connection to live dashboards your team uses every day — delivered in weeks, not months.</p>
     </div>
 
@@ -2797,8 +2755,8 @@
               <i class="fa-solid fa-chevron-right"></i>
             </div>
             <div class="pip-mvc-dest">
-              <i class="fa-solid fa-chart-bar"></i>
-              <span class="powerbi-label">Power BI<img src="./power-bi.png" alt="Power BI Logo"></span>
+              <img src="./power-bi.png" style="width: 15px; height: 15px; object-fit: cover;" alt="Power BI Logo">
+              <span class="powerbi-label">Power BI</span>
             </div>
           </div>
           <div class="pip-timeframe"><i class="fa-regular fa-calendar"></i><span>Week 1–2</span></div>
@@ -2970,8 +2928,8 @@
       <div class="pfq-left fade-in-left">
 
         <div class="section-label">FAQ</div>
-        <h2 class="pfq-heading"><span class="powerbi-label">Power BI<img src="./power-bi.png" alt="Power BI Logo"></span> —<br><span class="pfq-accent">Common Questions</span></h2>
-        <p class="pfq-subtitle">Honest, straight-to-the-point answers about our <span class="powerbi-label">Power BI<img src="./power-bi.png" alt="Power BI Logo"></span> implementation service.</p>
+        <h2 class="pfq-heading"><span class="powerbi-label">Power BI</span> —<br><span class="pfq-accent">Common Questions</span></h2>
+        <p class="pfq-subtitle">Honest, straight-to-the-point answers about our <span class="powerbi-label">Power BI</span> implementation service.</p>
 
         <!-- Trust stats -->
         <div class="pfq-stats">
@@ -3020,12 +2978,12 @@
         <div class="pfq-item">
           <button class="pfq-q" type="button">
             <div class="pfq-q-icon"><i class="fa-solid fa-plug"></i></div>
-            <span class="pfq-q-text">Do I need to change my accounting software to use <span class="powerbi-label">Power BI<img src="./power-bi.png" alt="Power BI Logo"></span>?</span>
+            <span class="pfq-q-text">Do I need to change my accounting software to use <span class="powerbi-label">Power BI</span>?</span>
             <div class="pfq-q-chevron"><i class="fa-solid fa-chevron-down"></i></div>
           </button>
           <div class="pfq-a">
             <div class="pfq-a-inner">
-              <p>No. We integrate <span class="powerbi-label">Power BI<img src="./power-bi.png" alt="Power BI Logo"></span> directly with your existing system — no migration required. We connect securely to the system you already use.</p>
+              <p>No. We integrate <span class="powerbi-label">Power BI</span> directly with your existing system — no migration required. We connect securely to the system you already use.</p>
               <div class="pfq-a-tags">
                 <span class="pfq-a-tag"><i class="fa-solid fa-database"></i> Tally</span>
                 <span class="pfq-a-tag"><i class="fa-solid fa-server"></i> SAP</span>
@@ -3042,7 +3000,7 @@
         <div class="pfq-item">
           <button class="pfq-q" type="button">
             <div class="pfq-q-icon"><i class="fa-solid fa-clock"></i></div>
-            <span class="pfq-q-text">How long does it take to implement a <span class="powerbi-label">Power BI<img src="./power-bi.png" alt="Power BI Logo"></span> dashboard?</span>
+            <span class="pfq-q-text">How long does it take to implement a <span class="powerbi-label">Power BI</span> dashboard?</span>
             <div class="pfq-q-chevron"><i class="fa-solid fa-chevron-down"></i></div>
           </button>
           <div class="pfq-a">
@@ -3080,9 +3038,9 @@
           </button>
           <div class="pfq-a">
             <div class="pfq-a-inner">
-              <p>Yes. All dashboards are fully mobile-responsive and accessible via the <strong><span class="powerbi-label">Power BI<img src="./power-bi.png" alt="Power BI Logo"></span> mobile app</strong> — securely, from anywhere in the world, on any device.</p>
+              <p>Yes. All dashboards are fully mobile-responsive and accessible via the <strong><span class="powerbi-label">Power BI</span> mobile app</strong> — securely, from anywhere in the world, on any device.</p>
               <div class="pfq-a-checks">
-                <div class="pfq-a-check"><i class="fa-solid fa-circle-check"></i><span>iOS &amp; Android <span class="powerbi-label">Power BI<img src="./power-bi.png" alt="Power BI Logo"></span> app</span></div>
+                <div class="pfq-a-check"><i class="fa-solid fa-circle-check"></i><span>iOS &amp; Android <span class="powerbi-label">Power BI</span> app</span></div>
                 <div class="pfq-a-check"><i class="fa-solid fa-circle-check"></i><span>Microsoft enterprise security on mobile</span></div>
                 <div class="pfq-a-check"><i class="fa-solid fa-circle-check"></i><span>Real-time data sync — always current</span></div>
               </div>
@@ -3099,7 +3057,7 @@
           </button>
           <div class="pfq-a">
             <div class="pfq-a-inner">
-              <p>We implement <strong>row-level and role-level access controls</strong> so each user only sees what's relevant to their function. Data is hosted on Microsoft's enterprise <span class="powerbi-label">Power BI<img src="./power-bi.png" alt="Power BI Logo"></span> service with full encryption.</p>
+              <p>We implement <strong>row-level and role-level access controls</strong> so each user only sees what's relevant to their function. Data is hosted on Microsoft's enterprise <span class="powerbi-label">Power BI</span> service with full encryption.</p>
               <div class="pfq-a-checks">
                 <div class="pfq-a-check"><i class="fa-solid fa-circle-check"></i><span>Role-based &amp; row-level security</span></div>
                 <div class="pfq-a-check"><i class="fa-solid fa-circle-check"></i><span>Microsoft enterprise cloud infrastructure</span></div>
@@ -3113,7 +3071,7 @@
         <div class="pfq-item pfq-item-gold">
           <button class="pfq-q" type="button">
             <div class="pfq-q-icon pfq-q-icon-gold"><i class="fa-solid fa-tag"></i></div>
-            <span class="pfq-q-text">What does <span class="powerbi-label">Power BI<img src="./power-bi.png" alt="Power BI Logo"></span> implementation cost?</span>
+            <span class="pfq-q-text">What does <span class="powerbi-label">Power BI</span> implementation cost?</span>
             <div class="pfq-q-chevron"><i class="fa-solid fa-chevron-down"></i></div>
           </button>
           <div class="pfq-a">
@@ -3171,7 +3129,7 @@
         <div class="pcta-badge">
           <span class="pcta-badge-dot"></span>
           <i class="fa-solid fa-star"></i>
-          Free <span class="powerbi-label">Power BI<img src="./power-bi.png" alt="Power BI Logo"></span> Demo — No Obligation
+          Free <span class="powerbi-label">Power BI</span> Demo — No Obligation
         </div>
 
         <h2 class="pcta-heading">
@@ -3179,7 +3137,7 @@
           <span class="pcta-heading-accent">Business in Real Time?</span>
         </h2>
 
-        <p class="pcta-sub">Book a free demo. We'll show you exactly what your business could look like with live, automated <span class="powerbi-label">Power BI<img src="./power-bi.png" alt="Power BI Logo"></span> dashboards — built around your data.</p>
+        <p class="pcta-sub">Book a free demo. We'll show you exactly what your business could look like with live, automated <span class="powerbi-label">Power BI</span> dashboards — built around your data.</p>
 
         <div class="pcta-btns">
           <a href="contact.html#consultation" class="btn btn-primary pcta-btn-primary">
@@ -3216,7 +3174,7 @@
           <div class="pcta-sc-shimmer"></div>
           <div class="pcta-sc-header">
             <div class="pcta-sc-dots"><span></span><span></span><span></span></div>
-            <span class="pcta-sc-title"><i class="fa-solid fa-chart-bar"></i> <span class="powerbi-label">Power BI<img src="./power-bi.png" alt="Power BI Logo"></span> Impact Dashboard</span>
+            <span class="pcta-sc-title"><i class="fa-solid fa-chart-bar"></i> <span class="powerbi-label">Power BI</span> Impact Dashboard</span>
             <div class="pcta-sc-live"><span></span>LIVE</div>
           </div>
 

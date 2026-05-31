@@ -134,7 +134,11 @@
     .vcfo-mc-months span { font-size:0.55rem; color:#9ca3af; }
 
     /* Responsive */
-    @media(max-width:1024px) { .vcfo-hero-layout{grid-template-columns:1fr;} .vcfo-hero-right{display:none;} }
+    @media(max-width:1024px) {
+      .vcfo-hero-layout { grid-template-columns:1fr; gap:32px; }
+      .vcfo-hero-right  { display:block; padding:8px 4px; }
+      .vcfo-float-card  { display:none; }
+    }
     @media(max-width:640px) { .vcfo-hero-section{padding:110px 0 64px;} .vcfo-hero-btns{flex-direction:column;} .vcfo-hero-stats{flex-direction:column;padding:14px;gap:10px;} .vcfo-hs-sep{width:80px;height:1px;} }
 
     /* ── PAIN POINTS — PREMIUM REDESIGN (pp-) ── */
@@ -575,7 +579,7 @@
         <div class="vcfo-hero-stats">
           <div class="vcfo-hs"><div class="vcfo-hs-num">200+</div><div class="vcfo-hs-lbl">Businesses Served</div></div>
           <div class="vcfo-hs-sep"></div>
-          <div class="vcfo-hs"><div class="vcfo-hs-num">44+</div><div class="vcfo-hs-lbl">Years Collective Exp.</div></div>
+          <div class="vcfo-hs"><div class="vcfo-hs-num">50+</div><div class="vcfo-hs-lbl">Combined Experience</div></div>
           <div class="vcfo-hs-sep"></div>
           <div class="vcfo-hs"><div class="vcfo-hs-num">CA</div><div class="vcfo-hs-lbl">Chartered Accountant Led</div></div>
         </div>
@@ -668,7 +672,7 @@
             <div class="vcfo-incl-grid">
               <div class="vcfo-incl-item"><i class="fa-solid fa-check"></i><span>CFO Strategy &amp; Planning</span></div>
               <div class="vcfo-incl-item"><i class="fa-solid fa-check"></i><span>Monthly MIS Reports</span></div>
-              <div class="vcfo-incl-item"><i class="fa-solid fa-check"></i><span><span class="powerbi-label">Power BI<img src="./power-bi.png" alt="Power BI Logo"></span> Dashboards</span></div>
+              <div class="vcfo-incl-item"><i class="fa-solid fa-check"></i><span>Power BI Dashboards</span></div>
               <div class="vcfo-incl-item"><i class="fa-solid fa-check"></i><span>Audit &amp; Tax Compliance</span></div>
               <div class="vcfo-incl-item"><i class="fa-solid fa-check"></i><span>Systems &amp; Process</span></div>
               <div class="vcfo-incl-item"><i class="fa-solid fa-check"></i><span>Strategic Advisory</span></div>
@@ -1054,7 +1058,7 @@
           <div class="cfi-module" style="--cfi-acc:#d97706;--cfi-acc-rgb:217,119,6;">
             <div class="cfi-mod-glow"></div>
             <div class="cfi-mod-icon"><i class="fa-solid fa-chart-bar"></i></div>
-            <div class="cfi-mod-title"><span class="powerbi-label">Power BI<img src="./power-bi.png" alt="Power BI Logo"></span> Dashboards</div>
+            <div class="cfi-mod-title">Power BI Dashboards</div>
             <div class="cfi-mod-desc">Real-time financial dashboards tailored to your business drivers — live on any device, anywhere.</div>
             <div class="cfi-mod-indicator">
               <div class="cfi-mi-label">Dashboard Activity</div>
@@ -1177,7 +1181,7 @@
             <span class="cmp-sep-lbl">✗ Not available below</span>
             <div class="cmp-sep-line"></div>
           </div>
-          <div class="cmp-item cmp-item-no"><i class="fa-solid fa-xmark"></i><div class="cmp-item-name">Real-time <span class="powerbi-label">Power BI<img src="./power-bi.png" alt="Power BI Logo"></span> dashboards</div></div>
+          <div class="cmp-item cmp-item-no"><i class="fa-solid fa-xmark"></i><div class="cmp-item-name">Real-time Power BI dashboards</div></div>
           <div class="cmp-item cmp-item-no"><i class="fa-solid fa-xmark"></i><div class="cmp-item-name">Financial strategy &amp; planning</div></div>
           <div class="cmp-item cmp-item-no"><i class="fa-solid fa-xmark"></i><div class="cmp-item-name">Cash flow management</div></div>
           <div class="cmp-item cmp-item-no"><i class="fa-solid fa-xmark"></i><div class="cmp-item-name">Profitability analysis</div></div>
@@ -1242,7 +1246,7 @@
           </div>
           <div class="cmp-item cmp-item-exclusive">
             <i class="fa-solid fa-circle-check"></i>
-            <div><div class="cmp-item-name">Real-time <span class="powerbi-label">Power BI<img src="./power-bi.png" alt="Power BI Logo"></span> dashboards</div><div class="cmp-item-chip cmp-chip-excl">Live Dashboards</div></div>
+            <div><div class="cmp-item-name">Real-time Power BI dashboards</div><div class="cmp-item-chip cmp-chip-excl">Live Dashboards</div></div>
           </div>
           <div class="cmp-item cmp-item-exclusive">
             <i class="fa-solid fa-circle-check"></i>
@@ -1380,7 +1384,7 @@
           </div>
           <div class="ep-feat-group">
             <div class="ep-feat-group-label">Intelligence &amp; Support</div>
-            <div class="ep-feat-item"><i class="fa-solid fa-check"></i><span>Basic <span class="powerbi-label">Power BI<img src="./power-bi.png" alt="Power BI Logo"></span> dashboard</span></div>
+            <div class="ep-feat-item"><i class="fa-solid fa-check"></i><span>Basic Power BI dashboard</span></div>
             <div class="ep-feat-item"><i class="fa-solid fa-check"></i><span>Monthly CFO review session</span></div>
             <div class="ep-feat-item"><i class="fa-solid fa-check"></i><span>Email &amp; WhatsApp support</span></div>
           </div>
@@ -1416,7 +1420,7 @@
         <div class="ep-features">
           <div class="ep-feat-group">
             <div class="ep-feat-group-label">Everything in Pro, plus:</div>
-            <div class="ep-feat-item ep-excl"><i class="fa-solid fa-circle-check"></i><span>Full <span class="powerbi-label">Power BI<img src="./power-bi.png" alt="Power BI Logo"></span> dashboard suite</span></div>
+            <div class="ep-feat-item ep-excl"><i class="fa-solid fa-circle-check"></i><span>Full Power BI dashboard suite</span></div>
             <div class="ep-feat-item ep-excl"><i class="fa-solid fa-circle-check"></i><span>Cash flow forecasting</span></div>
             <div class="ep-feat-item ep-excl"><i class="fa-solid fa-circle-check"></i><span>Budget vs. Actual tracking</span></div>
             <div class="ep-feat-item ep-excl"><i class="fa-solid fa-circle-check"></i><span>Corporate Tax management</span></div>
