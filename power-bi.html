@@ -115,6 +115,33 @@
       to{ opacity:1; transform:translateY(0) scale(1); }
     }
 
+    /* Light dashboard overrides */
+    .bi-dashboard {
+      background: #f8faff;
+      border: 1px solid rgba(212,168,0,0.2);
+    }
+    .bi-topbar {
+      background: #ffffff;
+      border-bottom: 1px solid rgba(0,0,0,0.07);
+    }
+    .bi-logo { color: #b48700; }
+    .bi-nav-item { color: rgba(0,0,0,0.45); }
+    .bi-nav-item.active, .bi-nav-item:hover { color: #b48700; }
+
+    /* Live indicator in topbar */
+    .bi-live-ind {
+      margin-left: auto;
+      display: flex; align-items: center; gap: 6px;
+      font-size: 0.65rem; font-weight: 700; color: #4ade80;
+      background: rgba(74,222,128,0.1); border: 1px solid rgba(74,222,128,0.25);
+      border-radius: 100px; padding: 3px 10px;
+    }
+    .bi-live-dot2 {
+      width: 6px; height: 6px; border-radius: 50%; background: #4ade80;
+      box-shadow: 0 0 0 0 rgba(74,222,128,0.5);
+      animation: livePulse 1.5s infinite;
+    }
+
     /* KPI Cards */
     .bi-kpi {
       background:#ffffff;
@@ -201,7 +228,7 @@
 
     /* ══ PROBLEMS SECTION — PREMIUM ══════════════════ */
     .prb-section {
-      padding:70px 0; position:relative; overflow:hidden;
+      padding:60px 0; position:relative; overflow:hidden;
       background:linear-gradient(160deg,#ffffff 0%,#fafbff 45%,#f8f9fe 100%);
     }
     .prb-bg { position:absolute; inset:0; pointer-events:none; }
@@ -322,7 +349,7 @@
 
     /* ══ TRANSFORMATION SECTION ═══════════════════════ */
     .trn-section {
-      padding:70px 0;
+      padding:60px 0;
       background:linear-gradient(160deg,#fffbeb 0%,#fef9e0 20%,#f0f8ff 58%,#e4effe 100%);
       position:relative; overflow:hidden;
     }
@@ -461,7 +488,7 @@
 
     /* ══ DASHBOARD SHOWCASE SECTION ══════════════════ */
     .dsh-section {
-      padding:70px 0;
+      padding:60px 0;
       background:linear-gradient(160deg,#f8fbff 0%,#f0f6ff 45%,#fafbff 100%);
       position:relative; overflow:hidden;
     }
@@ -616,7 +643,7 @@
 
     /* ══ INTEGRATIONS ECOSYSTEM — PREMIUM ════════════ */
     .intg-section {
-      padding:70px 0;
+      padding:60px 0;
       background:linear-gradient(160deg,#f8fbff 0%,#f0f6ff 45%,#fafbff 100%);
       position:relative; overflow:hidden;
     }
@@ -809,7 +836,7 @@
     }
 
     /* ══ WHAT IS POWER BI — EDUCATIONAL ══════════════ */
-    .wpbi-section { padding:96px 0; background:#ffffff; position:relative; overflow:hidden; }
+    .wpbi-section { padding:64px 0; background:#ffffff; position:relative; overflow:hidden; }
     .wpbi-bg { position:absolute; inset:0; pointer-events:none; }
     .wpbi-o1 { position:absolute; width:460px; height:460px; border-radius:50%; filter:blur(90px);
       background:radial-gradient(circle,rgba(245,197,24,0.12) 0%,transparent 70%);
@@ -884,7 +911,7 @@
     @media(max-width:1024px){ .wpbi-layout{ grid-template-columns:1fr; } }
 
     /* ══ WHY BUSINESSES USE POWER BI ════════════════ */
-    .wbpbi-section { padding:100px 0;
+    .wbpbi-section { padding:68px 0;
       background:linear-gradient(160deg,#fffbeb 0%,#fef9e0 20%,#f0f8ff 58%,#e4effe 100%);
       position:relative; overflow:hidden; }
     .wbpbi-bg { position:absolute; inset:0; pointer-events:none; }
@@ -937,7 +964,7 @@
     @media(max-width:640px) { .wbpbi-grid-cards{ grid-template-columns:1fr; } }
 
     /* ══ VIDEO SECTION ═══════════════════════════════ */
-    .vid-section { padding:100px 0;
+    .vid-section { padding:68px 0;
       background:linear-gradient(160deg,#0a1628 0%,#0e2144 45%,#0c1d3a 100%);
       position:relative; overflow:hidden; }
     .vid-bg { position:absolute; inset:0; pointer-events:none; }
@@ -974,7 +1001,7 @@
     @media(max-width:640px){ .vid-stats{gap:20px;} .vid-stat-sep{display:none;} }
 
     /* ══ GARTNER TRUST SECTION ════════════════════════ */
-    .grt-section { padding:80px 0; background:#ffffff; position:relative; overflow:hidden; }
+    .grt-section { padding:60px 0; background:#ffffff; position:relative; overflow:hidden; }
     .grt-bg { position:absolute; inset:0; pointer-events:none; }
     .grt-o1 { position:absolute; width:400px; height:400px; border-radius:50%; filter:blur(80px);
       background:radial-gradient(circle,rgba(46,109,164,0.08) 0%,transparent 70%);
@@ -1071,7 +1098,7 @@
       <p>We replace manual, fragmented reporting with automated real-time dashboards — giving you instant financial intelligence, anywhere, anytime.</p>
 
       <div style="display:flex;gap:14px;flex-wrap:wrap;margin-bottom:28px">
-        <a href="contact.html#consultation" class="btn btn-primary"><i class="fa-solid fa-calendar-check"></i> Book Free Demo</a>
+        <a href="contact-us.html#consultation" class="btn btn-primary"><i class="fa-solid fa-calendar-check"></i> Book Free Demo</a>
         <a href="#case-studies" class="btn btn-outline" style="color:var(--dark);border-color:rgba(30,64,175,0.25);background:rgba(30,64,175,0.05)"><i class="fa-solid fa-eye"></i> See Case Studies</a>
       </div>
 
@@ -1131,9 +1158,61 @@
         </div>
       </div>
 
-      <!-- Gartner Dashboard -->
+      <!-- BI Dashboard Mockup -->
       <div class="bi-dashboard">
-        <img src="img/Gartner.gif" alt="Gartner Power BI Dashboard" style="width:100%;height:auto;display:block;"/>
+        <div class="bi-topbar">
+          <div class="bi-logo"><i class="fa-solid fa-chart-bar"></i> <span class="powerbi-label">Power BI<img src="./power-bi.png" alt="Power BI Logo"></span></div>
+          <div class="bi-nav">
+            <div class="bi-nav-item active">Financial</div>
+            <div class="bi-nav-item">Sales</div>
+            <div class="bi-nav-item">Operations</div>
+            <div class="bi-nav-item">Portfolio</div>
+          </div>
+          <div class="bi-live-ind">
+            <span class="bi-live-dot2"></span> LIVE
+          </div>
+        </div>
+        <div class="bi-body">
+
+          <div class="bi-kpi">
+            <div class="bi-kpi-val" data-val="AED 8.4M" data-num="8.4" data-prefix="AED " data-suffix="M">AED 8.4M</div>
+            <div class="bi-kpi-label">Revenue YTD</div>
+            <div class="bi-kpi-trend up">▲ 22.4%</div>
+            <div class="bi-kpi-progress"><div class="bi-kpi-prog-fill"></div></div>
+          </div>
+
+          <div class="bi-kpi">
+            <div class="bi-kpi-val" data-val="68.3%" data-num="68.3" data-prefix="" data-suffix="%">68.3%</div>
+            <div class="bi-kpi-label">Gross Margin</div>
+            <div class="bi-kpi-trend up">▲ 5.1%</div>
+            <div class="bi-kpi-progress"><div class="bi-kpi-prog-fill"></div></div>
+          </div>
+
+          <div class="bi-kpi">
+            <div class="bi-kpi-val" data-val="AED 2.1M" data-num="2.1" data-prefix="AED " data-suffix="M">AED 2.1M</div>
+            <div class="bi-kpi-label">Net Profit</div>
+            <div class="bi-kpi-trend up">▲ 18.7%</div>
+            <div class="bi-kpi-progress"><div class="bi-kpi-prog-fill"></div></div>
+          </div>
+
+          <div class="bi-kpi">
+            <div class="bi-kpi-val" data-val="47 Days" data-num="47" data-prefix="" data-suffix=" Days">47 Days</div>
+            <div class="bi-kpi-label">DSO</div>
+            <div class="bi-kpi-trend down">▼ 8 Days</div>
+            <div class="bi-kpi-progress"><div class="bi-kpi-prog-fill"></div></div>
+          </div>
+
+          <div class="bi-charts">
+            <div class="bi-chart-area">
+              <div class="bi-chart-title">Revenue vs Target — Monthly</div>
+              <svg id="biLineChart" width="100%" height="90" style="position:absolute;bottom:10px;left:0;right:0;padding:0 16px"></svg>
+            </div>
+            <div class="bi-donut">
+              <canvas id="donutChart" width="120" height="120"></canvas>
+            </div>
+          </div>
+
+        </div>
       </div>
 
     </div>
@@ -1196,7 +1275,7 @@
           </div>
         </div>
 
-        <a href="contact.html#consultation" class="btn btn-primary">
+        <a href="contact-us.html#consultation" class="btn btn-primary">
           <i class="fa-solid fa-calendar-check"></i>
           See It For My Business
           <i class="fa-solid fa-arrow-right" style="font-size:0.8rem;"></i>
@@ -1204,46 +1283,9 @@
 
       </div>
 
-      <!-- RIGHT: Dashboard Visual Card -->
+      <!-- RIGHT: Power BI Image -->
       <div class="fade-in-right">
-        <div class="wpbi-card">
-          <div class="wpbi-card-header">
-            <div class="wpbi-card-logo">
-              <img src="./power-bi.png" alt="Power BI Logo" loading="lazy">
-              <span>Microsoft <span style="color:#F5C518;">Power BI</span></span>
-            </div>
-            <div class="wpbi-card-live">
-              <span class="wpbi-card-live-dot"></span> LIVE
-            </div>
-          </div>
-          <div class="wpbi-card-body">
-            <div class="wpbi-stat-row">
-              <div class="wpbi-stat">
-                <div class="wpbi-stat-val">Live</div>
-                <div class="wpbi-stat-lbl">Data Refresh</div>
-              </div>
-              <div class="wpbi-stat">
-                <div class="wpbi-stat-val">Any</div>
-                <div class="wpbi-stat-lbl">Device</div>
-              </div>
-              <div class="wpbi-stat">
-                <div class="wpbi-stat-val">100%</div>
-                <div class="wpbi-stat-lbl">Automated</div>
-              </div>
-            </div>
-            <div class="wpbi-feature-list">
-              <div class="wpbi-fl-item"><i class="fa-solid fa-check"></i> Connects to your existing accounting system</div>
-              <div class="wpbi-fl-item"><i class="fa-solid fa-check"></i> No technical skills needed to view reports</div>
-              <div class="wpbi-fl-item"><i class="fa-solid fa-check"></i> Works on desktop, tablet &amp; mobile</div>
-              <div class="wpbi-fl-item"><i class="fa-solid fa-check"></i> Secure, role-based access for your team</div>
-              <div class="wpbi-fl-item"><i class="fa-solid fa-check"></i> Fully replaces manual Excel reporting</div>
-            </div>
-            <div class="wpbi-ms-badge">
-              <i class="fa-brands fa-microsoft"></i>
-              <span>A Microsoft product — trusted by millions of businesses across 220+ countries.</span>
-            </div>
-          </div>
-        </div>
+        <img src="img/power-bi.webp" alt="Power BI Dashboard" loading="lazy" style="width:100%;height:auto;display:block;border-radius:var(--radius-lg);box-shadow:0 24px 64px rgba(0,0,0,0.12);"/>
       </div>
 
     </div><!-- /wpbi-layout -->
@@ -1260,7 +1302,7 @@
 
   <div class="container" style="position:relative;z-index:1;">
 
-    <div class="text-center mb-56 fade-in">
+    <div class="text-center mb-56 fade-in" style="margin-bottom:56px">
       <div class="wbpbi-badge">
         <span class="wbpbi-badge-dot"></span>
         <i class="fa-solid fa-arrow-trend-up"></i>
@@ -1357,7 +1399,7 @@
   <div class="container" style="position:relative;z-index:1;">
 
     <!-- Header -->
-    <div class="text-center mb-64 fade-in">
+    <div class="text-center mb-64 fade-in" style="margin-bottom:64px">
       <div class="prb-badge"><span class="prb-badge-dot"></span> The Problem</div>
       <h2 class="prb-heading">Why <span class="prb-ha" id="prbHa">Traditional Reporting</span><br>Fails Your Business</h2>
       <p class="section-subtitle mt-16">Most businesses are stuck in a manual reporting cycle that wastes time and delays decisions.</p>
@@ -1431,7 +1473,7 @@
   <div class="container" style="position:relative;z-index:1">
 
     <!-- Header -->
-    <div class="text-center mb-56 fade-in">
+    <div class="text-center mb-56 fade-in" style="margin-bottom:56px">
       <div class="trn-badge"><span class="trn-badge-dot"></span> The Transformation</div>
       <h2 class="section-title trn-heading">Before vs. After<br><span class="trn-heading-accent"><span class="powerbi-label">Power BI</span> Integration</span></h2>
       <p class="trn-sub mt-16">Real impact, measurable results — from reporting chaos to real-time financial intelligence.</p>
@@ -1611,7 +1653,7 @@
 
   <div class="container" style="position:relative;z-index:1">
 
-    <div class="text-center mb-56 fade-in">
+    <div class="text-center mb-56 fade-in" style="margin-bottom:56px">
       <div class="dsh-badge"><span class="dsh-badge-dot"></span> Our Dashboards</div>
       <h2 class="section-title">Types of <span class="dsh-heading-accent">Dashboards</span> We Build</h2>
       <p class="section-subtitle mt-16">Real-time, automated, and tailored to your exact business model — no templates, no guesswork.</p>
@@ -1653,7 +1695,7 @@
             <span class="dsh-tag">Salesperson KPIs</span>
             <span class="dsh-tag">Margin Tracking</span>
           </div>
-          <a href="contact.html#consultation" class="dsh-cta">Get This Dashboard <i class="fa-solid fa-arrow-right"></i></a>
+          <a href="contact-us.html#consultation" class="dsh-cta">Get This Dashboard <i class="fa-solid fa-arrow-right"></i></a>
         </div>
       </div>
 
@@ -1684,7 +1726,7 @@
             <span class="dsh-tag">AR Ageing</span>
             <span class="dsh-tag">Collections</span>
           </div>
-          <a href="contact.html#consultation" class="dsh-cta">Get This Dashboard <i class="fa-solid fa-arrow-right"></i></a>
+          <a href="contact-us.html#consultation" class="dsh-cta">Get This Dashboard <i class="fa-solid fa-arrow-right"></i></a>
         </div>
       </div>
 
@@ -1715,7 +1757,7 @@
             <span class="dsh-tag">Multi-Entity</span>
             <span class="dsh-tag">Multi-Currency</span>
           </div>
-          <a href="contact.html#consultation" class="dsh-cta">Get This Dashboard <i class="fa-solid fa-arrow-right"></i></a>
+          <a href="contact-us.html#consultation" class="dsh-cta">Get This Dashboard <i class="fa-solid fa-arrow-right"></i></a>
         </div>
       </div>
 
@@ -1752,7 +1794,7 @@
             <span class="dsh-tag">Custom KPIs</span>
             <span class="dsh-tag">Any Requirement</span>
           </div>
-          <a href="contact.html#consultation" class="dsh-cta">Build My Dashboard <i class="fa-solid fa-arrow-right"></i></a>
+          <a href="contact-us.html#consultation" class="dsh-cta">Build My Dashboard <i class="fa-solid fa-arrow-right"></i></a>
         </div>
       </div>
 
@@ -1803,8 +1845,8 @@
         </div>
         <div class="intg-cards">
           <div class="intg-card">
-            <div class="intg-icon2">
-              <img src="https://cdn.simpleicons.org/tallyprimer" alt="Tally" loading="lazy"/>
+            <div class="intg-icon2" style="background:linear-gradient(135deg,#D4000C,#a80009);border-color:rgba(212,0,12,0.2);">
+              <span style="font-size:1rem;font-weight:900;color:#fff;font-family:Arial,sans-serif;letter-spacing:-0.5px;">Tally</span>
             </div>
             <div class="intg-name">Tally</div>
             <div class="intg-conn"><span class="intg-conn-dot"></span> Connected</div>
@@ -1839,7 +1881,7 @@
           </div>
           <div class="intg-card">
             <div class="intg-icon2">
-              <img src="https://cdn.simpleicons.org/microsoftexcel" alt="Excel / CSV" loading="lazy"/>
+              <img src="https://img.icons8.com/color/96/microsoft-excel-2019--v1.png" alt="Excel / CSV" loading="lazy"/>
             </div>
             <div class="intg-name">Excel / CSV</div>
             <div class="intg-conn"><span class="intg-conn-dot"></span> Connected</div>
@@ -1864,7 +1906,7 @@
           </div>
           <div class="intg-card">
             <div class="intg-icon2">
-              <img src="https://cdn.simpleicons.org/microsoftdynamics365" alt="MS Dynamics" loading="lazy"/>
+              <i class="fa-brands fa-microsoft" style="font-size:1.7rem;color:#0078D4;"></i>
             </div>
             <div class="intg-name">MS Dynamics</div>
             <div class="intg-conn"><span class="intg-conn-dot"></span> Connected</div>
@@ -1884,8 +1926,8 @@
             <div class="intg-conn"><span class="intg-conn-dot"></span> Connected</div>
           </div>
           <div class="intg-card">
-            <div class="intg-icon2">
-              <img src="https://www.google.com/s2/favicons?domain=focussoftnet.com&sz=64" alt="Focus" loading="lazy"/>
+            <div class="intg-icon2" style="background:linear-gradient(135deg,#F97316,#ea6a0a);border-color:rgba(249,115,22,0.2);padding:0;">
+              <span style="font-size:1.3rem;font-weight:900;color:#fff;font-family:Arial,sans-serif;">F</span>
             </div>
             <div class="intg-name">Focus</div>
             <div class="intg-conn"><span class="intg-conn-dot"></span> Connected</div>
@@ -1909,7 +1951,7 @@
         <div class="intg-custom-title">Using something else?</div>
         <div class="intg-custom-sub">We integrate with any custom database, REST API, cloud storage, or data source — no limitation.</div>
       </div>
-      <a href="contact.html#consultation" class="intg-custom-cta">Discuss Your Stack <i class="fa-solid fa-arrow-right"></i></a>
+      <a href="contact-us.html#consultation" class="intg-custom-cta">Discuss Your Stack <i class="fa-solid fa-arrow-right"></i></a>
     </div>
 
   </div>
@@ -2050,7 +2092,7 @@
         <i class="fa-solid fa-globe"></i>
         <span>Don't see your industry? We serve businesses across <strong>all sectors</strong> — globally.</span>
       </div>
-      <a href="contact.html#consultation" class="ind-cta-btn">
+      <a href="contact-us.html#consultation" class="ind-cta-btn">
         <i class="fa-solid fa-calendar-check"></i>
         Get Tailored Solution
         <i class="fa-solid fa-arrow-right ind-cta-btn-arrow"></i>
@@ -2371,7 +2413,7 @@
           <div class="cs-cta-sub">Book a free consultation — we'll show you exactly what's possible for your business.</div>
         </div>
       </div>
-      <a href="contact.html#consultation" class="cs-cta-btn">
+      <a href="contact-us.html#consultation" class="cs-cta-btn">
         <i class="fa-solid fa-calendar-check"></i>
         Book Free Consultation
         <i class="fa-solid fa-arrow-right cs-cta-arrow"></i>
@@ -2865,7 +2907,7 @@
           <div class="pip-cta-sub">Most clients go live within 3–4 weeks of first engagement.</div>
         </div>
       </div>
-      <a href="contact.html#consultation" class="pip-cta-btn">
+      <a href="contact-us.html#consultation" class="pip-cta-btn">
         <i class="fa-solid fa-calendar-check"></i>
         Book Free Consultation
         <i class="fa-solid fa-arrow-right pip-cta-arrow"></i>
@@ -2960,10 +3002,10 @@
             <div class="pfq-sc-status"><span class="pfq-sc-dot"></span>Online</div>
           </div>
           <div class="pfq-sc-actions">
-            <a href="contact.html#consultation" class="pfq-sc-btn pfq-sc-primary">
+            <a href="contact-us.html#consultation" class="pfq-sc-btn pfq-sc-primary">
               <i class="fa-solid fa-calendar-check"></i> Book Free Consultation
             </a>
-            <a href="contact.html" class="pfq-sc-btn pfq-sc-ghost">
+            <a href="contact-us.html" class="pfq-sc-btn pfq-sc-ghost">
               <i class="fa-solid fa-message"></i> Send a Message
             </a>
           </div>
@@ -3077,7 +3119,7 @@
           <div class="pfq-a">
             <div class="pfq-a-inner">
               <p>Cost depends on the number and complexity of dashboards, systems to integrate, and ongoing support. We provide a <strong>tailored proposal</strong> after a free consultation — no guesswork, no generic pricing.</p>
-              <a href="contact.html#consultation" class="pfq-a-cta">
+              <a href="contact-us.html#consultation" class="pfq-a-cta">
                 <i class="fa-solid fa-calendar-check"></i>
                 Get a Free Quote
                 <i class="fa-solid fa-arrow-right pfq-a-cta-arrow"></i>
@@ -3140,7 +3182,7 @@
         <p class="pcta-sub">Book a free demo. We'll show you exactly what your business could look like with live, automated <span class="powerbi-label">Power BI</span> dashboards — built around your data.</p>
 
         <div class="pcta-btns">
-          <a href="contact.html#consultation" class="btn btn-primary pcta-btn-primary">
+          <a href="contact-us.html#consultation" class="btn btn-primary pcta-btn-primary">
             <i class="fa-solid fa-calendar-check"></i>
             Book Free Demo
             <i class="fa-solid fa-arrow-right pcta-btn-arrow"></i>

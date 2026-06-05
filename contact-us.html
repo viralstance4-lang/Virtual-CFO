@@ -13,7 +13,7 @@
     /* ── Contact Hero ──────────────────────────────── */
     .ctc-hero {
       background: linear-gradient(160deg, #f0f8ff 0%, #e4effe 35%, #f0f7ff 65%, #e8f2ff 100%);
-      padding: 80px 0 96px;
+      padding: 64px 0 72px;
       position: relative;
       overflow: hidden;
       text-align: center;
@@ -89,7 +89,7 @@
     }
 
     /* ── Quick Contact Cards ───────────────────────── */
-    .ctc-qc-section { padding: 72px 0 0; }
+    .ctc-qc-section { padding: 52px 0 0; }
     .ctc-qc-grid {
       display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
     }
@@ -132,7 +132,7 @@
 
     /* ══ PREMIUM MAIN SECTION ════════════════════════ */
     .ctc-main-section {
-      padding: 80px 0 100px;
+      padding: 60px 0 72px;
       background: linear-gradient(160deg,#f8fbff 0%,#f0f6ff 50%,#f5f8ff 100%);
       position: relative; overflow: hidden;
     }
@@ -662,6 +662,22 @@
               <div class="ctc-ic-sub">Reply within 24 hours</div>
             </div>
           </div>
+          <div class="ctc-info-divider"></div>
+
+          <!-- Social Media -->
+          <div class="ctc-info-card">
+            <div class="ctc-ic-icon"><i class="fa-solid fa-share-nodes"></i></div>
+            <div style="flex:1;">
+              <div class="ctc-ic-lbl">Follow Us</div>
+              <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;">
+                <a href="https://www.linkedin.com/company/virtualcfodubai/" target="_blank" rel="noopener" title="LinkedIn" style="width:36px;height:36px;border-radius:10px;background:rgba(10,102,194,0.1);border:1px solid rgba(10,102,194,0.2);display:flex;align-items:center;justify-content:center;color:#0a66c2;font-size:0.9rem;transition:all 0.3s;text-decoration:none;"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="https://www.instagram.com/virtualcfodubai?igsh=bTI0YzJkeHBnYjhm" target="_blank" rel="noopener" title="Instagram" style="width:36px;height:36px;border-radius:10px;background:rgba(225,48,108,0.1);border:1px solid rgba(225,48,108,0.2);display:flex;align-items:center;justify-content:center;color:#e1306c;font-size:0.9rem;transition:all 0.3s;text-decoration:none;"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.facebook.com/virtualcfodubai/" target="_blank" rel="noopener" title="Facebook" style="width:36px;height:36px;border-radius:10px;background:rgba(24,119,242,0.1);border:1px solid rgba(24,119,242,0.2);display:flex;align-items:center;justify-content:center;color:#1877f2;font-size:0.9rem;transition:all 0.3s;text-decoration:none;"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://www.youtube.com/@virtualcfodubai" target="_blank" rel="noopener" title="YouTube" style="width:36px;height:36px;border-radius:10px;background:rgba(255,0,0,0.1);border:1px solid rgba(255,0,0,0.2);display:flex;align-items:center;justify-content:center;color:#ff0000;font-size:0.9rem;transition:all 0.3s;text-decoration:none;"><i class="fa-brands fa-youtube"></i></a>
+                <a href="https://in.pinterest.com/virtualcfodubai/" target="_blank" rel="noopener" title="Pinterest" style="width:36px;height:36px;border-radius:10px;background:rgba(230,0,35,0.1);border:1px solid rgba(230,0,35,0.2);display:flex;align-items:center;justify-content:center;color:#e60023;font-size:0.9rem;transition:all 0.3s;text-decoration:none;"><i class="fa-brands fa-pinterest-p"></i></a>
+              </div>
+            </div>
+          </div>
 
         </div>
 
@@ -753,32 +769,19 @@
             </div>
 
             <div class="ctc-field">
-              <label>What do you need help with?</label>
-              <div class="ctc-svc-grid">
-                <div class="ctc-svc-opt">
-                  <input type="checkbox" id="s1" name="services[]" value="No accountant — need full service"/>
-                  <label for="s1"><span class="ctc-svc-box"><i class="fa-solid fa-check"></i></span> I don't have an accountant and need someone to take care of everything</label>
-                </div>
-                <div class="ctc-svc-opt">
-                  <input type="checkbox" id="s2" name="services[]" value="Has accountant — reconciliation concerns"/>
-                  <label for="s2"><span class="ctc-svc-box"><i class="fa-solid fa-check"></i></span> I have an accountant but not sure if my accounts are reconciled</label>
-                </div>
-                <div class="ctc-svc-opt">
-                  <input type="checkbox" id="s3" name="services[]" value="No financial visibility"/>
-                  <label for="s3"><span class="ctc-svc-box"><i class="fa-solid fa-check"></i></span> I don't have Financial Visibility</label>
-                </div>
-                <div class="ctc-svc-opt">
-                  <input type="checkbox" id="s4" name="services[]" value="Tax compliance support"/>
-                  <label for="s4"><span class="ctc-svc-box"><i class="fa-solid fa-check"></i></span> I need support with Tax Compliance</label>
-                </div>
-                <div class="ctc-svc-opt">
-                  <input type="checkbox" id="s5" name="services[]" value="High-level financial leadership"/>
-                  <label for="s5"><span class="ctc-svc-box"><i class="fa-solid fa-check"></i></span> I need high-level financial leadership</label>
-                </div>
-                <div class="ctc-svc-opt">
-                  <input type="checkbox" id="s6" name="services[]" value="Not sure — need guidance"/>
-                  <label for="s6"><span class="ctc-svc-box"><i class="fa-solid fa-check"></i></span> I am not sure (need guidance)</label>
-                </div>
+              <label for="services">What do you need help with?</label>
+              <div class="ctc-select-wrap">
+                <i class="fa-solid fa-circle-question ctc-select-icon"></i>
+                <i class="fa-solid fa-chevron-down ctc-select-arr"></i>
+                <select id="services" name="services" class="ctc-select">
+                  <option value="" disabled selected>Select an option…</option>
+                  <option value="No accountant — need full service">I don't have an accountant and need someone to take care of everything</option>
+                  <option value="Has accountant — reconciliation concerns">I have an accountant but not sure if my accounts are reconciled</option>
+                  <option value="No financial visibility">I don't have Financial Visibility</option>
+                  <option value="Tax compliance support">I need support with Tax Compliance</option>
+                  <option value="High-level financial leadership">I need high-level financial leadership</option>
+                  <option value="Not sure — need guidance">I am not sure (need guidance)</option>
+                </select>
               </div>
             </div>
 
@@ -838,7 +841,7 @@
   </div>
 
   <div class="container" style="position:relative;z-index:1;">
-    <div class="text-center mb-64 fade-in">
+    <div class="text-center mb-64 fade-in" style="margin-bottom:64px">
       <div class="section-label">Why Consult Us?</div>
       <h2 class="section-title">
         <span class="section-title-underline">What Happens in a Free Consultation?</span>

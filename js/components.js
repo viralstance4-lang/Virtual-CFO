@@ -39,8 +39,8 @@ const NAVBAR_HTML = `
       <li><a href="virtual-cfo.html" class="nav-link">Virtual CFO</a></li>
       <li><a href="insights.html" class="nav-link">Insights</a></li>
       <li><a href="success-stories.html" class="nav-link">Success Stories</a></li>
-      <li><a href="contact.html" class="nav-link">Contact</a></li>
-      <li><a href="contact.html#consultation" class="btn btn-primary nav-cta">Free Consultation</a></li>
+      <li><a href="contact-us.html" class="nav-link">Contact Us</a></li>
+      <li><a href="contact-us.html#consultation" class="btn btn-primary nav-cta">Free Consultation</a></li>
     </ul>
     <button type="button" class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -60,10 +60,14 @@ const FOOTER_HTML = `
       <div class="footer-brand">
         <img src="VCFO-Logo-PNG-white.png" alt="Virtual CFO" style="height:46px;margin-bottom:18px;" onerror="this.style.display='none'"/>
         <p style="font-size:0.88rem;line-height:1.75;color:rgba(255,255,255,0.55);margin-bottom:24px;">Virtual CFO Management Consultancy delivers CFO-level financial expertise, Power BI analytics, and strategic advisory — transforming how businesses manage, understand, and grow their finances.</p>
-        <div class="footer-social" style="display:flex;gap:10px;">
-          <a href="#" class="social-icon" title="LinkedIn" style="width:38px;height:38px;display:flex;align-items:center;justify-content:center;font-size:0.95rem;color:rgba(255,255,255,0.7);border-radius:10px;"><i class="fa-brands fa-linkedin-in"></i></a>
-          <a href="https://wa.me/971565075253" class="social-icon" title="WhatsApp" style="width:38px;height:38px;display:flex;align-items:center;justify-content:center;font-size:0.95rem;color:rgba(255,255,255,0.7);border-radius:10px;"><i class="fa-brands fa-whatsapp"></i></a>
-          <a href="mailto:info@virtualcfo.ae" class="social-icon" title="Email" style="width:38px;height:38px;display:flex;align-items:center;justify-content:center;font-size:0.95rem;color:rgba(255,255,255,0.7);border-radius:10px;"><i class="fa-solid fa-envelope"></i></a>
+        <div class="footer-social" style="display:flex;gap:8px;flex-wrap:wrap;">
+          <a href="https://www.linkedin.com/company/virtualcfodubai/" target="_blank" rel="noopener" class="social-icon" title="LinkedIn" style="width:38px;height:38px;display:flex;align-items:center;justify-content:center;font-size:0.95rem;color:rgba(255,255,255,0.7);border-radius:10px;background:rgba(255,255,255,0.06);transition:background 0.3s;"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="https://www.instagram.com/virtualcfodubai?igsh=bTI0YzJkeHBnYjhm" target="_blank" rel="noopener" class="social-icon" title="Instagram" style="width:38px;height:38px;display:flex;align-items:center;justify-content:center;font-size:0.95rem;color:rgba(255,255,255,0.7);border-radius:10px;background:rgba(255,255,255,0.06);transition:background 0.3s;"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.facebook.com/virtualcfodubai/" target="_blank" rel="noopener" class="social-icon" title="Facebook" style="width:38px;height:38px;display:flex;align-items:center;justify-content:center;font-size:0.95rem;color:rgba(255,255,255,0.7);border-radius:10px;background:rgba(255,255,255,0.06);transition:background 0.3s;"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://www.youtube.com/@virtualcfodubai" target="_blank" rel="noopener" class="social-icon" title="YouTube" style="width:38px;height:38px;display:flex;align-items:center;justify-content:center;font-size:0.95rem;color:rgba(255,255,255,0.7);border-radius:10px;background:rgba(255,255,255,0.06);transition:background 0.3s;"><i class="fa-brands fa-youtube"></i></a>
+          <a href="https://in.pinterest.com/virtualcfodubai/" target="_blank" rel="noopener" class="social-icon" title="Pinterest" style="width:38px;height:38px;display:flex;align-items:center;justify-content:center;font-size:0.95rem;color:rgba(255,255,255,0.7);border-radius:10px;background:rgba(255,255,255,0.06);transition:background 0.3s;"><i class="fa-brands fa-pinterest-p"></i></a>
+          <a href="https://wa.me/971565075253" target="_blank" rel="noopener" class="social-icon" title="WhatsApp" style="width:38px;height:38px;display:flex;align-items:center;justify-content:center;font-size:0.95rem;color:rgba(255,255,255,0.7);border-radius:10px;background:rgba(255,255,255,0.06);transition:background 0.3s;"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="mailto:info@virtualcfo.ae" class="social-icon" title="Email" style="width:38px;height:38px;display:flex;align-items:center;justify-content:center;font-size:0.95rem;color:rgba(255,255,255,0.7);border-radius:10px;background:rgba(255,255,255,0.06);transition:background 0.3s;"><i class="fa-solid fa-envelope"></i></a>
         </div>
       </div>
 
@@ -86,8 +90,8 @@ const FOOTER_HTML = `
           <a href="about.html" class="footer-link" style="font-size:0.88rem;color:rgba(255,255,255,0.65);text-decoration:none;display:flex;align-items:center;gap:8px;transition:color 0.3s,padding-left 0.3s;"><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;color:#F5C518;"></i>About Us</a>
           <a href="insights.html" class="footer-link" style="font-size:0.88rem;color:rgba(255,255,255,0.65);text-decoration:none;display:flex;align-items:center;gap:8px;transition:color 0.3s,padding-left 0.3s;"><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;color:#F5C518;"></i>Insights &amp; Resources</a>
           <a href="success-stories.html" class="footer-link" style="font-size:0.88rem;color:rgba(255,255,255,0.65);text-decoration:none;display:flex;align-items:center;gap:8px;transition:color 0.3s,padding-left 0.3s;"><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;color:#F5C518;"></i>Success Stories</a>
-          <a href="contact.html" class="footer-link" style="font-size:0.88rem;color:rgba(255,255,255,0.65);text-decoration:none;display:flex;align-items:center;gap:8px;transition:color 0.3s,padding-left 0.3s;"><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;color:#F5C518;"></i>Contact Us</a>
-          <a href="contact.html#consultation" class="footer-link" style="font-size:0.88rem;color:rgba(255,255,255,0.65);text-decoration:none;display:flex;align-items:center;gap:8px;transition:color 0.3s,padding-left 0.3s;"><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;color:#F5C518;"></i>Free Consultation</a>
+          <a href="contact-us.html" class="footer-link" style="font-size:0.88rem;color:rgba(255,255,255,0.65);text-decoration:none;display:flex;align-items:center;gap:8px;transition:color 0.3s,padding-left 0.3s;"><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;color:#F5C518;"></i>Contact Us</a>
+          <a href="contact-us.html#consultation" class="footer-link" style="font-size:0.88rem;color:rgba(255,255,255,0.65);text-decoration:none;display:flex;align-items:center;gap:8px;transition:color 0.3s,padding-left 0.3s;"><i class="fa-solid fa-chevron-right" style="font-size:0.6rem;color:#F5C518;"></i>Free Consultation</a>
         </div>
       </div>
 
