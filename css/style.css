@@ -1005,8 +1005,8 @@ h3 img.powerbi-logo {
   padding: 0 24px;
 }
 
-.section { padding: 60px 0; }
-.section-sm { padding: 40px 0; }
+.section { padding: 40px 0; }
+.section-sm { padding: 24px 0; }
 
 /* ===========================
    TRUST BAR
@@ -6371,7 +6371,7 @@ a, button, .btn { -webkit-tap-highlight-color: transparent; }
 .pcta-section {
   position: relative;
   overflow: hidden;
-  padding: 52px 0 44px;
+  padding: 36px 0 30px;
 }
 
 /* ── Background — LIGHT BLUE (hero-inspired, slightly richer) ── */
@@ -10213,7 +10213,7 @@ a, button, .btn { -webkit-tap-highlight-color: transparent; }
 .cmp-trow,
 .cmp-tfoot {
   display: grid;
-  grid-template-columns: 44% 28% 28%;
+  grid-template-columns: 40% 30% 30%;
   align-items: stretch;
 }
 
@@ -10228,7 +10228,7 @@ a, button, .btn { -webkit-tap-highlight-color: transparent; }
   border-right: 1px solid rgba(0,0,0,0.06);
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .cmp-th-feature-label {
